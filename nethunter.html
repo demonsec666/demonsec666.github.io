@@ -1,0 +1,1122 @@
+
+<!doctype html>
+<html class="theme-next use-motion theme-next-mala">
+<head><meta name="generator" content="Hexo 3.9.0">
+  
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5">
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1">
+
+
+    <meta name="description" content="kali|linux|sec|Web|MSF|Win">
+
+
+
+  <meta name="keywords" content="kali,">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Demonsec" type="application/atom+xml">
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1">
+
+
+<meta name="keywords" content="kali">
+<meta property="og:type" content="article">
+<meta property="og:title" content="三星Note3 -N9005刷机Kali Nethunter详细教程">
+<meta property="og:url" content="www.ggsec.cn/nethunter.html">
+<meta property="og:site_name" content="Demonsec">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_0619.JPG">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_0603.JPG">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_0604.JPG">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_0621.JPG">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_0606.JPG">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_0605.JPG">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_0607.JPG">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_0608.JPG">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_0609.JPG">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_0610.JPG">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_0611.JPG">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_0612.JPG">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_0613.JPG">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_0614.JPG">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_0615.JPG">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_0616.JPG">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_0617.JPG">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_0619.JPG">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_0618.JPG">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_0620.JPG">
+<meta property="og:updated_time" content="2018-12-21T06:56:28.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="三星Note3 -N9005刷机Kali Nethunter详细教程">
+<meta name="twitter:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_0619.JPG">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mala',
+    sidebar: 'post'
+  };
+</script>
+
+  <title> 三星Note3 -N9005刷机Kali Nethunter详细教程 | Demonsec </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-next-logo"></i>
+      </span>
+      <span class="site-title">Demonsec’S blog</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-next-home"></i> <br>
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-next-archives"></i> <br>
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon icon-next-tags"></i> <br>
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-linux">
+          <a href="/categories/linux" rel="section">
+            <i class="menu-item-icon icon-next-linux"></i> <br>
+            linux
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-windows">
+          <a href="/categories/windows" rel="section">
+            <i class="menu-item-icon icon-next-windows"></i> <br>
+            windows
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-haking">
+          <a href="/categories/haking" rel="section">
+            <i class="menu-item-icon icon-next-haking"></i> <br>
+            haking
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-web">
+          <a href="/categories/web" rel="section">
+            <i class="menu-item-icon icon-next-web"></i> <br>
+            web
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-msf">
+          <a href="/categories/Metasploit" rel="section">
+            <i class="menu-item-icon icon-next-msf"></i> <br>
+            Metasploit
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-kali">
+          <a href="/categories/kali" rel="section">
+            <i class="menu-item-icon icon-next-kali"></i> <br>
+            kali
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tea">
+          <a href="/categories/tea" rel="section">
+            <i class="menu-item-icon icon-next-tea"></i> <br>
+            tea
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-黑苹果">
+          <a href="/categories/mac" rel="section">
+            <i class="menu-item-icon icon-next-黑苹果"></i> <br>
+            mac
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-逆向">
+          <a href="/categories/逆向" rel="section">
+            <i class="menu-item-icon icon-next-逆向"></i> <br>
+            逆向
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-music">
+          <a href="/music" rel="section">
+            <i class="menu-item-icon icon-next-music"></i> <br>
+            music
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-每日安全干货及动态">
+          <a href="/categories/每日安全干货及动态" rel="section">
+            <i class="menu-item-icon icon-next-每日安全干货及动态"></i> <br>
+            每日安全干货及动态
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    
+      
+
+      
+        <style type="text/css">
+
+    .circle {
+        width: 40px;
+        height: 40px;
+        background: #555 no-repeat;
+        cursor: move;
+    }
+
+    .assist-btn {
+        position: fixed;
+        top: 50％;
+        left: 10px;
+        -moz-border-radius: 50px;
+        -webkit-border-radius: 50px;
+        border-radius: 50px;
+        outline: none;
+        border: none;
+        color: #87daff;
+    }
+
+</style>
+
+<script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+<script type="text/javascript">
+    // 浮动圆点展开与收缩
+    /*
+    $(function () {
+        var assist_box = $('.assist-box');
+        $('#assist_btn').hover(function () {
+            assist_box.stop().show(300);
+        }, function () {
+            assist_box.stop().hide(150);
+        })
+    });
+    */  
+    //浮动圆点拖动
+    $(function () {
+        var box = document.getElementById('assist_btn');
+        box.onmousedown = function (event) {
+            var e = event || window.event,
+                t = e.target || e.srcElement,
+                // 鼠标按下时的坐标x1,y1
+                x1 = e.clientX,
+                y1 = e.clientY,
+                //鼠标按下时的左右偏移量
+                dragLeft = this.offsetLeft,
+                dragTop = this.offsetTop;
+
+            document.onmousemove = function (event) {
+                var e = event || window.event,
+                    t = e.target || e.srcElement,
+                    // 鼠标移动时的动态坐标
+                    x2 = e.clientX,
+                    y2 = e.clientY,
+                    // 鼠标移动时的坐标的变化量
+                    x = x2 - x1,
+                    y = y2 - y1;
+                box.style.left = (dragLeft + x) + 'px';
+                box.style.top = (dragTop + y) + 'px';
+            }
+
+            document.onmouseup = function () {
+                this.onmousemove = null;
+            }
+        }
+    });
+
+/*
+    $whitesmoke   = #f5f5f5
+    $gainsboro    = #eee
+    $gray-lighter = #ddd
+    $grey-light   = #ccc
+    $grey         = #bbb
+    $grey-dark    = #999
+    $grey-dim     = #666
+    $black-light  = #555
+    $black-deep   = #222
+    $red          = #ff2a2a
+    $blue-bright  = #87daff
+    $blue         = #0684bd
+    $blue-deep    = #262a30
+*/
+    // white theme
+    var body = {color: "#555", background: "white"};
+    var a_tag = {color: "#222"};
+    var header = { background: "#f5f5f5"};
+    var logo_line_i = {background: "#222"};
+    // var post_code = {background: "#eee", color: "#222"};
+
+    function switch_theme() {
+        $("body").css(body);
+        $("a:not('.links-of-author-item a, .site-state-item a, .site-state-posts a, .feed-link a, .motion-element a, .post-tags a, .show-commit-cls a, #donate_board a')").css(a_tag);
+        $(".header, .footer").css(header);
+        $(".logo-line-before i, .logo-line-after i").css(logo_line_i);
+        //$(".post code").css(post_code);
+        $("#idhyt-surprise-ball #idhyt-surprise-ball-animation .drag").css(a_tag);
+        $(".post-title-link, .posts-expand .post-meta, .post-comments-count, .disqus-comment-count, .post-category a, .post-nav-next a, .post-nav-item a").css(a_tag);
+        
+        // $("code").css({color: '#c5c8c6', background: '#1d1f21'});
+        $("#assist_btn").hide(1500);
+    }
+
+    $(function () {
+        $("#assist_btn").dblclick(function() {
+            switch_theme();
+        });
+    });
+
+</script>
+
+<div>
+
+    <button class="assist-btn circle" id="assist_btn" title="双击切换">
+        亮
+    </button>
+
+</div>
+
+
+
+
+
+
+
+
+
+      
+
+    
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              三星Note3 -N9005刷机Kali Nethunter详细教程
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2017-01-08T12:28:01+08:00" content="2017-01-08">
+            2017-01-08
+          </time>
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/kali/" itemprop="url" rel="index">
+                  <span itemprop="name">kali</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <!--
+              <a href="/nethunter.html#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="nethunter.html" itemprop="commentsCount"></span>
+              </a>
+              -->
+              <a href="/nethunter.html#comments" itemprop="discussionUrl">
+                <span>评论</span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_0619.JPG" alt="enter description here"><br><a id="more"></a><br>Kali Nethunter 是一款专为渗透测试人员打造的，基于 CyanogenMod 的安卓渗透测试平台。</p>
+<p>我看了一下，现在网上大部分教程都是针对 Nexus 和 one plus 手机的教程，没有针对其他手机的刷入教程，在这里我以我的三星手机为例，手机型号为：Note3 -N9005 来给大家演示下，如何在三星机上刷入 Kali Nethunter。</p>
+<h1 id="友情提示"><a href="#友情提示" class="headerlink" title="友情提示"></a>友情提示</h1><blockquote>
+<p>友情提示：黑手仅仅只能做黑客手机用，切勿当做日常生活用，原因做安全的人都懂得的一个道理。以及刷机之前需要对手机重要数据备份，以免一个数据丢失。未对数据备份，数据丢失，本人不负责。在这里十分感谢kali nethunter 群主的耐心讲解，人非常好，有兴趣的朋友们可以加下群：425901382</p>
+</blockquote>
+<hr>
+<p>本文使用到的工具以及录制视频—–链接：</p>
+<p>链接: <a href="https://pan.baidu.com/s/1c16Wbfy" target="_blank" rel="noopener">https://pan.baidu.com/s/1c16Wbfy</a>  密码: ae6h  （录制视频可在线观看）</p>
+<p>以下是官方对支持机型的说明，以及需要刷入的 ROM：<br><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_0603.JPG" alt="enter description here"><br>&nbsp;<br><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_0604.JPG" alt="enter description here"></p>
+<p>—————-需要说明的是，按道理来讲安卓机都是可以刷的。</p>
+<h1 id="安装准备："><a href="#安装准备：" class="headerlink" title="安装准备："></a>安装准备：</h1><ol>
+<li>备用线刷工具包一份，救砖急用！<br><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_0621.JPG" alt="enter description here"></li>
+</ol>
+<p>刷机底包之前需要对设备进行解锁，即root权限，以及刷入第三方 rec 才能进行以下步骤！</p>
+<ol start="2">
+<li>前面刚刚说过了，nethunter 是基于 Cyanogenmod 的安卓第三方 ROM，所以我们需要刷入一款干净的底包，我这边选择的是非官方的底包。cm13 的版本（安卓6.0）以及我这里是三星，note3 或者 s4 等等可以通刷 ，不分运营商版本。即高通 u 可以通刷。—底包针对自己手机型号下载。在这里底包选择5.x~6.x。<br><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_0606.JPG" alt="enter description here"><br><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_0605.JPG" alt="enter description here"></li>
+</ol>
+<ol start="3">
+<li><p>刷入第三方 rom 包，我们需要对设备解锁，也就是我们日常说的 root 权限，这里我采用三星奥利线刷工具刷入 root 解锁包，使用的是全自动解锁。刷入过程中会多次重启请耐心等待(线刷工具和 root 针对自己手机型号下载）<br><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_0607.JPG" alt="enter description here"><br><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_0608.JPG" alt="enter description here"></p>
+</li>
+<li><p>刷入第三方 rec。—-根据自己手机型号选择第三方 rec 类型。</p>
+</li>
+</ol>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_0609.JPG" alt="enter description here"><br><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_0610.JPG" alt="enter description here"><br><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_0611.JPG" alt="enter description here" title="
+  [12]: http://markdown.xiaoshujiang.com/img/spinner.gif "></p>
+<ol start="5">
+<li>需要选择需要刷入的 kali nethunter 安装包：arm64 是 64位，armhf32位，找和你 cpu 结构一致的，full 是完整版，minimal 是简版。</li>
+</ol>
+<p>链接：build.nethunter.com/nightly/3.15.4-20170101-0951/</p>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_0612.JPG" alt="enter description here"><br><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_0613.JPG" alt="enter description here"></p>
+<ol start="6">
+<li>选择手机相对应的nethunter内核：kernel-nethunter 表示是内核，klte 是型号, touchwiz 是基于三星原厂 rom,marshmallow 是 安卓 6.0,lollipop 是 5.x 这里我这边是 cm 是通刷的。所以内核也是通刷三星的。</li>
+</ol>
+<p>刷入完 kali hunter不要重启，直接刷入相关的 nethunter 内核。<br><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_0614.JPG" alt="enter description here"></p>
+<ol start="7">
+<li>重启后对手机的相关配置对 ：（一）nethunter 客户端进行一定的 root 权限授权。（二）也不知道为什么刷入直接还需要下载 800 多 MB 的整体包，后来我只好下载了。也可能是我某方面的操作问题。<br><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_0615.JPG" alt="enter description here"><br><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_0616.JPG" alt="enter description here"><br><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_0617.JPG" alt="enter description here"></li>
+</ol>
+<ol start="8">
+<li>整体效果预览：<br><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_0619.JPG" alt="enter description here"><br><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_0618.JPG" alt="enter description here"></li>
+</ol>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_0620.JPG" alt="enter description here"></p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="http://mp.weixin.qq.com/s?__biz=MzI5ODIwOTM1NA==&amp;mid=2247484924&amp;idx=2&amp;sn=a416dc86243786c70f53899ff0c608dd&amp;chksm=eca81cd9dbdf95cf0b2e2a3380d1b780ce274f8a11bd4803dba55764083108f4ebb270e25bfb&amp;mpshare=1&amp;scene=23&amp;srcid=0106tAn2BvoAXKW9p34My4NS#rd———-移动渗透测试平台搭建" target="_blank" rel="noopener">http://mp.weixin.qq.com/s?__biz=MzI5ODIwOTM1NA==&amp;mid=2247484924&amp;idx=2&amp;sn=a416dc86243786c70f53899ff0c608dd&amp;chksm=eca81cd9dbdf95cf0b2e2a3380d1b780ce274f8a11bd4803dba55764083108f4ebb270e25bfb&amp;mpshare=1&amp;scene=23&amp;srcid=0106tAn2BvoAXKW9p34My4NS#rd———-移动渗透测试平台搭建</a> – NetHunter 3.0—介绍。。</p>
+<p>后续可参考余弦的教程<a href="http://mp.weixin.qq.com/s?__biz=MzA3NTEzMTUwNA==&amp;mid=2651081148&amp;idx=1&amp;sn=12a3891f4726266c8fbf211f6edb5a04&amp;mpshare=1&amp;scene=23&amp;srcid=0108oH7JzdNGq9vs9a44tUsU#rd：如何安装无线网卡。" target="_blank" rel="noopener">http://mp.weixin.qq.com/s?__biz=MzA3NTEzMTUwNA==&amp;mid=2651081148&amp;idx=1&amp;sn=12a3891f4726266c8fbf211f6edb5a04&amp;mpshare=1&amp;scene=23&amp;srcid=0108oH7JzdNGq9vs9a44tUsU#rd：如何安装无线网卡。</a></p>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/kali/" rel="tag">#kali</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/wmap和msf结合.html" rel="prev">wmap和Metasploit 结合</a>
+            
+</div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/text.html" rel="next">text</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div>
+      
+        <style type="text/css">
+
+    .donate_bar {
+        text-align: center;
+        margin-top : 5%;
+    }
+
+    .donate_bar.hidden {
+        display:none;
+    }
+/*
+    .donate_bar a.btn_donate {
+        display: inline-block;
+        width: 82px;
+        height: 82px;
+        margin-left:auto;
+        margin-right:auto;
+
+        background: url("http://img.t.sinajs.cn/t5/style/images/apps_PRF/e_media/btn_reward.gif") no-repeat;
+        _background: url("http://img.t.sinajs.cn/t5/style/images/apps_PRF/e_media/btn_reward.gif") no-repeat; 
+
+        -webkit-transition: background 0s;
+        -moz-transition: background 0s;
+        -o-transition: background 0s;
+        -ms-transition: background 0s;
+        transition: background 0s;
+    }
+*/
+    .donate_bar a.btn_donate:hover { 
+        // background-position: 0px -82px;
+        color: #87daff
+    }
+
+    .donate_bar .donate_txt {
+        display: block;
+        color: #9d9d9d;
+        font: 14px/2 "Microsoft Yahei";
+    }
+
+    .bold { 
+        font-weight: bold; 
+    }
+
+    .post-donate a {
+        border-bottom: 0px;
+    }
+
+    #donate_guide table {
+        border: none;
+    }
+
+    #donate_guide td {
+        border-bottom: none;
+        border-right: none;
+        background: #333333;
+        valign: top;
+    }
+
+</style>
+
+
+
+    
+
+    <div class="post-donate">
+        <div id="donate_board" class="donate_bar center">
+              <a id="btn_donate" class="btn_donate" href="javascript:;" title="打赏">赏</a>
+              <span id="donate_txt" class="donate_txt">
+                   
+                        欢迎加入即刻安全和低调群
+                   
+              </span>
+            <br>
+        </div>  
+  
+        <div id="donate_guide" class="donate_bar center hidden">
+            <!--
+            
+                <a href="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715250891.jpg" title="支付宝打赏" class="fancybox" rel="article0" 
+                    style="float:left;margin-left:25%;margin-right:10px;">
+                    <img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715250891.jpg" title="" height="164px" width="164px">
+                </a> 
+              
+
+            
+                <a href="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715240236.jpg" title="微信打赏" class="fancybox" rel="article0"
+                    style="margin-right:30%">
+                    <img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715240236.jpg" title="" height="164px" width="164px">
+                </a>
+            
+            -->
+            <table>
+                <tr>
+                    <td>
+                        
+                            <a href="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715250891.jpg" title="支付宝打赏" class="fancybox" rel="article0" style="float:left;margin-left:25%;margin-right:10px;">
+                                <img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715250891.jpg" title height="164px" width="164px">
+                            </a> 
+                         
+                    </td>
+                    <td>
+                        
+                            <a href="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715240236.jpg" title="微信打赏" class="fancybox" rel="article0" style="margin-right:30%">
+                                <img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715240236.jpg" title height="164px" width="164px">
+                            </a>
+                        
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+
+        <script type="text/javascript">
+            document.getElementById('btn_donate').onclick = function() {
+                $('#donate_board').addClass('hidden');
+                // $('#donate_guide').removeClass('hidden');
+                $('#donate_guide').show(2000);
+            }
+
+        </script>
+    </div>
+
+    
+
+
+      
+    </div>
+
+    <div class="post-spread">
+      
+        <div class="bdsharebuttonbox">
+	<a href="#" class="bds_more" data-cmd="more"></a>
+	<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+	<a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
+	<a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+</div>
+<script>
+    window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+ </div>
+
+        
+
+        
+          <div class="comments" id="comments">
+            
+              <div class="ds-thread" data-thread-key="nethunter.html" data-title="三星Note3 -N9005刷机Kali Nethunter详细教程" data-url="www.ggsec.cn/nethunter.html">
+              </div>
+            
+          </div>
+        
+      </div>
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/default_avatar.jpg" alt="Demon‘blog | 没有绝对安全的系统" itemprop="image">
+          <p class="site-author-name" itemprop="name">Demon‘blog | 没有绝对安全的系统</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">kali|linux|sec|Web|MSF|Win</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">156</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            
+              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-name">分类</span>
+              
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="menu-item-icon icon-next-feed"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://www.secist.com" target="_blank">即刻安全</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.airs-sec.com" target="_blank">小城工作室</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://linux.dog" target="_blank">泡泡博客</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.webshell.ren" target="_blank">THE博客</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://isbase.cc/" target="_blank">zusheng</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/demonsec666" target="_blank">Demon(Github)</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.inksec.cn" target="_blank">Szrzvdny</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.xsafe.org/" target="_blank">xsafe</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://bestsec.net" target="_blank">Bang'Blog</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.sqlsec.com" target="_blank">国光</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://droidkali.github.io" target="_blank">记忆纯真</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.frostsaber.com/" target="_blank">FrostsaberX 's Blog</a>
+              </span>
+            
+          
+        </div>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="450" src="//music.163.com/outchain/player?type=0&id=377915817&auto=0&height=430"></iframe>
+<div class="links-of-friendly motion-element">
+          
+        </div>
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#友情提示"><span class="nav-number">1.</span> <span class="nav-text">友情提示</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装准备："><span class="nav-number">2.</span> <span class="nav-text">安装准备：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考资料"><span class="nav-number">3.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <div class="copyright">
+  
+  &copy; &nbsp; 
+  <span itemprop="copyrightYear">2019
+  </span>
+  <span class="with-love">
+    <i class="icon-next-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Demon‘blog | 没有绝对安全的系统
+  </span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme by <a class="theme-link" href="http://blog.idhyt.com">idhyt</a>.<a class="theme-link" href="https://github.com/idhyt/hexo-theme-next/tree/magiclamp">Mala</a>
+</div>
+
+<!-- busuanzi -->
+
+  <div class="busuanzi-info">
+    <div class="theme-info">
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+    </script>
+    <span id="busuanzi_container_site_pv">
+        本站总访问量<a class="theme-link"><span id="busuanzi_value_site_pv"></span></a>次 |
+	本站访客数<span id="busuanzi_value_site_uv"></span>人次
+    </span>
+</div>
+
+  </div>
+
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"demonsec"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+
+    
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.1"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.1"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
+
+
+
+
+  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.1"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+    });
+  </script>
+
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
+</body>
+</html>

