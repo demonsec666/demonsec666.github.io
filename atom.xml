@@ -67,6 +67,28 @@
   </entry>
   
   <entry>
+    <title>ctftool</title>
+    <link href="www.ggsec.cn/ctftool.html"/>
+    <id>www.ggsec.cn/ctftool.html</id>
+    <published>2019-08-14T10:48:46.000Z</published>
+    <updated>2019-08-14T11:04:34.546Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/AF29A9C33E8C02B371F167DCF06990D0.jpg" alt="enter description here"><br><a id="more"></a></p><p>谷歌披露了影响所有Windows版本的20年未修补漏洞</p><p>已测试 WIN10<br><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/BB9542487DA88DA766B2C1A604071D79.jpg" alt="enter description here"></p><p>替换里面的 payload.dll 就可以了<br><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/3B8C1F740065304B5D1BCC4747310FFE.jpg" alt="enter description here"><br><a href="https://thehackernews.com/2019/08/ctfmon-windows-vulnerabilities.html" target="_blank" rel="noopener">https://thehackernews.com/2019/08/ctfmon-windows-vulnerabilities.html</a><br><a href="https://github.com/taviso/ctftool/releases" target="_blank" rel="noopener">https://github.com/taviso/ctftool/releases</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;https://demonsec666.oss-cn-qingdao.aliyuncs.com/AF29A9C33E8C02B371F167DCF06990D0.jpg&quot; alt=&quot;enter description here&quot;&gt;&lt;br&gt;
+    
+    </summary>
+    
+      <category term="windows" scheme="www.ggsec.cn/categories/windows/"/>
+    
+    
+      <category term="windows" scheme="www.ggsec.cn/tags/windows/"/>
+    
+  </entry>
+  
+  <entry>
     <title>WSReset-uac</title>
     <link href="www.ggsec.cn/WSReset-uac.html"/>
     <id>www.ggsec.cn/WSReset-uac.html</id>
@@ -421,24 +443,6 @@
     
     
       <category term="windows" scheme="www.ggsec.cn/tags/windows/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CVE-2018-20250</title>
-    <link href="www.ggsec.cn/CVE-2018-20250.html"/>
-    <id>www.ggsec.cn/CVE-2018-20250.html</id>
-    <published>2019-03-07T10:36:38.000Z</published>
-    <updated>2019-03-07T10:44:43.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_20190307_184210.jpg" alt="enter description here"><br><a id="more"></a></p><h2 id="视频演示："><a href="#视频演示：" class="headerlink" title="视频演示："></a>视频演示：</h2><p><div style="width:640px;height:480px;margin:0 auto;" id="ivaLive"></div></p><script type="text/javascript" src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/cytron.core.js"></script><script>    var ivaInstance = new Iva('ivaLive', {        appkey: 'By9WGzBIx', //应用标示        video: 'https://demonsec666.oss-cn-qingdao.aliyuncs.com/CVE-2018-20250.mp4', //视频        title: 'test', //视频标题，后台视频管理中的标题        cover: '' //视频封面，只有在autoplay:false才可生效    });</script><script src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/lva.js"></script><p><a href="https://research.checkpoint.com/extracting-code-execution-from-winrar/" target="_blank" rel="noopener">https://research.checkpoint.com/extracting-code-execution-from-winrar/</a><br><a href="https://github.com/manulqwerty/Evil-WinRAR-Gen" target="_blank" rel="noopener">https://github.com/manulqwerty/Evil-WinRAR-Gen</a><br><a href="https://github.com/360-A-Team/CVE-2018-20250/blob/master/ace.bt" target="_blank" rel="noopener">https://github.com/360-A-Team/CVE-2018-20250/blob/master/ace.bt</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_20190307_184210.jpg&quot; alt=&quot;enter description here&quot;&gt;&lt;br&gt;
-    
-    </summary>
-    
     
   </entry>
   
