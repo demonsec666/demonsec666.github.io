@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>www.ggsec.cn/uac-getsystem.html</loc>
+    
+    <lastmod>2019-08-15T10:55:16.274Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>www.ggsec.cn/ctftool.html</loc>
     
     <lastmod>2019-08-14T11:04:34.546Z</lastmod>
@@ -163,14 +170,14 @@
   </url>
   
   <url>
-    <loc>www.ggsec.cn/calc.html</loc>
+    <loc>www.ggsec.cn/SILENTTRINITY.html</loc>
     
     <lastmod>2019-01-25T02:59:44.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>www.ggsec.cn/SILENTTRINITY.html</loc>
+    <loc>www.ggsec.cn/calc.html</loc>
     
     <lastmod>2019-01-25T02:59:44.000Z</lastmod>
     
@@ -184,13 +191,6 @@
   </url>
   
   <url>
-    <loc>www.ggsec.cn/wmap%E5%92%8Cmsf%E7%BB%93%E5%90%88.html</loc>
-    
-    <lastmod>2018-12-21T06:56:54.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>www.ggsec.cn/winlogon-regedit.html</loc>
     
     <lastmod>2018-12-21T06:56:54.000Z</lastmod>
@@ -199,6 +199,13 @@
   
   <url>
     <loc>www.ggsec.cn/Windows%E6%B8%97%E9%80%8F%E5%88%A9%E5%99%A8%E4%B9%8BPentest%20BOX%E4%BD%BF%E7%94%A8%E8%AF%A6%E8%A7%A3%E4%BA%8C.html</loc>
+    
+    <lastmod>2018-12-21T06:56:54.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>www.ggsec.cn/wmap%E5%92%8Cmsf%E7%BB%93%E5%90%88.html</loc>
     
     <lastmod>2018-12-21T06:56:54.000Z</lastmod>
     
@@ -219,14 +226,14 @@
   </url>
   
   <url>
-    <loc>www.ggsec.cn/venom.html</loc>
+    <loc>www.ggsec.cn/vmic.html</loc>
     
     <lastmod>2018-12-21T06:56:51.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>www.ggsec.cn/vmic.html</loc>
+    <loc>www.ggsec.cn/venom.html</loc>
     
     <lastmod>2018-12-21T06:56:51.000Z</lastmod>
     
@@ -310,13 +317,6 @@
   </url>
   
   <url>
-    <loc>www.ggsec.cn/steghide.html</loc>
-    
-    <lastmod>2018-12-21T06:56:40.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>www.ggsec.cn/Subtee-AllTheThings.html</loc>
     
     <lastmod>2018-12-21T06:56:40.000Z</lastmod>
@@ -324,14 +324,21 @@
   </url>
   
   <url>
-    <loc>www.ggsec.cn/Stage-RemoteDll.html</loc>
+    <loc>www.ggsec.cn/steghide.html</loc>
+    
+    <lastmod>2018-12-21T06:56:40.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>www.ggsec.cn/stager-dll.html</loc>
     
     <lastmod>2018-12-21T06:56:39.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>www.ggsec.cn/stager-dll.html</loc>
+    <loc>www.ggsec.cn/Stage-RemoteDll.html</loc>
     
     <lastmod>2018-12-21T06:56:39.000Z</lastmod>
     
@@ -359,6 +366,13 @@
   </url>
   
   <url>
+    <loc>www.ggsec.cn/ShellPop.html</loc>
+    
+    <lastmod>2018-12-21T06:56:37.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>www.ggsec.cn/shellter.html</loc>
     
     <lastmod>2018-12-21T06:56:37.000Z</lastmod>
@@ -367,13 +381,6 @@
   
   <url>
     <loc>www.ggsec.cn/Shellsploit.html</loc>
-    
-    <lastmod>2018-12-21T06:56:37.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>www.ggsec.cn/ShellPop.html</loc>
     
     <lastmod>2018-12-21T06:56:37.000Z</lastmod>
     
@@ -436,13 +443,6 @@
   </url>
   
   <url>
-    <loc>www.ggsec.cn/rid-hijack.html</loc>
-    
-    <lastmod>2018-12-21T06:56:32.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>www.ggsec.cn/reverse.html</loc>
     
     <lastmod>2018-12-21T06:56:32.000Z</lastmod>
@@ -457,9 +457,9 @@
   </url>
   
   <url>
-    <loc>www.ggsec.cn/Powerstager.html</loc>
+    <loc>www.ggsec.cn/rid-hijack.html</loc>
     
-    <lastmod>2018-12-21T06:56:31.000Z</lastmod>
+    <lastmod>2018-12-21T06:56:32.000Z</lastmod>
     
   </url>
   
@@ -471,9 +471,9 @@
   </url>
   
   <url>
-    <loc>www.ggsec.cn/Phantom-Evasion.html</loc>
+    <loc>www.ggsec.cn/Powerstager.html</loc>
     
-    <lastmod>2018-12-21T06:56:30.000Z</lastmod>
+    <lastmod>2018-12-21T06:56:31.000Z</lastmod>
     
   </url>
   
@@ -481,6 +481,20 @@
     <loc>www.ggsec.cn/POC-calc.html</loc>
     
     <lastmod>2018-12-21T06:56:30.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>www.ggsec.cn/Phantom-Evasion.html</loc>
+    
+    <lastmod>2018-12-21T06:56:30.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>www.ggsec.cn/p0wnedShell.html</loc>
+    
+    <lastmod>2018-12-21T06:56:29.000Z</lastmod>
     
   </url>
   
@@ -499,9 +513,9 @@
   </url>
   
   <url>
-    <loc>www.ggsec.cn/p0wnedShell.html</loc>
+    <loc>www.ggsec.cn/ngrok.html</loc>
     
-    <lastmod>2018-12-21T06:56:29.000Z</lastmod>
+    <lastmod>2018-12-21T06:56:28.000Z</lastmod>
     
   </url>
   
@@ -513,14 +527,7 @@
   </url>
   
   <url>
-    <loc>www.ggsec.cn/ngrok.html</loc>
-    
-    <lastmod>2018-12-21T06:56:28.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>www.ggsec.cn/nethuner-HID.html</loc>
+    <loc>www.ggsec.cn/NET-CS-calc.html</loc>
     
     <lastmod>2018-12-21T06:56:27.000Z</lastmod>
     
@@ -534,21 +541,21 @@
   </url>
   
   <url>
-    <loc>www.ggsec.cn/NET-CS-calc.html</loc>
+    <loc>www.ggsec.cn/nethuner-HID.html</loc>
     
     <lastmod>2018-12-21T06:56:27.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>www.ggsec.cn/msf8.html</loc>
+    <loc>www.ggsec.cn/MSF8-0.html</loc>
     
     <lastmod>2018-12-21T06:56:26.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>www.ggsec.cn/MSF8-0.html</loc>
+    <loc>www.ggsec.cn/msf8.html</loc>
     
     <lastmod>2018-12-21T06:56:26.000Z</lastmod>
     
@@ -597,14 +604,14 @@
   </url>
   
   <url>
-    <loc>www.ggsec.cn/MSF%E5%BA%94%E7%94%A8%E4%B9%8Bsql_sever.html</loc>
+    <loc>www.ggsec.cn/MSF%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4%E6%96%B0%E6%89%8B%E6%8C%87%E5%8D%97.html</loc>
     
     <lastmod>2018-12-21T06:56:18.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>www.ggsec.cn/MSF%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4%E6%96%B0%E6%89%8B%E6%8C%87%E5%8D%97.html</loc>
+    <loc>www.ggsec.cn/MSF%E5%BA%94%E7%94%A8%E4%B9%8Bsql_sever.html</loc>
     
     <lastmod>2018-12-21T06:56:18.000Z</lastmod>
     
@@ -618,14 +625,14 @@
   </url>
   
   <url>
-    <loc>www.ggsec.cn/Meterpreter-Paranoid.html</loc>
+    <loc>www.ggsec.cn/Metasploitable-3.html</loc>
     
     <lastmod>2018-12-21T06:56:17.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>www.ggsec.cn/Metasploitable-3.html</loc>
+    <loc>www.ggsec.cn/Meterpreter-Paranoid.html</loc>
     
     <lastmod>2018-12-21T06:56:17.000Z</lastmod>
     
@@ -639,14 +646,14 @@
   </url>
   
   <url>
-    <loc>www.ggsec.cn/Metasploit%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B%E7%AC%AC%E4%BA%94%E8%AF%BE.html</loc>
+    <loc>www.ggsec.cn/Metasploit6.html</loc>
     
     <lastmod>2018-12-21T06:56:16.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>www.ggsec.cn/Metasploit6.html</loc>
+    <loc>www.ggsec.cn/Metasploit%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B%E7%AC%AC%E4%BA%94%E8%AF%BE.html</loc>
     
     <lastmod>2018-12-21T06:56:16.000Z</lastmod>
     
@@ -688,14 +695,14 @@
   </url>
   
   <url>
-    <loc>www.ggsec.cn/jishu.html</loc>
+    <loc>www.ggsec.cn/Invoke-Obfuscation.html</loc>
     
     <lastmod>2018-12-21T06:56:13.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>www.ggsec.cn/Invoke-Obfuscation.html</loc>
+    <loc>www.ggsec.cn/jishu.html</loc>
     
     <lastmod>2018-12-21T06:56:13.000Z</lastmod>
     
@@ -716,6 +723,13 @@
   </url>
   
   <url>
+    <loc>www.ggsec.cn/InfectPE.html</loc>
+    
+    <lastmod>2018-12-21T06:56:11.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>www.ggsec.cn/InjectProc.html</loc>
     
     <lastmod>2018-12-21T06:56:11.000Z</lastmod>
@@ -723,9 +737,9 @@
   </url>
   
   <url>
-    <loc>www.ggsec.cn/InfectPE.html</loc>
+    <loc>www.ggsec.cn/icmpsh.html</loc>
     
-    <lastmod>2018-12-21T06:56:11.000Z</lastmod>
+    <lastmod>2018-12-21T06:56:10.000Z</lastmod>
     
   </url>
   
@@ -737,9 +751,9 @@
   </url>
   
   <url>
-    <loc>www.ggsec.cn/icmpsh.html</loc>
+    <loc>www.ggsec.cn/GreatSCT.html</loc>
     
-    <lastmod>2018-12-21T06:56:10.000Z</lastmod>
+    <lastmod>2018-12-21T06:56:09.000Z</lastmod>
     
   </url>
   
@@ -752,13 +766,6 @@
   
   <url>
     <loc>www.ggsec.cn/Hijack-explorer2.html</loc>
-    
-    <lastmod>2018-12-21T06:56:09.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>www.ggsec.cn/GreatSCT.html</loc>
     
     <lastmod>2018-12-21T06:56:09.000Z</lastmod>
     
@@ -779,6 +786,13 @@
   </url>
   
   <url>
+    <loc>www.ggsec.cn/forfiles2.html</loc>
+    
+    <lastmod>2018-12-21T06:56:07.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>www.ggsec.cn/fimap_metasploitable2%20.html</loc>
     
     <lastmod>2018-12-21T06:56:07.000Z</lastmod>
@@ -786,9 +800,9 @@
   </url>
   
   <url>
-    <loc>www.ggsec.cn/forfiles2.html</loc>
+    <loc>www.ggsec.cn/Eternalblue-Doublepulsar1.html</loc>
     
-    <lastmod>2018-12-21T06:56:07.000Z</lastmod>
+    <lastmod>2018-12-21T06:56:06.000Z</lastmod>
     
   </url>
   
@@ -801,13 +815,6 @@
   
   <url>
     <loc>www.ggsec.cn/DuckHunterHID.html</loc>
-    
-    <lastmod>2018-12-21T06:56:06.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>www.ggsec.cn/Eternalblue-Doublepulsar1.html</loc>
     
     <lastmod>2018-12-21T06:56:06.000Z</lastmod>
     
@@ -835,13 +842,6 @@
   </url>
   
   <url>
-    <loc>www.ggsec.cn/CVE-2017-8464.html</loc>
-    
-    <lastmod>2018-12-21T06:56:04.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>www.ggsec.cn/DCOM.html</loc>
     
     <lastmod>2018-12-21T06:56:04.000Z</lastmod>
@@ -856,14 +856,21 @@
   </url>
   
   <url>
-    <loc>www.ggsec.cn/csharp-reverse.html</loc>
+    <loc>www.ggsec.cn/CVE-2017-8464.html</loc>
+    
+    <lastmod>2018-12-21T06:56:04.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>www.ggsec.cn/com-xml.html</loc>
     
     <lastmod>2018-12-21T06:56:03.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>www.ggsec.cn/com-xml.html</loc>
+    <loc>www.ggsec.cn/csharp-reverse.html</loc>
     
     <lastmod>2018-12-21T06:56:03.000Z</lastmod>
     
@@ -912,6 +919,13 @@
   </url>
   
   <url>
+    <loc>www.ggsec.cn/bypass-powershell.html</loc>
+    
+    <lastmod>2018-12-21T06:56:00.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>www.ggsec.cn/bypass-UAC-Adduser.html</loc>
     
     <lastmod>2018-12-21T06:56:00.000Z</lastmod>
@@ -926,21 +940,14 @@
   </url>
   
   <url>
-    <loc>www.ggsec.cn/bypass-powershell.html</loc>
-    
-    <lastmod>2018-12-21T06:56:00.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>www.ggsec.cn/avoidz.html</loc>
+    <loc>www.ggsec.cn/bolg.html</loc>
     
     <lastmod>2018-12-21T06:55:59.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>www.ggsec.cn/bolg.html</loc>
+    <loc>www.ggsec.cn/avoidz.html</loc>
     
     <lastmod>2018-12-21T06:55:59.000Z</lastmod>
     
@@ -954,7 +961,7 @@
   </url>
   
   <url>
-    <loc>www.ggsec.cn/APT.html</loc>
+    <loc>www.ggsec.cn/appLockerList1.html</loc>
     
     <lastmod>2018-12-21T06:55:58.000Z</lastmod>
     
@@ -968,14 +975,14 @@
   </url>
   
   <url>
-    <loc>www.ggsec.cn/appLockerList1.html</loc>
+    <loc>www.ggsec.cn/APT.html</loc>
     
     <lastmod>2018-12-21T06:55:58.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>www.ggsec.cn/ADS-Hijack-explorer.html</loc>
+    <loc>www.ggsec.cn/ADS2.html</loc>
     
     <lastmod>2018-12-21T06:55:57.000Z</lastmod>
     
@@ -989,7 +996,7 @@
   </url>
   
   <url>
-    <loc>www.ggsec.cn/ADS2.html</loc>
+    <loc>www.ggsec.cn/ADS-Hijack-explorer.html</loc>
     
     <lastmod>2018-12-21T06:55:57.000Z</lastmod>
     
@@ -1010,14 +1017,14 @@
   </url>
   
   <url>
-    <loc>www.ggsec.cn/%E6%AF%8F%E6%97%A5%E5%AE%89%E5%85%A8%E5%B9%B2%E8%B4%A7%E5%8F%8A%E5%8A%A8%E6%80%81.html</loc>
+    <loc>www.ggsec.cn/%E6%AF%8F%E6%97%A5%E5%AE%89%E5%85%A8%E5%B9%B2%E8%B4%A7%E5%8F%8A%E5%8A%A8%E6%80%81-1.html</loc>
     
     <lastmod>2018-12-21T06:55:55.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>www.ggsec.cn/%E6%AF%8F%E6%97%A5%E5%AE%89%E5%85%A8%E5%B9%B2%E8%B4%A7%E5%8F%8A%E5%8A%A8%E6%80%81-1.html</loc>
+    <loc>www.ggsec.cn/%E6%AF%8F%E6%97%A5%E5%AE%89%E5%85%A8%E5%B9%B2%E8%B4%A7%E5%8F%8A%E5%8A%A8%E6%80%81.html</loc>
     
     <lastmod>2018-12-21T06:55:55.000Z</lastmod>
     
