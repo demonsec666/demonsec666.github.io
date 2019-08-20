@@ -67,6 +67,28 @@
   </entry>
   
   <entry>
+    <title>wikipediaC2-SecistSploit</title>
+    <link href="www.ggsec.cn/wikipediaC2-SecistSploit.html"/>
+    <id>www.ggsec.cn/wikipediaC2-SecistSploit.html</id>
+    <published>2019-08-20T12:16:40.000Z</published>
+    <updated>2019-08-20T12:19:03.205Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/F1C7F0FDE42A5F21EBABBD3F694AA53A.jpg" alt="enter description here"><br><a id="more"></a></p><p>GitHub： <a href="https://github.com/Mr-Un1k0d3r/DKMC" target="_blank" rel="noopener">https://github.com/Mr-Un1k0d3r/DKMC</a></p><h2 id="视频演示："><a href="#视频演示：" class="headerlink" title="视频演示："></a>视频演示：</h2><p><div style="width:640px;height:480px;margin:0 auto;" id="ivaLive"></div></p><script type="text/javascript" src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/cytron.core.js"></script><script>    var ivaInstance = new Iva('ivaLive', {        appkey: 'By9WGzBIx', //应用标示        video: 'https://demonsec666.oss-cn-qingdao.aliyuncs.com/wikipediaC2.mp4', //视频        title: 'test', //视频标题，后台视频管理中的标题        cover: '' //视频封面，只有在autoplay:false才可生效    });</script><script src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/lva.js"></script><p><a href="https://github.com/daniel-infosec/wikipedia-c2" target="_blank" rel="noopener">https://github.com/daniel-infosec/wikipedia-c2</a><br><a href="https://github.com/demonsec666/SecistSploit" target="_blank" rel="noopener">https://github.com/demonsec666/SecistSploit</a></p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/D1BA5B8DBF59A2EF52F2C3EBBB003A9F.jpg" alt="enter description here"></p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/825DFBD4C990C90B3944741CE658E1B7.jpg" alt="enter description here"></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;https://demonsec666.oss-cn-qingdao.aliyuncs.com/F1C7F0FDE42A5F21EBABBD3F694AA53A.jpg&quot; alt=&quot;enter description here&quot;&gt;&lt;br&gt;
+    
+    </summary>
+    
+      <category term="windows" scheme="www.ggsec.cn/categories/windows/"/>
+    
+    
+      <category term="windows" scheme="www.ggsec.cn/tags/windows/"/>
+    
+  </entry>
+  
+  <entry>
     <title>uac-getsystem</title>
     <link href="www.ggsec.cn/uac-getsystem.html"/>
     <id>www.ggsec.cn/uac-getsystem.html</id>
@@ -421,28 +443,6 @@
     
     </summary>
     
-    
-  </entry>
-  
-  <entry>
-    <title>Merlin</title>
-    <link href="www.ggsec.cn/merlin.html"/>
-    <id>www.ggsec.cn/merlin.html</id>
-    <published>2019-04-13T13:25:17.000Z</published>
-    <updated>2019-04-13T13:29:36.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/0EBBC533E071635742CC4ABA76DAEA75.jpg" alt="enter description here"><br><a id="more"></a></p><h2 id="视频演示："><a href="#视频演示：" class="headerlink" title="视频演示："></a>视频演示：</h2><p><div style="width:640px;height:480px;margin:0 auto;" id="ivaLive"></div></p><script type="text/javascript" src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/cytron.core.js"></script><script>    var ivaInstance = new Iva('ivaLive', {        appkey: 'By9WGzBIx', //应用标示        video: 'https://demonsec666.oss-cn-qingdao.aliyuncs.com/merlin.mp4', //视频        title: 'test', //视频标题，后台视频管理中的标题        cover: '' //视频封面，只有在autoplay:false才可生效    });</script><script src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/lva.js"></script><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/3E558E905B40769BE910FFD6421DD5AA.jpg" alt="enter description here"></p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/AE2A2E613179B47DAC33CDEA738A1265.jpg" alt="enter description here"></p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/959E6CAEAF583385A4E9D2A13B6A4EBE.jpg" alt="enter description here"><br>相关链接：<a href="https://github.com/Ne0nd0g/merlin" target="_blank" rel="noopener">https://github.com/Ne0nd0g/merlin</a><br><a href="https://posts.specterops.io/merlin-v0-7-0-release-roll-up-717739cde77a" target="_blank" rel="noopener">https://posts.specterops.io/merlin-v0-7-0-release-roll-up-717739cde77a</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;https://demonsec666.oss-cn-qingdao.aliyuncs.com/0EBBC533E071635742CC4ABA76DAEA75.jpg&quot; alt=&quot;enter description here&quot;&gt;&lt;br&gt;
-    
-    </summary>
-    
-      <category term="windows" scheme="www.ggsec.cn/categories/windows/"/>
-    
-    
-      <category term="windows" scheme="www.ggsec.cn/tags/windows/"/>
     
   </entry>
   
