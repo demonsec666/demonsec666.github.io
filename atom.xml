@@ -67,6 +67,28 @@
   </entry>
   
   <entry>
+    <title>ReverseTCPshell</title>
+    <link href="www.ggsec.cn/ReverseTCPshell.html"/>
+    <id>www.ggsec.cn/ReverseTCPshell.html</id>
+    <published>2019-12-22T02:59:24.000Z</published>
+    <updated>2019-12-22T03:00:37.931Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/F0457EBCBD5497B7AF66E0B42EFCF350.jpg" alt="enter description here"></p><h2 id="视频演示："><a href="#视频演示：" class="headerlink" title="视频演示："></a>视频演示：</h2><p><div style="width:640px;height:480px;margin:0 auto;" id="ivaLive"></div></p><script type="text/javascript" src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/cytron.core.js"></script><script>    var ivaInstance = new Iva('ivaLive', {        appkey: 'By9WGzBIx', //应用标示        video: 'https://demonsec666.oss-cn-qingdao.aliyuncs.com/ReverseTCPshell.mp4', //视频        title: 'test', //视频标题，后台视频管理中的标题        cover: '' //视频封面，只有在autoplay:false才可生效    });</script><script src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/lva.js"></script><p>参考资料 ： <a href="https://github.com/ZHacker13/ReverseTCPShell" target="_blank" rel="noopener">https://github.com/ZHacker13/ReverseTCPShell</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;img src=&quot;https://demonsec666.oss-cn-qingdao.aliyuncs.com/F0457EBCBD5497B7AF66E0B42EFCF350.jpg&quot; alt=&quot;enter description here&quot;&gt;&lt;/p&gt;
+&lt;h2 id=
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>octopus</title>
     <link href="www.ggsec.cn/octopus.html"/>
     <id>www.ggsec.cn/octopus.html</id>
@@ -418,24 +440,6 @@
     <summary type="html">
     
       &lt;p&gt;&lt;img src=&quot;https://demonsec666.oss-cn-qingdao.aliyuncs.com/594C87D5728DB6A42D0A7398DC6AEE66.jpg&quot; alt=&quot;enter description here&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>comhijack&amp;meterpreter</title>
-    <link href="www.ggsec.cn/comhijack&amp;meterpreter.html"/>
-    <id>www.ggsec.cn/comhijack&amp;meterpreter.html</id>
-    <published>2019-06-01T01:09:25.000Z</published>
-    <updated>2019-06-01T01:19:14.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_20190601_090053.jpg" alt="enter description here"></p><a id="more"></a><h2 id="视频演示："><a href="#视频演示：" class="headerlink" title="视频演示："></a>视频演示：</h2><p><div style="width:640px;height:480px;margin:0 auto;" id="ivaLive"></div></p><script type="text/javascript" src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/cytron.core.js"></script><script>    var ivaInstance = new Iva('ivaLive', {        appkey: 'By9WGzBIx', //应用标示        video: 'https://demonsec666.oss-cn-qingdao.aliyuncs.com/comhijack.mp4', //视频        title: 'test', //视频标题，后台视频管理中的标题        cover: '' //视频封面，只有在autoplay:false才可生效    });</script><script src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/lva.js"></script><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/3FF3ECB3EB2FC4EE3BCD10E8CEA98832.jpg" alt="enter description here"></p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/5F86D7C50E44008A19ECC7A018C27C96.jpg" alt="enter description here"></p><p><a href="https://www.mdsec.co.uk/2019/05/persistence-the-continued-or-prolonged-existence-of-something-part-2-com-hijacking/" target="_blank" rel="noopener">https://www.mdsec.co.uk/2019/05/persistence-the-continued-or-prolonged-existence-of-something-part-2-com-hijacking/</a><br>感谢 WBG的改良使得脚本更加完善</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_20190601_090053.jpg&quot; alt=&quot;enter description here&quot;&gt;&lt;/p&gt;
     
     </summary>
     
