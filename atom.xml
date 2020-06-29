@@ -49,9 +49,9 @@
     <link href="www.ggsec.cn/FudgeC2.html"/>
     <id>www.ggsec.cn/FudgeC2.html</id>
     <published>2020-06-29T01:34:14.000Z</published>
-    <updated>2020-06-29T01:36:47.095Z</updated>
+    <updated>2020-06-29T01:37:44.281Z</updated>
     
-    <content type="html"><![CDATA[<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/E4BFB59F92556710E9ADE29CC8893246.jpg" alt="enter description here"><br><a id="more"></a></p><h2 id="视频演示："><a href="#视频演示：" class="headerlink" title="视频演示："></a>视频演示：</h2><p><div style="width:640px;height:480px;margin:0 auto;" id="ivaLive"></div></p><script type="text/javascript" src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/cytron.core.js"></script><script>    var ivaInstance = new Iva('ivaLive', {        appkey: 'By9WGzBIx', //应用标示        video: 'https://demonsec666.oss-cn-qingdao.aliyuncs.com/FudgeC2.mp4', //视频        title: 'test', //视频标题，后台视频管理中的标题        cover: '' //视频封面，只有在autoplay:false才可生效    });</script><script src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/lva.js"></script>]]></content>
+    <content type="html"><![CDATA[<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/E4BFB59F92556710E9ADE29CC8893246.jpg" alt="enter description here"><br><a id="more"></a></p><h2 id="视频演示："><a href="#视频演示：" class="headerlink" title="视频演示："></a>视频演示：</h2><p><div style="width:640px;height:480px;margin:0 auto;" id="ivaLive"></div></p><script type="text/javascript" src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/cytron.core.js"></script><script>    var ivaInstance = new Iva('ivaLive', {        appkey: 'By9WGzBIx', //应用标示        video: 'https://demonsec666.oss-cn-qingdao.aliyuncs.com/FudgeC2.mp4', //视频        title: 'test', //视频标题，后台视频管理中的标题        cover: '' //视频封面，只有在autoplay:false才可生效    });</script><script src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/lva.js"></script><p><a href="https://github.com/Ziconius/FudgeC2" target="_blank" rel="noopener">https://github.com/Ziconius/FudgeC2</a></p>]]></content>
     
     <summary type="html">
     
