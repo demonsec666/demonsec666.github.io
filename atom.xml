@@ -45,6 +45,26 @@
   </entry>
   
   <entry>
+    <title>Word宏样本分析</title>
+    <link href="www.ggsec.cn/%E5%AE%8F%E6%A0%B7%E6%9C%AC%E5%88%86%E6%9E%90.html"/>
+    <id>www.ggsec.cn/宏样本分析.html</id>
+    <published>2020-10-30T10:03:35.000Z</published>
+    <updated>2020-10-30T11:48:42.442Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201030-20.jpg" alt="20"></p><a id="more"></a><h2 id="1-起源"><a href="#1-起源" class="headerlink" title="1.起源"></a>1.起源</h2><p>前段时间看到了一个非常有意思的宏病毒样本分析，决定与各位一起分析一下。</p><p>迄今为止，VBA宏仍然是最流行的攻击媒介之一。本文分析多层混淆的VBA宏，其中包括VBA，WMI对象，Powershell，内联C＃和BYPASS AMSI。</p><h2 id="2-初步分析"><a href="#2-初步分析" class="headerlink" title="2.初步分析"></a>2.初步分析</h2><p>我们首先在十六进制编辑器中检查.DOC。我们可以看到标头以PK开头，表示此类型的文件是ZIP。现代Microsoft Word文档实际上是ZIP文件，如果将文档从.DOC重命名为.ZIP，则可以解压缩内容。</p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201030-18.png" alt="18"></p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201030-19.png" alt="19"></p><p>我们首先需要提权文档的vba宏，使用olevba即可提取。</p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201030-1.png" alt="1"></p><p>经过提取下面的宏 我们发现可以看到VBA代码的格式不正确（很可能是故意的）。因此，我们需要通过替换多余的换行符（“ \ n”），制表符（“ \ t”）和空格（“ \ s”）来对其进行清理，直到获得正确格式的VBA代码为止。这不是运行代码所必需的，但是，如果要在Microsoft Word的开发人员工具中对其进行调试，则需要多行代码才能放置断点。</p><p>经过代码整理，格式化后我们就可以看到以下的内容。</p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201030-2.png" alt="2"></p><p>我们可以看到以上代码基本都是经过混淆的代码，让我们在Microsoft Word中打开文档。</p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201030-4.png" alt="4"></p><p>复制替换为我们之前整理的代码</p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201030-5.png" alt="5"></p><p>同时我们也可以到自动执行的函数的位置。</p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201030-3.png" alt="3"></p><p>在VBA代码或文档内容，属性或设置中不容易看到/显示。我们首先在“ Sub Document_Open()”函数中放置一个断点。此功能是在打开Word文档时运行的功能。然后，我们运行将在断点处中断的脚本。</p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201030-7.png" alt="7"></p><p>这两个变量将被读入VBA脚本并进行解码。这是隐藏此脚本功能的地方。第一个变量被解码为WMI对象”winmgmts:\.\root\cimv2:Win32_Process”，该对象负责启动第二个变量的内容</p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201030-8.png" alt="8"></p><p>第二个变量被解码Powershell。</p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201030-9.png" alt="9"></p><p>如果我们继续运行脚本，它将最终启动Powershell终端，并使用变量2中的解码脚本。在Powershell启动时，我们可以在系统日志中查看该脚本的内容。</p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201030-6.png" alt="6"></p><h2 id="3-powershell混淆"><a href="#3-powershell混淆" class="headerlink" title="3.powershell混淆"></a>3.powershell混淆</h2><p>依旧是代码混淆，现在我们已经提取了Powershell，我们可以再次清理一下代码，并通过替换“;”将其分成适当的行。用“; \ n”并固定行距。 </p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201030-10.png" alt="10"></p><p>Powershell脚本非常简单。从清理后的代码中，我们可以在顶部看到一个去模糊函数，该函数负责解码中间变量中的文本斑点。我们还在脚本的底部看到一个“ Add-Type”行，该行正在调用“ c193b()”函数。这通常用于以与Powershell不同的编程语言来内联脚本。在这种情况下，我们看到脚本已解码了C＃代码</p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201030-11.png" alt="11"></p><h2 id="4-C-混淆"><a href="#4-C-混淆" class="headerlink" title="4. C#混淆"></a>4. C#混淆</h2><p>到目前为止，我们已经做到了。我们已经运行了启用VBA的Word文档，让它将隐藏的变量解码为通过WMI对象启动的混淆的Powershell，并且对混淆的Powershell进行了查找以找到内联的C＃。我们快完成了。我们可以再次清理反混淆的代码，以便可以将其加载到适当的IDE中并进行调试。在这种情况下，我们拥有C＃，因此我们可以在Visual Studio中启动一个新的C＃项目，并将代码粘贴到“ Hello World”函数之后，如下所示。我们需要将“ using”语句放在顶部，然后将我们混淆处理的“ public class”代码粘贴到main函数下面。</p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201030-12.png" alt="12"></p><p>从我们的Powershell脚本中，我们看到它正在函数“ c193b()”处调用“ yba2983”类。因此，我们需要将其放置在程序“ Main”中，以便模仿Powershell的切换。确保在“ c193b”函数中放置一个断点，以便可以逐步完成它。</p><h2 id="5-BYPASS-AMSI"><a href="#5-BYPASS-AMSI" class="headerlink" title="5.BYPASS AMSI"></a>5.BYPASS AMSI</h2><p>防恶意软件扫描接口（AMSI）是更高版本的Microsoft Windows附带的系统保护，可帮助防御这些类型的攻击。Microsoft将AMSI描述为：</p><blockquote><p>Windows反恶意软件扫描接口（AMSI）是一种通用接口标准，允许您的应用程序和服务与计算机上存在的任何反恶意软件产品集成。AMSI为您的最终用户及其数据，应用程序和工作负载提供了增强的恶意软件防护。</p></blockquote><p>简单来说，“ amsi.dll”在系统上运行，并通过AmsiScanBuffer API强制所有脚本输出。因此，我们将在AmsiScanBuffer接口中检查我们发现的所有模糊文本，以进行可疑/恶意操作。如果找到任何内容，AMSI将拒绝执行脚本。有保护的地方就有旁路，这正是我们在C＃代码开头找到的内容。</p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201030-13.png" alt="13"></p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201030-14.png" alt="14"></p><p>这个特殊的<strong>bypass</strong>尝试使用<strong>“ amsi.dll”</strong>作为目标来调用“ loadlibrary”。如果成功，则表明系统上存在AMSI。接下来，代码将为AmsiScanBuffer接口调用“ GetProcAddress”，通过调用“ VirtualProtect”来取消保护其内存区域，然后通过对“ RtlMoveMemory”的调用有选择地修补“ amsi.dll”。通过修补“ amsi.dll”，他们删除了阻止脚本运行的保护性检查。 </p><h2 id="6-终止"><a href="#6-终止" class="headerlink" title="6.终止"></a>6.终止</h2><p>如果我们继续调试C＃代码，我们最终将对最终变量进行模糊处理，并显示预期下载的URL。</p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201030-15.png" alt="15"></p><p><strong>由于服务器关闭并没有接下去进行分析</strong>，代码将创建一个新的WebClient连接，将可执行文件下载到一个临时空间中，并启动该过程。该恶意软件的第二阶段可能是远程访问特洛伊木马（RAT），银行恶意软件，勒索软件等。但是，本文的目的是演示如何分析第一阶段，而不遵循第二阶段的下载。</p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201030-16.png" alt="16"></p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/120201030-17.png" alt="17"></p><h2 id="参考链接："><a href="#参考链接：" class="headerlink" title="参考链接："></a>参考链接：</h2><p>样本下载地址<a href="https://app.any.run/tasks/cca3277b-8f2d-43c4-9006-457af9be1883/" target="_blank" rel="noopener">https://app.any.run/tasks/cca3277b-8f2d-43c4-9006-457af9be1883/</a></p><p>文章参考：<a href="https://www.ringzerolabs.com/2020/10/obfuscated-vba-powershell-c.html" target="_blank" rel="noopener">https://www.ringzerolabs.com/2020/10/obfuscated-vba-powershell-c.html</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201030-20.jpg&quot; alt=&quot;20&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Windows" scheme="www.ggsec.cn/tags/Windows/"/>
+    
+  </entry>
+  
+  <entry>
     <title>滥用WINDOWS TELEMETRY以实现持久化并提权</title>
     <link href="www.ggsec.cn/%E6%BB%A5%E7%94%A8WINDOWS%20TELEMETRY%E4%BB%A5%E5%AE%9E%E7%8E%B0%E6%8C%81%E4%B9%85%E5%8C%96%E5%B9%B6%E6%8F%90%E6%9D%83.html"/>
     <id>www.ggsec.cn/滥用WINDOWS TELEMETRY以实现持久化并提权.html</id>
@@ -409,24 +429,6 @@
     
     
       <category term="Windows" scheme="www.ggsec.cn/tags/Windows/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>sudo-ed-提权</title>
-    <link href="www.ggsec.cn/sudo-ed.html"/>
-    <id>www.ggsec.cn/sudo-ed.html</id>
-    <published>2019-08-07T10:52:13.000Z</published>
-    <updated>2019-08-07T10:55:48.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_20190807_184957.jpg" alt="enter description here"><br><a id="more"></a><br><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1565175283273.jpg" alt="enter description here"></p><p><a href="https://www.hackingarticles.in/linux-for-pentester-ed-privilege-escalation/" target="_blank" rel="noopener">https://www.hackingarticles.in/linux-for-pentester-ed-privilege-escalation/</a><br><a href="https://www.freebuf.com/sectool/209494.html" target="_blank" rel="noopener">https://www.freebuf.com/sectool/209494.html</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_20190807_184957.jpg&quot; alt=&quot;enter description here&quot;&gt;&lt;br&gt;
-    
-    </summary>
-    
     
   </entry>
   

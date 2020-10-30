@@ -29,7 +29,7 @@
 
 
 
-  <meta name="keywords" content="逆向,">
+  <meta name="keywords" content="Windows,">
 
 
 
@@ -40,34 +40,36 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1">
 
 
-<meta name="keywords" content="逆向">
+<meta name="keywords" content="Windows">
 <meta property="og:type" content="article">
-<meta property="og:title" content="登录暴力破解 | 逆向笔记(一)">
-<meta property="og:url" content="www.ggsec.cn/reverse.html">
+<meta property="og:title" content="Word宏样本分析">
+<meta property="og:url" content="www.ggsec.cn/宏样本分析.html">
 <meta property="og:site_name" content="Demonsec">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/reverse-engineering-with-radare2-quick-introduction.1280x600.jpg">
-<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/93FEF6CF-4A88-42B7-B0C8-8101C40FC874.png">
-<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/3C7D5B10-E2AC-4C0B-BE96-E4ABBCDF5668.png">
-<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/E666E83C-DBAC-4691-BDD3-7DAC94862F37.png">
-<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1506776242908.jpg">
-<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1506776432739.jpg">
-<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/A4B2650B-09C8-4607-AC51-8118BA467431.png">
-<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/A688CA17-21BB-436F-A099-BE97E4E723DB.png">
-<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1506778553462.jpg">
-<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1506778655119.jpg">
-<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1506779013665.jpg">
-<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/CDF92339-9DB7-4E30-9755-8C074FCA19C6.png">
-<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1506780080102.jpg">
-<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1506780093452.jpg">
-<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1506780105042.jpg">
-<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1506780236693.jpg">
-<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/908A788C-B88E-4611-8457-E4B02705BDD1.png">
-<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1506780615266.jpg">
-<meta property="og:updated_time" content="2018-12-21T06:56:32.000Z">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201030-20.jpg">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201030-18.png">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201030-19.png">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201030-1.png">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201030-2.png">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201030-4.png">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201030-5.png">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201030-3.png">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201030-7.png">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201030-8.png">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201030-9.png">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201030-6.png">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201030-10.png">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201030-11.png">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201030-12.png">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201030-13.png">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201030-14.png">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201030-15.png">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201030-16.png">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/120201030-17.png">
+<meta property="og:updated_time" content="2020-10-30T11:48:42.442Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="登录暴力破解 | 逆向笔记(一)">
-<meta name="twitter:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/reverse-engineering-with-radare2-quick-introduction.1280x600.jpg">
+<meta name="twitter:title" content="Word宏样本分析">
+<meta name="twitter:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201030-20.jpg">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -77,7 +79,7 @@
   };
 </script>
 
-  <title> 登录暴力破解 | 逆向笔记(一) | Demonsec </title>
+  <title> Word宏样本分析 | Demonsec </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -399,7 +401,7 @@
           
           
             
-              登录暴力破解 | 逆向笔记(一)
+              Word宏样本分析
             
           
         </h1>
@@ -408,26 +410,11 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2017-09-30T19:53:19+08:00" content="2017-09-30">
-            2017-09-30
+          <time itemprop="dateCreated" datetime="2020-10-30T18:03:35+08:00" content="2020-10-30">
+            2020-10-30
           </time>
         </span>
 
-        
-          <span class="post-category">
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/逆向/" itemprop="url" rel="index">
-                  <span itemprop="name">逆向</span>
-                </a>
-              </span>
-
-              
-              
-
-            
-          </span>
         
 
         
@@ -435,11 +422,11 @@
             <span class="post-comments-count">
               &nbsp; | &nbsp;
               <!--
-              <a href="/reverse.html#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="reverse.html" itemprop="commentsCount"></span>
+              <a href="/宏样本分析.html#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="宏样本分析.html" itemprop="commentsCount"></span>
               </a>
               -->
-              <a href="/reverse.html#comments" itemprop="discussionUrl">
+              <a href="/宏样本分析.html#comments" itemprop="discussionUrl">
                 <span>评论</span>
               </a>
             </span>
@@ -454,28 +441,54 @@
       
 
       
-        <span itemprop="articleBody"><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/reverse-engineering-with-radare2-quick-introduction.1280x600.jpg" alt="enter description here"><br><a id="more"></a><br>前阵子ONDragon之前在群中了做了一个公开课，我觉得蛮受用的。决定和各位分享下，自己的过程，同时也是给我自己做个笔记。</p>
-<h2 id="1-源代码"><a href="#1-源代码" class="headerlink" title="1.源代码"></a>1.源代码</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">#include &lt;stdio.h&gt;</span></span><br><span class="line"><span class="section">#include &lt;windows.h&gt;</span></span><br><span class="line"><span class="section">#include &lt;stdio.h&gt;</span></span><br><span class="line"><span class="section">#include &lt;iostream&gt;</span></span><br><span class="line">using namespace std;</span><br><span class="line">string userName("ONDragon"), passWord("666");   \\设定用户名密码</span><br><span class="line"><span class="section">#define  Log(str) &#123;&#123;printf("[Log] =&gt; %s\n",str);&#125;&#125;</span></span><br><span class="line">BOOL check(string name, string pass)</span><br><span class="line">&#123;</span><br><span class="line"><span class="code">	if ( name.empty() || pass.empty() )</span></span><br><span class="line"><span class="code">	&#123;</span></span><br><span class="line"><span class="code">		return FALSE;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">	if (name == userName &amp;&amp; pass ==passWord)   \\判断用户名和密码是否正确，逻辑判断</span></span><br><span class="line"><span class="code">	&#123;</span></span><br><span class="line"><span class="code">	 return TRUE;</span></span><br><span class="line"><span class="code">	&#125; </span></span><br><span class="line"><span class="code">	else</span></span><br><span class="line"><span class="code">	&#123;</span></span><br><span class="line"><span class="code">		return FALSE;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line"><span class="code">	Log("Begain Main");   </span></span><br><span class="line"><span class="code">	char name[100];   \\定义用户名和密码是char类型</span></span><br><span class="line"><span class="code">	char pass[100];</span></span><br><span class="line"><span class="code">	while (TRUE)</span></span><br><span class="line"><span class="code">	&#123;</span></span><br><span class="line"><span class="code">		cout &lt;&lt; "Please input your userName :" &lt;&lt; endl;     \\输入用户名和密码</span></span><br><span class="line"><span class="code">		cin &gt;&gt; name;</span></span><br><span class="line"><span class="code">		cout &lt;&lt; "Please input your passWord :" &lt;&lt; endl;</span></span><br><span class="line"><span class="code">		cin &gt;&gt; pass;</span></span><br><span class="line"><span class="code">		if (check(string(name), string(pass)))    \\关键函数check</span></span><br><span class="line">  	&#123;</span><br><span class="line"><span class="code">			Log("Login Successful");   \\登录成功</span></span><br><span class="line"><span class="code">			Sleep(5000);</span></span><br><span class="line"><span class="code">			return 1;</span></span><br><span class="line"><span class="code">		&#125;</span></span><br><span class="line"><span class="code">		else</span></span><br><span class="line"><span class="code">		&#123;</span></span><br><span class="line"><span class="code">			Log("Login Failed");    \\否则失败就会循环重复输入用户名密码</span></span><br><span class="line"><span class="code">		&#125;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">	Log("End Main");</span></span><br><span class="line"><span class="code">	return 0;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>&nbsp;</p>
-<h2 id="2-编译运行"><a href="#2-编译运行" class="headerlink" title="2.编译运行"></a>2.编译运行</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">root@demon:~# ls</span><br><span class="line">  FirstClass.cpp</span><br><span class="line">root@demon:~# i586-mingw32msvc-g++  -o secist.exe FirstClass.cpp</span><br><span class="line">FirstClass.cpp:61:2: warning: no newline at end of file</span><br><span class="line">root@demon:~# wine secist</span><br><span class="line">[Log] =&gt; Begain Main</span><br><span class="line">Please input your userName :</span><br><span class="line">1123</span><br><span class="line">Please input your passWord :</span><br><span class="line">123</span><br></pre></td></tr></table></figure>
-<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/93FEF6CF-4A88-42B7-B0C8-8101C40FC874.png" alt="enter description here"></p>
-<p>因为本机是OSX 懒得用windows下编译，我这里直接用mingw32 编译，用wine运行，结果是输错账户密码，循环让用户输入，直到正确的用户名和密码。<br>&nbsp;</p>
-<h2 id="3-载入IDA"><a href="#3-载入IDA" class="headerlink" title="3.载入IDA"></a>3.载入IDA</h2><p>将secist.exe 拖入IDA查看下流程图，看下程序是如何运行</p>
-<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/3C7D5B10-E2AC-4C0B-BE96-E4ABBCDF5668.png" alt="enter description here"></p>
-<p>这里我们需要将他跳到</p>
-<p>这里很明显可以看到，从程序入口点到键入用户名和密码，是如何循环的<br>1.JNZ : jump if not zero 结果不为零则转移，单标志条件转移，当ZF＝0时转移。<br>2.我们这里需要将它跳转到不为0，也就是z标志位为1<br>&nbsp;</p>
-<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/E666E83C-DBAC-4691-BDD3-7DAC94862F37.png" alt="enter description here"></p>
-<h2 id="4-载入Ollydebug"><a href="#4-载入Ollydebug" class="headerlink" title="4.载入Ollydebug"></a>4.载入Ollydebug</h2><p>接下来我们将程序载入OD 看看。前面我们已经知道程序的整个流程了，我们需要找到jmp的关键处</p>
-<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1506776242908.jpg" alt="enter description here"><br>&nbsp;<br>我们在反汇编窗口，右键，使用字符串搜索功能，搜索关键处。</p>
-<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1506776432739.jpg" alt="enter description here"><br>&nbsp;<br>在搜索处，我们可以看到熟悉的字符串<br>&nbsp;<br><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/A4B2650B-09C8-4607-AC51-8118BA467431.png" alt="enter description here"><br>&nbsp;<br>这里我们可以找<font color="##006000">Login successful </font> ,我们这里双击跟进跟踪，我们找到Login successful相关的汇编代码，在往上看我们可以看到，我们之前在IDA看到的 <font color="##006000">jnz </font> 汇编跳转指令。</p>
-<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/A688CA17-21BB-436F-A099-BE97E4E723DB.png" alt="enter description here"></p>
-<p>我们这里可以使用几种方法。<br>判断后如果不跳，就会到下一个jmp，jmp是无条件跳,既然错误的话，jnz会跳到错误信息,那么我们输入错误后，jz就肯定不跳. (Akkuman师傅教了我也很多)</p>
-<h2 id="修改Z标志位。"><a href="#修改Z标志位。" class="headerlink" title="修改Z标志位。"></a>修改Z标志位。</h2><p>我们来看看 jnz ，也就说jmp not zero（跳转不是0的地方） 现在z标志位为1，需要将其修改为 0.即可实现输入错误信息，就跳转到成功登陆。</p>
-<p>1.我们在 jnz 处下个断点。（断点快捷点F2）<br>&nbsp;<br><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1506778553462.jpg" alt="enter description here"><br>&nbsp;<br>2.我们将其程序运行，输出错误的用户名和密码，断点处，自动断下。<br>&nbsp;<br><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1506778655119.jpg" alt="enter description here"><br>&nbsp;<br>这里我们可以看到Z标注处为1<br><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1506779013665.jpg" alt="enter description here"><br>&nbsp;<br>我们将其z标志位 双击 修改成1<br>&nbsp;<br><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/CDF92339-9DB7-4E30-9755-8C074FCA19C6.png" alt="enter description here"><br>&nbsp;<br><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1506780080102.jpg" alt="enter description here"><br>&nbsp;<br> 我们将其程序运行，显示登录成功<br> &nbsp;<br><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1506780093452.jpg" alt="enter description here"></p>
-<p>程序停止</p>
-<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1506780105042.jpg" alt="enter description here"></p>
-<h2 id="修改汇编指令"><a href="#修改汇编指令" class="headerlink" title="修改汇编指令"></a>修改汇编指令</h2><p>我们重新载入OD ，依旧找到  jnz  位置，双击jnz 处汇编代码，将jnz其修改为je<br><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1506780236693.jpg" alt="enter description here"></p>
-<p>JE——若ZF=1，则跳转，jnz 与je 相反<br>&nbsp;<br><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/908A788C-B88E-4611-8457-E4B02705BDD1.png" alt="enter description here"><br>&nbsp;<br>修改完后，我们将其运行程序，同样得到成功登录<br>&nbsp;<br><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1506780615266.jpg" alt="enter description here"><br>&nbsp;<br>学无止境，有兴趣看OND 老哥的逆向课，可以加入技术群 群号:307283889 ，一起交流技术性探讨。如有文章相关不对的地方，可指出，谢谢！！！</p>
+        <span itemprop="articleBody"><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201030-20.jpg" alt="20"></p>
+<a id="more"></a>
+<h2 id="1-起源"><a href="#1-起源" class="headerlink" title="1.起源"></a>1.起源</h2><p>前段时间看到了一个非常有意思的宏病毒样本分析，决定与各位一起分析一下。</p>
+<p>迄今为止，VBA宏仍然是最流行的攻击媒介之一。本文分析多层混淆的VBA宏，其中包括VBA，WMI对象，Powershell，内联C＃和BYPASS AMSI。</p>
+<h2 id="2-初步分析"><a href="#2-初步分析" class="headerlink" title="2.初步分析"></a>2.初步分析</h2><p>我们首先在十六进制编辑器中检查.DOC。我们可以看到标头以PK开头，表示此类型的文件是ZIP。现代Microsoft Word文档实际上是ZIP文件，如果将文档从.DOC重命名为.ZIP，则可以解压缩内容。</p>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201030-18.png" alt="18"></p>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201030-19.png" alt="19"></p>
+<p>我们首先需要提权文档的vba宏，使用olevba即可提取。</p>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201030-1.png" alt="1"></p>
+<p>经过提取下面的宏 我们发现可以看到VBA代码的格式不正确（很可能是故意的）。因此，我们需要通过替换多余的换行符（“ \ n”），制表符（“ \ t”）和空格（“ \ s”）来对其进行清理，直到获得正确格式的VBA代码为止。这不是运行代码所必需的，但是，如果要在Microsoft Word的开发人员工具中对其进行调试，则需要多行代码才能放置断点。</p>
+<p>经过代码整理，格式化后我们就可以看到以下的内容。</p>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201030-2.png" alt="2"></p>
+<p>我们可以看到以上代码基本都是经过混淆的代码，让我们在Microsoft Word中打开文档。</p>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201030-4.png" alt="4"></p>
+<p>复制替换为我们之前整理的代码</p>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201030-5.png" alt="5"></p>
+<p>同时我们也可以到自动执行的函数的位置。</p>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201030-3.png" alt="3"></p>
+<p>在VBA代码或文档内容，属性或设置中不容易看到/显示。我们首先在“ Sub Document_Open()”函数中放置一个断点。此功能是在打开Word文档时运行的功能。然后，我们运行将在断点处中断的脚本。</p>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201030-7.png" alt="7"></p>
+<p>这两个变量将被读入VBA脚本并进行解码。这是隐藏此脚本功能的地方。第一个变量被解码为WMI对象”winmgmts:\.\root\cimv2:Win32_Process”，该对象负责启动第二个变量的内容</p>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201030-8.png" alt="8"></p>
+<p>第二个变量被解码Powershell。</p>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201030-9.png" alt="9"></p>
+<p>如果我们继续运行脚本，它将最终启动Powershell终端，并使用变量2中的解码脚本。在Powershell启动时，我们可以在系统日志中查看该脚本的内容。</p>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201030-6.png" alt="6"></p>
+<h2 id="3-powershell混淆"><a href="#3-powershell混淆" class="headerlink" title="3.powershell混淆"></a>3.powershell混淆</h2><p>依旧是代码混淆，现在我们已经提取了Powershell，我们可以再次清理一下代码，并通过替换“;”将其分成适当的行。用“; \ n”并固定行距。 </p>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201030-10.png" alt="10"></p>
+<p>Powershell脚本非常简单。从清理后的代码中，我们可以在顶部看到一个去模糊函数，该函数负责解码中间变量中的文本斑点。我们还在脚本的底部看到一个“ Add-Type”行，该行正在调用“ c193b()”函数。这通常用于以与Powershell不同的编程语言来内联脚本。在这种情况下，我们看到脚本已解码了C＃代码</p>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201030-11.png" alt="11"></p>
+<h2 id="4-C-混淆"><a href="#4-C-混淆" class="headerlink" title="4. C#混淆"></a>4. C#混淆</h2><p>到目前为止，我们已经做到了。我们已经运行了启用VBA的Word文档，让它将隐藏的变量解码为通过WMI对象启动的混淆的Powershell，并且对混淆的Powershell进行了查找以找到内联的C＃。我们快完成了。我们可以再次清理反混淆的代码，以便可以将其加载到适当的IDE中并进行调试。在这种情况下，我们拥有C＃，因此我们可以在Visual Studio中启动一个新的C＃项目，并将代码粘贴到“ Hello World”函数之后，如下所示。我们需要将“ using”语句放在顶部，然后将我们混淆处理的“ public class”代码粘贴到main函数下面。</p>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201030-12.png" alt="12"></p>
+<p>从我们的Powershell脚本中，我们看到它正在函数“ c193b()”处调用“ yba2983”类。因此，我们需要将其放置在程序“ Main”中，以便模仿Powershell的切换。确保在“ c193b”函数中放置一个断点，以便可以逐步完成它。</p>
+<h2 id="5-BYPASS-AMSI"><a href="#5-BYPASS-AMSI" class="headerlink" title="5.BYPASS AMSI"></a>5.BYPASS AMSI</h2><p>防恶意软件扫描接口（AMSI）是更高版本的Microsoft Windows附带的系统保护，可帮助防御这些类型的攻击。Microsoft将AMSI描述为：</p>
+<blockquote>
+<p>Windows反恶意软件扫描接口（AMSI）是一种通用接口标准，允许您的应用程序和服务与计算机上存在的任何反恶意软件产品集成。AMSI为您的最终用户及其数据，应用程序和工作负载提供了增强的恶意软件防护。</p>
+</blockquote>
+<p>简单来说，“ amsi.dll”在系统上运行，并通过AmsiScanBuffer API强制所有脚本输出。因此，我们将在AmsiScanBuffer接口中检查我们发现的所有模糊文本，以进行可疑/恶意操作。如果找到任何内容，AMSI将拒绝执行脚本。有保护的地方就有旁路，这正是我们在C＃代码开头找到的内容。</p>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201030-13.png" alt="13"></p>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201030-14.png" alt="14"></p>
+<p>这个特殊的<strong>bypass</strong>尝试使用<strong>“ amsi.dll”</strong>作为目标来调用“ loadlibrary”。如果成功，则表明系统上存在AMSI。接下来，代码将为AmsiScanBuffer接口调用“ GetProcAddress”，通过调用“ VirtualProtect”来取消保护其内存区域，然后通过对“ RtlMoveMemory”的调用有选择地修补“ amsi.dll”。通过修补“ amsi.dll”，他们删除了阻止脚本运行的保护性检查。 </p>
+<h2 id="6-终止"><a href="#6-终止" class="headerlink" title="6.终止"></a>6.终止</h2><p>如果我们继续调试C＃代码，我们最终将对最终变量进行模糊处理，并显示预期下载的URL。</p>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201030-15.png" alt="15"></p>
+<p><strong>由于服务器关闭并没有接下去进行分析</strong>，代码将创建一个新的WebClient连接，将可执行文件下载到一个临时空间中，并启动该过程。该恶意软件的第二阶段可能是远程访问特洛伊木马（RAT），银行恶意软件，勒索软件等。但是，本文的目的是演示如何分析第一阶段，而不遵循第二阶段的下载。</p>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201030-16.png" alt="16"></p>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/120201030-17.png" alt="17"></p>
+<h2 id="参考链接："><a href="#参考链接：" class="headerlink" title="参考链接："></a>参考链接：</h2><p>样本下载地址<a href="https://app.any.run/tasks/cca3277b-8f2d-43c4-9006-457af9be1883/" target="_blank" rel="noopener">https://app.any.run/tasks/cca3277b-8f2d-43c4-9006-457af9be1883/</a></p>
+<p>文章参考：<a href="https://www.ringzerolabs.com/2020/10/obfuscated-vba-powershell-c.html" target="_blank" rel="noopener">https://www.ringzerolabs.com/2020/10/obfuscated-vba-powershell-c.html</a></p>
 </span>
       
     </div>
@@ -484,7 +497,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/逆向/" rel="tag">#逆向</a>
+            <a href="/tags/Windows/" rel="tag">#Windows</a>
           
         </div>
       
@@ -493,13 +506,13 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/reverse2.html" rel="prev">登录暴力破解 | 逆向笔记(二)</a>
+              <a href="/jishu.html" rel="prev">即刻安全纯技术交流群</a>
             
 </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/POC-calc.html" rel="next">POC_calc | window 10</a>
+              <a href="/滥用WINDOWS TELEMETRY以实现持久化并提权.html" rel="next">滥用WINDOWS TELEMETRY以实现持久化并提权</a>
             
           </div>
         </div>
@@ -668,7 +681,7 @@
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="reverse.html" data-title="登录暴力破解 | 逆向笔记(一)" data-url="www.ggsec.cn/reverse.html">
+              <div class="ds-thread" data-thread-key="宏样本分析.html" data-title="Word宏样本分析" data-url="www.ggsec.cn/宏样本分析.html">
               </div>
             
           </div>
@@ -802,7 +815,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-源代码"><span class="nav-number">1.</span> <span class="nav-text">1.源代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-编译运行"><span class="nav-number">2.</span> <span class="nav-text">2.编译运行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-载入IDA"><span class="nav-number">3.</span> <span class="nav-text">3.载入IDA</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-载入Ollydebug"><span class="nav-number">4.</span> <span class="nav-text">4.载入Ollydebug</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改Z标志位。"><span class="nav-number">5.</span> <span class="nav-text">修改Z标志位。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改汇编指令"><span class="nav-number">6.</span> <span class="nav-text">修改汇编指令</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-起源"><span class="nav-number">1.</span> <span class="nav-text">1.起源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-初步分析"><span class="nav-number">2.</span> <span class="nav-text">2.初步分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-powershell混淆"><span class="nav-number">3.</span> <span class="nav-text">3.powershell混淆</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-C-混淆"><span class="nav-number">4.</span> <span class="nav-text">4. C#混淆</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-BYPASS-AMSI"><span class="nav-number">5.</span> <span class="nav-text">5.BYPASS AMSI</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-终止"><span class="nav-number">6.</span> <span class="nav-text">6.终止</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考链接："><span class="nav-number">7.</span> <span class="nav-text">参考链接：</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
