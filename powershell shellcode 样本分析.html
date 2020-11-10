@@ -40,14 +40,13 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1">
 
 
-<meta name="description" content="1.起源前段时间找了一些样本分析的工具，有时候用起来不是很顺手，当我找到PCsXcetra发布的工具时，感觉比较顺手些。 我在GitHub上同时也找到了PCsXcetra对使用他的工具对样本的分析是如何事半功倍的。 本文将大体讲述相关样本分析工具而本文使用到的工具均为PCsXcetra的所在Derbycon 2019大会发布的相关工具。 https://github.com/PCsXcetra/">
 <meta name="keywords" content="windows">
 <meta property="og:type" content="article">
 <meta property="og:title" content="powershell shellcode 样本分析">
 <meta property="og:url" content="www.ggsec.cn/powershell shellcode 样本分析.html">
 <meta property="og:site_name" content="Demonsec">
-<meta property="og:description" content="1.起源前段时间找了一些样本分析的工具，有时候用起来不是很顺手，当我找到PCsXcetra发布的工具时，感觉比较顺手些。 我在GitHub上同时也找到了PCsXcetra对使用他的工具对样本的分析是如何事半功倍的。 本文将大体讲述相关样本分析工具而本文使用到的工具均为PCsXcetra的所在Derbycon 2019大会发布的相关工具。 https://github.com/PCsXcetra/">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/BDC93AC118C9144F16783F634F3C4F1B.jpg">
 <meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201110-1.png">
 <meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201110-2.png">
 <meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201110-3.png">
@@ -70,11 +69,10 @@
 <meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201110-20.png">
 <meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201110-21.png">
 <meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201110-22.png">
-<meta property="og:updated_time" content="2020-11-10T13:24:00.964Z">
+<meta property="og:updated_time" content="2020-11-10T13:32:02.782Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="powershell shellcode 样本分析">
-<meta name="twitter:description" content="1.起源前段时间找了一些样本分析的工具，有时候用起来不是很顺手，当我找到PCsXcetra发布的工具时，感觉比较顺手些。 我在GitHub上同时也找到了PCsXcetra对使用他的工具对样本的分析是如何事半功倍的。 本文将大体讲述相关样本分析工具而本文使用到的工具均为PCsXcetra的所在Derbycon 2019大会发布的相关工具。 https://github.com/PCsXcetra/">
-<meta name="twitter:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201110-1.png">
+<meta name="twitter:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/BDC93AC118C9144F16783F634F3C4F1B.jpg">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -461,7 +459,9 @@
       
 
       
-        <span itemprop="articleBody"><h2 id="1-起源"><a href="#1-起源" class="headerlink" title="1.起源"></a>1.起源</h2><p>前段时间找了一些样本分析的工具，有时候用起来不是很顺手，当我找到PCsXcetra发布的工具时，感觉比较顺手些。</p>
+        <span itemprop="articleBody"><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/BDC93AC118C9144F16783F634F3C4F1B.jpg" alt="222"></p>
+<a id="more"></a>
+<h2 id="1-起源"><a href="#1-起源" class="headerlink" title="1.起源"></a>1.起源</h2><p>前段时间找了一些样本分析的工具，有时候用起来不是很顺手，当我找到PCsXcetra发布的工具时，感觉比较顺手些。</p>
 <p>我在GitHub上同时也找到了PCsXcetra对使用他的工具对样本的分析是如何事半功倍的。</p>
 <p>本文将大体讲述相关样本分析工具而本文使用到的工具均为PCsXcetra的所在Derbycon 2019大会发布的相关工具。</p>
 <p><a href="https://github.com/PCsXcetra/DerbyCon-2019Files" target="_blank" rel="noopener">https://github.com/PCsXcetra/DerbyCon-2019Files</a></p>

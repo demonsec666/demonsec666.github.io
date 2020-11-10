@@ -3609,62 +3609,12 @@
 
       
         
-          <span itemprop="articleBody"><h2 id="1-起源"><a href="#1-起源" class="headerlink" title="1.起源"></a>1.起源</h2><p>前段时间找了一些样本分析的工具，有时候用起来不是很顺手，当我找到PCsXcetra发布的工具时，感觉比较顺手些。</p>
-<p>我在GitHub上同时也找到了PCsXcetra对使用他的工具对样本的分析是如何事半功倍的。</p>
-<p>本文将大体讲述相关样本分析工具而本文使用到的工具均为PCsXcetra的所在Derbycon 2019大会发布的相关工具。</p>
-<p><a href="https://github.com/PCsXcetra/DerbyCon-2019Files" target="_blank" rel="noopener">https://github.com/PCsXcetra/DerbyCon-2019Files</a></p>
-<p>接下来让我们看看PCsXcetra他是如何分析和合理使用他的工具的。</p>
-<h2 id="2-样本1"><a href="#2-样本1" class="headerlink" title="2.样本1"></a>2.样本1</h2><p>接下来我们看一下这个样本在2018年11月份的powershell样本。首先我们可以清楚的看到整段代码为powershell 解码base64执行。</p>
-<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201110-1.png" alt="1"></p>
-<p>解码</p>
-<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201110-2.png" alt="2"></p>
-<p>代码整理后发现有一段还是有base64字符串</p>
-<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201110-3.png" alt="3"></p>
-<p>之后，我们得到一个Powershell脚本Gzip流。解压缩后，我们看到了这一点。</p>
-<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201110-4.png" alt="4"></p>
-<p>代码整理后，以及看到base64代码段。</p>
-<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201110-5.png" alt="5"></p>
-<p>在这里，我们看到一个base64编码的字符串。这是我们编码的shellcode。它将被加载到虚拟内存中并运行。确切的实现可能会有所不同，但这是我最常看到的。</p>
-<p>那把我们带到了我们想要的shellcode。现在我们可以将base64解码为十六进制。</p>
-<p>使用PCsXcetra的 base64encode 转换。</p>
-<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201110-8.png" alt="8"></p>
-<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201110-7.png" alt="7"></p>
-<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201110-6.png" alt="6"></p>
-<p>这里发现没有任何信息。</p>
-<p>尝试CyberChef 并查看程序集</p>
-<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201110-12.png" alt="12"></p>
-<p>好吧，这似乎也没有太大帮助。</p>
-<p>那么现在怎么办。</p>
-<p>新工具。</p>
-<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201110-9.png" alt="9"></p>
-<p>这里选择hex ，得到信息为  一个IP地址和端口</p>
-<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201110-10.png" alt="10"></p>
-<p>同样我们这里可以使用选择bas64选项，得出来的结果和上面一样</p>
-<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201110-11.png" alt="11"></p>
-<h2 id="3-样本2"><a href="#3-样本2" class="headerlink" title="3.样本2"></a>3.样本2</h2><p>该样本在最初是由Paul Melson（PaulM @pmelson）ScumBots @ScumBots机器人在pastebin上发现的，并上传到Virus Total。</p>
-<p>当我们第一次查看此脚本时，我们会注意到的是，它以一个非常大base64字符串。第二件事是将它与字符串“ +”分开，以使自动base64解码器混乱，后者无法处理将字符串放回并先删除它们的情况。</p>
-<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201110-13.png" alt="13"></p>
-<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201110-14.png" alt="14"></p>
-<p>清理完base64字符串并进行base64解码后，我们看到了这一点。</p>
-<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201110-15.png" alt="15"></p>
-<p>我们可以看到其中嵌入了base64编码的可执行文件。让我们先提取并快速浏览一下。</p>
-<p>看来脚本将加载此Dll，这是AMSI Bypass方法，然后将加载shellcode。</p>
-<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201110-16.png" alt="16"></p>
-<p>现在，让我们仔细看看这个shellcode。它不是以常规的“ 0xFC”开头。</p>
-<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201110-17.png" alt="17"></p>
-<p>这很难看懂，其中发生了什么，那么我们用一款格式化工具看看，所以让我们对其进行一些格式化以更好地去查看代码。</p>
-<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201110-18.png" alt="18"></p>
-<p>我们可以看到该shellcode已被拆分为多个数组，如图所示</p>
-<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201110-19.png" alt="19"></p>
-<p>并将在运行时重新组合shellcode。</p>
-<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201110-20.png" alt="20"></p>
-<p>现在已经重新组合好shellcode了，我们现在可以将其输入到我们的工具中以获取IP/URL。</p>
-<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201110-21.png" alt="21"></p>
-<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201110-22.png" alt="22"></p>
-<p>还有API调用。因此它也将帮助您更深入地了解调用的内容，从而可能有助于更好地了解其功能，而不仅仅是在沙盒中运行可能显示的IP或Url。</p>
-<p>参考链接：</p>
-<p><a href="https://pcsxcetrasupport3.wordpress.com/2019/07/07/those-pesky-powershell-shellcodes-and-how-to-understand-them/" target="_blank" rel="noopener">https://pcsxcetrasupport3.wordpress.com/2019/07/07/those-pesky-powershell-shellcodes-and-how-to-understand-them/</a></p>
-</span>
+          <p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/BDC93AC118C9144F16783F634F3C4F1B.jpg" alt="222"></p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/powershell shellcode 样本分析.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
