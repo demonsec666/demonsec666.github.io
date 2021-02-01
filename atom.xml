@@ -45,6 +45,28 @@
   </entry>
   
   <entry>
+    <title>rtf样本混淆分析</title>
+    <link href="www.ggsec.cn/rtf%E6%81%B6%E6%84%8F%E6%A0%B7%E6%9C%AC%E9%9D%99%E6%80%81%E5%88%86%E6%9E%90.html"/>
+    <id>www.ggsec.cn/rtf恶意样本静态分析.html</id>
+    <published>2021-02-01T10:34:14.000Z</published>
+    <updated>2021-02-01T14:15:38.003Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/WechatIMG9.jpeg" alt="enter description here"><br><a id="more"></a></p><h2 id="1-起源"><a href="#1-起源" class="headerlink" title="1.起源"></a>1.起源</h2><p>前几天一位推友发布推文一个恶意样本弹框 大概意思是不能在any run 沙箱中运行</p><p>   <img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201-01-29-2.png" alt="2"></p><p>结果推友当时就在any run 沙箱上传运行。也是比较有意思的样本</p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201-01-29-1.png" alt="1"></p><h2 id="2-样本分析"><a href="#2-样本分析" class="headerlink" title="2.样本分析"></a>2.样本分析</h2><p>既然这么搞笑，就我们一起来分析这个恶意样本吧</p><p>本文从静态的角度分析样本。</p><p>首先我们考虑使用010编辑器查看，结果发现为rtf的文件</p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201-01-29-18.png" alt="20201-01-29-18"></p><p>那么我们这里使用oletools 套件中个的rtfobj查看，结果发现它中包含vbs文件</p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201-01-29-5.png" alt="20201-01-29-5"></p><p>那么我们对其进行dump下来vbs文件</p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201-01-29-3.png" alt="3"></p><h2 id="3-VBS混淆"><a href="#3-VBS混淆" class="headerlink" title="3.VBS混淆"></a>3.VBS混淆</h2><p>下面我们来分析vbs的内容，由于代码过于冗长，不便截图，我这里就挑重点讲。</p><p>下图我们可以看到vbs代码中一个红框包含了字符串的内容为powershell，第二个红框也是为powershell的代码，其中vbs对其进行拼接、替换字符串、以及字符串倒序。 </p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201-01-29-4.png" alt="4"></p><p>那么我们重新整理vbs的代码对其进行输出到控制台</p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201-01-29-6.png" alt="20201-01-29-6"></p><p>这里我们调用cscript 执行我们重新整理好的vbs，结果完整的powershell代码就输出出来了。</p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201-01-29-7.png" alt="5"></p><h2 id="4-powershell混淆-一"><a href="#4-powershell混淆-一" class="headerlink" title="4.powershell混淆(一)"></a>4.powershell混淆(一)</h2><p>我们可以看到该powershell的内容为混淆，但是我们可以对其进行解码混淆就是，去掉最后面的 I’E’X字符串</p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201-01-29-8.png" alt="20201-01-29-8"></p><p>那么我们重新整理之后的代码为下图输出后的内容</p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201-01-29-19.png" alt="20201-01-29-19"></p><p>下面我们来分析解码混淆后的代码，第一行代码为字符串拼接，为第一个红框注释的内容，为bypass asmi，第二个红框为下载执行base64加密的文件</p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201-01-29-9.png" alt="20201-01-29-9"></p><p>下图为base64的文件</p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201-01-29-10.png" alt="20201-01-29-10"></p><h2 id="5-powershell混淆-二"><a href="#5-powershell混淆-二" class="headerlink" title="5.powershell混淆(二)"></a>5.powershell混淆(二)</h2><p>我们对其进行解码后，为下图代码</p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201-01-29-11.png" alt="20201-01-29-11"></p><p>由于代码过于冗长我们挑几个重点讲解，我们看到下图中的红框1f,8b开头的数据 为gzip</p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201-01-29-12.png" alt="20201-01-29-12"></p><p>而下图 4d，5a开头的数据为我们熟悉PE文件</p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201-01-29-13.png" alt="20201-01-29-13"></p><p>下图为分离后的文件</p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201-01-29-14.png" alt="20201-01-29-14"></p><p>同时我们也对其进行解压，发现解压后的文件也是exe/dll文件</p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201-01-29-15.png" alt="20201-01-29-15"></p><p>下图为在010编辑器中的内容</p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201-01-29-16.png" alt="20201-01-29-16"></p><p>下图为在powershell中我们第二个红框的pe文件</p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201-01-29-17.png" alt="20201-01-29-17"></p><p>所以最终的文件为，一个c#编写的dll，和一个exe文件</p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201-01-29-21.png" alt="20201-01-29-21"></p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201-01-29-22.png" alt="20201-01-29-22"></p><p>我没有对其进行下一步的分析，因为也超出本文的含义分析范畴。大体可以猜测为后门文件。</p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201-01-29-23.png" alt="20201-01-29-23"></p><p>最后在powershell的代码中我们，调用control.exe运行第二个exe，为bypass applocker的行为方式。</p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20201-01-29-20.png" alt="20201-01-29-20"></p><p>总体来说该powershell代码具体的内容如下：</p><p>1.bypass asmi</p><p>2.下载解码执行base64文件</p><p>3.解码后释放两个后门文件</p><p>4.bypass applocker</p><h2 id="6-IOC"><a href="#6-IOC" class="headerlink" title="6.IOC"></a>6.IOC</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">MALWARE INFO</span><br><span class="line"></span><br><span class="line">- MD5: a649a8b1d9cb4bef0acadabc2b1fa864</span><br><span class="line">- File name: invoice.doc</span><br><span class="line">- File description: rtf</span><br><span class="line"></span><br><span class="line">- MD5: 00fa1544790efd966a7b3e74922e3ded</span><br><span class="line">- File location:  C:\\fakepath\\Client.vbs</span><br><span class="line">- File name: Client.vbs</span><br><span class="line">- File description: vbs混淆包含powershell代码</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">- MD5: d72dd093179e5d87ff7b78e34be5356e</span><br><span class="line">- File name: fine_base64.jpg</span><br><span class="line">- File location：http://108.61.166.11/m/fine.jpg</span><br><span class="line">- File description: base64加密的powershell代码</span><br><span class="line"></span><br><span class="line">- MD5: 5bc66dba582e2f787ba8a154ba731123</span><br><span class="line">- File name: MALWARE.gz</span><br><span class="line">- File description: gzip压缩包包含MALWARE.DLL</span><br><span class="line"></span><br><span class="line">- MD5: 9f0fd70fad2d371b74dab910e3f4ff92</span><br><span class="line">- File name: msbuild.DLL</span><br><span class="line"></span><br><span class="line">- MD5: 10ae54ef15948d730a7f73813a228adf</span><br><span class="line">- File name: MALWARE.exe</span><br><span class="line">- File description: jpg文件释放</span><br><span class="line"></span><br><span class="line">Connections </span><br><span class="line"> IP 108.61.166.11 </span><br><span class="line"> </span><br><span class="line">HTTP/HTTPS 请求  </span><br><span class="line"> URL http://108.61.166.11/m/fine.jpg</span><br></pre></td></tr></table></figure><h1 id="链接："><a href="#链接：" class="headerlink" title="链接："></a>链接：</h1><p><a href="https://app.any.run/tasks/9f3895b5-6ae1-4ac1-b829-b50202985e3d/" target="_blank" rel="noopener">https://app.any.run/tasks/9f3895b5-6ae1-4ac1-b829-b50202985e3d/</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;https://demonsec666.oss-cn-qingdao.aliyuncs.com/WechatIMG9.jpeg&quot; alt=&quot;enter description here&quot;&gt;&lt;br&gt;
+    
+    </summary>
+    
+      <category term="windows" scheme="www.ggsec.cn/categories/windows/"/>
+    
+    
+      <category term="windows" scheme="www.ggsec.cn/tags/windows/"/>
+    
+  </entry>
+  
+  <entry>
     <title>分辨Emotet银行木马感染流量</title>
     <link href="www.ggsec.cn/%E5%88%86%E8%BE%A8Emotet%E6%84%9F%E6%9F%93%E6%B5%81%E9%87%8F.html"/>
     <id>www.ggsec.cn/分辨Emotet感染流量.html</id>
@@ -400,28 +422,6 @@
     <summary type="html">
     
       &lt;p&gt;&lt;img src=&quot;https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_20190823_205947.jpg&quot; alt=&quot;enter description here&quot;&gt;&lt;br&gt;
-    
-    </summary>
-    
-      <category term="windows" scheme="www.ggsec.cn/categories/windows/"/>
-    
-    
-      <category term="windows" scheme="www.ggsec.cn/tags/windows/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Slackc2-SecistSploit</title>
-    <link href="www.ggsec.cn/Slackc2.html"/>
-    <id>www.ggsec.cn/Slackc2.html</id>
-    <published>2019-08-22T13:45:23.000Z</published>
-    <updated>2019-08-22T14:00:13.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/354B06159AA7196E0F0FC10CE498DE21.jpg" alt="enter description here"></p><a id="more"></a><h2 id="视频演示："><a href="#视频演示：" class="headerlink" title="视频演示："></a>视频演示：</h2><p><div style="width:640px;height:480px;margin:0 auto;" id="ivaLive"></div></p><script type="text/javascript" src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/cytron.core.js"></script><script>    var ivaInstance = new Iva('ivaLive', {        appkey: 'By9WGzBIx', //应用标示        video: 'https://demonsec666.oss-cn-qingdao.aliyuncs.com/Slackc2.mp4', //视频        title: 'test', //视频标题，后台视频管理中的标题        cover: '' //视频封面，只有在autoplay:false才可生效    });</script><script src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/lva.js"></script><p>感谢WBGIII 和我一起开发了 wikipedia 和slack 的C2，由于我们不断debug，得出这份视频的内容。</p><p>参考资料 ： <a href="https://github.com/bkup/SlackShell" target="_blank" rel="noopener">https://github.com/bkup/SlackShell</a></p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1566481976821.jpg" alt="enter description here"></p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1566481909147.jpg" alt="enter description here"></p><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/1566481939849.jpg" alt="enter description here"></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;https://demonsec666.oss-cn-qingdao.aliyuncs.com/354B06159AA7196E0F0FC10CE498DE21.jpg&quot; alt=&quot;enter description here&quot;&gt;&lt;/p&gt;
     
     </summary>
     
