@@ -1,0 +1,291 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>win/mac/linux--渗透神器(中) | Demon</title><meta name="author" content="Demon"><meta name="copyright" content="Demon"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="article">
+<meta property="og:title" content="win&#x2F;mac&#x2F;linux--渗透神器(中)">
+<meta property="og:url" content="https://www.ggsec.cn/docker-kali.html">
+<meta property="og:site_name" content="Demon">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/default_cover1.jpg">
+<meta property="article:published_time" content="2017-01-31T13:05:36.000Z">
+<meta property="article:modified_time" content="2018-12-21T06:56:05.000Z">
+<meta property="article:author" content="Demon">
+<meta property="article:tag" content="kali">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://demonsec666.oss-cn-qingdao.aliyuncs.com/default_cover1.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://www.ggsec.cn/docker-kali"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-left"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'win/mac/linux--渗透神器(中)',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2018-12-21 14:56:05'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Demon" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/default_avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">159</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">11</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fa-sharp fa-solid fa-pen"></i><span> 文章</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于我</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://demonsec666.oss-cn-qingdao.aliyuncs.com/default_cover1.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Demon</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fa-sharp fa-solid fa-pen"></i><span> 文章</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于我</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">win/mac/linux--渗透神器(中)</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2017-01-31T13:05:36.000Z" title="发表于 2017-01-31 21:05:36">2017-01-31</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2018-12-21T06:56:05.000Z" title="更新于 2018-12-21 14:56:05">2018-12-21</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/kali/">kali</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="win/mac/linux--渗透神器(中)"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_0574.JPG" alt="enter description here"></p>
+<span id="more"></span>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=992604&auto=0&height=66"></iframe>
+&nbsp;
+&nbsp;
+ <span style="color: #ff0000;">背景知识科普：</span>
+<p class="p1"><span class="s1"><strong><span style="color: #008000;">Docker</span> 是一个开源的应用容器引擎</strong>，让开发者可以打包他们的应用以及依赖包到一个可移植的容器中，然后</span>发布到任何流行的 <a target="_blank" rel="noopener external nofollow noreferrer" href="http://baike.baidu.com/view/1634.htm">Linux</a> 机器上，也可以实现<a target="_blank" rel="noopener external nofollow noreferrer" href="http://baike.baidu.com/view/729629.htm">虚拟化</a>。容器是完全使用<a target="_blank" rel="noopener external nofollow noreferrer" href="http://baike.baidu.com/subview/720343/13998082.htm">沙箱</a>机制，相互之间不会有任何接口。</p>
+
+<div class="para-title level-3">
+<div>
+<div><strong><span style="color: #008000;">1、虚拟化容器的优势</span></strong></div>
+</div>
+<div>随着公有云的普及，开发者越来越需要一个快速迁移和高速构建应用的环境。 现在开发者需要能方便地创建运行在云平台上的应用，也就是说应用必须能够脱离底层机器。 而且同时必须是方便获取的。因此，开发者们需要一种创建分布式应用程序的方式，这也是Docker所能够提供的。</div>
+<div>举个例子： 我在项目中同一台服务器中同时运行了nginx，forum&amp;wiki（node.js），meteor server（meteor.js）。每个服务又依赖大量的第三方库，如果用传统的方式进行部署。则需要安装大量的依赖模块，费时费力。假如我需要在国外的AWS及国内的阿里云上同时部署多台机器。或者从某个公有云服务商迁移到另外一个服务商。这中间的重复劳动是很让人抵触的。抛开让人生厌的重复劳动，服务之间也有可能因此互相“污染”导致性能下降甚至服务异常。而Docker提供了一种更为聪明的方式，通过容器来打包应用，意味着迁移只需要在新的服务器上启动需要的容器就可以了。这无疑将节约大量的宝贵时间，并降低部署过程出现问题的风险。</div>
+<div></div>
+<div>
+
+<p><span style="color: #008000;">2、Docker在开发和运维中的优势</span></p>
+<p>对开发和运维（DevOps）人员来说，可能最梦寐以求的就是一次性地创建或配置，可以在任意环境、任意时间让应用正常地运行。而Docker恰恰是可以实现这一终极目标的瑞士军刀。</p>
+<p>具体说来，Docker在开发和运维过程中，具有如下几个方面的优势。</p>
+<p>更快速的交付和部署。使用Docker，开发人员可以使用镜像来快速构建一套标准的开发环境；比如在项目开发过程中我会先用Docker将代码部署到本地进行测试验证。使用Docker在本地轻松搭建出的和服务器类似的架构，使开发环境中的测试更贴近于生产环境。开发完成之后，测试和运维人员可以直接使用相同环境来部署代码。Docker可以快速创建和删除容器，实现快速迭代，大量节约开发、测试、部署的时间。并且，各个步骤都有明确的配置和操作，整个过程全程可见，使团队更容易理解应用的创建和工作过程。</p>
+<p>更高效的资源利用。Docker容器的运行不需要额外的虚拟化管理程序（Virtual Machine Manager，VMM，以及Hypervisor）支持，它是内核级的虚拟化，可以实现更高的性能，同时对资源的额外需求很低。</p>
+<p>更轻松的迁移和扩展。Docker容器几乎可以在任意的平台上运行，包括物理机、虚拟机、公有云、私有云、个人电脑、服务器等。 利用这种兼容性让用户可以在不同平台之间轻松地迁移应用。</p>
+<p>更简单的更新管理。使用Dockerfile，只需要小小的配置修改，就可以替代以往大量的更新工作。并且所有修改都以增量的方式进行分发和更新，从而实现自动化并且高效的容器管理。</p>
+<p><strong><span style="color: #008000;">3、Docker与虚拟机比较</span></strong></p>
+<p>作为一种轻量级的虚拟化方式，Docker在运行应用上跟传统的虚拟机方式相比具有显著优势：</p>
+<p>Docker容器很快，启动和停止可以在秒级实现，这相比传统的虚拟机方式要快得多。</p>
+<p>Docker容器对系统资源需求很少，一台主机上可以同时运行数千个Docker容器。</p>
+<p>Docker通过类似Git的操作来方便用户获取、分发和更新应用镜像，指令简明，学习成本较低。</p>
+<p>Docker通过Dockerfile配置文件来支持灵活的自动化创建和部署机制，提高工作效率。</p>
+<p>Docker容器除了运行其中的应用之外，基本不消耗额外的系统资源，保证应用性能的同时，尽量减小系统开销。传统虚拟机方式运行N个不同的应用就要启动N个虚拟机（每个虚拟机需要单独分配独占的内存、磁盘等资源），而Docker只需要启动N个隔离的容器，并将应用放到容器内即可。</p>
+<p>当然，在隔离性方面，传统的虚拟机方式多了一层额外的隔离。但这并不意味着Docker就不安全。Docker利用Linux系统上的多种防护机制实现了严格可靠的隔离。从1.3版本开始，Docker引入了安全选项和镜像签名机制，极大地提高了使用Docker的安全性。</p>
+</div>
+</div>
+![enter description here][2]
+<div class="para"><strong><span style="color: #008000;">docker 多开终端：资源消耗的状态。</span></strong></div>
+<div class="para">
+<pre class="lang:vim decode:true">CONTAINER           CPU %               MEM USAGE / LIMIT       MEM %               NET I/O             BLOCK I/O           PIDS
+bb27f8c0cf22        0.03%               262.2 MiB / 1.951 GiB   13.12%              648 B / 648 B       4.096 kB / 0 B      12
+
+
+<p></pre></p>
+</div>
+![enter description here][3]
+
+<p class="p1">官方链接：https://www.kali.org/news/official-kali-linux-docker-images/</p>
+&nbsp;
+&nbsp;
+   &nbsp;&nbsp;&nbsp;&nbsp;                         <span style="color: #008000;">    Docker从入门到夺门而逃 </span>
+
+<p><span style="color: #ff0000;">一.安装docker_kali …..</span></p>
+<p>安装之前需要去docker官方网站下载docker,进行安装，我这边安装的是mac版docke<br><a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.docker.com/">https://www.docker.com/</a></p>
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_0577.JPG" alt="enter description here"><br>&amp;nbsp;<br><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_0578.JPG" alt="enter description here"><br>&amp;nbsp;<br> <span style="color: #008000;">  二.安装完后开始下载拉取kali镜像，比较小巧大概几百M左右</span></p>
+<p class="p1">使用官方一下命令：即可获取相应镜像</p>
+
+<pre class="lang:vim decode:true ">docker pull kalilinux/kali-linux-docker</pre>
+<p class="p1">或者</p>
+
+<pre class="lang:vim decode:true ">docker run -t -i kalilinux/kali-linux-docker /bin/bash</pre>
+<p class="p1">下载完后即可进入kali_linux 终端下</p>
+![enter description here][6]
+&nbsp;
+&nbsp;
+ <span style="color: #008000;">  三. 绑定Docker 随机ID，以及配置kali</span>
+![enter description here][7]
+<pre class="lang:vim decode:true">root@bb27f8c0cf22:/# exit</pre>
+&nbsp;
+&nbsp;
+ <span style="color: #008000;">  四. 开启docker，使用attach命令连接容器</span>
+开启容器 <span style="color: #ff0000;">docker start <strong>&lt;容器名&gt;或者&lt;id&gt;</strong></span>
+<pre class="lang:vim decode:true">demonMacbookPro:~ demon$ docker start kali
+</pre>
+链接docker容器  格式为：<span style="color: #ff0000;"><strong>docker attach &lt;容器名&gt;或者&lt;id&gt;</strong></span>
+<pre class="lang:vim decode:true">demonMacbookPro:~ demon$ docker attach kali</pre>
+<p class="p1">进入docker</p>
+
+<pre class="lang:vim decode:true ">root@bb27f8c0cf22:/#</pre>
+<p>&amp;nbsp;<br>&amp;nbsp;<br> <span style="color: #008000;">  五. 配置docker_kali以及优化<br></span><br>1.更新源以及安装相应的工具，这里的源使用官方源即可</p>
+<p><strong>更新源</strong></p>
+<pre class="lang:vim decode:true ">root@bb27f8c0cf22:/# apt-get update  
+Get:1 http://mirrors.neusoft.edu.cn/kali kali-rolling InRelease [30.5 kB]
+Get:2 http://mirrors.neusoft.edu.cn/kali kali-rolling/non-free Sources [126 kB]
+Get:3 http://mirrors.neusoft.edu.cn/kali kali-rolling/contrib Sources [67.7 kB]
+Get:4 http://mirrors.neusoft.edu.cn/kali kali-rolling/main Sources [11.1 MB]   
+Get:5 http://mirrors.neusoft.edu.cn/kali kali-rolling/main amd64 Packages [15.0 MB]
+Get:6 http://mirrors.neusoft.edu.cn/kali kali-rolling/contrib amd64 Packages [106 kB]
+Get:7 http://mirrors.neusoft.edu.cn/kali kali-rolling/non-free amd64 Packages [164 kB]
+Fetched 26.6 MB in 23s (1116 kB/s)                                             
+Reading package lists... Done
+root@bb27f8c0cf22:/#</pre>
+<p class="p1">安装想要的工具 比如<strong><span style="color: #008000;">sqlmap</span></strong></p>
+
+<pre class="lang:vim decode:true ">root@bb27f8c0cf22:/# apt-get install sqlmap</pre>
+<p class="p1">再比如 我这人比较懒，想把kali的工具全部搬过来，全部使用上，使用以下命令。<strong><span style="color: #008000;">安装kali所有的工具</span></strong></p>
+
+<pre class="lang:vim decode:true ">root@bb27f8c0cf22:/# apt-get install kali-linux-all</pre>
+<p class="p1">下载完，大概10G左右的安装包</p>
+<p class="p1">另外值得说的是如果msf 里面没有启动数据 请启动相应的数据库</p>
+<p class="p1">查看相应教程链接：http://www.mamicode.com/info-detail-1208947.html</p>
+&nbsp;
+&nbsp;
+ <span style="color: #008000;">  六. docker容器上传下载文件
+</span>
+docker是个封闭的容器。上传和下载也是一个比较麻烦的事。我自己想了一个办法就是把我的物理机  mac系统作为<span style="color: #008000;">ssh 上传下载的地方</span>
+
+<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_0580.JPG" alt="enter description here"></p>
+<p>我这边已经建立了<span style="color: #008000;">ssh通道</span>，不会建立ssh ，查询相关操作系统建立ssh文档。</p>
+<pre class="lang:vim decode:true ">root@bb27f8c0cf22:/# ssh demon@192.168.1.108
+Password:
+Last login: Wed Feb  1 06:21:59 2017
+demonMacbookPro:~ demon$ exit 
+logout
+Connection to 192.168.1.108 closed.
+root@bb27f8c0cf22:/#</pre>
+<p class="p1">从服务器下载文件 ：<span style="color: #008000;">scp  用户名@ssh建立的ip的地址:上传文件的绝对路径  下载的路径</span></p>
+
+<pre class="lang:default decode:true ">scp demon@192.168.1.108:/Users/demon/Desktop/sql.hear /home
+</pre>
+<p class="p1">上传本地文件到服务器：<span style="color: #008000;">scp /path/local_filename username@servername:/path  </span></p>
+
+<pre class="lang:vim decode:true ">scp /var/www/test.php  codinglog@192.168.0.101:/var/www/  把本机/var/www/目录下的test.php文件</pre>
+<p class="p1">可查询ssh相关文档</p>
+&nbsp;
+&nbsp;
+ <span style="color: #008000;">  七.下载kitematic---GUI 管理工具</span>
+终端开一个是不够的，我们通常终端使用 是多开的情况，但是你再新建一个窗口同样使用一下命令进入
+<pre class="lang:vim decode:true">docker attach kali</pre>
+<span style="color: #ff0000;">你会发现窗口是同步的，有没有更加方便的工具设置呢</span>。有的------kitematic就可以实现
+
+<p><a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.docker.com/products/docker-kitematic">https://www.docker.com/products/docker-kitematic</a><br><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/IMG_0581.JPG" alt="enter description here"></p>
+<p class="p1"><strong><span style="color: #ff0000;">点击EXEC，点击多个，开启终端窗口都不会同步现象。</span></strong></p>
+![enter description here][10]
+Docker 其他相关命令-----删除多余的容器
+<pre class="lang:vim decode:true">demonMacbookPro:~ demon$ docker ps -a -q     -------查看docker 容器的id
+bb27f8c0cf22
+demonMacbookPro:~ demon$ docker ps -a      ------查看docker 容器 完整内容
+CONTAINER ID        IMAGE                         COMMAND             CREATED             STATUS              PORTS               NAMES
+bb27f8c0cf22        kalilinux/kali-linux-docker   "/bin/bash"         4 days ago          Up 46 minutes                           kali</pre>
+<pre class="lang:vim decode:true">demonMacbookPro:~ demon$ docker rm   docker随机id     --------删除docker多余id</pre>
+<pre class="lang:vim decode:true">demonMacbookPro:~ demon$ docker stats      -------查看docker相应进程</pre>
+<pre class="lang:vim decode:true">demonMacbookPro:~ demon$ docker restart kali（容器名或者id）----重启docker容器</pre>
+<p class="p1">其他命令查询docker相关文档</p>
+<p class="p1"><span style="color: #008000;">其中docker的作用不仅这么点，还可以自定义，搭建我们的web靶机等等，可以多尝试下docker的作用</span></p>
+<p class="p1">参考资料：http://www.open-open.com/lib/view/open1456844987781.html</p>
+其他可以参考我的好基友国光：http://www.sqlsec.com/703.html  docker入门简明教程
+
+
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://www.ggsec.cn">Demon</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://www.ggsec.cn/docker-kali.html">https://www.ggsec.cn/docker-kali.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://www.ggsec.cn" target="_blank">Demon</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/kali/">kali</a></div><div class="post_share"><div class="social-share" data-image="https://demonsec666.oss-cn-qingdao.aliyuncs.com/default_cover1.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/nethuner-HID.html"><img class="prev-cover" src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/default_cover4.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">黑手之kali_Nethuner---HID攻击</div></div></a></div><div class="next-post pull-right"><a href="/msf-web-delivery.html"><img class="next-cover" src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/default_cover2.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Metasploit后门免杀模块之绕过360</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/DuckHunterHID.html" title="黑手第三篇----DuckHunterHID for mac"><img class="cover" src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/default_cover4.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2017-04-18</div><div class="title">黑手第三篇----DuckHunterHID for mac</div></div></a></div><div><a href="/fimap_metasploitable2%20.html" title="Fimap_Metasploitable2漏洞攻击"><img class="cover" src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/default_cover3.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2017-03-19</div><div class="title">Fimap_Metasploitable2漏洞攻击</div></div></a></div><div><a href="/msf4.html" title="Metasploit系列课程第四课"><img class="cover" src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/default_cover3.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2017-04-09</div><div class="title">Metasploit系列课程第四课</div></div></a></div><div><a href="/nethuner-HID.html" title="黑手之kali_Nethuner---HID攻击"><img class="cover" src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/default_cover4.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2017-02-05</div><div class="title">黑手之kali_Nethuner---HID攻击</div></div></a></div><div><a href="/nethunter.html" title="三星Note3 -N9005刷机Kali Nethunter详细教程"><img class="cover" src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/default_cover1.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2017-01-08</div><div class="title">三星Note3 -N9005刷机Kali Nethunter详细教程</div></div></a></div><div><a href="/steghide.html" title="steghide"><img class="cover" src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/default_cover4.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2017-07-31</div><div class="title">steghide</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/default_avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Demon</div><div class="author-info__description">没有绝对安全的系统</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">159</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">11</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><a id="card-info-btn" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/demonsec666"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">2022-11-24：博客最近大升级，未来几年应该都保持这个风格。</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/YourCyanide_CMD-Based%20Ransomware.html" title="基于CMD勒索脚本混淆分析"><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/hack-like-pro-spy-anyone-part-1-hacking-computers.1280x600.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="基于CMD勒索脚本混淆分析"/></a><div class="content"><a class="title" href="/YourCyanide_CMD-Based%20Ransomware.html" title="基于CMD勒索脚本混淆分析">基于CMD勒索脚本混淆分析</a><time datetime="2022-08-14T03:07:41.000Z" title="发表于 2022-08-14 11:07:41">2022-08-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/obfuscation_from_Excel_VBA_2.html" title="obfuscation_from_Excel_VBA_Part2"><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/python-bundle-can-teach-you-everything-you-need-know.1280x600.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="obfuscation_from_Excel_VBA_Part2"/></a><div class="content"><a class="title" href="/obfuscation_from_Excel_VBA_2.html" title="obfuscation_from_Excel_VBA_Part2">obfuscation_from_Excel_VBA_Part2</a><time datetime="2022-01-07T10:36:38.000Z" title="发表于 2022-01-07 18:36:38">2022-01-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/obfuscation-from-Excel-VBA.html" title="obfuscation_from_Excel_VBA_Part1"><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/python-bundle-can-teach-you-everything-you-need-know.1280x600.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="obfuscation_from_Excel_VBA_Part1"/></a><div class="content"><a class="title" href="/obfuscation-from-Excel-VBA.html" title="obfuscation_from_Excel_VBA_Part1">obfuscation_from_Excel_VBA_Part1</a><time datetime="2022-01-06T12:50:38.000Z" title="发表于 2022-01-06 20:50:38">2022-01-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/HANCITOR-WITH-COBALT-STRIKE.html" title="HANCITOR_WITH_COBALT_STRIKE"><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/use-msfconsoles-generate-command-obfuscate-payloads-evade-antivirus-detection.1280x600.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="HANCITOR_WITH_COBALT_STRIKE"/></a><div class="content"><a class="title" href="/HANCITOR-WITH-COBALT-STRIKE.html" title="HANCITOR_WITH_COBALT_STRIKE">HANCITOR_WITH_COBALT_STRIKE</a><time datetime="2021-10-17T01:02:14.000Z" title="发表于 2021-10-17 09:02:14">2021-10-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/Confucius.html" title="魔罗桫组织与 Pegasus 间谍软件"><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/learn-c-start-designing-games-apps.1280x600.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="魔罗桫组织与 Pegasus 间谍软件"/></a><div class="content"><a class="title" href="/Confucius.html" title="魔罗桫组织与 Pegasus 间谍软件">魔罗桫组织与 Pegasus 间谍软件</a><time datetime="2021-09-20T23:01:11.000Z" title="发表于 2021-09-21 07:01:11">2021-09-21</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://demonsec666.oss-cn-qingdao.aliyuncs.com/default_cover1.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By Demon</div><div class="framework-info"><span>团队博客→</span><a target="_blank" rel="noopener external nofollow noreferrer" href="http://www.secist.com/">即刻安全</a></div><div class="footer_custom_text">没有绝对安全的系统</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="true"></script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-show-text.min.js" data-mobile="false" data-text="I,LOVE,YOU" data-fontsize="15px" data-random="false" async="async"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
