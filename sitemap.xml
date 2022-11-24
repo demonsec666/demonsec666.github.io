@@ -1217,7 +1217,7 @@
   </url>
   
   <url>
-    <loc>https://www.ggsec.cn/DKMC.html</loc>
+    <loc>https://www.ggsec.cn/Debinject.html</loc>
     
     <lastmod>2018-12-21</lastmod>
     
@@ -1226,7 +1226,7 @@
   </url>
   
   <url>
-    <loc>https://www.ggsec.cn/Debinject.html</loc>
+    <loc>https://www.ggsec.cn/DKMC.html</loc>
     
     <lastmod>2018-12-21</lastmod>
     
@@ -1244,7 +1244,7 @@
   </url>
   
   <url>
-    <loc>https://www.ggsec.cn/CVE-2017-8464.html</loc>
+    <loc>https://www.ggsec.cn/CVE-2017-7494.html</loc>
     
     <lastmod>2018-12-21</lastmod>
     
@@ -1253,7 +1253,7 @@
   </url>
   
   <url>
-    <loc>https://www.ggsec.cn/CVE-2017-7494.html</loc>
+    <loc>https://www.ggsec.cn/CVE-2017-8464.html</loc>
     
     <lastmod>2018-12-21</lastmod>
     
@@ -1325,7 +1325,7 @@
   </url>
   
   <url>
-    <loc>https://www.ggsec.cn/bypassuac-win10.html</loc>
+    <loc>https://www.ggsec.cn/bypassuac-comhijack.html</loc>
     
     <lastmod>2018-12-21</lastmod>
     
@@ -1334,7 +1334,7 @@
   </url>
   
   <url>
-    <loc>https://www.ggsec.cn/bypassuac-comhijack.html</loc>
+    <loc>https://www.ggsec.cn/bypassuac-win10.html</loc>
     
     <lastmod>2018-12-21</lastmod>
     
@@ -1406,7 +1406,7 @@
   </url>
   
   <url>
-    <loc>https://www.ggsec.cn/ALPC-EXP.html</loc>
+    <loc>https://www.ggsec.cn/ADS2.html</loc>
     
     <lastmod>2018-12-21</lastmod>
     
@@ -1415,7 +1415,7 @@
   </url>
   
   <url>
-    <loc>https://www.ggsec.cn/ADS2.html</loc>
+    <loc>https://www.ggsec.cn/ALPC-EXP.html</loc>
     
     <lastmod>2018-12-21</lastmod>
     
@@ -1492,14 +1492,14 @@
   </url>
   
   <url>
-    <loc>https://www.ggsec.cn/tags/AutoIt/</loc>
+    <loc>https://www.ggsec.cn/tags/Metasploit-kali/</loc>
     <lastmod>2022-11-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.ggsec.cn/tags/Metasploit-kali/</loc>
+    <loc>https://www.ggsec.cn/tags/AutoIt/</loc>
     <lastmod>2022-11-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
