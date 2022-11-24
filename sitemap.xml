@@ -2,6 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.ggsec.cn/about/index.html</loc>
+    
+    <lastmod>2022-11-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.ggsec.cn/ssfcmd.html</loc>
+    
+    <lastmod>2022-11-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.ggsec.cn/powershell%E6%A8%AA%E5%90%91%E6%B8%97%E9%80%8F%E6%A0%B7%E6%9C%AC%E5%88%86%E6%9E%90.html</loc>
     
     <lastmod>2022-11-24</lastmod>
@@ -21,15 +39,6 @@
   
   <url>
     <loc>https://www.ggsec.cn/QakBot(Qbot)%E4%B8%8Ecobalt%20Strike%E6%81%B6%E6%84%8F%E6%B5%81%E9%87%8F%E6%A0%B7%E6%9C%AC%E5%88%86%E6%9E%90.html</loc>
-    
-    <lastmod>2022-11-24</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.ggsec.cn/ssfcmd.html</loc>
     
     <lastmod>2022-11-24</lastmod>
     
@@ -1217,7 +1226,7 @@
   </url>
   
   <url>
-    <loc>https://www.ggsec.cn/Debinject.html</loc>
+    <loc>https://www.ggsec.cn/DKMC.html</loc>
     
     <lastmod>2018-12-21</lastmod>
     
@@ -1226,7 +1235,7 @@
   </url>
   
   <url>
-    <loc>https://www.ggsec.cn/DKMC.html</loc>
+    <loc>https://www.ggsec.cn/Debinject.html</loc>
     
     <lastmod>2018-12-21</lastmod>
     
@@ -1244,7 +1253,7 @@
   </url>
   
   <url>
-    <loc>https://www.ggsec.cn/CVE-2017-7494.html</loc>
+    <loc>https://www.ggsec.cn/CVE-2017-8464.html</loc>
     
     <lastmod>2018-12-21</lastmod>
     
@@ -1253,7 +1262,7 @@
   </url>
   
   <url>
-    <loc>https://www.ggsec.cn/CVE-2017-8464.html</loc>
+    <loc>https://www.ggsec.cn/CVE-2017-7494.html</loc>
     
     <lastmod>2018-12-21</lastmod>
     
@@ -1442,15 +1451,6 @@
   </url>
   
   <url>
-    <loc>https://www.ggsec.cn/about/index.html</loc>
-    
-    <lastmod>2017-01-30</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.ggsec.cn/categories/index.html</loc>
     
     <lastmod>2017-01-30</lastmod>
@@ -1492,14 +1492,14 @@
   </url>
   
   <url>
-    <loc>https://www.ggsec.cn/tags/Metasploit-kali/</loc>
+    <loc>https://www.ggsec.cn/tags/AutoIt/</loc>
     <lastmod>2022-11-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.ggsec.cn/tags/AutoIt/</loc>
+    <loc>https://www.ggsec.cn/tags/Metasploit-kali/</loc>
     <lastmod>2022-11-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
