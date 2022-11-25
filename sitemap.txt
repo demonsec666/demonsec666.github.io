@@ -154,11 +154,11 @@ https://www.ggsec.cn/tags/windows/
 https://www.ggsec.cn/tags/ATT-CK/
 https://www.ggsec.cn/tags/AutoIt/
 https://www.ggsec.cn/tags/CVE/
+https://www.ggsec.cn/tags/C2/
 https://www.ggsec.cn/tags/Windows/
 https://www.ggsec.cn/tags/%E6%81%B6%E6%84%8F%E6%A0%B7%E6%9C%AC%E5%88%86%E6%9E%90/
-https://www.ggsec.cn/tags/C2/
-https://www.ggsec.cn/tags/kali/
 https://www.ggsec.cn/tags/Metasploit/
+https://www.ggsec.cn/tags/kali/
 https://www.ggsec.cn/tags/Linux/
 https://www.ggsec.cn/tags/linux/
 https://www.ggsec.cn/tags/Mac/
@@ -167,9 +167,9 @@ https://www.ggsec.cn/categories/ATT-CK/
 https://www.ggsec.cn/categories/CVE/
 https://www.ggsec.cn/categories/windows/
 https://www.ggsec.cn/categories/C2/
-https://www.ggsec.cn/categories/kali/
 https://www.ggsec.cn/categories/Metasploit/
 https://www.ggsec.cn/categories/%E6%81%B6%E6%84%8F%E6%A0%B7%E6%9C%AC%E5%88%86%E6%9E%90/
+https://www.ggsec.cn/categories/kali/
 https://www.ggsec.cn/categories/Windows/
 https://www.ggsec.cn/categories/Linux/
 https://www.ggsec.cn/categories/%E9%80%86%E5%90%91/
