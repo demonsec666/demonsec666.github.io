@@ -166,10 +166,10 @@ https://www.ggsec.cn/tags/%E9%80%86%E5%90%91/
 https://www.ggsec.cn/categories/ATT-CK/
 https://www.ggsec.cn/categories/CVE/
 https://www.ggsec.cn/categories/windows/
-https://www.ggsec.cn/categories/C2/
 https://www.ggsec.cn/categories/Metasploit/
-https://www.ggsec.cn/categories/%E6%81%B6%E6%84%8F%E6%A0%B7%E6%9C%AC%E5%88%86%E6%9E%90/
+https://www.ggsec.cn/categories/C2/
 https://www.ggsec.cn/categories/kali/
+https://www.ggsec.cn/categories/%E6%81%B6%E6%84%8F%E6%A0%B7%E6%9C%AC%E5%88%86%E6%9E%90/
 https://www.ggsec.cn/categories/Windows/
 https://www.ggsec.cn/categories/Linux/
 https://www.ggsec.cn/categories/%E9%80%86%E5%90%91/
