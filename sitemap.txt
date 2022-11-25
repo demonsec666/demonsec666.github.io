@@ -93,9 +93,9 @@ https://www.ggsec.cn/secist-EN.html
 https://www.ggsec.cn/secist-GUI2.html
 https://www.ggsec.cn/RunOnceEx.html
 https://www.ggsec.cn/secist-Apploacker-bypass.html
-https://www.ggsec.cn/rid-hijack.html
-https://www.ggsec.cn/reverse.html
 https://www.ggsec.cn/reverse2.html
+https://www.ggsec.cn/reverse.html
+https://www.ggsec.cn/rid-hijack.html
 https://www.ggsec.cn/Powerstager.html
 https://www.ggsec.cn/propagate.html
 https://www.ggsec.cn/POC-calc.html
