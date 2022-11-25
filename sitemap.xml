@@ -2,6 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.ggsec.cn/Linux-Privilege-Escalation-Exploit.html</loc>
+    
+    <lastmod>2022-11-25</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.ggsec.cn/exploit-exercises00-01.html</loc>
+    
+    <lastmod>2022-11-25</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.ggsec.cn/Ghost-tunnel.html</loc>
     
     <lastmod>2022-11-25</lastmod>
@@ -1298,15 +1316,6 @@
   </url>
   
   <url>
-    <loc>https://www.ggsec.cn/Linux-Privilege-Escalation-Exploit.html</loc>
-    
-    <lastmod>2018-12-21</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.ggsec.cn/Linux-inject-kimi.html</loc>
     
     <lastmod>2018-12-21</lastmod>
@@ -1317,15 +1326,6 @@
   
   <url>
     <loc>https://www.ggsec.cn/happy-birthday.html</loc>
-    
-    <lastmod>2018-12-21</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.ggsec.cn/exploit-exercises00-01.html</loc>
     
     <lastmod>2018-12-21</lastmod>
     
@@ -1424,13 +1424,6 @@
   </url>
   
   <url>
-    <loc>https://www.ggsec.cn/tags/Linux/</loc>
-    <lastmod>2022-11-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://www.ggsec.cn/tags/linux/</loc>
     <lastmod>2022-11-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -1475,13 +1468,6 @@
   </url>
   
   <url>
-    <loc>https://www.ggsec.cn/categories/C2/</loc>
-    <lastmod>2022-11-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://www.ggsec.cn/categories/Metasploit/</loc>
     <lastmod>2022-11-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -1489,7 +1475,7 @@
   </url>
   
   <url>
-    <loc>https://www.ggsec.cn/categories/kali/</loc>
+    <loc>https://www.ggsec.cn/categories/C2/</loc>
     <lastmod>2022-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1503,7 +1489,14 @@
   </url>
   
   <url>
-    <loc>https://www.ggsec.cn/categories/Linux/</loc>
+    <loc>https://www.ggsec.cn/categories/kali/</loc>
+    <lastmod>2022-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.ggsec.cn/categories/linux/</loc>
     <lastmod>2022-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
