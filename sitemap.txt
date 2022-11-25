@@ -93,9 +93,9 @@ https://www.ggsec.cn/secist-EN.html
 https://www.ggsec.cn/secist-GUI2.html
 https://www.ggsec.cn/RunOnceEx.html
 https://www.ggsec.cn/secist-Apploacker-bypass.html
+https://www.ggsec.cn/rid-hijack.html
 https://www.ggsec.cn/reverse.html
 https://www.ggsec.cn/reverse2.html
-https://www.ggsec.cn/rid-hijack.html
 https://www.ggsec.cn/Powerstager.html
 https://www.ggsec.cn/propagate.html
 https://www.ggsec.cn/POC-calc.html
@@ -159,8 +159,8 @@ https://www.ggsec.cn/Kodachi3.html
 https://www.ggsec.cn/categories/index.html
 https://www.ggsec.cn/tags/index.html
 https://www.ggsec.cn/
-https://www.ggsec.cn/tags/windows/
 https://www.ggsec.cn/tags/Metasploit/
+https://www.ggsec.cn/tags/windows/
 https://www.ggsec.cn/tags/AutoIt/
 https://www.ggsec.cn/tags/Windows/
 https://www.ggsec.cn/tags/kali/
@@ -170,8 +170,8 @@ https://www.ggsec.cn/tags/Metasploitable/
 https://www.ggsec.cn/tags/Metasploit-kali/
 https://www.ggsec.cn/tags/C2/
 https://www.ggsec.cn/tags/%E9%80%86%E5%90%91/
-https://www.ggsec.cn/categories/windows/
 https://www.ggsec.cn/categories/Metasploit/
+https://www.ggsec.cn/categories/windows/
 https://www.ggsec.cn/categories/Windows/
 https://www.ggsec.cn/categories/kali/
 https://www.ggsec.cn/categories/linux/
