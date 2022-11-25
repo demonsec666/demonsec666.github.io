@@ -2179,14 +2179,14 @@
       
       <categories>
           
-          <category> Windows </category>
+          <category> windows </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> Windows </tag>
+            <tag> windows </tag>
             
         </tags>
       
@@ -3445,31 +3445,6 @@
       <url>/secsit-GUI.html</url>
       
         <content type="html"><![CDATA[<p><img src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/7AF7C4BFBF0F184301F3B047CDFC69A5.png" alt="enter description here"></p><span id="more"></span><p> 本次使用ruby 重新对之前的shell脚本 框架重新编写，使用GTK、xterm等 环境开发<br> 由于手受伤了 还缝针了，本来计划本月可以写完，但是估计可能需要你们耐心等待到下月了，感谢支持<br> 先一步看下预览版<br> github ：<a href="https://github.com/demonsec666/secist_script">https://github.com/demonsec666/secist_script</a></p><h2 id="视频演示："><a href="#视频演示：" class="headerlink" title="视频演示："></a>视频演示：</h2><div style="width:640px;height:480px;margin:0 auto;" id="ivaLive"></div><script type="text/javascript" src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/cytron.core.js"></script><script>    var ivaInstance = new Iva('ivaLive', {        appkey: 'By9WGzBIx', //应用标示        video: 'https://demonsec666.oss-cn-qingdao.aliyuncs.com/secistGUI.mp4', //视频        title: 'test', //视频标题，后台视频管理中的标题        cover: '' //视频封面，只有在autoplay:false才可生效    });</script><script src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/lva.js"></script>]]></content>
-      
-      
-      <categories>
-          
-          <category> Metasploit </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Metasploit </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>shellter</title>
-      <link href="/shellter.html"/>
-      <url>/shellter.html</url>
-      
-        <content type="html"><![CDATA[<h2 id="Shellter"><a href="#Shellter" class="headerlink" title="Shellter"></a>Shellter</h2><p>Shellter是一个动态的shellcode注入工具，是第一个真正动态的PE infector创建的。<br>它可以用于将shellcode注入本机Windows应用程序（目前仅适用于32位应用程序）。<br>shellcode可以是您或您通过框架生成的东西，如Metasploit。</p><p>Shellter利用PE文件的原始结构，并不适用任何修改，如更改部分内存访问权限（除非用户想要的），添加额外的部分具有RWE访问权限，以及在AV扫描中看起来很诡异的任何内容。</p><p>Shellter采用基于目标应用程序的执行流程的独特动态方法，这只是冰山一角。<br>Shellter不仅仅是一个EPO感染者，试图找到一个位置来插入指令来重定向执行到有效载荷。与任何其他感染者不同，Shellter的高级感染引擎从不将执行流程传输到受感染的PE文件中的代码洞穴或添加的部分。</p><h2 id="视频演示："><a href="#视频演示：" class="headerlink" title="视频演示："></a>视频演示：</h2><div style="width:640px;height:480px;margin:0 auto;" id="ivaLive"></div><script type="text/javascript" src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/cytron.core.js"></script><script>    var ivaInstance = new Iva('ivaLive', {        appkey: 'By9WGzBIx', //应用标示        video: 'https://demonsec666.oss-cn-qingdao.aliyuncs.com/shellter.mp4', //视频        title: 'test', //视频标题，后台视频管理中的标题        cover: '' //视频封面，只有在autoplay:false才可生效    });</script><script src="https://demonsec666.oss-cn-qingdao.aliyuncs.com/lva.js"></script><p><a href="https://www.shellterproject.com/introducing-shellter/">https://www.shellterproject.com/introducing-shellter/</a><br><a href="https://www.youtube.com/watch?v=5foouybCEk0">https://www.youtube.com/watch?v=5foouybCEk0</a></p>]]></content>
       
       
       <categories>

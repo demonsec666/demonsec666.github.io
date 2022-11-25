@@ -2,6 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.ggsec.cn/Ghost-tunnel.html</loc>
+    
+    <lastmod>2022-11-25</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.ggsec.cn/ADS2.html</loc>
+    
+    <lastmod>2022-11-25</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.ggsec.cn/InjectProc.html</loc>
     
     <lastmod>2022-11-25</lastmod>
@@ -30,15 +48,6 @@
   
   <url>
     <loc>https://www.ggsec.cn/GreatSCT.html</loc>
-    
-    <lastmod>2022-11-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.ggsec.cn/Ghost-tunnel.html</loc>
     
     <lastmod>2022-11-25</lastmod>
     
@@ -192,15 +201,6 @@
   
   <url>
     <loc>https://www.ggsec.cn/POC-calc.html</loc>
-    
-    <lastmod>2022-11-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.ggsec.cn/shellter.html</loc>
     
     <lastmod>2022-11-25</lastmod>
     
@@ -1019,15 +1019,6 @@
   </url>
   
   <url>
-    <loc>https://www.ggsec.cn/ADS2.html</loc>
-    
-    <lastmod>2022-11-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.ggsec.cn/%E6%BB%A5%E7%94%A8WINDOWS%20TELEMETRY%E4%BB%A5%E5%AE%9E%E7%8E%B0%E6%8C%81%E4%B9%85%E5%8C%96%E5%B9%B6%E6%8F%90%E6%9D%83.html</loc>
     
     <lastmod>2022-11-25</lastmod>
@@ -1484,14 +1475,14 @@
   </url>
   
   <url>
-    <loc>https://www.ggsec.cn/categories/Metasploit/</loc>
+    <loc>https://www.ggsec.cn/categories/C2/</loc>
     <lastmod>2022-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.ggsec.cn/categories/C2/</loc>
+    <loc>https://www.ggsec.cn/categories/Metasploit/</loc>
     <lastmod>2022-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1506,13 +1497,6 @@
   
   <url>
     <loc>https://www.ggsec.cn/categories/%E6%81%B6%E6%84%8F%E6%A0%B7%E6%9C%AC%E5%88%86%E6%9E%90/</loc>
-    <lastmod>2022-11-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.ggsec.cn/categories/Windows/</loc>
     <lastmod>2022-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
