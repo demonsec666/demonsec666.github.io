@@ -2,7 +2,502 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.ggsec.cn/shad0w.html</loc>
+    
+    <lastmod>2022-11-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.ggsec.cn/sigthief.html</loc>
+    
+    <lastmod>2022-11-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.ggsec.cn/ShellPop.html</loc>
+    
+    <lastmod>2022-11-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.ggsec.cn/Shellsploit.html</loc>
+    
+    <lastmod>2022-11-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.ggsec.cn/sigverif.html</loc>
+    
+    <lastmod>2022-11-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.ggsec.cn/SILENTTRINITY.html</loc>
+    
+    <lastmod>2022-11-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.ggsec.cn/slack%20C2%20golang.html</loc>
+    
+    <lastmod>2022-11-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.ggsec.cn/Slackc2.html</loc>
+    
+    <lastmod>2022-11-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.ggsec.cn/Stage-RemoteDll.html</loc>
+    
+    <lastmod>2022-11-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.ggsec.cn/stager-dll.html</loc>
+    
+    <lastmod>2022-11-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.ggsec.cn/SVG-ActiveX.html</loc>
+    
+    <lastmod>2022-11-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.ggsec.cn/tasks-applocker.html</loc>
+    
+    <lastmod>2022-11-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.ggsec.cn/Tracker.html</loc>
+    
+    <lastmod>2022-11-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.ggsec.cn/trevorc2.html</loc>
+    
+    <lastmod>2022-11-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.ggsec.cn/unicorn.html</loc>
+    
+    <lastmod>2022-11-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.ggsec.cn/Vegile-Linux-Backdoor.html</loc>
+    
+    <lastmod>2022-11-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.ggsec.cn/wikipedia-c2.html</loc>
+    
+    <lastmod>2022-11-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.ggsec.cn/wikipediaC2-SecistSploit.html</loc>
+    
+    <lastmod>2022-11-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.ggsec.cn/winlogon-regedit.html</loc>
+    
+    <lastmod>2022-11-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.ggsec.cn/SecistSloit.html</loc>
+    
+    <lastmod>2022-11-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.ggsec.cn/secist-shellcode.html</loc>
+    
+    <lastmod>2022-11-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.ggsec.cn/secist-script.html</loc>
+    
+    <lastmod>2022-11-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.ggsec.cn/secist-GUI2.html</loc>
+    
+    <lastmod>2022-11-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.ggsec.cn/secist-EN.html</loc>
+    
+    <lastmod>2022-11-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.ggsec.cn/secist-Apploacker-bypass.html</loc>
+    
+    <lastmod>2022-11-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.ggsec.cn/Salsa-tools.html</loc>
+    
+    <lastmod>2022-11-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.ggsec.cn/RunOnceEx.html</loc>
+    
+    <lastmod>2022-11-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.ggsec.cn/rid-hijack.html</loc>
+    
+    <lastmod>2022-11-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.ggsec.cn/ReverseTCPshell.html</loc>
+    
+    <lastmod>2022-11-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.ggsec.cn/PoshC2.html</loc>
+    
+    <lastmod>2022-11-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.ggsec.cn/POC-calc.html</loc>
+    
+    <lastmod>2022-11-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.ggsec.cn/Phantom-Evasion.html</loc>
+    
+    <lastmod>2022-11-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.ggsec.cn/pastezort.html</loc>
+    
+    <lastmod>2022-11-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.ggsec.cn/p0wnedShell.html</loc>
+    
+    <lastmod>2022-11-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.ggsec.cn/octopus.html</loc>
+    
+    <lastmod>2022-11-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.ggsec.cn/nop-payload.html</loc>
+    
+    <lastmod>2022-11-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.ggsec.cn/ngrok.html</loc>
+    
+    <lastmod>2022-11-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.ggsec.cn/nethuner-HID.html</loc>
+    
+    <lastmod>2022-11-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.ggsec.cn/NET-CS-calc.html</loc>
+    
+    <lastmod>2022-11-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.ggsec.cn/muddyc3-golang.html</loc>
+    
+    <lastmod>2022-11-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.ggsec.cn/msf%E7%B3%BB%E5%88%971.html</loc>
+    
+    <lastmod>2022-11-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.ggsec.cn/msf8.html</loc>
+    
+    <lastmod>2022-11-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.ggsec.cn/MSF8-0.html</loc>
+    
+    <lastmod>2022-11-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.ggsec.cn/msf4.html</loc>
+    
+    <lastmod>2022-11-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.ggsec.cn/msf3.html</loc>
+    
+    <lastmod>2022-11-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.ggsec.cn/mmfml.html</loc>
+    
+    <lastmod>2022-11-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.ggsec.cn/microsoft-backdoor.html</loc>
+    
+    <lastmod>2022-11-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.ggsec.cn/Meterpreter-Paranoid.html</loc>
+    
+    <lastmod>2022-11-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.ggsec.cn/Metasploit%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B%E7%AC%AC%E4%BA%94%E8%AF%BE.html</loc>
+    
+    <lastmod>2022-11-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.ggsec.cn/metasploit%E5%90%8E%E6%B8%97%E9%80%8F%E6%A8%A1%E5%9D%97%E7%BC%96%E5%86%99ATT&CK-T1118.html</loc>
+    
+    <lastmod>2022-11-25</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.ggsec.cn/merlin.html</loc>
+    
+    <lastmod>2022-11-25</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.ggsec.cn/mavinject.html</loc>
+    
+    <lastmod>2022-11-25</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.ggsec.cn/Linux-Privilege-Escalation-Exploit.html</loc>
+    
+    <lastmod>2022-11-25</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.ggsec.cn/Linux-inject-kimi.html</loc>
+    
+    <lastmod>2022-11-25</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.ggsec.cn/Invoke-Obfuscation.html</loc>
+    
+    <lastmod>2022-11-25</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.ggsec.cn/Invisi-Shell.html</loc>
     
     <lastmod>2022-11-25</lastmod>
     
@@ -218,42 +713,6 @@
   </url>
   
   <url>
-    <loc>https://www.ggsec.cn/POC-calc.html</loc>
-    
-    <lastmod>2022-11-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.ggsec.cn/ReverseTCPshell.html</loc>
-    
-    <lastmod>2022-11-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.ggsec.cn/tasks-applocker.html</loc>
-    
-    <lastmod>2022-11-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.ggsec.cn/winlogon-regedit.html</loc>
-    
-    <lastmod>2022-11-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.ggsec.cn/wmic.html</loc>
     
     <lastmod>2022-11-25</lastmod>
@@ -273,42 +732,6 @@
   
   <url>
     <loc>https://www.ggsec.cn/Confucius.html</loc>
-    
-    <lastmod>2022-11-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.ggsec.cn/Metasploit%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B%E7%AC%AC%E4%BA%94%E8%AF%BE.html</loc>
-    
-    <lastmod>2022-11-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.ggsec.cn/msf3.html</loc>
-    
-    <lastmod>2022-11-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.ggsec.cn/wikipedia-c2.html</loc>
-    
-    <lastmod>2022-11-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.ggsec.cn/wikipediaC2-SecistSploit.html</loc>
     
     <lastmod>2022-11-25</lastmod>
     
@@ -353,34 +776,7 @@
   </url>
   
   <url>
-    <loc>https://www.ggsec.cn/trevorc2.html</loc>
-    
-    <lastmod>2022-11-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.ggsec.cn/Tracker.html</loc>
-    
-    <lastmod>2022-11-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.ggsec.cn/Tasks.html</loc>
-    
-    <lastmod>2022-11-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.ggsec.cn/SVG-ActiveX.html</loc>
     
     <lastmod>2022-11-25</lastmod>
     
@@ -425,24 +821,6 @@
   </url>
   
   <url>
-    <loc>https://www.ggsec.cn/stager-dll.html</loc>
-    
-    <lastmod>2022-11-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.ggsec.cn/Stage-RemoteDll.html</loc>
-    
-    <lastmod>2022-11-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.ggsec.cn/ssfcmd.html</loc>
     
     <lastmod>2022-11-25</lastmod>
@@ -452,97 +830,7 @@
   </url>
   
   <url>
-    <loc>https://www.ggsec.cn/Slackc2.html</loc>
-    
-    <lastmod>2022-11-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.ggsec.cn/slack%20C2%20golang.html</loc>
-    
-    <lastmod>2022-11-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.ggsec.cn/SILENTTRINITY.html</loc>
-    
-    <lastmod>2022-11-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.ggsec.cn/sigverif.html</loc>
-    
-    <lastmod>2022-11-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.ggsec.cn/sigthief.html</loc>
-    
-    <lastmod>2022-11-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.ggsec.cn/shad0w.html</loc>
-    
-    <lastmod>2022-11-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.ggsec.cn/SecistSloit.html</loc>
-    
-    <lastmod>2022-11-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.ggsec.cn/secist-Apploacker-bypass.html</loc>
-    
-    <lastmod>2022-11-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.ggsec.cn/sdclt-bypassuac.html</loc>
-    
-    <lastmod>2022-11-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.ggsec.cn/Salsa-tools.html</loc>
-    
-    <lastmod>2022-11-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.ggsec.cn/RunOnceEx.html</loc>
     
     <lastmod>2022-11-25</lastmod>
     
@@ -578,43 +866,7 @@
   </url>
   
   <url>
-    <loc>https://www.ggsec.cn/rid-hijack.html</loc>
-    
-    <lastmod>2022-11-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.ggsec.cn/propagate.html</loc>
-    
-    <lastmod>2022-11-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.ggsec.cn/PoshC2.html</loc>
-    
-    <lastmod>2022-11-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.ggsec.cn/Phantom-Evasion.html</loc>
-    
-    <lastmod>2022-11-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.ggsec.cn/p0wnedShell.html</loc>
     
     <lastmod>2022-11-25</lastmod>
     
@@ -632,70 +884,7 @@
   </url>
   
   <url>
-    <loc>https://www.ggsec.cn/octopus.html</loc>
-    
-    <lastmod>2022-11-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.ggsec.cn/NET-CS-calc.html</loc>
-    
-    <lastmod>2022-11-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.ggsec.cn/muddyc3-golang.html</loc>
-    
-    <lastmod>2022-11-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.ggsec.cn/mshta-RegSvcsRegAsmBypass.html</loc>
-    
-    <lastmod>2022-11-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.ggsec.cn/mmfml.html</loc>
-    
-    <lastmod>2022-11-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.ggsec.cn/microsoft-backdoor.html</loc>
-    
-    <lastmod>2022-11-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.ggsec.cn/merlin.html</loc>
-    
-    <lastmod>2022-11-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.ggsec.cn/mavinject.html</loc>
     
     <lastmod>2022-11-25</lastmod>
     
@@ -722,25 +911,7 @@
   </url>
   
   <url>
-    <loc>https://www.ggsec.cn/Invoke-Obfuscation.html</loc>
-    
-    <lastmod>2022-11-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.ggsec.cn/Invoke-Adversary.html</loc>
-    
-    <lastmod>2022-11-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.ggsec.cn/Invisi-Shell.html</loc>
     
     <lastmod>2022-11-25</lastmod>
     
@@ -1055,15 +1226,6 @@
   </url>
   
   <url>
-    <loc>https://www.ggsec.cn/secist-script.html</loc>
-    
-    <lastmod>2022-11-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.ggsec.cn/avoidz.html</loc>
     
     <lastmod>2022-11-24</lastmod>
@@ -1091,99 +1253,9 @@
   </url>
   
   <url>
-    <loc>https://www.ggsec.cn/metasploit%E5%90%8E%E6%B8%97%E9%80%8F%E6%A8%A1%E5%9D%97%E7%BC%96%E5%86%99ATT&CK-T1118.html</loc>
-    
-    <lastmod>2022-11-24</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.ggsec.cn/link/index.html</loc>
     
     <lastmod>2022-11-23</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.ggsec.cn/Meterpreter-Paranoid.html</loc>
-    
-    <lastmod>2022-11-23</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.ggsec.cn/Vegile-Linux-Backdoor.html</loc>
-    
-    <lastmod>2018-12-21</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.ggsec.cn/unicorn.html</loc>
-    
-    <lastmod>2018-12-21</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.ggsec.cn/ShellPop.html</loc>
-    
-    <lastmod>2018-12-21</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.ggsec.cn/Shellsploit.html</loc>
-    
-    <lastmod>2018-12-21</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.ggsec.cn/secsit-GUI.html</loc>
-    
-    <lastmod>2018-12-21</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.ggsec.cn/secist-shellcode.html</loc>
-    
-    <lastmod>2018-12-21</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.ggsec.cn/secist-EN.html</loc>
-    
-    <lastmod>2018-12-21</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.ggsec.cn/secist-GUI2.html</loc>
-    
-    <lastmod>2018-12-21</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1208,24 +1280,6 @@
   </url>
   
   <url>
-    <loc>https://www.ggsec.cn/nop-payload.html</loc>
-    
-    <lastmod>2018-12-21</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.ggsec.cn/pastezort.html</loc>
-    
-    <lastmod>2018-12-21</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.ggsec.cn/nethunter.html</loc>
     
     <lastmod>2018-12-21</lastmod>
@@ -1235,61 +1289,7 @@
   </url>
   
   <url>
-    <loc>https://www.ggsec.cn/ngrok.html</loc>
-    
-    <lastmod>2018-12-21</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.ggsec.cn/nethuner-HID.html</loc>
-    
-    <lastmod>2018-12-21</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.ggsec.cn/MSF8-0.html</loc>
-    
-    <lastmod>2018-12-21</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.ggsec.cn/msf8.html</loc>
-    
-    <lastmod>2018-12-21</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.ggsec.cn/msf4.html</loc>
-    
-    <lastmod>2018-12-21</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.ggsec.cn/msf7.html</loc>
-    
-    <lastmod>2018-12-21</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.ggsec.cn/msf%E7%B3%BB%E5%88%971.html</loc>
     
     <lastmod>2018-12-21</lastmod>
     
@@ -1308,15 +1308,6 @@
   
   <url>
     <loc>https://www.ggsec.cn/Metasploit6.html</loc>
-    
-    <lastmod>2018-12-21</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.ggsec.cn/Linux-inject-kimi.html</loc>
     
     <lastmod>2018-12-21</lastmod>
     
@@ -1354,7 +1345,7 @@
 
   <url>
     <loc>https://www.ggsec.cn/</loc>
-    <lastmod>2022-11-25</lastmod>
+    <lastmod>2022-11-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -1362,84 +1353,84 @@
   
   <url>
     <loc>https://www.ggsec.cn/tags/windows/</loc>
-    <lastmod>2022-11-25</lastmod>
+    <lastmod>2022-11-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.ggsec.cn/tags/ATT-CK/</loc>
-    <lastmod>2022-11-25</lastmod>
+    <lastmod>2022-11-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.ggsec.cn/tags/AutoIt/</loc>
-    <lastmod>2022-11-25</lastmod>
+    <lastmod>2022-11-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.ggsec.cn/tags/CVE/</loc>
-    <lastmod>2022-11-25</lastmod>
+    <lastmod>2022-11-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.ggsec.cn/tags/Windows/</loc>
-    <lastmod>2022-11-25</lastmod>
+    <lastmod>2022-11-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.ggsec.cn/tags/%E6%81%B6%E6%84%8F%E6%A0%B7%E6%9C%AC%E5%88%86%E6%9E%90/</loc>
-    <lastmod>2022-11-25</lastmod>
+    <lastmod>2022-11-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.ggsec.cn/tags/C2/</loc>
-    <lastmod>2022-11-25</lastmod>
+    <lastmod>2022-11-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.ggsec.cn/tags/Metasploit/</loc>
-    <lastmod>2022-11-25</lastmod>
+    <lastmod>2022-11-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.ggsec.cn/tags/kali/</loc>
-    <lastmod>2022-11-25</lastmod>
+    <lastmod>2022-11-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.ggsec.cn/tags/linux/</loc>
-    <lastmod>2022-11-25</lastmod>
+    <lastmod>2022-11-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.ggsec.cn/tags/Mac/</loc>
-    <lastmod>2022-11-25</lastmod>
+    <lastmod>2022-11-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.ggsec.cn/tags/%E9%80%86%E5%90%91/</loc>
-    <lastmod>2022-11-25</lastmod>
+    <lastmod>2022-11-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -1448,70 +1439,70 @@
   
   <url>
     <loc>https://www.ggsec.cn/categories/ATT-CK/</loc>
-    <lastmod>2022-11-25</lastmod>
+    <lastmod>2022-11-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.ggsec.cn/categories/CVE/</loc>
-    <lastmod>2022-11-25</lastmod>
+    <lastmod>2022-11-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.ggsec.cn/categories/windows/</loc>
-    <lastmod>2022-11-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.ggsec.cn/categories/Metasploit/</loc>
-    <lastmod>2022-11-25</lastmod>
+    <lastmod>2022-11-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.ggsec.cn/categories/C2/</loc>
-    <lastmod>2022-11-25</lastmod>
+    <lastmod>2022-11-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.ggsec.cn/categories/%E6%81%B6%E6%84%8F%E6%A0%B7%E6%9C%AC%E5%88%86%E6%9E%90/</loc>
-    <lastmod>2022-11-25</lastmod>
+    <loc>https://www.ggsec.cn/categories/Metasploit/</loc>
+    <lastmod>2022-11-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.ggsec.cn/categories/kali/</loc>
-    <lastmod>2022-11-25</lastmod>
+    <lastmod>2022-11-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.ggsec.cn/categories/%E6%81%B6%E6%84%8F%E6%A0%B7%E6%9C%AC%E5%88%86%E6%9E%90/</loc>
+    <lastmod>2022-11-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.ggsec.cn/categories/linux/</loc>
-    <lastmod>2022-11-25</lastmod>
+    <lastmod>2022-11-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.ggsec.cn/categories/%E9%80%86%E5%90%91/</loc>
-    <lastmod>2022-11-25</lastmod>
+    <lastmod>2022-11-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.ggsec.cn/categories/APT/</loc>
-    <lastmod>2022-11-25</lastmod>
+    <lastmod>2022-11-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
