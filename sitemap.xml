@@ -1473,14 +1473,14 @@
   </url>
   
   <url>
-    <loc>https://www.ggsec.cn/categories/Metasploit/</loc>
+    <loc>https://www.ggsec.cn/categories/%E8%BF%91%E6%BA%90%E6%B8%97%E9%80%8F/</loc>
     <lastmod>2022-11-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.ggsec.cn/categories/%E8%BF%91%E6%BA%90%E6%B8%97%E9%80%8F/</loc>
+    <loc>https://www.ggsec.cn/categories/Metasploit/</loc>
     <lastmod>2022-11-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
