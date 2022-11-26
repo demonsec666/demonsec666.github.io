@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.ggsec.cn/YourCyanide_CMD-Based%20Ransomware.html</loc>
+    
+    <lastmod>2022-11-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.ggsec.cn/Hijack-explorer2.html</loc>
     
     <lastmod>2022-11-26</lastmod>
@@ -1055,15 +1064,6 @@
   </url>
   
   <url>
-    <loc>https://www.ggsec.cn/YourCyanide_CMD-Based%20Ransomware.html</loc>
-    
-    <lastmod>2022-11-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.ggsec.cn/Telegram%E6%81%B6%E6%84%8F%E5%B9%BF%E5%91%8A%E6%B4%BB%E5%8A%A8%E4%B9%8B%E6%81%B6%E6%84%8F%E4%BB%93%E5%BA%93%E5%88%86%E6%9E%90.html</loc>
     
     <lastmod>2022-11-25</lastmod>
@@ -1480,14 +1480,14 @@
   </url>
   
   <url>
-    <loc>https://www.ggsec.cn/categories/%E6%81%B6%E6%84%8F%E6%A0%B7%E6%9C%AC%E5%88%86%E6%9E%90/</loc>
+    <loc>https://www.ggsec.cn/categories/%E8%BF%91%E6%BA%90%E6%B8%97%E9%80%8F/</loc>
     <lastmod>2022-11-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.ggsec.cn/categories/%E8%BF%91%E6%BA%90%E6%B8%97%E9%80%8F/</loc>
+    <loc>https://www.ggsec.cn/categories/%E6%81%B6%E6%84%8F%E6%A0%B7%E6%9C%AC%E5%88%86%E6%9E%90/</loc>
     <lastmod>2022-11-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
